@@ -78,8 +78,8 @@ gravada para sempre, então o histórico não muda quando alguém arquiva um car
 
 **"Novo pedido" e "in progress" do documento viraram grupos de status reais:**
 fila = `Novo pedido`; em criação = `Começou`, `Em ajuste`, `Em aprovação`,
-`Para postar/produzir/avisar`. `Stand by`, `Calendário` e `Avisos` não são nem uma coisa nem
-outra, então aparecem à parte como "fora da fila de produção" em vez de sumirem da conta.
+`Para postar/produzir/avisar`. `Stand by`, `Calendário` e `Avisos` não entram em nenhum dos
+dois — são cards abertos que não estão em produção, e o documento não pede esse número.
 
 O tempo de entrega é medido da criação do card até a data de finalização. O Notion não expõe
 por API quando o card entrou em "novo pedido", então a criação é a melhor âncora disponível.
@@ -95,10 +95,8 @@ painel/
 ├── PUBLICAR.md              como colocar no ar com link fixo
 ├── ROTINA.md                o que a atualização automática faz
 ├── .env                     NOTION_TOKEN e IDs  ⚠️ nunca publicar
-├── data/
-│   ├── painel.json          tudo que o painel mostra
-│   └── snapshots/           uma foto por dia, para comparar com ontem
-├── social/instagram.json    contagem manual de publicações por mês
+├── data/painel.json         tudo que o painel mostra
+├── social/instagram.json    publicações por mês, destaques e visão geral dos perfis
 └── publicar/index.html      versão para o Netlify
 ```
 
