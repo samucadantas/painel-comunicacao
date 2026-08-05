@@ -1,10 +1,8 @@
 {
   "data": "2026-08-05",
-  "em_aberto": 47,
+  "fila": 7,
+  "em_criacao": 10,
+  "entregues_semana": 6,
   "atrasadas": 7,
-  "alta_prioridade": 0,
-  "finalizadas_mes": 11,
-  "criadas_mes": 30,
-  "finalizadas_30d": 99,
   "total_demandas": 343
 }

@@ -4,125 +4,169 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#C8F135" />
-<title>Painel de Comunicação · Somos A Ponte</title>
+<title>Painel StaffCom · Somos A Ponte</title>
 <style>
+  /* Archivo variable, embutida: o painel precisa abrir offline (mandado por WhatsApp)
+     sem cair num fallback genérico. Grotesca de alta legibilidade, boa em número grande. */
+  @font-face{
+    font-family:"Archivo";
+    src:url(data:font/woff2;base64,/*__FONTE__*/) format("woff2");
+    font-weight:400 800;
+    font-display:swap;
+  }
+
+  /* Paleta definida em OKLCH e convertida para hex — hex funciona em qualquer celular,
+     inclusive os antigos que não entendem oklch(). Valores de origem no comentário.
+     Estratégia de cor: RESTRITA COM ÂNCORA — superfícies neutras tingidas na matiz da
+     marca (verde 145-152, não a faixa areia 40-100) + lima ancorando o que importa ler
+     primeiro. Laranja aparece só onde há atraso. */
   :root{
     --lime:#C8F135; --lime-deep:#A9D426;
-    --bg:#F1F0EA; --surface:#FFFFFF; --surface-2:#F7F7F3;
-    --deep:#16281C; --deep-2:#1E3626;
-    --ink:#13201A; --ink-on-deep:#EEF5EA;
-    --muted:#6C7A70; --muted-2:#93A197;
-    --line:rgba(19,32,26,.10);
-    --warn:#E8703A; --warn-soft:#FBE7DC;
-    --ok:#2F8F5B;
+    --bg:#ECF2EC;                                  /* oklch(.955 .010 145) */
+    --surface:#FFFFFF;
+    --surface-2:#EFF7EF;                           /* oklch(.968 .013 145) */
+    --deep:#152519; --deep-2:#1E3626;
+    --ink:#152519;                                 /* oklch(.245 .030 152) — 16:1 no card */
+    --ink-on-deep:#ECF2EC;
+    --muted:#5C685F;                               /* oklch(.505 .022 152) — 5.8:1 */
+    --muted-2:#7C887F;
+    --line:rgba(21,37,25,.11);
+    --warn:#C24A22;                                /* oklch(.565 .165 38) */
+    --warn-soft:#FFE3D7;
     --radius:26px; --radius-sm:18px;
-    --shadow:0 1px 2px rgba(19,32,26,.05), 0 10px 30px -12px rgba(19,32,26,.18);
+    /* Ou borda, ou sombra — nunca as duas. No claro o card se separa do fundo pela
+       sombra; no escuro, onde sombra não se vê, pela borda. */
+    --card-line:transparent;
+    --shadow:0 1px 2px rgba(21,37,25,.04), 0 12px 28px -14px rgba(21,37,25,.22);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#0E1310; --surface:#171F19; --surface-2:#1D261F;
+      --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
       --deep:#C8F135; --deep-2:#B7E22C;
-      --ink:#E9F0E9; --ink-on-deep:#12200F;
-      --muted:#93A197; --muted-2:#75837A;
-      --line:rgba(233,240,233,.11);
-      --warn:#F58A56; --warn-soft:#33241C;
-      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -12px rgba(0,0,0,.6);
+      --ink:#E8EFE8; --ink-on-deep:#13201A;
+      --muted:#9BA79D; --muted-2:#7E8A80;
+      --line:rgba(232,239,232,.12);
+      --warn:#ED845B; --warn-soft:#41261B;
+      --card-line:rgba(232,239,232,.13);
+      --shadow:none;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0E1310; --surface:#171F19; --surface-2:#1D261F;
+    --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
     --deep:#C8F135; --deep-2:#B7E22C;
-    --ink:#E9F0E9; --ink-on-deep:#12200F;
-    --muted:#93A197; --muted-2:#75837A;
-    --line:rgba(233,240,233,.11);
-    --warn:#F58A56; --warn-soft:#33241C;
-    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -12px rgba(0,0,0,.6);
+    --ink:#E8EFE8; --ink-on-deep:#13201A;
+    --muted:#9BA79D; --muted-2:#7E8A80;
+    --line:rgba(232,239,232,.12);
+    --warn:#ED845B; --warn-soft:#41261B;
+    --card-line:rgba(232,239,232,.13);
+    --shadow:none;
   }
   :root[data-theme="light"]{
-    --bg:#F1F0EA; --surface:#FFFFFF; --surface-2:#F7F7F3;
-    --deep:#16281C; --deep-2:#1E3626;
-    --ink:#13201A; --ink-on-deep:#EEF5EA;
-    --muted:#6C7A70; --muted-2:#93A197;
-    --line:rgba(19,32,26,.10);
-    --warn:#E8703A; --warn-soft:#FBE7DC;
-    --shadow:0 1px 2px rgba(19,32,26,.05), 0 10px 30px -12px rgba(19,32,26,.18);
+    --bg:#ECF2EC; --surface:#FFFFFF; --surface-2:#EFF7EF;
+    --deep:#152519; --deep-2:#1E3626;
+    --ink:#152519; --ink-on-deep:#ECF2EC;
+    --muted:#5C685F; --muted-2:#7C887F;
+    --line:rgba(21,37,25,.11);
+    --warn:#C24A22; --warn-soft:#FFE3D7;
+    --card-line:transparent;
+    --shadow:0 1px 2px rgba(21,37,25,.04), 0 12px 28px -14px rgba(21,37,25,.22);
   }
 
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{
     margin:0; background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",sans-serif;
-    line-height:1.45; -webkit-font-smoothing:antialiased;
+    font-family:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased;
     padding:max(14px,env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom));
+  }
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:8px}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
   }
   .wrap{max-width:1180px;margin:0 auto}
 
   /* ---------- topo ---------- */
-  .top{display:flex;align-items:center;gap:12px;padding:6px 4px 20px}
+  .top{display:flex;align-items:center;gap:12px;padding:6px 4px 18px}
   .mark{width:36px;height:36px;flex:none;display:block}
   .brand{font-weight:700;font-size:15px;letter-spacing:-.01em}
   .brand span{display:block;font-weight:500;font-size:12.5px;color:var(--muted)}
   .top .sp{flex:1}
+  .stamp{font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+  .stamp.velho{color:var(--warn);font-weight:700}
   .ghost{
     border:1px solid var(--line);background:var(--surface);color:var(--muted);
-    border-radius:999px;padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;
-    font-family:inherit;display:inline-flex;align-items:center;gap:7px;
+    border-radius:999px;padding:12px 16px;font-size:13px;font-weight:600;cursor:pointer;
+    font-family:inherit;display:inline-flex;align-items:center;gap:7px;min-height:44px;
+    transition:color .18s cubic-bezier(.22,1,.36,1), border-color .18s cubic-bezier(.22,1,.36,1);
   }
-  .ghost:hover{color:var(--ink)}
+  .ghost:hover{color:var(--ink);border-color:var(--muted-2)}
+  .ghost:active{transform:translateY(1px)}
+  @media(max-width:540px){#theme-lbl{display:none} .ghost{padding:12px 14px}}
 
-  /* ---------- cabeçalho ---------- */
-  h1{font-size:clamp(30px,8vw,46px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0 0 8px}
-  .lead{color:var(--muted);font-size:15px;margin:0 0 18px;max-width:62ch}
+  h1{font-size:clamp(28px,7.5vw,42px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:0 0 6px}
+  .lead{color:var(--muted);font-size:15px;margin:0 0 18px;max-width:64ch}
   .lead b{color:var(--ink);font-weight:650}
 
-  .months{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 14px;margin:0 -2px;scrollbar-width:none}
-  .months::-webkit-scrollbar{display:none}
-  .months button{
+  /* ---------- abas ---------- */
+  .abas{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 16px;margin:0 -2px;scrollbar-width:none}
+  .abas::-webkit-scrollbar{display:none}
+  .abas button{
     flex:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);
-    border-radius:999px;padding:10px 16px;font-size:14px;font-weight:650;cursor:pointer;font-family:inherit;
-    transition:background .15s, color .15s, border-color .15s;
+    border-radius:999px;padding:12px 20px;font-size:14.5px;font-weight:650;cursor:pointer;
+    font-family:inherit;min-height:46px;
+    transition:background .18s cubic-bezier(.22,1,.36,1), color .18s cubic-bezier(.22,1,.36,1), border-color .18s cubic-bezier(.22,1,.36,1);
   }
-  .months button[aria-pressed="true"]{background:var(--lime);color:#13201A;border-color:transparent}
+  .abas button:hover{color:var(--ink);border-color:var(--muted-2)}
+  .abas button[aria-selected="true"]{background:var(--lime);color:#13201A;border-color:transparent}
+  .abas button[aria-selected="true"]:hover{color:#13201A;border-color:transparent}
+
+  .periodo{font-size:14px;font-weight:650;color:var(--muted);margin:0 0 16px;padding-left:2px}
+  .periodo b{color:var(--ink)}
 
   /* ---------- bento ---------- */
   .bento{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
   @media(min-width:760px){.bento{grid-template-columns:repeat(4,1fr);gap:14px}}
   .tile{
-    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:18px 18px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:132px;
+    background:var(--surface);border:1px solid var(--card-line);border-radius:var(--radius);
+    padding:18px 18px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:130px;
   }
-  @media(min-width:760px){.tile{padding:22px;min-height:158px}}
+  @media(min-width:760px){.tile{padding:22px;min-height:154px}}
   .tile.big{grid-column:span 2}
-  @media(min-width:760px){.tile.big{grid-column:span 2}}
   .tile.lime{background:var(--lime);border-color:transparent;color:#13201A}
   .tile.deep{background:var(--deep);border-color:transparent;color:var(--ink-on-deep)}
   .k{font-size:12.5px;font-weight:650;letter-spacing:.01em;opacity:.68;margin-bottom:auto}
   .tile.lime .k,.tile.deep .k{opacity:.72}
-  .v{font-size:clamp(38px,11vw,58px);line-height:1;font-weight:800;letter-spacing:-.045em;margin-top:14px}
-  .tile.big .v{font-size:clamp(52px,17vw,86px)}
+  .v{font-size:clamp(36px,10vw,54px);line-height:1;font-weight:800;letter-spacing:-.045em;margin-top:14px;
+     font-variant-numeric:tabular-nums}
+  .tile.big .v{font-size:clamp(48px,15vw,78px)}
   .u{font-size:13px;font-weight:600;opacity:.62;margin-top:7px}
+  .tile.lime .u{opacity:.78}   /* sobre o lima, .62 dava 4.28:1 — abaixo do mínimo */
   .delta{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;margin-top:9px;
-    padding:3px 9px;border-radius:999px;background:rgba(19,32,26,.08)}
+    padding:4px 10px;border-radius:999px;background:rgba(19,32,26,.08);align-self:flex-start}
+  .tile.lime .delta{background:rgba(19,32,26,.13)}
   .tile.deep .delta{background:rgba(238,245,234,.14)}
   :root[data-theme="dark"] .tile:not(.lime):not(.deep) .delta{background:rgba(233,240,233,.09)}
+  @media (prefers-color-scheme: dark){.tile:not(.lime):not(.deep) .delta{background:rgba(233,240,233,.09)}}
 
   /* ---------- cartões ---------- */
   .card{
-    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--surface);border:1px solid var(--card-line);border-radius:var(--radius);
     padding:20px 18px;box-shadow:var(--shadow);margin-bottom:12px;
   }
   @media(min-width:760px){.card{padding:24px 26px;margin-bottom:14px}}
   h2{font-size:17px;font-weight:750;letter-spacing:-.02em;margin:0 0 3px}
-  .hint{font-size:13px;color:var(--muted);margin:0 0 18px}
+  h3{font-size:15px;font-weight:700;letter-spacing:-.015em;margin:22px 0 10px}
+  h3:first-child{margin-top:0}
+  .hint{font-size:13.5px;color:var(--muted);margin:0 0 18px;max-width:70ch}
+  .hint b{color:var(--ink);font-weight:650}
   .cols{display:grid;gap:12px}
   @media(min-width:860px){.cols{grid-template-columns:1fr 1fr;gap:14px}.cols>.card{margin-bottom:0}}
 
-  /* ---------- barras horizontais ---------- */
+  /* ---------- barras ---------- */
   .rows{display:flex;flex-direction:column;gap:11px}
   .r{display:grid;grid-template-columns:minmax(96px,34%) 1fr auto;align-items:center;gap:12px}
   .r .nm{font-size:13.5px;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  /* no celular o nome ganha a linha inteira em vez de ser cortado */
   @media(max-width:620px){
     .r{grid-template-columns:1fr auto;grid-template-areas:"nm n" "bar bar";gap:5px 10px}
     .r .nm{grid-area:nm;white-space:normal;overflow:visible}
@@ -138,45 +182,51 @@
   @media (prefers-color-scheme: dark){.fill.soft{opacity:.8}}
   .r .n{font-size:13.5px;font-weight:750;font-variant-numeric:tabular-nums;min-width:2.2ch;text-align:right}
 
-  /* ---------- histórico ---------- */
-  .chart{display:flex;align-items:flex-end;gap:clamp(8px,3vw,22px);height:190px;padding-top:8px}
+  /* ---------- gráfico de colunas ---------- */
+  .chart{display:flex;align-items:flex-end;gap:clamp(10px,4vw,26px);height:180px;padding-top:8px}
   .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;min-width:0}
-  .bar{width:100%;max-width:74px;border-radius:12px 12px 6px 6px;background:var(--lime);position:relative;transition:height .5s cubic-bezier(.22,1,.36,1)}
-  .bar.dim{background:var(--surface-2);border:1px dashed var(--line)}
-  :root[data-theme="dark"] .bar.dim{background:rgba(233,240,233,.07)}
-  .bar b{position:absolute;top:-24px;left:0;right:0;text-align:center;font-size:13px;font-weight:750;color:var(--ink)}
+  .bar{width:100%;max-width:78px;border-radius:12px 12px 6px 6px;background:var(--lime);position:relative}
+  .bar.soft{background:var(--lime-deep);opacity:.55}
+  .bar b{position:absolute;top:-24px;left:0;right:0;text-align:center;font-size:13px;font-weight:750;color:var(--ink);
+    font-variant-numeric:tabular-nums}
   .col .lb{font-size:11.5px;font-weight:650;color:var(--muted);white-space:nowrap}
-  .col .lb.on{color:var(--ink)}
 
-  /* ---------- pipeline ---------- */
+  /* ---------- chips e listas ---------- */
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--line);border-radius:999px;
     padding:8px 14px;font-size:13px;font-weight:600;background:var(--surface-2)}
   .chip b{font-size:15px;font-weight:800;font-variant-numeric:tabular-nums}
-
-  /* ---------- listas ---------- */
-  .list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .list{display:flex;flex-direction:column;gap:9px}
   .item{display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center;
-    padding:13px 15px;border-radius:var(--radius-sm);background:var(--surface-2);border:1px solid transparent}
-  .item.late{background:var(--warn-soft);border-color:rgba(232,112,58,.22)}
-  .item .t{font-size:14px;font-weight:650;line-height:1.3}
-  .item .m{font-size:12px;color:var(--muted);margin-top:3px;display:flex;flex-wrap:wrap;gap:4px 10px}
+    padding:13px 15px;border-radius:var(--radius-sm);background:var(--surface-2)}
+  .item.late{background:var(--warn-soft)}
+  .item .t{font-size:14px;font-weight:650;line-height:1.32}
+  .item .m{font-size:12px;color:var(--muted);margin-top:3px;display:flex;flex-wrap:wrap;gap:3px 10px}
+  .item.late .m{color:var(--ink);opacity:.72}
   .tag{font-size:11.5px;font-weight:750;padding:4px 10px;border-radius:999px;background:rgba(19,32,26,.07);white-space:nowrap}
   :root[data-theme="dark"] .tag{background:rgba(233,240,233,.1)}
   @media (prefers-color-scheme: dark){.tag{background:rgba(233,240,233,.1)}}
   .tag.red{background:var(--warn);color:#fff}
-  .empty{padding:22px;text-align:center;color:var(--muted);font-size:14px;background:var(--surface-2);border-radius:var(--radius-sm)}
+  .empty{padding:20px;text-align:center;color:var(--muted);font-size:13.5px;background:var(--surface-2);border-radius:var(--radius-sm)}
 
   /* ---------- redes ---------- */
-  .net{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:10px}
-  .nc{border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 15px;background:var(--surface-2)}
+  .net{display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px}
+  .nc{border-radius:var(--radius-sm);padding:14px 15px;background:var(--surface-2)}
   .nc .h{font-size:12.5px;font-weight:650;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .nc .p{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+  .nc .p{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:5px;font-variant-numeric:tabular-nums}
   .nc.zero .p{color:var(--muted-2)}
 
-  .foot{color:var(--muted);font-size:12.5px;line-height:1.6;padding:14px 6px 0}
+  /* ---------- o que falta ligar ---------- */
+  .falta{background:var(--surface-2);border-radius:var(--radius-sm);padding:16px 18px;margin-top:4px}
+  .falta li{font-size:13.5px;margin-bottom:12px;line-height:1.5}
+  .falta li:last-child{margin-bottom:0}
+  .falta b{display:block;font-weight:700;margin-bottom:2px}
+  .falta span{color:var(--muted)}
+  .falta ul{margin:0;padding-left:18px}
+
+  .foot{color:var(--muted);font-size:13px;line-height:1.6;padding:14px 6px 0;max-width:78ch}
   .foot b{color:var(--ink);font-weight:650}
-  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  [hidden]{display:none !important}
 </style>
 </head>
 <body>
@@ -188,75 +238,126 @@
       <path d="M9 27c0-6.1 4.9-11 11-11s11 4.9 11 11" fill="none" stroke="#13201A" stroke-width="2.8" stroke-linecap="round"/>
       <path d="M7 27h26M15 27v-4.4M25 27v-4.4" stroke="#13201A" stroke-width="2.8" stroke-linecap="round"/>
     </svg>
-    <div class="brand">Somos A Ponte<span>Comunicação</span></div>
+    <div class="brand">Somos A Ponte<span>StaffCom</span></div>
     <div class="sp"></div>
-    <button class="ghost" id="theme" type="button" aria-label="Alternar tema">
-      <span id="theme-ico">◐</span><span id="theme-lbl">Tema</span>
+    <span class="stamp" id="stamp"></span>
+    <button class="ghost" id="theme" type="button" aria-label="Alternar tema claro e escuro">
+      <span id="theme-ico" aria-hidden="true">◐</span><span id="theme-lbl">Tema</span>
     </button>
   </div>
 
-  <h1>Painel de<br>Comunicação</h1>
-  <p class="lead" id="lead"></p>
+  <h1>Painel de Comunicação</h1>
+  <p class="lead">Demandas e trabalho da equipe de comunicação da Ponte Recife. Os números vêm do Notion, alimentado pelo F.O.C.O.</p>
 
-  <nav class="months" id="months" aria-label="Escolher mês"></nav>
+  <nav class="abas" role="tablist" aria-label="Período">
+    <button type="button" role="tab" id="tab-semana"    aria-controls="p-semana"    aria-selected="true">Semana</button>
+    <button type="button" role="tab" id="tab-mes"       aria-controls="p-mes"       aria-selected="false">Mês anterior</button>
+    <button type="button" role="tab" id="tab-trimestre" aria-controls="p-trimestre" aria-selected="false">Trimestre</button>
+  </nav>
 
-  <section class="bento" id="kpis"></section>
+  <!-- ============ ABA 1 · SEMANA ============ -->
+  <section id="p-semana" role="tabpanel" aria-labelledby="tab-semana" tabindex="0">
+    <p class="periodo" id="s-periodo"></p>
+    <div class="bento" id="s-kpis"></div>
 
-  <section class="card">
-    <h2>Ritmo de entregas</h2>
-    <p class="hint" id="ritmo-hint"></p>
-    <div class="chart" id="chart"></div>
+    <div class="cols">
+      <section class="card">
+        <h2>Passaram do prazo</h2>
+        <p class="hint" id="s-atraso-hint"></p>
+        <div class="list" id="s-atrasadas"></div>
+      </section>
+
+      <section class="card">
+        <h2>Próximos prazos</h2>
+        <p class="hint">O que vence nos próximos 14 dias.</p>
+        <div class="list" id="s-proximas"></div>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Entregue nesta semana</h2>
+      <p class="hint" id="s-entregues-hint"></p>
+      <div class="list" id="s-entregues"></div>
+
+      <h3>Fora da fila de produção</h3>
+      <p class="hint" id="s-parados-hint"></p>
+      <div class="chips" id="s-parados"></div>
+    </section>
   </section>
 
-  <div class="cols">
+  <!-- ============ ABA 2 · MÊS ANTERIOR ============ -->
+  <section id="p-mes" role="tabpanel" aria-labelledby="tab-mes" tabindex="0" hidden>
+    <p class="periodo" id="m-periodo"></p>
+    <div class="bento" id="m-kpis"></div>
+
+    <div class="cols">
+      <section class="card">
+        <h2>Ranking de Ministérios</h2>
+        <p class="hint" id="m-min-hint"></p>
+        <div class="rows" id="m-ministerios"></div>
+      </section>
+
+      <section class="card">
+        <h2>Campeões de demanda</h2>
+        <p class="hint" id="m-camp-hint"></p>
+        <div class="rows" id="m-campeoes"></div>
+      </section>
+    </div>
+
     <section class="card">
-      <h2>Quem a comunicação atendeu</h2>
-      <p class="hint" id="min-hint"></p>
-      <div class="rows" id="ministerios"></div>
+      <h2>Análise do Instagram</h2>
+      <p class="hint" id="m-ig-hint"></p>
+      <div class="net" id="m-ig"></div>
+      <div id="m-ig-falta"></div>
     </section>
 
     <section class="card">
-      <h2>O que foi produzido</h2>
-      <p class="hint" id="cat-hint"></p>
-      <div class="rows" id="categorias"></div>
-      <div style="height:20px"></div>
-      <h2 style="font-size:15px">Por tipo de demanda</h2>
-      <div class="chips" id="tipos" style="margin-top:10px"></div>
+      <h2>Análise do YouTube</h2>
+      <p class="hint" id="m-yt-hint"></p>
+      <div class="net" id="m-yt"></div>
+      <div id="m-yt-destaques"></div>
     </section>
-  </div>
-
-  <section class="card">
-    <h2>Como está a fila agora</h2>
-    <p class="hint" id="fila-hint"></p>
-    <div class="chips" id="pipeline"></div>
-
-    <div style="height:24px"></div>
-    <h2 style="font-size:15px">Passaram do prazo</h2>
-    <div class="list" id="atrasadas"></div>
-
-    <div style="height:22px"></div>
-    <h2 style="font-size:15px">Próximos prazos (14 dias)</h2>
-    <div class="list" id="proximas"></div>
   </section>
 
-  <div class="cols">
+  <!-- ============ ABA 3 · TRIMESTRE ============ -->
+  <section id="p-trimestre" role="tabpanel" aria-labelledby="tab-trimestre" tabindex="0" hidden>
+    <p class="periodo" id="t-periodo"></p>
+    <div class="bento" id="t-kpis"></div>
+
     <section class="card">
-      <h2>Instagram</h2>
-      <p class="hint" id="ig-hint"></p>
-      <div class="net" id="instagram"></div>
+      <h2>Demandas entregues por mês</h2>
+      <p class="hint" id="t-ent-hint"></p>
+      <div class="chart" id="t-entregues"></div>
+    </section>
+
+    <div class="cols">
+      <section class="card">
+        <h2>Tempo de entrega</h2>
+        <p class="hint">Média de dias entre a entrada do pedido e a entrega.</p>
+        <div class="chart" id="t-tempo"></div>
+      </section>
+
+      <section class="card">
+        <h2>Vídeos e artes</h2>
+        <p class="hint">O que foi produzido em cada frente, mês a mês.</p>
+        <div class="rows" id="t-producao"></div>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Visão geral do Instagram</h2>
+      <p class="hint" id="t-ig-hint"></p>
+      <div class="net" id="t-ig"></div>
+      <div id="t-ig-falta"></div>
     </section>
 
     <section class="card">
-      <h2>YouTube</h2>
-      <p class="hint" id="yt-hint"></p>
-      <div class="net" id="youtube"></div>
+      <h2>Visão geral do YouTube</h2>
+      <p class="hint" id="t-yt-hint"></p>
+      <div class="net" id="t-yt"></div>
+      <div id="t-yt-destaques"></div>
+      <div id="t-yt-falta"></div>
     </section>
-  </div>
-
-  <section class="card">
-    <h2>Quem mais pediu</h2>
-    <p class="hint" id="sol-hint"></p>
-    <div class="rows" id="solicitantes"></div>
   </section>
 
   <p class="foot" id="foot"></p>
@@ -265,210 +366,345 @@
 <script>
 const D = /*__DADOS__*/null/*__FIM__*/;
 
-const MESES_EXT = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
 const $ = (id) => document.getElementById(id);
 const nf = (n) => new Intl.NumberFormat("pt-BR").format(n);
-const dias = (n) => (n === 1 ? "1 dia" : nf(n) + " dias");
-const dataBR = (iso) => { const [a,m,d] = iso.split("-"); return `${d}/${m}`; };
+const dec = (n) => String(n).replace(".", ",");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const dataBR = (iso) => `${iso.slice(8,10)}/${iso.slice(5,7)}`;
 
 /* ---------- tema ---------- */
 const root = document.documentElement;
-const savedTheme = (() => { try { return localStorage.getItem("painel-tema"); } catch { return null; } })();
-if (savedTheme) root.dataset.theme = savedTheme;
+const salvo = (() => { try { return localStorage.getItem("painel-tema"); } catch { return null; } })();
+if (salvo) root.dataset.theme = salvo;
+const estaEscuro = () => root.dataset.theme
+  ? root.dataset.theme === "dark"
+  : matchMedia("(prefers-color-scheme: dark)").matches;
 function pintaBotao(){
-  const escuro = root.dataset.theme
-    ? root.dataset.theme === "dark"
-    : matchMedia("(prefers-color-scheme: dark)").matches;
-  $("theme-ico").textContent = escuro ? "☀" : "☾";
-  $("theme-lbl").textContent = escuro ? "Claro" : "Escuro";
+  $("theme-ico").textContent = estaEscuro() ? "☀" : "☾";
+  $("theme-lbl").textContent = estaEscuro() ? "Claro" : "Escuro";
 }
 $("theme").addEventListener("click", () => {
-  const escuro = root.dataset.theme
-    ? root.dataset.theme === "dark"
-    : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = escuro ? "light" : "dark";
+  root.dataset.theme = estaEscuro() ? "light" : "dark";
   try { localStorage.setItem("painel-tema", root.dataset.theme); } catch {}
   pintaBotao();
 });
 pintaBotao();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", pintaBotao);
 
-/* ---------- barras ---------- */
-function barras(el, itens, { soft = false, sufixo = "" } = {}) {
-  if (!itens.length) { el.innerHTML = '<div class="empty">Nada registrado neste mês.</div>'; return; }
+/* ---------- blocos reutilizáveis ---------- */
+function barras(el, itens, opts = {}) {
+  if (!itens.length) { el.innerHTML = '<div class="empty">Nada registrado neste período.</div>'; return; }
   const max = Math.max(...itens.map((i) => i.total)) || 1;
   el.innerHTML = itens.map((i) => `
     <div class="r">
       <div class="nm" title="${esc(i.nome)}">${esc(i.nome)}</div>
-      <div class="track"><div class="fill${soft ? " soft" : ""}" style="width:${Math.max((i.total / max) * 100, 4)}%"></div></div>
-      <div class="n">${nf(i.total)}${sufixo}</div>
+      <div class="track"><div class="fill${opts.soft ? " soft" : ""}" style="width:${Math.max((i.total / max) * 100, 4)}%"></div></div>
+      <div class="n">${nf(i.total)}${opts.sufixo || ""}</div>
     </div>`).join("");
 }
 
-/* ---------- render ---------- */
-let mesAtivo = D.meses[0].month;
-
-function render(month) {
-  mesAtivo = month;
-  const i = D.meses.findIndex((m) => m.month === month);
-  const m = D.meses[i];
-  const ant = D.meses[i + 1] || null;
-  const nomeMes = MESES_EXT[+m.month.slice(5, 7) - 1];
-
-  /* botões de mês */
-  $("months").innerHTML = D.meses.map((x) =>
-    `<button type="button" data-m="${x.month}" aria-pressed="${x.month === month}">${x.label}</button>`
-  ).join("");
-
-  /* chamada */
-  const diaHoje = +D.hoje.slice(8, 10);
-  $("lead").innerHTML = m.parcial
-    ? `Mês em andamento: <b>${diaHoje} ${diaHoje === 1 ? "dia" : "dias"}</b> de ${nomeMes}. Os números de ${nomeMes} ainda vão crescer até o fim do mês — compare com o ritmo dos meses fechados abaixo.`
-    : `Retrato fechado de <b>${nomeMes}</b>. Os dados vêm direto do Notion e são atualizados todo dia.`;
-
-  /* KPIs */
-  const delta = (atual, anterior) => {
-    if (!anterior || m.parcial) return "";
-    const d = atual - anterior;
-    if (!d) return `<span class="delta">igual ao mês anterior</span>`;
-    return `<span class="delta">${d > 0 ? "▲" : "▼"} ${nf(Math.abs(d))} vs ${ant.label.split(" ")[0]}</span>`;
-  };
-  const ritmoDia = m.parcial && diaHoje ? (m.finalizadas / diaHoje) : null;
-
-  $("kpis").innerHTML = `
-    <div class="tile lime big">
-      <div class="k">Entregas ${m.parcial ? "até agora" : "no mês"}</div>
-      <div class="v">${nf(m.finalizadas)}</div>
-      <div class="u">${m.parcial && ritmoDia ? `≈ ${ritmoDia.toFixed(1)} por dia · projeção de ${Math.round(ritmoDia * 30)} no mês` : `${nf(m.criadas)} novos pedidos entraram`}</div>
-      ${delta(m.finalizadas, ant && ant.finalizadas)}
-    </div>
-    <div class="tile deep">
-      <div class="k">Tempo médio de entrega</div>
-      <div class="v">${String(m.tempo_medio).replace(".", ",")}</div>
-      <div class="u">dias · metade sai em até ${dias(m.tempo_mediana)}</div>
-    </div>
-    <div class="tile">
-      <div class="k">Pedidos novos</div>
-      <div class="v">${nf(m.criadas)}</div>
-      <div class="u">abertos ${m.parcial ? "neste mês" : "em " + nomeMes}</div>
-      ${delta(m.criadas, ant && ant.criadas)}
-    </div>
-    <div class="tile">
-      <div class="k">Na fila hoje</div>
-      <div class="v">${nf(D.agora.em_aberto)}</div>
-      <div class="u">${D.agora.atrasadas_total ? `${D.agora.atrasadas_total} passaram do prazo` : "nenhuma atrasada"}</div>
-    </div>
-    <div class="tile">
-      <div class="k">Posts no Instagram</div>
-      <div class="v">${m.instagram ? nf(m.instagram.total) : "—"}</div>
-      <div class="u">${m.instagram ? `${m.instagram.ativos} de ${D.social.instagram ? D.social.instagram.perfis.length : 7} perfis publicaram` : "sem contagem deste mês"}</div>
-    </div>`;
-
-  /* histórico */
-  const hist = [...D.meses].reverse();
-  const maxH = Math.max(...hist.map((x) => x.finalizadas)) || 1;
-  $("chart").innerHTML = hist.map((x) => {
-    const h = Math.max((x.finalizadas / maxH) * 150, 6);
-    return `<div class="col">
-      <div class="bar${x.parcial ? " dim" : ""}" style="height:${h}px"><b>${nf(x.finalizadas)}</b></div>
-      <div class="lb${x.month === month ? " on" : ""}">${x.curto}${x.parcial ? "*" : ""}</div>
-    </div>`;
-  }).join("");
-  const fechados = hist.filter((x) => !x.parcial);
-  const mediaFech = fechados.length ? Math.round(fechados.reduce((s, x) => s + x.finalizadas, 0) / fechados.length) : 0;
-  $("ritmo-hint").innerHTML = `Demandas entregues por mês. Média dos meses fechados: <b>${nf(mediaFech)}</b>.${hist.some((x) => x.parcial) ? " O mês marcado com * ainda está correndo." : ""}`;
-
-  /* ministérios */
-  barras($("ministerios"), m.ministerios);
-  $("min-hint").innerHTML = `Ministérios que abriram pedidos ${m.parcial ? "neste mês" : "em " + nomeMes}. No ano, <b>${esc(D.ministerios_ano[0].nome)}</b> lidera com ${nf(D.ministerios_ano[0].total)} pedidos.`;
-
-  /* categorias */
-  const c = m.categorias;
-  barras($("categorias"), [
-    { nome: "Audiovisual", total: c.audiovisual },
-    { nome: "Social media", total: c.social },
-    { nome: "Identidade visual", total: c.identidade },
-    { nome: "Impressos", total: c.impressos },
-  ].filter((x) => x.total > 0).sort((a, b) => b.total - a.total));
-  $("cat-hint").textContent = `Entre as ${nf(m.finalizadas)} entregas do mês (uma demanda pode contar em mais de uma frente).`;
-
-  $("tipos").innerHTML = m.tipos.length
-    ? m.tipos.map((t) => `<span class="chip">${esc(t.nome)} <b>${nf(t.total)}</b></span>`).join("")
-    : '<div class="empty">Sem tipos registrados.</div>';
-
-  /* solicitantes */
-  barras($("solicitantes"), m.solicitantes, { soft: true });
-  $("sol-hint").innerHTML = m.solicitantes.length
-    ? `Ranking parcial: só <b>${m.cobertura_solicitante}%</b> dos pedidos do mês têm o solicitante preenchido (${nf(m.solicitantes_preenchidos)} de ${nf(m.criadas)}). O ranking por ministério acima é o retrato mais fiel.`
-    : "Nenhum pedido deste mês tem o campo de solicitante preenchido.";
-
-  /* youtube */
-  const yt = D.social.youtube;
-  if (yt && m.youtube) {
-    const maisVisto = [...(m.youtube.novos || [])].sort((a, b) => b.views - a.views)[0];
-    $("yt-hint").innerHTML = `Canal <b>${esc(yt.canal.replace(/\s*\(.*\)$/, ""))}</b> ${m.parcial ? "· até agora" : "· em " + nomeMes}.`;
-    $("youtube").innerHTML = `
-      <div class="nc"><div class="h">Vídeos publicados</div><div class="p">${nf(m.youtube.videos)}</div></div>
-      <div class="nc"><div class="h">Visualizações</div><div class="p">${nf(m.youtube.views)}</div></div>
-      ${yt.inscritos ? `<div class="nc"><div class="h">Inscritos</div><div class="p">${nf(yt.inscritos)}</div></div>` : ""}
-      ${maisVisto ? `<div class="nc" style="grid-column:1/-1"><div class="h">Mais visto do mês</div><div class="p" style="font-size:15px;line-height:1.35;margin-top:6px">${esc(maisVisto.titulo)}</div><div class="h" style="margin-top:6px">${nf(maisVisto.views)} visualizações</div></div>` : ""}`;
-  } else if (yt) {
-    $("yt-hint").innerHTML = `Canal <b>${esc(yt.canal.replace(/\s*\(.*\)$/, ""))}</b>.`;
-    $("youtube").innerHTML = '<div class="empty">O feed do YouTube cobre os 15 vídeos mais recentes — este mês já saiu dessa janela.</div>';
-  } else {
-    $("yt-hint").textContent = "Canal não encontrado.";
-    $("youtube").innerHTML = '<div class="empty">Não foi possível ler o canal nesta atualização.</div>';
-  }
-
-  /* instagram */
-  if (m.instagram) {
-    $("ig-hint").innerHTML = `<b>${nf(m.instagram.total)}</b> publicações no feed ${m.parcial ? "até agora" : "em " + nomeMes}, somando todos os perfis.`;
-    $("instagram").innerHTML = m.instagram.perfis.map((p) =>
-      `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`
-    ).join("");
-  } else {
-    $("ig-hint").textContent = "Ainda não há contagem de posts para este mês.";
-    $("instagram").innerHTML = '<div class="empty">Sem dados de Instagram neste mês.</div>';
-  }
+function colunas(el, itens, opts = {}) {
+  const max = Math.max(...itens.map((i) => i.valor)) || 1;
+  el.innerHTML = itens.map((i) => `
+    <div class="col">
+      <div class="bar${opts.soft ? " soft" : ""}" style="height:${Math.max((i.valor / max) * 138, 6)}px"><b>${i.rotulo ?? nf(i.valor)}</b></div>
+      <div class="lb">${esc(i.label)}</div>
+    </div>`).join("");
 }
 
-/* fila (não muda com o mês — é a foto de hoje) */
-$("fila-hint").innerHTML = `<b>${nf(D.agora.em_aberto)}</b> demandas abertas neste momento · <b>${nf(D.agora.ultimos30.finalizadas)}</b> entregues nos últimos 30 dias.`;
-$("pipeline").innerHTML = D.agora.pipeline.map((p) => `<span class="chip">${esc(p.nome)} <b>${nf(p.total)}</b></span>`).join("");
+function listaItens(el, itens, render, vazio) {
+  el.innerHTML = itens.length ? itens.map(render).join("") : `<div class="empty">${vazio}</div>`;
+}
 
-$("atrasadas").innerHTML = D.agora.atrasadas.length
-  ? D.agora.atrasadas.map((a) => `
+function blocoFalta(el, textos) {
+  el.innerHTML = textos.length
+    ? `<div class="falta"><ul>${textos.map((t) => `<li><b>${esc(t.onde)}</b><span>${esc(t.porque)}</span></li>`).join("")}</ul></div>`
+    : "";
+}
+
+/* ============ ABA 1 · SEMANA ============ */
+function renderSemana() {
+  const s = D.semana;
+  $("s-periodo").innerHTML = `<b>${esc(s.label)}</b> · ${esc(s.mes_vigente)}`;
+
+  const d = s.entregues - s.entregues_semana_anterior;
+  const comparativo = s.entregues_semana_anterior === 0 && s.entregues === 0
+    ? "sem entregas na semana passada também"
+    : `${d > 0 ? "▲" : d < 0 ? "▼" : "="} ${nf(Math.abs(d))} vs. semana passada (${nf(s.entregues_semana_anterior)})`;
+  // A semana em curso é comparada contra uma semana inteira — sem esse aviso o número engana.
+  const aviso = s.em_curso
+    ? `semana em curso: ${s.dias_corridos} de 7 dias`
+    : "semana fechada";
+
+  $("s-kpis").innerHTML = `
+    <div class="tile lime big">
+      <div class="k">Entregues esta semana</div>
+      <div class="v">${nf(s.entregues)}</div>
+      <div class="u">${aviso}</div>
+      <div class="delta">${comparativo}</div>
+    </div>
+    <div class="tile deep">
+      <div class="k">Demandas na fila</div>
+      <div class="v">${nf(s.fila)}</div>
+      <div class="u">aguardando começar</div>
+    </div>
+    <div class="tile">
+      <div class="k">Em criação</div>
+      <div class="v">${nf(s.em_criacao)}</div>
+      <div class="u">com a equipe agora</div>
+    </div>
+    <div class="tile">
+      <div class="k">Fila de vídeos</div>
+      <div class="v">${nf(s.fila_videos)}</div>
+      <div class="u">reels, stories, gravação, edição</div>
+    </div>
+    <div class="tile">
+      <div class="k">Fila de artes</div>
+      <div class="v">${nf(s.fila_artes)}</div>
+      <div class="u">peças gráficas e identidade</div>
+    </div>`;
+
+  $("s-atraso-hint").innerHTML = s.atrasadas_total
+    ? `<b>${nf(s.atrasadas_total)}</b> ${s.atrasadas_total === 1 ? "demanda passou" : "demandas passaram"} da data combinada e ainda não ${s.atrasadas_total === 1 ? "foi entregue" : "foram entregues"}.`
+    : "Tudo dentro do prazo.";
+  listaItens($("s-atrasadas"), s.atrasadas, (a) => `
     <div class="item late">
       <div>
         <div class="t">${esc(a.nome)}</div>
         <div class="m"><span>prazo ${dataBR(a.prazo)}</span><span>${esc(a.status)}</span>${a.ministerio ? `<span>${esc(a.ministerio)}</span>` : ""}</div>
       </div>
       <span class="tag red">${a.dias}d</span>
-    </div>`).join("")
-  : '<div class="empty">Nenhuma demanda passou do prazo. 🎉</div>';
+    </div>`, "Nenhuma demanda passou do prazo.");
 
-$("proximas").innerHTML = D.agora.proximas.length
-  ? D.agora.proximas.map((p) => `
+  listaItens($("s-proximas"), s.proximas, (p) => `
     <div class="item">
       <div>
         <div class="t">${esc(p.nome)}</div>
         <div class="m"><span>${dataBR(p.prazo)}</span><span>${esc(p.status)}</span>${p.ministerio ? `<span>${esc(p.ministerio)}</span>` : ""}</div>
       </div>
       <span class="tag">${p.faltam === 0 ? "hoje" : "em " + p.faltam + "d"}</span>
-    </div>`).join("")
-  : '<div class="empty">Nenhum prazo marcado para os próximos 14 dias.</div>';
+    </div>`, "Nenhum prazo marcado para os próximos 14 dias.");
 
-const atualizado = new Date(D.gerado_em);
-$("foot").innerHTML = `Atualizado em <b>${atualizado.toLocaleDateString("pt-BR")} às ${atualizado.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</b>.<br>
-Fontes: Banco de Dados de Comunicação, Acompanhamento de Pedidos e Ranking Ministérios (Notion) · Instagram (contagem manual do feed) · YouTube (feed oficial do canal, que cobre os 15 vídeos mais recentes).<br>
-Uma demanda conta como entregue pela data de finalização registrada no card — por isso o histórico não muda quando os cards são arquivados.`;
+  $("s-entregues-hint").innerHTML = s.entregues
+    ? `As ${s.entregues > 10 ? "10 primeiras das " + nf(s.entregues) : nf(s.entregues)} entregas desta semana.`
+    : "Ainda não houve entrega nesta semana.";
+  listaItens($("s-entregues"), s.entregues_lista, (e) => `
+    <div class="item">
+      <div>
+        <div class="t">${esc(e.nome)}</div>
+        <div class="m">${e.ministerio ? `<span>${esc(e.ministerio)}</span>` : ""}</div>
+      </div>
+      <span class="tag">${dataBR(e.data)}</span>
+    </div>`, "Nenhuma entrega registrada nesta semana.");
 
-$("months").addEventListener("click", (e) => {
-  const b = e.target.closest("button[data-m]");
-  if (b) render(b.dataset.m);
+  $("s-parados-hint").innerHTML = `<b>${nf(s.parados)}</b> demandas abertas que não estão nem na fila nem em criação: ficaram em espera, viraram calendário ou são avisos.`;
+  $("s-parados").innerHTML = s.parados_por_status.length
+    ? s.parados_por_status.map((p) => `<span class="chip">${esc(p.nome)} <b>${nf(p.total)}</b></span>`).join("")
+    : '<div class="empty">Nada parado.</div>';
+}
+
+/* ============ ABA 2 · MÊS ANTERIOR ============ */
+function renderMes() {
+  const m = D.mes_anterior;
+  $("m-periodo").innerHTML = `<b>${esc(m.label)}</b> · mês fechado`;
+
+  $("m-kpis").innerHTML = `
+    <div class="tile lime big">
+      <div class="k">Entregues no mês</div>
+      <div class="v">${nf(m.entregues)}</div>
+      <div class="u">${nf(m.criadas)} pedidos novos entraram no mesmo período</div>
+    </div>
+    <div class="tile deep">
+      <div class="k">Média de entrega</div>
+      <div class="v">${dec(m.tempo_medio)}</div>
+      <div class="u">dias · metade saiu em até ${nf(m.tempo_mediana)}</div>
+    </div>
+    <div class="tile">
+      <div class="k">Vídeos e reels</div>
+      <div class="v">${nf(m.videos)}</div>
+      <div class="u">stories, gravação, edição, animação</div>
+    </div>
+    <div class="tile">
+      <div class="k">Materiais gráficos</div>
+      <div class="v">${nf(m.graficos)}</div>
+      <div class="u">posts, impressos, apresentações</div>
+    </div>
+    <div class="tile">
+      <div class="k">Identidades visuais</div>
+      <div class="v">${nf(m.identidades)}</div>
+      <div class="u">marcas e packs de evento</div>
+    </div>`;
+
+  $("m-min-hint").innerHTML = m.ministerios.length
+    ? `Ministérios com demandas que passaram por ${esc(m.label.split(" ")[0].toLowerCase())}, entre pedidos abertos e entregas.`
+    : "Nenhum ministério ligado às demandas deste mês.";
+  barras($("m-ministerios"), m.ministerios);
+
+  $("m-camp-hint").innerHTML = m.campeoes.length
+    ? `Quem mais abriu demanda no mês. Ranking parcial: <b>${m.cobertura_campeoes}%</b> dos pedidos têm o solicitante preenchido (${nf(m.campeoes_preenchidos)} de ${nf(m.criadas)}).`
+    : "Nenhum pedido do mês tem solicitante preenchido.";
+  barras($("m-campeoes"), m.campeoes, { soft: true });
+
+  /* Instagram */
+  if (m.instagram) {
+    $("m-ig-hint").innerHTML = `<b>${nf(m.instagram.total)}</b> publicações no feed, somando os ${D.social.instagram_perfis.length} perfis. ${m.instagram.ativos} publicaram no mês.`;
+    $("m-ig").innerHTML = m.instagram.perfis.map((p) =>
+      `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`).join("");
+  } else {
+    $("m-ig-hint").textContent = "A contagem de publicações deste mês ainda não foi registrada.";
+    $("m-ig").innerHTML = `<div class="empty">Sem contagem para ${esc(m.label)}.</div>`;
+  }
+  blocoFalta($("m-ig-falta"), D.faltando.filter((f) => f.onde.startsWith("Instagram")));
+
+  /* YouTube */
+  const y = m.youtube;
+  if (y && y.videos) {
+    $("m-yt-hint").innerHTML = `<b>${nf(y.videos)}</b> vídeos publicados no canal, com <b>${nf(y.views)}</b> visualizações somadas (média de ${nf(y.media_views)} por vídeo).`;
+    $("m-yt").innerHTML = `
+      <div class="nc"><div class="h">Vídeos e lives</div><div class="p">${nf(y.videos)}</div></div>
+      <div class="nc"><div class="h">Visualizações</div><div class="p">${nf(y.views)}</div></div>
+      <div class="nc"><div class="h">Média por vídeo</div><div class="p">${nf(y.media_views)}</div></div>`;
+    $("m-yt-destaques").innerHTML = y.destaques.length
+      ? `<h3>Destaques do mês</h3><div class="list">` + y.destaques.map((v) => `
+          <div class="item">
+            <div><div class="t">${esc(v.titulo)}</div><div class="m"><span>${dataBR(v.data)}</span><span>acima da média do mês</span></div></div>
+            <span class="tag">${nf(v.views)}</span>
+          </div>`).join("") + `</div>`
+      : "";
+  } else {
+    $("m-yt-hint").textContent = "Sem vídeos deste mês na janela do feed público.";
+    $("m-yt").innerHTML = '<div class="empty">O feed do canal cobre só os 15 vídeos mais recentes.</div>';
+    $("m-yt-destaques").innerHTML = "";
+  }
+}
+
+/* ============ ABA 3 · TRIMESTRE ============ */
+function renderTrimestre() {
+  const t = D.trimestre;
+  $("t-periodo").innerHTML = `<b>${esc(t.label)}</b> · três meses fechados`;
+
+  const mediaMes = Math.round(t.total_entregues / t.meses.length);
+  $("t-kpis").innerHTML = `
+    <div class="tile lime big">
+      <div class="k">Entregues no trimestre</div>
+      <div class="v">${nf(t.total_entregues)}</div>
+      <div class="u">média de ${nf(mediaMes)} por mês</div>
+    </div>
+    <div class="tile deep">
+      <div class="k">Tempo médio de entrega</div>
+      <div class="v">${dec(t.tempo_medio)}</div>
+      <div class="u">dias no trimestre inteiro</div>
+    </div>
+    <div class="tile">
+      <div class="k">Vídeos e reels</div>
+      <div class="v">${nf(t.total_videos)}</div>
+      <div class="u">no trimestre</div>
+    </div>
+    <div class="tile">
+      <div class="k">Artes</div>
+      <div class="v">${nf(t.total_artes)}</div>
+      <div class="u">gráficos + identidades</div>
+    </div>`;
+
+  const pico = [...t.meses].sort((a, b) => b.entregues - a.entregues)[0];
+  $("t-ent-hint").innerHTML = `Mês mais forte: <b>${esc(pico.label)}</b>, com ${nf(pico.entregues)} entregas.`;
+  colunas($("t-entregues"), t.meses.map((m) => ({ label: m.curto, valor: m.entregues })));
+  colunas($("t-tempo"), t.meses.map((m) => ({ label: m.curto, valor: m.tempo_medio, rotulo: dec(m.tempo_medio) + "d" })), { soft: true });
+
+  const prod = [];
+  for (const m of t.meses) {
+    prod.push({ nome: `${m.curto} · vídeos`, total: m.videos });
+    prod.push({ nome: `${m.curto} · artes`, total: m.graficos + m.identidades });
+  }
+  barras($("t-producao"), prod);
+  if (t.etiquetagem_irregular) {
+    const pcts = t.cobertura_tipos.map((c) => c.pct);
+    const cobertura = pcts.every((p) => p === pcts[0])
+      ? `Só ${pcts[0]}% das entregas do trimestre têm o tipo de tarefa preenchido`
+      : `A parcela de entregas com tipo de tarefa preenchido varia no trimestre (${t.cobertura_tipos.map((c) => `${c.pct}% em ${c.curto}`).join(", ")})`;
+    $("t-producao").insertAdjacentHTML("afterend",
+      `<div class="falta" style="margin-top:16px"><ul><li><b>Leia com ressalva</b><span>
+       ${cobertura}, e a equipe mudou de etiqueta ao longo do período: antes marcava "Postar" e "Pack Social Media",
+       depois passou a marcar "Gravação", "Edição" e "Story". Boa parte do salto de vídeos entre os meses vem daí,
+       não necessariamente de produção nova.</span></li></ul></div>`);
+  }
+
+  /* Instagram */
+  if (t.instagram) {
+    $("t-ig-hint").innerHTML = `<b>${nf(t.instagram.total)}</b> publicações no trimestre, somando todos os perfis.`;
+    $("t-ig").innerHTML = t.instagram.perfis.map((p) =>
+      `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`).join("");
+  } else {
+    $("t-ig-hint").textContent = "Sem contagem de publicações registrada para estes meses.";
+    $("t-ig").innerHTML = '<div class="empty">Nada registrado no período.</div>';
+  }
+  blocoFalta($("t-ig-falta"), D.faltando.filter((f) => f.onde.startsWith("Instagram")));
+
+  /* YouTube */
+  const y = t.youtube;
+  if (y && y.videos) {
+    const inscritos = D.social.youtube && D.social.youtube.inscritos;
+    $("t-yt-hint").innerHTML = `<b>${nf(y.videos)}</b> vídeos no trimestre, com <b>${nf(y.views)}</b> visualizações somadas.`;
+    $("t-yt").innerHTML = `
+      <div class="nc"><div class="h">Vídeos e lives</div><div class="p">${nf(y.videos)}</div></div>
+      <div class="nc"><div class="h">Visualizações</div><div class="p">${nf(y.views)}</div></div>
+      <div class="nc"><div class="h">Média por vídeo</div><div class="p">${nf(y.media_views)}</div></div>
+      ${inscritos ? `<div class="nc"><div class="h">Inscritos</div><div class="p">${nf(inscritos)}</div></div>` : ""}`;
+    $("t-yt-destaques").innerHTML = y.destaques.length
+      ? `<h3>Vídeos mais vistos</h3><div class="list">` + y.destaques.map((v) => `
+          <div class="item">
+            <div><div class="t">${esc(v.titulo)}</div><div class="m"><span>${dataBR(v.data)}</span></div></div>
+            <span class="tag">${nf(v.views)}</span>
+          </div>`).join("") + `</div>`
+      : "";
+  } else {
+    $("t-yt-hint").textContent = "Os vídeos deste trimestre já saíram da janela do feed público.";
+    $("t-yt").innerHTML = '<div class="empty">O feed do canal cobre só os 15 vídeos mais recentes.</div>';
+    $("t-yt-destaques").innerHTML = "";
+  }
+  blocoFalta($("t-yt-falta"), D.faltando.filter((f) => f.onde.startsWith("YouTube")));
+}
+
+/* ---------- abas ---------- */
+const ABAS = [
+  { botao: "tab-semana", painel: "p-semana", render: renderSemana },
+  { botao: "tab-mes", painel: "p-mes", render: renderMes },
+  { botao: "tab-trimestre", painel: "p-trimestre", render: renderTrimestre },
+];
+let jaRenderizou = new Set();
+
+function abrir(id) {
+  for (const a of ABAS) {
+    const ativa = a.botao === id;
+    $(a.botao).setAttribute("aria-selected", String(ativa));
+    $(a.painel).hidden = !ativa;
+    if (ativa && !jaRenderizou.has(id)) { a.render(); jaRenderizou.add(id); }
+  }
+}
+for (const a of ABAS) $(a.botao).addEventListener("click", () => abrir(a.botao));
+document.querySelector(".abas").addEventListener("keydown", (e) => {
+  const i = ABAS.findIndex((a) => a.botao === document.activeElement.id);
+  if (i < 0) return;
+  const proximo = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : -1;
+  if (proximo < 0 || proximo >= ABAS.length) return;
+  e.preventDefault();
+  $(ABAS[proximo].botao).focus();
+  abrir(ABAS[proximo].botao);
 });
-render(mesAtivo);
+
+/* ---------- status e rodapé ---------- */
+const atualizado = new Date(D.gerado_em);
+const diasDesde = Math.floor((Date.now() - atualizado.getTime()) / 86400000);
+const stamp = $("stamp");
+stamp.textContent = diasDesde <= 0 ? "atualizado hoje" : diasDesde === 1 ? "atualizado ontem" : `atualizado há ${diasDesde} dias`;
+stamp.classList.toggle("velho", diasDesde >= 2);
+stamp.title = `Última atualização: ${atualizado.toLocaleString("pt-BR")}`;
+
+$("foot").innerHTML = `Atualizado em <b>${atualizado.toLocaleDateString("pt-BR")} às ${atualizado.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</b>, sobre ${nf(D.total_demandas)} demandas registradas.<br>
+Fontes: Banco de Dados de Comunicação, Acompanhamento de Pedidos e Ranking Ministérios (Notion, alimentado pelo F.O.C.O.) · Instagram (contagem manual do feed) · YouTube (feed oficial do canal).<br>
+Uma demanda conta como entregue pela data de finalização registrada no card, e não pelo status atual — assim o histórico não muda quando os cards são arquivados.`;
+
+abrir("tab-semana");
 </script>
 </body>
 </html>

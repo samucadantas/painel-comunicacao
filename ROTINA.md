@@ -18,16 +18,20 @@ para mudar o que é feito ou o tom do resumo, basta editar aqui.
 
 3. Escrever um resumo curto, em português, direto — do jeito que se manda para um gestor no WhatsApp.
 
-## O que o resumo precisa ter
+## O que olhar (aba 1, a da semana)
 
-- **Entregas**: quantas saíram ontem e como está o mês contra o ritmo dos meses fechados.
-- **Fila**: quantas demandas abertas, e se cresceu ou diminuiu em relação a ontem.
+- **Entregues na semana** contra a semana anterior, lembrando que a semana corrente
+  ainda está correndo.
+- **Fila e em criação**: cresceu ou diminuiu desde ontem.
 - **Atrasos**: o que passou do prazo, priorizando o que atrasou mais. Se alguma coisa
   virou atraso de ontem para hoje, dizer o nome.
 - **Prazos de hoje e amanhã**: nomes, para ninguém ser pego de surpresa.
-- **Redes**: se saiu vídeo novo no YouTube. O Instagram é contagem manual — se o mês
+- **Redes**: se saiu vídeo novo no YouTube. O Instagram é contagem manual: se o mês
   corrente ainda não tem número em `social/instagram.json`, lembrar disso uma vez por semana
   (não todo dia, para não virar ruído).
+
+No começo de cada mês, conferir a aba 2 (mês anterior) e a aba 3 (trimestre), que só
+mudam quando o mês vira.
 
 ## Regras
 

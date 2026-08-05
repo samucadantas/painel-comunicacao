@@ -26,7 +26,15 @@ if (!MARCA.test(template)) {
 
 // </script> dentro do JSON quebraria o HTML — escapa por segurança
 const seguro = dados.replace(/<\/script/gi, "<\\/script");
-const html = template.replace(MARCA, `/*__DADOS__*/${seguro}/*__FIM__*/`);
+let html = template.replace(MARCA, `/*__DADOS__*/${seguro}/*__FIM__*/`);
+
+// A fonte vai embutida em base64: o painel precisa abrir bonito offline, sem buscar nada na web.
+try {
+  const fonte = await readFile(join(__dir, "assets", "archivo-latin.woff2.b64"), "utf8");
+  html = html.replace("/*__FONTE__*/", fonte.trim());
+} catch {
+  console.warn("  (assets/archivo-latin.woff2.b64 não encontrado — o painel usa a fonte do sistema)");
+}
 
 await writeFile(join(__dir, "Painel.html"), html);
 await mkdir(join(__dir, "publicar"), { recursive: true });
@@ -35,4 +43,5 @@ await writeFile(join(__dir, "publicar", "index.html"), html);
 const kb = (html.length / 1024).toFixed(0);
 const d = JSON.parse(dados);
 console.log(`✓ Painel.html e publicar/index.html gerados (${kb} KB)`);
-console.log(`  ${d.meses[0].label}: ${d.meses[0].finalizadas} entregas · ${d.agora.em_aberto} na fila · ${d.agora.atrasadas_total} atrasadas`);
+console.log(`  Semana: ${d.semana.entregues} entregues · ${d.semana.fila} na fila · ${d.semana.atrasadas_total} atrasadas`);
+console.log(`  ${d.mes_anterior.label}: ${d.mes_anterior.entregues} entregues · trimestre: ${d.trimestre.total_entregues}`);
