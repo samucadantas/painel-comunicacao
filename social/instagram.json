@@ -1,0 +1,31 @@
+{
+  "_como_atualizar": "O Instagram não tem API aberta. Enquanto a Graph API não estiver ligada, conte os posts do feed de cada perfil no mês e escreva aqui. Um bloco por mês (AAAA-MM).",
+  "atualizado_em": "2026-08-05",
+  "perfis": [
+    "@somosaponte",
+    "@aponte_recife",
+    "@estacaodaponte",
+    "@entranatoca",
+    "@opatiodaponte",
+    "@pontezinha",
+    "@tocaplay_recife"
+  ],
+  "meses": {
+    "2026-07": {
+      "@aponte_recife": 23,
+      "@estacaodaponte": 5,
+      "@entranatoca": 3,
+      "@tocaplay_recife": 1,
+      "@somosaponte": 0,
+      "@opatiodaponte": 0
+    },
+    "2026-06": {
+      "@aponte_recife": 14,
+      "@somosaponte": 4,
+      "@opatiodaponte": 3,
+      "@estacaodaponte": 2,
+      "@entranatoca": 1,
+      "@tocaplay_recife": 1
+    }
+  }
+}

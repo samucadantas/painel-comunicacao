@@ -1,0 +1,1093 @@
+{
+  "gerado_em": "2026-08-05T18:20:55.643Z",
+  "hoje": "2026-08-05",
+  "mes_atual": "2026-08",
+  "total_demandas": 343,
+  "meses": [
+    {
+      "month": "2026-08",
+      "label": "Agosto 2026",
+      "curto": "Ago/26",
+      "parcial": true,
+      "finalizadas": 11,
+      "criadas": 30,
+      "tempo_medio": 4.4,
+      "tempo_mediana": 4,
+      "tempo_medio_ciclo_mes": 2,
+      "n_tempo": 7,
+      "categorias": {
+        "audiovisual": 6,
+        "social": 4,
+        "identidade": 2,
+        "impressos": 0
+      },
+      "tipos": [
+        {
+          "nome": "Avisos e demandas avulsas",
+          "total": 6
+        },
+        {
+          "nome": "Eventos",
+          "total": 2
+        },
+        {
+          "nome": "Audiovisual",
+          "total": 1
+        },
+        {
+          "nome": "Séries e Cursos",
+          "total": 1
+        },
+        {
+          "nome": "Social Media",
+          "total": 1
+        }
+      ],
+      "ministerios": [
+        {
+          "nome": "A PONTE",
+          "total": 10
+        },
+        {
+          "nome": "ARCO CULTURA",
+          "total": 5
+        },
+        {
+          "nome": "TOCA",
+          "total": 5
+        },
+        {
+          "nome": "ESTAÇÃO",
+          "total": 4
+        },
+        {
+          "nome": "ARCO RELACIONAMENTO",
+          "total": 2
+        },
+        {
+          "nome": "VILA",
+          "total": 2
+        },
+        {
+          "nome": "A PONTE GLOBAL",
+          "total": 1
+        },
+        {
+          "nome": "PONTEZINHA",
+          "total": 1
+        }
+      ],
+      "solicitantes": [
+        {
+          "nome": "Bruna Mendanha",
+          "total": 1
+        },
+        {
+          "nome": "Victor Souza",
+          "total": 1
+        }
+      ],
+      "responsaveis": [
+        {
+          "nome": "Somos A Ponte",
+          "total": 6
+        },
+        {
+          "nome": "Thaisa ",
+          "total": 5
+        },
+        {
+          "nome": "byamandacosta",
+          "total": 2
+        },
+        {
+          "nome": "Clara Feijó barreto",
+          "total": 2
+        },
+        {
+          "nome": "Pedro Morais",
+          "total": 2
+        }
+      ],
+      "cobertura_solicitante": 7,
+      "solicitantes_preenchidos": 2,
+      "youtube": {
+        "videos": 2,
+        "views": 2969,
+        "novos": [
+          {
+            "titulo": "Números 14:24 por Ziel Machado",
+            "data": "2026-08-03",
+            "views": 1422,
+            "id": "_AEqzF8usGA"
+          },
+          {
+            "titulo": "João 16:5–15 por Marco Telles",
+            "data": "2026-08-02",
+            "views": 1547,
+            "id": "Na9X0ngInYk"
+          }
+        ]
+      }
+    },
+    {
+      "month": "2026-07",
+      "label": "Julho 2026",
+      "curto": "Jul/26",
+      "parcial": false,
+      "finalizadas": 106,
+      "criadas": 96,
+      "tempo_medio": 8.9,
+      "tempo_mediana": 5,
+      "tempo_medio_ciclo_mes": 6,
+      "n_tempo": 99,
+      "categorias": {
+        "audiovisual": 21,
+        "social": 51,
+        "identidade": 6,
+        "impressos": 13
+      },
+      "tipos": [
+        {
+          "nome": "Avisos e demandas avulsas",
+          "total": 44
+        },
+        {
+          "nome": "Social Media",
+          "total": 26
+        },
+        {
+          "nome": "Eventos",
+          "total": 15
+        },
+        {
+          "nome": "Impressos e Produtos",
+          "total": 13
+        },
+        {
+          "nome": "Audiovisual",
+          "total": 6
+        },
+        {
+          "nome": "Séries e Cursos",
+          "total": 2
+        }
+      ],
+      "ministerios": [
+        {
+          "nome": "A PONTE",
+          "total": 33
+        },
+        {
+          "nome": "ARCO CULTURA",
+          "total": 23
+        },
+        {
+          "nome": "PONTEZINHA",
+          "total": 14
+        },
+        {
+          "nome": "ESTAÇÃO",
+          "total": 9
+        },
+        {
+          "nome": "TOCA",
+          "total": 7
+        },
+        {
+          "nome": "ARCO SERVIÇO",
+          "total": 3
+        },
+        {
+          "nome": "ATELIER",
+          "total": 3
+        },
+        {
+          "nome": "OFICINA",
+          "total": 3
+        }
+      ],
+      "solicitantes": [
+        {
+          "nome": "Bruna Mendanha",
+          "total": 7
+        },
+        {
+          "nome": "Bruno Siqueira",
+          "total": 7
+        },
+        {
+          "nome": "Hykaro Luan",
+          "total": 5
+        },
+        {
+          "nome": "Igor Sacha",
+          "total": 3
+        },
+        {
+          "nome": "Victor Souza",
+          "total": 2
+        },
+        {
+          "nome": "Waldemir Lopes",
+          "total": 2
+        },
+        {
+          "nome": "Adenise",
+          "total": 1
+        },
+        {
+          "nome": "Bruna Franco",
+          "total": 1
+        }
+      ],
+      "responsaveis": [
+        {
+          "nome": "Somos A Ponte",
+          "total": 78
+        },
+        {
+          "nome": "Thaisa ",
+          "total": 46
+        },
+        {
+          "nome": "Clara Feijó barreto",
+          "total": 39
+        },
+        {
+          "nome": "byamandacosta",
+          "total": 31
+        },
+        {
+          "nome": "Pedro Morais",
+          "total": 23
+        },
+        {
+          "nome": "Samuca Dantas",
+          "total": 17
+        },
+        {
+          "nome": "Luis Siqueira",
+          "total": 6
+        }
+      ],
+      "cobertura_solicitante": 33,
+      "solicitantes_preenchidos": 32,
+      "instagram": {
+        "total": 32,
+        "ativos": 4,
+        "perfis": [
+          {
+            "handle": "@aponte_recife",
+            "posts": 23
+          },
+          {
+            "handle": "@estacaodaponte",
+            "posts": 5
+          },
+          {
+            "handle": "@entranatoca",
+            "posts": 3
+          },
+          {
+            "handle": "@tocaplay_recife",
+            "posts": 1
+          },
+          {
+            "handle": "@somosaponte",
+            "posts": 0
+          },
+          {
+            "handle": "@opatiodaponte",
+            "posts": 0
+          }
+        ]
+      },
+      "youtube": {
+        "videos": 6,
+        "views": 7449,
+        "novos": [
+          {
+            "titulo": "Mateus 5:38-42 por Digo Karagulian",
+            "data": "2026-07-26",
+            "views": 1195,
+            "id": "ptcfSQLSfmU"
+          },
+          {
+            "titulo": "Mateus 5:38-42 por Hykaro Luan",
+            "data": "2026-07-26",
+            "views": 1035,
+            "id": "R6G1jPoWkY8"
+          },
+          {
+            "titulo": "\"Integridade\" por Hykaro Luan",
+            "data": "2026-07-20",
+            "views": 673,
+            "id": "IkPSGf7hcAo"
+          },
+          {
+            "titulo": "\"Integridade\" por Igor Sacha",
+            "data": "2026-07-19",
+            "views": 1007,
+            "id": "roSOrRLKmtk"
+          },
+          {
+            "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
+            "data": "2026-07-12",
+            "views": 2118,
+            "id": "00TbvG67ZMk"
+          }
+        ]
+      }
+    },
+    {
+      "month": "2026-06",
+      "label": "Junho 2026",
+      "curto": "Jun/26",
+      "parcial": false,
+      "finalizadas": 92,
+      "criadas": 113,
+      "tempo_medio": 9.3,
+      "tempo_mediana": 4,
+      "tempo_medio_ciclo_mes": 4,
+      "n_tempo": 91,
+      "categorias": {
+        "audiovisual": 10,
+        "social": 48,
+        "identidade": 6,
+        "impressos": 9
+      },
+      "tipos": [
+        {
+          "nome": "Avisos e demandas avulsas",
+          "total": 48
+        },
+        {
+          "nome": "Eventos",
+          "total": 20
+        },
+        {
+          "nome": "Impressos e Produtos",
+          "total": 9
+        },
+        {
+          "nome": "Social Media",
+          "total": 9
+        },
+        {
+          "nome": "Séries e Cursos",
+          "total": 4
+        },
+        {
+          "nome": "Audiovisual",
+          "total": 2
+        }
+      ],
+      "ministerios": [
+        {
+          "nome": "A PONTE",
+          "total": 37
+        },
+        {
+          "nome": "ESTAÇÃO",
+          "total": 18
+        },
+        {
+          "nome": "COMUNICAÇÃO",
+          "total": 9
+        },
+        {
+          "nome": "A PONTE GLOBAL",
+          "total": 7
+        },
+        {
+          "nome": "TOCA",
+          "total": 7
+        },
+        {
+          "nome": "ARCO RELACIONAMENTO",
+          "total": 6
+        },
+        {
+          "nome": "ARCO SERVIÇO",
+          "total": 6
+        },
+        {
+          "nome": "ATELIER",
+          "total": 6
+        }
+      ],
+      "solicitantes": [
+        {
+          "nome": "Bruna Mendanha",
+          "total": 6
+        },
+        {
+          "nome": "Hayssa Lira",
+          "total": 6
+        },
+        {
+          "nome": "Bruna Franco",
+          "total": 5
+        },
+        {
+          "nome": "Samuca",
+          "total": 5
+        },
+        {
+          "nome": "Bruno Siqueira",
+          "total": 4
+        },
+        {
+          "nome": "Stephany",
+          "total": 2
+        },
+        {
+          "nome": "Gabriel Santos (A Ponte Canadá",
+          "total": 1
+        },
+        {
+          "nome": "Guilherme Andrade",
+          "total": 1
+        }
+      ],
+      "responsaveis": [
+        {
+          "nome": "Somos A Ponte",
+          "total": 67
+        },
+        {
+          "nome": "Thaisa ",
+          "total": 36
+        },
+        {
+          "nome": "Clara Feijó barreto",
+          "total": 28
+        },
+        {
+          "nome": "byamandacosta",
+          "total": 21
+        },
+        {
+          "nome": "Pedro Morais",
+          "total": 19
+        },
+        {
+          "nome": "Luis Siqueira",
+          "total": 6
+        },
+        {
+          "nome": "Samuca Dantas",
+          "total": 2
+        }
+      ],
+      "cobertura_solicitante": 33,
+      "solicitantes_preenchidos": 37,
+      "instagram": {
+        "total": 25,
+        "ativos": 6,
+        "perfis": [
+          {
+            "handle": "@aponte_recife",
+            "posts": 14
+          },
+          {
+            "handle": "@somosaponte",
+            "posts": 4
+          },
+          {
+            "handle": "@opatiodaponte",
+            "posts": 3
+          },
+          {
+            "handle": "@estacaodaponte",
+            "posts": 2
+          },
+          {
+            "handle": "@entranatoca",
+            "posts": 1
+          },
+          {
+            "handle": "@tocaplay_recife",
+            "posts": 1
+          }
+        ]
+      },
+      "youtube": {
+        "videos": 7,
+        "views": 8661,
+        "novos": [
+          {
+            "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
+            "data": "2026-06-29",
+            "views": 1947,
+            "id": "rA_nRwcda4U"
+          },
+          {
+            "titulo": "\"Luz e perseguição\" por Bruno Siqueira",
+            "data": "2026-06-22",
+            "views": 1003,
+            "id": "C7YRVYRIAAQ"
+          },
+          {
+            "titulo": "\"Luz e perseguição\" por Igor Sacha",
+            "data": "2026-06-21",
+            "views": 984,
+            "id": "ZipuBGO8Nj4"
+          },
+          {
+            "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",
+            "data": "2026-06-15",
+            "views": 1286,
+            "id": "E5zldcVP5Yc"
+          },
+          {
+            "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
+            "data": "2026-06-14",
+            "views": 1571,
+            "id": "vzFsJj0LVZ8"
+          }
+        ]
+      }
+    },
+    {
+      "month": "2026-05",
+      "label": "Maio 2026",
+      "curto": "Mai/26",
+      "parcial": false,
+      "finalizadas": 59,
+      "criadas": 79,
+      "tempo_medio": 3.8,
+      "tempo_mediana": 3,
+      "tempo_medio_ciclo_mes": 3.8,
+      "n_tempo": 59,
+      "categorias": {
+        "audiovisual": 9,
+        "social": 31,
+        "identidade": 6,
+        "impressos": 6
+      },
+      "tipos": [
+        {
+          "nome": "Avisos e demandas avulsas",
+          "total": 43
+        },
+        {
+          "nome": "Eventos",
+          "total": 9
+        },
+        {
+          "nome": "Impressos e Produtos",
+          "total": 6
+        },
+        {
+          "nome": "Séries e Cursos",
+          "total": 1
+        }
+      ],
+      "ministerios": [
+        {
+          "nome": "A PONTE",
+          "total": 41
+        },
+        {
+          "nome": "ARCO SERVIÇO",
+          "total": 9
+        },
+        {
+          "nome": "ARCO RELACIONAMENTO",
+          "total": 6
+        },
+        {
+          "nome": "ATELIER",
+          "total": 6
+        },
+        {
+          "nome": "TOCA",
+          "total": 5
+        },
+        {
+          "nome": "ESTAÇÃO",
+          "total": 4
+        },
+        {
+          "nome": "ARCO CULTURA",
+          "total": 3
+        },
+        {
+          "nome": "PONTEZINHA",
+          "total": 3
+        }
+      ],
+      "solicitantes": [
+        {
+          "nome": "Comunicação",
+          "total": 34
+        },
+        {
+          "nome": "Bruna Mendanha",
+          "total": 9
+        },
+        {
+          "nome": "Hayssa Lira",
+          "total": 8
+        },
+        {
+          "nome": "Guilherme Franco",
+          "total": 4
+        },
+        {
+          "nome": "Hykaro Luan",
+          "total": 4
+        },
+        {
+          "nome": "Samuca",
+          "total": 4
+        },
+        {
+          "nome": "Digo Karagulian",
+          "total": 3
+        },
+        {
+          "nome": "Victor Souza",
+          "total": 3
+        }
+      ],
+      "responsaveis": [
+        {
+          "nome": "Somos A Ponte",
+          "total": 31
+        },
+        {
+          "nome": "Thaisa ",
+          "total": 28
+        },
+        {
+          "nome": "Clara Feijó barreto",
+          "total": 24
+        },
+        {
+          "nome": "Pedro Morais",
+          "total": 20
+        },
+        {
+          "nome": "Luis Siqueira",
+          "total": 3
+        }
+      ],
+      "cobertura_solicitante": 100,
+      "solicitantes_preenchidos": 79
+    }
+  ],
+  "agora": {
+    "em_aberto": 47,
+    "pipeline": [
+      {
+        "nome": "Calendário",
+        "total": 19
+      },
+      {
+        "nome": "Novo pedido",
+        "total": 10
+      },
+      {
+        "nome": "Começou",
+        "total": 7
+      },
+      {
+        "nome": "Stand by",
+        "total": 6
+      },
+      {
+        "nome": "Avisos",
+        "total": 2
+      },
+      {
+        "nome": "Para postar/produzir/avisar",
+        "total": 2
+      },
+      {
+        "nome": "Em ajuste",
+        "total": 1
+      }
+    ],
+    "atrasadas_total": 7,
+    "atrasadas": [
+      {
+        "nome": "Lançamento do Retiro Atelier",
+        "prazo": "2026-07-12",
+        "dias": 24,
+        "status": "Avisos",
+        "prioridade": null,
+        "ministerio": "ATELIER",
+        "responsaveis": [
+          "Somos A Ponte"
+        ]
+      },
+      {
+        "nome": "Report 2026.1",
+        "prazo": "2026-07-24",
+        "dias": 12,
+        "status": "Stand by",
+        "prioridade": null,
+        "ministerio": "A PONTE",
+        "responsaveis": [
+          "Somos A Ponte",
+          "Samuca Dantas"
+        ]
+      },
+      {
+        "nome": "Reels | Convidada Layla",
+        "prazo": "2026-07-25",
+        "dias": 11,
+        "status": "Para postar/produzir/avisar",
+        "prioridade": null,
+        "ministerio": "TOCA",
+        "responsaveis": [
+          "Somos A Ponte",
+          "byamandacosta"
+        ]
+      },
+      {
+        "nome": "Praça 2026 - Último domingo",
+        "prazo": "2026-07-26",
+        "dias": 10,
+        "status": "Avisos",
+        "prioridade": null,
+        "ministerio": "ARCO CULTURA",
+        "responsaveis": [
+          "Somos A Ponte"
+        ]
+      },
+      {
+        "nome": "Arte nova Cultos de Oração",
+        "prazo": "2026-07-31",
+        "dias": 5,
+        "status": "Para postar/produzir/avisar",
+        "prioridade": null,
+        "ministerio": "A PONTE",
+        "responsaveis": [
+          "Somos A Ponte",
+          "Clara Feijó barreto"
+        ]
+      },
+      {
+        "nome": "Pack da Série - Parte 3",
+        "prazo": "2026-08-03",
+        "dias": 2,
+        "status": "Começou",
+        "prioridade": null,
+        "ministerio": "A PONTE",
+        "responsaveis": [
+          "Clara Feijó barreto"
+        ]
+      },
+      {
+        "nome": "Carrossel Agosto",
+        "prazo": "2026-08-04",
+        "dias": 1,
+        "status": "Novo pedido",
+        "prioridade": null,
+        "ministerio": "A PONTE",
+        "responsaveis": [
+          "Somos A Ponte",
+          "Clara Feijó barreto"
+        ]
+      }
+    ],
+    "proximas": [
+      {
+        "nome": "Vídeo Chamada Estação",
+        "prazo": "2026-08-05",
+        "faltam": 0,
+        "status": "Começou",
+        "prioridade": null,
+        "ministerio": "ESTAÇÃO"
+      },
+      {
+        "nome": "Placas Pontezinha CF por idade",
+        "prazo": "2026-08-05",
+        "faltam": 0,
+        "status": "Stand by",
+        "prioridade": null,
+        "ministerio": "A PONTE"
+      },
+      {
+        "nome": "Lyric Video - Pontezinha Dia dos Pais",
+        "prazo": "2026-08-05",
+        "faltam": 0,
+        "status": "Começou",
+        "prioridade": null,
+        "ministerio": "PONTEZINHA"
+      },
+      {
+        "nome": "Chamada Culto da Toca",
+        "prazo": "2026-08-06",
+        "faltam": 1,
+        "status": "Novo pedido",
+        "prioridade": null,
+        "ministerio": "TOCA"
+      },
+      {
+        "nome": "TBT Praça",
+        "prazo": "2026-08-06",
+        "faltam": 1,
+        "status": "Novo pedido",
+        "prioridade": null,
+        "ministerio": "A PONTE"
+      },
+      {
+        "nome": "Escalas do Domingo",
+        "prazo": "2026-08-07",
+        "faltam": 2,
+        "status": "Começou",
+        "prioridade": null,
+        "ministerio": "A PONTE"
+      },
+      {
+        "nome": "Retorno dos GRs / Acolhimento",
+        "prazo": "2026-08-07",
+        "faltam": 2,
+        "status": "Novo pedido",
+        "prioridade": null,
+        "ministerio": "ARCO RELACIONAMENTO"
+      },
+      {
+        "nome": "Vídeo Stories Culto",
+        "prazo": "2026-08-07",
+        "faltam": 2,
+        "status": "Começou",
+        "prioridade": null,
+        "ministerio": "A PONTE"
+      },
+      {
+        "nome": "Video Stories Oração",
+        "prazo": "2026-08-07",
+        "faltam": 2,
+        "status": "Começou",
+        "prioridade": null,
+        "ministerio": "A PONTE"
+      },
+      {
+        "nome": "BG Horários Pontezinha/Berçário",
+        "prazo": "2026-08-07",
+        "faltam": 2,
+        "status": "Novo pedido",
+        "prioridade": null,
+        "ministerio": "PONTEZINHA"
+      },
+      {
+        "nome": "Ordenação de Hykaro - BG e Pack",
+        "prazo": "2026-08-07",
+        "faltam": 2,
+        "status": "Em ajuste",
+        "prioridade": null,
+        "ministerio": "A PONTE"
+      },
+      {
+        "nome": "Dia dos Pais",
+        "prazo": "2026-08-09",
+        "faltam": 4,
+        "status": "Começou",
+        "prioridade": null,
+        "ministerio": "A PONTE GLOBAL"
+      }
+    ],
+    "alta_prioridade": 0,
+    "sem_prazo": 23,
+    "ultimos30": {
+      "finalizadas": 99,
+      "criadas": 120,
+      "tempo_medio": 8.3
+    }
+  },
+  "ministerios_ano": [
+    {
+      "nome": "A PONTE",
+      "total": 134
+    },
+    {
+      "nome": "ARCO CULTURA",
+      "total": 37
+    },
+    {
+      "nome": "ESTAÇÃO",
+      "total": 37
+    },
+    {
+      "nome": "PONTEZINHA",
+      "total": 24
+    },
+    {
+      "nome": "TOCA",
+      "total": 24
+    },
+    {
+      "nome": "ARCO SERVIÇO",
+      "total": 21
+    },
+    {
+      "nome": "ATELIER",
+      "total": 16
+    },
+    {
+      "nome": "ARCO RELACIONAMENTO",
+      "total": 14
+    },
+    {
+      "nome": "COMUNICAÇÃO",
+      "total": 10
+    },
+    {
+      "nome": "A PONTE GLOBAL",
+      "total": 9
+    }
+  ],
+  "ministerios_cadastrados": 15,
+  "solicitantes_cadastrados": 13,
+  "social": {
+    "instagram": {
+      "_como_atualizar": "O Instagram não tem API aberta. Enquanto a Graph API não estiver ligada, conte os posts do feed de cada perfil no mês e escreva aqui. Um bloco por mês (AAAA-MM).",
+      "atualizado_em": "2026-08-05",
+      "perfis": [
+        "@somosaponte",
+        "@aponte_recife",
+        "@estacaodaponte",
+        "@entranatoca",
+        "@opatiodaponte",
+        "@pontezinha",
+        "@tocaplay_recife"
+      ],
+      "meses": {
+        "2026-07": {
+          "@aponte_recife": 23,
+          "@estacaodaponte": 5,
+          "@entranatoca": 3,
+          "@tocaplay_recife": 1,
+          "@somosaponte": 0,
+          "@opatiodaponte": 0
+        },
+        "2026-06": {
+          "@aponte_recife": 14,
+          "@somosaponte": 4,
+          "@opatiodaponte": 3,
+          "@estacaodaponte": 2,
+          "@entranatoca": 1,
+          "@tocaplay_recife": 1
+        }
+      }
+    },
+    "youtube": {
+      "canal": "Somos A Ponte (somosaponte)",
+      "channel_id": "UCLdXFhRIfnF54fpR-iN7lrg",
+      "url": "https://www.youtube.com/somosaponte",
+      "videos": [
+        {
+          "titulo": "Números 14:24 por Ziel Machado",
+          "data": "2026-08-03",
+          "views": 1422,
+          "id": "_AEqzF8usGA"
+        },
+        {
+          "titulo": "João 16:5–15 por Marco Telles",
+          "data": "2026-08-02",
+          "views": 1547,
+          "id": "Na9X0ngInYk"
+        },
+        {
+          "titulo": "Mateus 5:38-42 por Digo Karagulian",
+          "data": "2026-07-26",
+          "views": 1195,
+          "id": "ptcfSQLSfmU"
+        },
+        {
+          "titulo": "Mateus 5:38-42 por Hykaro Luan",
+          "data": "2026-07-26",
+          "views": 1035,
+          "id": "R6G1jPoWkY8"
+        },
+        {
+          "titulo": "\"Integridade\" por Hykaro Luan",
+          "data": "2026-07-20",
+          "views": 673,
+          "id": "IkPSGf7hcAo"
+        },
+        {
+          "titulo": "\"Integridade\" por Igor Sacha",
+          "data": "2026-07-19",
+          "views": 1007,
+          "id": "roSOrRLKmtk"
+        },
+        {
+          "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
+          "data": "2026-07-12",
+          "views": 2118,
+          "id": "00TbvG67ZMk"
+        },
+        {
+          "titulo": "“Ira e Reconciliação” por Digo Karagulian",
+          "data": "2026-07-05",
+          "views": 1421,
+          "id": "M3fYcghh-pY"
+        },
+        {
+          "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
+          "data": "2026-06-29",
+          "views": 1947,
+          "id": "rA_nRwcda4U"
+        },
+        {
+          "titulo": "\"Luz e perseguição\" por Bruno Siqueira",
+          "data": "2026-06-22",
+          "views": 1003,
+          "id": "C7YRVYRIAAQ"
+        },
+        {
+          "titulo": "\"Luz e perseguição\" por Igor Sacha",
+          "data": "2026-06-21",
+          "views": 984,
+          "id": "ZipuBGO8Nj4"
+        },
+        {
+          "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",
+          "data": "2026-06-15",
+          "views": 1286,
+          "id": "E5zldcVP5Yc"
+        },
+        {
+          "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
+          "data": "2026-06-14",
+          "views": 1571,
+          "id": "vzFsJj0LVZ8"
+        },
+        {
+          "titulo": "Culto Clássico | com Ricardo Agreste",
+          "data": "2026-06-10",
+          "views": 932,
+          "id": "cgqGk7SsqzI"
+        },
+        {
+          "titulo": "\"Daniel 1\" por Hykaro Luan",
+          "data": "2026-06-08",
+          "views": 938,
+          "id": "eOQkm7hVfIM"
+        }
+      ],
+      "por_mes": {
+        "2026-08": {
+          "videos": 2,
+          "views": 2969
+        },
+        "2026-07": {
+          "videos": 6,
+          "views": 7449
+        },
+        "2026-06": {
+          "videos": 7,
+          "views": 8661
+        }
+      },
+      "fonte": "feed"
+    }
+  }
+}

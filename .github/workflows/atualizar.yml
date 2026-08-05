@@ -1,0 +1,36 @@
+name: Atualizar painel
+
+on:
+  schedule:
+    # 08:00 em Recife (UTC-3) = 11:00 UTC
+    - cron: "0 11 * * *"
+  workflow_dispatch:      # permite rodar na mão pelo site do GitHub
+  push:
+    branches: [main]
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Ler Notion + YouTube e gerar o painel
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          node sync.mjs
+          node build.mjs
+
+      - name: Guardar o resultado
+        run: |
+          git config user.name "painel-bot"
+          git config user.email "painel-bot@users.noreply.github.com"
+          git add data Painel.html publicar
+          git diff --staged --quiet || git commit -m "Painel atualizado em $(TZ=America/Recife date '+%d/%m/%Y %H:%M')"
+          git push
