@@ -1,13 +1,20 @@
 {
-  "gerado_em": "2026-08-05T18:45:06.428Z",
+  "gerado_em": "2026-08-05T18:56:45.223Z",
   "hoje": "2026-08-05",
-  "mes_vigente": "2026-08",
-  "total_demandas": 343,
+  "canal_youtube": {
+    "nome": "Somos A Ponte",
+    "url": "https://www.youtube.com/somosaponte"
+  },
+  "perfis_instagram": [
+    "@aponte_recife",
+    "@somosaponte",
+    "@pontezinha",
+    "@estacaodaponte",
+    "@opatiodaponte",
+    "@entranatoca",
+    "@tocaplay_recife"
+  ],
   "semana": {
-    "inicio": "2026-08-02",
-    "fim": "2026-08-08",
-    "em_curso": true,
-    "dias_corridos": 4,
     "label": "Semana de 02/08 a 08/08",
     "mes_vigente": "Agosto 2026",
     "fila": 7,
@@ -15,232 +22,14 @@
     "entregues": 6,
     "entregues_semana_anterior": 26,
     "fila_videos": 7,
-    "fila_artes": 5,
-    "parados": 30,
-    "parados_por_status": [
-      {
-        "nome": "Calendário",
-        "total": 19
-      },
-      {
-        "nome": "Stand by",
-        "total": 6
-      },
-      {
-        "nome": "Avisos",
-        "total": 5
-      }
-    ],
-    "atrasadas_total": 7,
-    "atrasadas": [
-      {
-        "nome": "Lançamento do Retiro Atelier",
-        "prazo": "2026-07-12",
-        "dias": 24,
-        "status": "Avisos",
-        "ministerio": "ATELIER",
-        "responsaveis": [
-          "Somos A Ponte"
-        ]
-      },
-      {
-        "nome": "Report 2026.1",
-        "prazo": "2026-07-24",
-        "dias": 12,
-        "status": "Stand by",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Somos A Ponte",
-          "Samuca Dantas"
-        ]
-      },
-      {
-        "nome": "Reels | Convidada Layla",
-        "prazo": "2026-07-25",
-        "dias": 11,
-        "status": "Para postar/produzir/avisar",
-        "ministerio": "TOCA",
-        "responsaveis": [
-          "Somos A Ponte",
-          "byamandacosta"
-        ]
-      },
-      {
-        "nome": "Praça 2026 - Último domingo",
-        "prazo": "2026-07-26",
-        "dias": 10,
-        "status": "Avisos",
-        "ministerio": "ARCO CULTURA",
-        "responsaveis": [
-          "Somos A Ponte"
-        ]
-      },
-      {
-        "nome": "Arte nova Cultos de Oração",
-        "prazo": "2026-07-31",
-        "dias": 5,
-        "status": "Para postar/produzir/avisar",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Somos A Ponte",
-          "Clara Feijó barreto"
-        ]
-      },
-      {
-        "nome": "Pack da Série - Parte 3",
-        "prazo": "2026-08-03",
-        "dias": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Clara Feijó barreto"
-        ]
-      },
-      {
-        "nome": "Carrossel Agosto",
-        "prazo": "2026-08-04",
-        "dias": 1,
-        "status": "Novo pedido",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Somos A Ponte",
-          "Clara Feijó barreto"
-        ]
-      }
-    ],
-    "proximas": [
-      {
-        "nome": "Vídeo Chamada Estação",
-        "prazo": "2026-08-05",
-        "faltam": 0,
-        "status": "Começou",
-        "ministerio": "ESTAÇÃO"
-      },
-      {
-        "nome": "Placas Pontezinha CF por idade",
-        "prazo": "2026-08-05",
-        "faltam": 0,
-        "status": "Stand by",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Lyric Video - Pontezinha Dia dos Pais",
-        "prazo": "2026-08-05",
-        "faltam": 0,
-        "status": "Começou",
-        "ministerio": "PONTEZINHA"
-      },
-      {
-        "nome": "Chamada Culto da Toca",
-        "prazo": "2026-08-06",
-        "faltam": 1,
-        "status": "Novo pedido",
-        "ministerio": "TOCA"
-      },
-      {
-        "nome": "TBT Praça",
-        "prazo": "2026-08-06",
-        "faltam": 1,
-        "status": "Novo pedido",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Escalas do Domingo",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Retorno dos GRs / Acolhimento",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Avisos",
-        "ministerio": "ARCO RELACIONAMENTO"
-      },
-      {
-        "nome": "Vídeo Stories Culto",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Video Stories Oração",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "BG Horários Pontezinha/Berçário",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Avisos",
-        "ministerio": "PONTEZINHA"
-      },
-      {
-        "nome": "Ordenação de Hykaro - BG e Pack",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Em ajuste",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Dia dos Pais",
-        "prazo": "2026-08-09",
-        "faltam": 4,
-        "status": "Começou",
-        "ministerio": "A PONTE GLOBAL"
-      }
-    ],
-    "entregues_lista": [
-      {
-        "nome": "Escalas do Domingo",
-        "data": "2026-08-02",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Arte para Crachá do curso dos Noivos 2026",
-        "data": "2026-08-03",
-        "ministerio": "VILA"
-      },
-      {
-        "nome": "Video Stories Oração",
-        "data": "2026-08-04",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Vídeo Stories Culto",
-        "data": "2026-08-04",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Pregações Podcast",
-        "data": "2026-08-05",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Pregações Youtube",
-        "data": "2026-08-05",
-        "ministerio": "A PONTE"
-      }
-    ]
+    "fila_artes": 5
   },
   "mes_anterior": {
     "month": "2026-07",
     "label": "Julho 2026",
     "curto": "Jul/26",
     "entregues": 106,
-    "criadas": 96,
-    "tempo_medio": 8.9,
-    "tempo_mediana": 5,
-    "n_tempo": 99,
-    "videos": 24,
-    "graficos": 29,
-    "identidades": 5,
-    "classificados": 77,
-    "cobertura_tipos": 73,
+    "media_entrega": 8.9,
     "campeoes": [
       {
         "nome": "Bruna Mendanha",
@@ -267,8 +56,6 @@
         "total": 2
       }
     ],
-    "cobertura_campeoes": 33,
-    "campeoes_preenchidos": 32,
     "ministerios": [
       {
         "nome": "A PONTE",
@@ -303,17 +90,31 @@
         "total": 4
       }
     ],
+    "videos": 24,
+    "graficos": 29,
+    "identidades": 5,
+    "artes": 32,
     "instagram": {
-      "total": 32,
-      "ativos": 4,
-      "perfis": [
+      "publicacoes": [
         {
           "handle": "@aponte_recife",
           "posts": 23
         },
         {
+          "handle": "@somosaponte",
+          "posts": 0
+        },
+        {
+          "handle": "@pontezinha",
+          "posts": 0
+        },
+        {
           "handle": "@estacaodaponte",
           "posts": 5
+        },
+        {
+          "handle": "@opatiodaponte",
+          "posts": 0
         },
         {
           "handle": "@entranatoca",
@@ -322,16 +123,9 @@
         {
           "handle": "@tocaplay_recife",
           "posts": 1
-        },
-        {
-          "handle": "@somosaponte",
-          "posts": 0
-        },
-        {
-          "handle": "@opatiodaponte",
-          "posts": 0
         }
-      ]
+      ],
+      "destaques": null
     },
     "youtube": {
       "videos": 6,
@@ -341,386 +135,76 @@
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2120,
-          "id": "00TbvG67ZMk"
+          "views": 2120
         },
         {
           "titulo": "“Ira e Reconciliação” por Digo Karagulian",
           "data": "2026-07-05",
-          "views": 1422,
-          "id": "M3fYcghh-pY"
+          "views": 1422
         }
-      ],
-      "cobre_periodo": true
+      ]
     }
   },
   "trimestre": {
-    "de": "2026-05",
-    "ate": "2026-07",
     "label": "De Maio a Julho de 2026",
     "meses": [
       {
-        "month": "2026-05",
-        "label": "Maio 2026",
         "curto": "Mai/26",
+        "label": "Maio 2026",
         "entregues": 59,
-        "criadas": 79,
-        "tempo_medio": 3.8,
-        "tempo_mediana": 3,
-        "n_tempo": 59,
+        "media_entrega": 3.8,
         "videos": 2,
-        "graficos": 22,
-        "identidades": 4,
-        "classificados": 43,
-        "cobertura_tipos": 73,
-        "campeoes": [
-          {
-            "nome": "Comunicação",
-            "total": 34
-          },
-          {
-            "nome": "Bruna Mendanha",
-            "total": 9
-          },
-          {
-            "nome": "Hayssa Lira",
-            "total": 8
-          },
-          {
-            "nome": "Guilherme Franco",
-            "total": 4
-          },
-          {
-            "nome": "Hykaro Luan",
-            "total": 4
-          },
-          {
-            "nome": "Samuca",
-            "total": 4
-          }
-        ],
-        "cobertura_campeoes": 100,
-        "campeoes_preenchidos": 79,
-        "ministerios": [
-          {
-            "nome": "A PONTE",
-            "total": 41
-          },
-          {
-            "nome": "ARCO SERVIÇO",
-            "total": 9
-          },
-          {
-            "nome": "ARCO RELACIONAMENTO",
-            "total": 6
-          },
-          {
-            "nome": "ATELIER",
-            "total": 6
-          },
-          {
-            "nome": "TOCA",
-            "total": 5
-          },
-          {
-            "nome": "ESTAÇÃO",
-            "total": 4
-          },
-          {
-            "nome": "ARCO CULTURA",
-            "total": 3
-          },
-          {
-            "nome": "PONTEZINHA",
-            "total": 3
-          }
-        ],
-        "instagram": null,
-        "youtube": {
-          "videos": 0,
-          "views": 0,
-          "destaques": [],
-          "cobre_periodo": false
-        }
+        "artes": 25
       },
       {
-        "month": "2026-06",
-        "label": "Junho 2026",
         "curto": "Jun/26",
+        "label": "Junho 2026",
         "entregues": 92,
-        "criadas": 113,
-        "tempo_medio": 9.3,
-        "tempo_mediana": 4,
-        "n_tempo": 91,
+        "media_entrega": 9.3,
         "videos": 5,
-        "graficos": 33,
-        "identidades": 4,
-        "classificados": 67,
-        "cobertura_tipos": 73,
-        "campeoes": [
-          {
-            "nome": "Bruna Mendanha",
-            "total": 6
-          },
-          {
-            "nome": "Hayssa Lira",
-            "total": 6
-          },
-          {
-            "nome": "Bruna Franco",
-            "total": 5
-          },
-          {
-            "nome": "Samuca",
-            "total": 5
-          },
-          {
-            "nome": "Bruno Siqueira",
-            "total": 4
-          },
-          {
-            "nome": "Stephany",
-            "total": 2
-          }
-        ],
-        "cobertura_campeoes": 33,
-        "campeoes_preenchidos": 37,
-        "ministerios": [
-          {
-            "nome": "A PONTE",
-            "total": 40
-          },
-          {
-            "nome": "ESTAÇÃO",
-            "total": 21
-          },
-          {
-            "nome": "ARCO SERVIÇO",
-            "total": 10
-          },
-          {
-            "nome": "COMUNICAÇÃO",
-            "total": 10
-          },
-          {
-            "nome": "ARCO RELACIONAMENTO",
-            "total": 9
-          },
-          {
-            "nome": "ATELIER",
-            "total": 9
-          },
-          {
-            "nome": "A PONTE GLOBAL",
-            "total": 8
-          },
-          {
-            "nome": "TOCA",
-            "total": 8
-          }
-        ],
-        "instagram": {
-          "total": 25,
-          "ativos": 6,
-          "perfis": [
-            {
-              "handle": "@aponte_recife",
-              "posts": 14
-            },
-            {
-              "handle": "@somosaponte",
-              "posts": 4
-            },
-            {
-              "handle": "@opatiodaponte",
-              "posts": 3
-            },
-            {
-              "handle": "@estacaodaponte",
-              "posts": 2
-            },
-            {
-              "handle": "@entranatoca",
-              "posts": 1
-            },
-            {
-              "handle": "@tocaplay_recife",
-              "posts": 1
-            }
-          ]
-        },
-        "youtube": {
-          "videos": 7,
-          "views": 8661,
-          "media_views": 1237,
-          "destaques": [
-            {
-              "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
-              "data": "2026-06-29",
-              "views": 1947,
-              "id": "rA_nRwcda4U"
-            },
-            {
-              "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
-              "data": "2026-06-14",
-              "views": 1571,
-              "id": "vzFsJj0LVZ8"
-            },
-            {
-              "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",
-              "data": "2026-06-15",
-              "views": 1286,
-              "id": "E5zldcVP5Yc"
-            }
-          ],
-          "cobre_periodo": false
-        }
+        "artes": 33
       },
       {
-        "month": "2026-07",
-        "label": "Julho 2026",
         "curto": "Jul/26",
+        "label": "Julho 2026",
         "entregues": 106,
-        "criadas": 96,
-        "tempo_medio": 8.9,
-        "tempo_mediana": 5,
-        "n_tempo": 99,
+        "media_entrega": 8.9,
         "videos": 24,
-        "graficos": 29,
-        "identidades": 5,
-        "classificados": 77,
-        "cobertura_tipos": 73,
-        "campeoes": [
-          {
-            "nome": "Bruna Mendanha",
-            "total": 7
-          },
-          {
-            "nome": "Bruno Siqueira",
-            "total": 7
-          },
-          {
-            "nome": "Hykaro Luan",
-            "total": 5
-          },
-          {
-            "nome": "Igor Sacha",
-            "total": 3
-          },
-          {
-            "nome": "Victor Souza",
-            "total": 2
-          },
-          {
-            "nome": "Waldemir Lopes",
-            "total": 2
-          }
-        ],
-        "cobertura_campeoes": 33,
-        "campeoes_preenchidos": 32,
-        "ministerios": [
-          {
-            "nome": "A PONTE",
-            "total": 38
-          },
-          {
-            "nome": "ARCO CULTURA",
-            "total": 25
-          },
-          {
-            "nome": "ESTAÇÃO",
-            "total": 16
-          },
-          {
-            "nome": "PONTEZINHA",
-            "total": 16
-          },
-          {
-            "nome": "TOCA",
-            "total": 8
-          },
-          {
-            "nome": "ARCO SERVIÇO",
-            "total": 6
-          },
-          {
-            "nome": "ATELIER",
-            "total": 6
-          },
-          {
-            "nome": "OFICINA",
-            "total": 4
-          }
-        ],
-        "instagram": {
-          "total": 32,
-          "ativos": 4,
-          "perfis": [
-            {
-              "handle": "@aponte_recife",
-              "posts": 23
-            },
-            {
-              "handle": "@estacaodaponte",
-              "posts": 5
-            },
-            {
-              "handle": "@entranatoca",
-              "posts": 3
-            },
-            {
-              "handle": "@tocaplay_recife",
-              "posts": 1
-            },
-            {
-              "handle": "@somosaponte",
-              "posts": 0
-            },
-            {
-              "handle": "@opatiodaponte",
-              "posts": 0
-            }
-          ]
-        },
-        "youtube": {
-          "videos": 6,
-          "views": 7452,
-          "media_views": 1242,
-          "destaques": [
-            {
-              "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
-              "data": "2026-07-12",
-              "views": 2120,
-              "id": "00TbvG67ZMk"
-            },
-            {
-              "titulo": "“Ira e Reconciliação” por Digo Karagulian",
-              "data": "2026-07-05",
-              "views": 1422,
-              "id": "M3fYcghh-pY"
-            }
-          ],
-          "cobre_periodo": true
-        }
+        "artes": 32
       }
     ],
-    "total_entregues": 257,
-    "total_videos": 31,
-    "total_artes": 97,
-    "tempo_medio": 7.8,
-    "etiquetagem_irregular": true,
-    "cobertura_tipos": [
+    "instagram": [
       {
-        "curto": "Mai/26",
-        "pct": 73
+        "handle": "@aponte_recife",
+        "metricas": {
+          "seguidores": null,
+          "crescimento_seguidores": null,
+          "contas_alcancadas": null,
+          "taxa_engajamento": null,
+          "salvamentos": null,
+          "compartilhamentos": null,
+          "desempenho_por_formato": null,
+          "novos_seguidores": null,
+          "top_publicacoes": null
+        },
+        "publicacoes_trimestre": 37,
+        "tem_contagem": true
       },
       {
-        "curto": "Jun/26",
-        "pct": 73
-      },
-      {
-        "curto": "Jul/26",
-        "pct": 73
+        "handle": "@somosaponte",
+        "metricas": {
+          "seguidores": null,
+          "crescimento_seguidores": null,
+          "contas_alcancadas": null,
+          "taxa_engajamento": null,
+          "salvamentos": null,
+          "compartilhamentos": null,
+          "desempenho_por_formato": null,
+          "novos_seguidores": null,
+          "top_publicacoes": null
+        },
+        "publicacoes_trimestre": 4,
+        "tem_contagem": true
       }
     ],
     "youtube": {
@@ -731,82 +215,64 @@
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2120,
-          "id": "00TbvG67ZMk"
+          "views": 2120
         },
         {
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1947,
-          "id": "rA_nRwcda4U"
+          "views": 1947
         },
         {
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
           "data": "2026-06-14",
-          "views": 1571,
-          "id": "vzFsJj0LVZ8"
+          "views": 1571
         }
       ],
-      "cobre_periodo": false
-    },
-    "instagram": {
-      "total": 57,
-      "perfis": [
+      "mensais": [
         {
-          "handle": "@aponte_recife",
-          "posts": 37
+          "curto": "Mai/26",
+          "views": 0,
+          "videos": 0
         },
         {
-          "handle": "@estacaodaponte",
-          "posts": 7
+          "curto": "Jun/26",
+          "views": 8661,
+          "videos": 7
         },
         {
-          "handle": "@somosaponte",
-          "posts": 4
+          "curto": "Jul/26",
+          "views": 7452,
+          "videos": 6
+        }
+      ],
+      "inscritos": null,
+      "top": [
+        {
+          "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
+          "data": "2026-07-12",
+          "views": 2120
         },
         {
-          "handle": "@entranatoca",
-          "posts": 4
+          "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
+          "data": "2026-06-29",
+          "views": 1947
         },
         {
-          "handle": "@opatiodaponte",
-          "posts": 3
+          "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
+          "data": "2026-06-14",
+          "views": 1571
         },
         {
-          "handle": "@tocaplay_recife",
-          "posts": 2
+          "titulo": "“Ira e Reconciliação” por Digo Karagulian",
+          "data": "2026-07-05",
+          "views": 1422
+        },
+        {
+          "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",
+          "data": "2026-06-15",
+          "views": 1286
         }
       ]
     }
-  },
-  "social": {
-    "instagram_perfis": [
-      "@somosaponte",
-      "@aponte_recife",
-      "@estacaodaponte",
-      "@entranatoca",
-      "@opatiodaponte",
-      "@pontezinha",
-      "@tocaplay_recife"
-    ],
-    "youtube": {
-      "canal": "Somos A Ponte",
-      "url": "https://www.youtube.com/somosaponte",
-      "inscritos": null
-    }
-  },
-  "faltando": [
-    {
-      "onde": "Instagram — engajamento, alcance, seguidores, salvamentos, desempenho por formato",
-      "porque": "Esses números só saem pela Graph API da Meta, que exige conta Business ou Creator ligada a uma página do Facebook e um app no Meta for Developers. A contagem de publicações é preenchida à mão em social/instagram.json."
-    },
-    {
-      "onde": "YouTube — total de inscritos e ritmo de crescimento",
-      "porque": "Basta gerar uma chave gratuita da YouTube Data API v3 e colocar em YT_API_KEY no .env."
-    },
-    {
-      "onde": "YouTube — tempo de exibição, horários de pico, CTR e interações",
-      "porque": "São métricas da YouTube Analytics API, que exige autorização OAuth do dono do canal. O feed público entrega só publicações e visualizações."
-    }
-  ]
+  }
 }

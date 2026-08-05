@@ -43,5 +43,5 @@ await writeFile(join(__dir, "publicar", "index.html"), html);
 const kb = (html.length / 1024).toFixed(0);
 const d = JSON.parse(dados);
 console.log(`✓ Painel.html e publicar/index.html gerados (${kb} KB)`);
-console.log(`  Semana: ${d.semana.entregues} entregues · ${d.semana.fila} na fila · ${d.semana.atrasadas_total} atrasadas`);
-console.log(`  ${d.mes_anterior.label}: ${d.mes_anterior.entregues} entregues · trimestre: ${d.trimestre.total_entregues}`);
+console.log(`  ${d.semana.label}: ${d.semana.entregues} entregues · ${d.semana.fila} na fila · ${d.semana.em_criacao} em criação`);
+console.log(`  ${d.mes_anterior.label}: ${d.mes_anterior.entregues} entregues · ${d.trimestre.label}: ${d.trimestre.meses.map((m) => m.entregues).join(" / ")}`);

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#C8F135" />
-<title>Painel StaffCom · Somos A Ponte</title>
+<title>StaffCom · Somos A Ponte</title>
 <style>
   /* Archivo variable, embutida: o painel precisa abrir offline (mandado por WhatsApp)
      sem cair num fallback genérico. Grotesca de alta legibilidade, boa em número grande. */
@@ -19,56 +19,44 @@
      inclusive os antigos que não entendem oklch(). Valores de origem no comentário.
      Estratégia de cor: RESTRITA COM ÂNCORA — superfícies neutras tingidas na matiz da
      marca (verde 145-152, não a faixa areia 40-100) + lima ancorando o que importa ler
-     primeiro. Laranja aparece só onde há atraso. */
+     primeiro. */
   :root{
     --lime:#C8F135; --lime-deep:#A9D426;
     --bg:#ECF2EC;                                  /* oklch(.955 .010 145) */
     --surface:#FFFFFF;
     --surface-2:#EFF7EF;                           /* oklch(.968 .013 145) */
-    --deep:#152519; --deep-2:#1E3626;
+    --deep:#152519;
     --ink:#152519;                                 /* oklch(.245 .030 152) — 16:1 no card */
     --ink-on-deep:#ECF2EC;
     --muted:#5C685F;                               /* oklch(.505 .022 152) — 5.8:1 */
     --muted-2:#7C887F;
     --line:rgba(21,37,25,.11);
-    --warn:#C24A22;                                /* oklch(.565 .165 38) */
-    --warn-soft:#FFE3D7;
     --radius:26px; --radius-sm:18px;
-    /* Ou borda, ou sombra — nunca as duas. No claro o card se separa do fundo pela
-       sombra; no escuro, onde sombra não se vê, pela borda. */
+    /* Ou borda, ou sombra — nunca as duas. */
     --card-line:transparent;
     --shadow:0 1px 2px rgba(21,37,25,.04), 0 12px 28px -14px rgba(21,37,25,.22);
   }
   @media (prefers-color-scheme: dark){
     :root{
       --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
-      --deep:#C8F135; --deep-2:#B7E22C;
-      --ink:#E8EFE8; --ink-on-deep:#13201A;
+      --deep:#C8F135; --ink:#E8EFE8; --ink-on-deep:#13201A;
       --muted:#9BA79D; --muted-2:#7E8A80;
-      --line:rgba(232,239,232,.12);
-      --warn:#ED845B; --warn-soft:#41261B;
-      --card-line:rgba(232,239,232,.13);
+      --line:rgba(232,239,232,.12); --card-line:rgba(232,239,232,.13);
       --shadow:none;
     }
   }
   :root[data-theme="dark"]{
     --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
-    --deep:#C8F135; --deep-2:#B7E22C;
-    --ink:#E8EFE8; --ink-on-deep:#13201A;
+    --deep:#C8F135; --ink:#E8EFE8; --ink-on-deep:#13201A;
     --muted:#9BA79D; --muted-2:#7E8A80;
-    --line:rgba(232,239,232,.12);
-    --warn:#ED845B; --warn-soft:#41261B;
-    --card-line:rgba(232,239,232,.13);
+    --line:rgba(232,239,232,.12); --card-line:rgba(232,239,232,.13);
     --shadow:none;
   }
   :root[data-theme="light"]{
     --bg:#ECF2EC; --surface:#FFFFFF; --surface-2:#EFF7EF;
-    --deep:#152519; --deep-2:#1E3626;
-    --ink:#152519; --ink-on-deep:#ECF2EC;
+    --deep:#152519; --ink:#152519; --ink-on-deep:#ECF2EC;
     --muted:#5C685F; --muted-2:#7C887F;
-    --line:rgba(21,37,25,.11);
-    --warn:#C24A22; --warn-soft:#FFE3D7;
-    --card-line:transparent;
+    --line:rgba(21,37,25,.11); --card-line:transparent;
     --shadow:0 1px 2px rgba(21,37,25,.04), 0 12px 28px -14px rgba(21,37,25,.22);
   }
 
@@ -92,8 +80,6 @@
   .brand{font-weight:700;font-size:15px;letter-spacing:-.01em}
   .brand span{display:block;font-weight:500;font-size:12.5px;color:var(--muted)}
   .top .sp{flex:1}
-  .stamp{font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap}
-  .stamp.velho{color:var(--warn);font-weight:700}
   .ghost{
     border:1px solid var(--line);background:var(--surface);color:var(--muted);
     border-radius:999px;padding:12px 16px;font-size:13px;font-weight:600;cursor:pointer;
@@ -106,7 +92,6 @@
 
   h1{font-size:clamp(28px,7.5vw,42px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:0 0 6px}
   .lead{color:var(--muted);font-size:15px;margin:0 0 18px;max-width:64ch}
-  .lead b{color:var(--ink);font-weight:650}
 
   /* ---------- abas ---------- */
   .abas{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 16px;margin:0 -2px;scrollbar-width:none}
@@ -119,10 +104,10 @@
   }
   .abas button:hover{color:var(--ink);border-color:var(--muted-2)}
   .abas button[aria-selected="true"]{background:var(--lime);color:#13201A;border-color:transparent}
-  .abas button[aria-selected="true"]:hover{color:#13201A;border-color:transparent}
+  .abas button[aria-selected="true"]:hover{color:#13201A}
 
-  .periodo{font-size:14px;font-weight:650;color:var(--muted);margin:0 0 16px;padding-left:2px}
-  .periodo b{color:var(--ink)}
+  .periodo{font-size:15px;font-weight:700;margin:0 0 16px;padding-left:2px;letter-spacing:-.015em}
+  .periodo span{color:var(--muted);font-weight:600}
 
   /* ---------- bento ---------- */
   .bento{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
@@ -155,11 +140,8 @@
     padding:20px 18px;box-shadow:var(--shadow);margin-bottom:12px;
   }
   @media(min-width:760px){.card{padding:24px 26px;margin-bottom:14px}}
-  h2{font-size:17px;font-weight:750;letter-spacing:-.02em;margin:0 0 3px}
-  h3{font-size:15px;font-weight:700;letter-spacing:-.015em;margin:22px 0 10px}
-  h3:first-child{margin-top:0}
-  .hint{font-size:13.5px;color:var(--muted);margin:0 0 18px;max-width:70ch}
-  .hint b{color:var(--ink);font-weight:650}
+  h2{font-size:17px;font-weight:750;letter-spacing:-.02em;margin:0 0 14px}
+  h3{font-size:14.5px;font-weight:700;letter-spacing:-.015em;margin:24px 0 12px;color:var(--muted)}
   .cols{display:grid;gap:12px}
   @media(min-width:860px){.cols{grid-template-columns:1fr 1fr;gap:14px}.cols>.card{margin-bottom:0}}
 
@@ -170,8 +152,7 @@
   @media(max-width:620px){
     .r{grid-template-columns:1fr auto;grid-template-areas:"nm n" "bar bar";gap:5px 10px}
     .r .nm{grid-area:nm;white-space:normal;overflow:visible}
-    .r .track{grid-area:bar}
-    .r .n{grid-area:n}
+    .r .track{grid-area:bar} .r .n{grid-area:n}
   }
   .track{height:11px;border-radius:999px;background:var(--surface-2);overflow:hidden}
   :root[data-theme="dark"] .track{background:rgba(233,240,233,.08)}
@@ -182,47 +163,45 @@
   @media (prefers-color-scheme: dark){.fill.soft{opacity:.8}}
   .r .n{font-size:13.5px;font-weight:750;font-variant-numeric:tabular-nums;min-width:2.2ch;text-align:right}
 
-  /* ---------- gráfico de colunas ---------- */
-  .chart{display:flex;align-items:flex-end;gap:clamp(10px,4vw,26px);height:180px;padding-top:8px}
+  /* ---------- colunas ---------- */
+  .chart{display:flex;align-items:flex-end;gap:clamp(10px,4vw,26px);height:170px;padding-top:26px}
   .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;min-width:0}
   .bar{width:100%;max-width:78px;border-radius:12px 12px 6px 6px;background:var(--lime);position:relative}
-  .bar.soft{background:var(--lime-deep);opacity:.55}
+  .bar.soft{background:var(--lime-deep);opacity:.6}
   .bar b{position:absolute;top:-24px;left:0;right:0;text-align:center;font-size:13px;font-weight:750;color:var(--ink);
     font-variant-numeric:tabular-nums}
   .col .lb{font-size:11.5px;font-weight:650;color:var(--muted);white-space:nowrap}
 
-  /* ---------- chips e listas ---------- */
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--line);border-radius:999px;
-    padding:8px 14px;font-size:13px;font-weight:600;background:var(--surface-2)}
-  .chip b{font-size:15px;font-weight:800;font-variant-numeric:tabular-nums}
+  /* ---------- métricas em grade ---------- */
+  .net{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px}
+  .nc{border-radius:var(--radius-sm);padding:14px 15px;background:var(--surface-2)}
+  .nc .h{font-size:12.5px;font-weight:650;color:var(--muted);line-height:1.3}
+  .nc .p{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:6px;font-variant-numeric:tabular-nums}
+  .nc.zero .p{color:var(--muted-2)}
+  .nc.vazio .p{font-size:26px;color:var(--muted-2)}
+  .nc.vazio .obs{font-size:11.5px;color:var(--muted-2);margin-top:4px;line-height:1.35}
+
+  /* ---------- listas ---------- */
   .list{display:flex;flex-direction:column;gap:9px}
   .item{display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center;
     padding:13px 15px;border-radius:var(--radius-sm);background:var(--surface-2)}
-  .item.late{background:var(--warn-soft)}
   .item .t{font-size:14px;font-weight:650;line-height:1.32}
-  .item .m{font-size:12px;color:var(--muted);margin-top:3px;display:flex;flex-wrap:wrap;gap:3px 10px}
-  .item.late .m{color:var(--ink);opacity:.72}
-  .tag{font-size:11.5px;font-weight:750;padding:4px 10px;border-radius:999px;background:rgba(19,32,26,.07);white-space:nowrap}
+  .item .m{font-size:12px;color:var(--muted);margin-top:3px}
+  .tag{font-size:11.5px;font-weight:750;padding:4px 10px;border-radius:999px;background:rgba(19,32,26,.07);white-space:nowrap;
+    font-variant-numeric:tabular-nums}
   :root[data-theme="dark"] .tag{background:rgba(233,240,233,.1)}
   @media (prefers-color-scheme: dark){.tag{background:rgba(233,240,233,.1)}}
-  .tag.red{background:var(--warn);color:#fff}
-  .empty{padding:20px;text-align:center;color:var(--muted);font-size:13.5px;background:var(--surface-2);border-radius:var(--radius-sm)}
+  .empty{padding:18px;text-align:center;color:var(--muted);font-size:13.5px;background:var(--surface-2);border-radius:var(--radius-sm);line-height:1.45}
 
-  /* ---------- redes ---------- */
-  .net{display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px}
-  .nc{border-radius:var(--radius-sm);padding:14px 15px;background:var(--surface-2)}
-  .nc .h{font-size:12.5px;font-weight:650;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .nc .p{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:5px;font-variant-numeric:tabular-nums}
-  .nc.zero .p{color:var(--muted-2)}
-
-  /* ---------- o que falta ligar ---------- */
-  .falta{background:var(--surface-2);border-radius:var(--radius-sm);padding:16px 18px;margin-top:4px}
-  .falta li{font-size:13.5px;margin-bottom:12px;line-height:1.5}
-  .falta li:last-child{margin-bottom:0}
-  .falta b{display:block;font-weight:700;margin-bottom:2px}
-  .falta span{color:var(--muted)}
-  .falta ul{margin:0;padding-left:18px}
+  /* ---------- sub-abas de perfil ---------- */
+  .subabas{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+  .subabas button{
+    border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;
+    padding:10px 16px;font-size:13.5px;font-weight:650;cursor:pointer;font-family:inherit;min-height:44px;
+    transition:background .18s, color .18s, border-color .18s;
+  }
+  .subabas button:hover{color:var(--ink);border-color:var(--muted-2)}
+  .subabas button[aria-selected="true"]{background:var(--deep);color:var(--ink-on-deep);border-color:transparent}
 
   .foot{color:var(--muted);font-size:13px;line-height:1.6;padding:14px 6px 0;max-width:78ch}
   .foot b{color:var(--ink);font-weight:650}
@@ -238,16 +217,15 @@
       <path d="M9 27c0-6.1 4.9-11 11-11s11 4.9 11 11" fill="none" stroke="#13201A" stroke-width="2.8" stroke-linecap="round"/>
       <path d="M7 27h26M15 27v-4.4M25 27v-4.4" stroke="#13201A" stroke-width="2.8" stroke-linecap="round"/>
     </svg>
-    <div class="brand">Somos A Ponte<span>StaffCom</span></div>
+    <div class="brand">StaffCom<span>Somos A Ponte</span></div>
     <div class="sp"></div>
-    <span class="stamp" id="stamp"></span>
     <button class="ghost" id="theme" type="button" aria-label="Alternar tema claro e escuro">
       <span id="theme-ico" aria-hidden="true">◐</span><span id="theme-lbl">Tema</span>
     </button>
   </div>
 
-  <h1>Painel de Comunicação</h1>
-  <p class="lead">Demandas e trabalho da equipe de comunicação da Ponte Recife. Os números vêm do Notion, alimentado pelo F.O.C.O.</p>
+  <h1>StaffCom</h1>
+  <p class="lead">Dashboard para acompanhar demandas e o trabalho da equipe de comunicação da Ponte Recife.</p>
 
   <nav class="abas" role="tablist" aria-label="Período">
     <button type="button" role="tab" id="tab-semana"    aria-controls="p-semana"    aria-selected="true">Semana</button>
@@ -255,108 +233,80 @@
     <button type="button" role="tab" id="tab-trimestre" aria-controls="p-trimestre" aria-selected="false">Trimestre</button>
   </nav>
 
-  <!-- ============ ABA 1 · SEMANA ============ -->
+  <!-- ============ ABA 1 ============ -->
   <section id="p-semana" role="tabpanel" aria-labelledby="tab-semana" tabindex="0">
     <p class="periodo" id="s-periodo"></p>
     <div class="bento" id="s-kpis"></div>
-
-    <div class="cols">
-      <section class="card">
-        <h2>Passaram do prazo</h2>
-        <p class="hint" id="s-atraso-hint"></p>
-        <div class="list" id="s-atrasadas"></div>
-      </section>
-
-      <section class="card">
-        <h2>Próximos prazos</h2>
-        <p class="hint">O que vence nos próximos 14 dias.</p>
-        <div class="list" id="s-proximas"></div>
-      </section>
-    </div>
-
-    <section class="card">
-      <h2>Entregue nesta semana</h2>
-      <p class="hint" id="s-entregues-hint"></p>
-      <div class="list" id="s-entregues"></div>
-
-      <h3>Fora da fila de produção</h3>
-      <p class="hint" id="s-parados-hint"></p>
-      <div class="chips" id="s-parados"></div>
-    </section>
   </section>
 
-  <!-- ============ ABA 2 · MÊS ANTERIOR ============ -->
+  <!-- ============ ABA 2 ============ -->
   <section id="p-mes" role="tabpanel" aria-labelledby="tab-mes" tabindex="0" hidden>
     <p class="periodo" id="m-periodo"></p>
     <div class="bento" id="m-kpis"></div>
 
     <div class="cols">
       <section class="card">
-        <h2>Ranking de Ministérios</h2>
-        <p class="hint" id="m-min-hint"></p>
-        <div class="rows" id="m-ministerios"></div>
-      </section>
-
-      <section class="card">
-        <h2>Campeões de demanda</h2>
-        <p class="hint" id="m-camp-hint"></p>
+        <h2>Campeões de demanda no mês</h2>
         <div class="rows" id="m-campeoes"></div>
+      </section>
+      <section class="card">
+        <h2>Ranking de Ministérios</h2>
+        <div class="rows" id="m-ministerios"></div>
       </section>
     </div>
 
     <section class="card">
-      <h2>Análise do Instagram</h2>
-      <p class="hint" id="m-ig-hint"></p>
+      <h2>Análise Instagram</h2>
+      <h3>Quantas publicações foram feitas nos perfis</h3>
       <div class="net" id="m-ig"></div>
-      <div id="m-ig-falta"></div>
+      <h3>Publicações destaques</h3>
+      <div id="m-ig-destaques"></div>
     </section>
 
     <section class="card">
-      <h2>Análise do YouTube</h2>
-      <p class="hint" id="m-yt-hint"></p>
+      <h2 id="m-yt-titulo">Análise YouTube</h2>
+      <h3>Quantos vídeos/lives foram feitas no perfil</h3>
       <div class="net" id="m-yt"></div>
+      <h3>Vídeos/lives destaques</h3>
       <div id="m-yt-destaques"></div>
     </section>
   </section>
 
-  <!-- ============ ABA 3 · TRIMESTRE ============ -->
+  <!-- ============ ABA 3 ============ -->
   <section id="p-trimestre" role="tabpanel" aria-labelledby="tab-trimestre" tabindex="0" hidden>
     <p class="periodo" id="t-periodo"></p>
-    <div class="bento" id="t-kpis"></div>
 
     <section class="card">
-      <h2>Demandas entregues por mês</h2>
-      <p class="hint" id="t-ent-hint"></p>
+      <h2>Comparativo trimestral de demandas entregues</h2>
       <div class="chart" id="t-entregues"></div>
     </section>
 
     <div class="cols">
       <section class="card">
         <h2>Tempo de entrega</h2>
-        <p class="hint">Média de dias entre a entrada do pedido e a entrega.</p>
         <div class="chart" id="t-tempo"></div>
       </section>
-
       <section class="card">
-        <h2>Vídeos e artes</h2>
-        <p class="hint">O que foi produzido em cada frente, mês a mês.</p>
+        <h2>Comparativo de vídeos/reels e artes</h2>
         <div class="rows" id="t-producao"></div>
       </section>
     </div>
 
     <section class="card">
-      <h2>Visão geral do Instagram</h2>
-      <p class="hint" id="t-ig-hint"></p>
+      <h2>Visão geral Instagram</h2>
+      <div class="subabas" id="t-ig-abas" role="tablist" aria-label="Perfil do Instagram"></div>
       <div class="net" id="t-ig"></div>
-      <div id="t-ig-falta"></div>
+      <h3>Top publicações</h3>
+      <div id="t-ig-top"></div>
     </section>
 
     <section class="card">
-      <h2>Visão geral do YouTube</h2>
-      <p class="hint" id="t-yt-hint"></p>
+      <h2 id="t-yt-titulo">Visão geral YouTube</h2>
       <div class="net" id="t-yt"></div>
-      <div id="t-yt-destaques"></div>
-      <div id="t-yt-falta"></div>
+      <h3>Visualizações mensais</h3>
+      <div class="chart" id="t-yt-mensais"></div>
+      <h3>Top vídeos mais acessados</h3>
+      <div id="t-yt-top"></div>
     </section>
   </section>
 
@@ -365,15 +315,22 @@
 
 <script>
 const D = /*__DADOS__*/{
-  "gerado_em": "2026-08-05T18:45:06.428Z",
+  "gerado_em": "2026-08-05T18:56:45.223Z",
   "hoje": "2026-08-05",
-  "mes_vigente": "2026-08",
-  "total_demandas": 343,
+  "canal_youtube": {
+    "nome": "Somos A Ponte",
+    "url": "https://www.youtube.com/somosaponte"
+  },
+  "perfis_instagram": [
+    "@aponte_recife",
+    "@somosaponte",
+    "@pontezinha",
+    "@estacaodaponte",
+    "@opatiodaponte",
+    "@entranatoca",
+    "@tocaplay_recife"
+  ],
   "semana": {
-    "inicio": "2026-08-02",
-    "fim": "2026-08-08",
-    "em_curso": true,
-    "dias_corridos": 4,
     "label": "Semana de 02/08 a 08/08",
     "mes_vigente": "Agosto 2026",
     "fila": 7,
@@ -381,232 +338,14 @@ const D = /*__DADOS__*/{
     "entregues": 6,
     "entregues_semana_anterior": 26,
     "fila_videos": 7,
-    "fila_artes": 5,
-    "parados": 30,
-    "parados_por_status": [
-      {
-        "nome": "Calendário",
-        "total": 19
-      },
-      {
-        "nome": "Stand by",
-        "total": 6
-      },
-      {
-        "nome": "Avisos",
-        "total": 5
-      }
-    ],
-    "atrasadas_total": 7,
-    "atrasadas": [
-      {
-        "nome": "Lançamento do Retiro Atelier",
-        "prazo": "2026-07-12",
-        "dias": 24,
-        "status": "Avisos",
-        "ministerio": "ATELIER",
-        "responsaveis": [
-          "Somos A Ponte"
-        ]
-      },
-      {
-        "nome": "Report 2026.1",
-        "prazo": "2026-07-24",
-        "dias": 12,
-        "status": "Stand by",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Somos A Ponte",
-          "Samuca Dantas"
-        ]
-      },
-      {
-        "nome": "Reels | Convidada Layla",
-        "prazo": "2026-07-25",
-        "dias": 11,
-        "status": "Para postar/produzir/avisar",
-        "ministerio": "TOCA",
-        "responsaveis": [
-          "Somos A Ponte",
-          "byamandacosta"
-        ]
-      },
-      {
-        "nome": "Praça 2026 - Último domingo",
-        "prazo": "2026-07-26",
-        "dias": 10,
-        "status": "Avisos",
-        "ministerio": "ARCO CULTURA",
-        "responsaveis": [
-          "Somos A Ponte"
-        ]
-      },
-      {
-        "nome": "Arte nova Cultos de Oração",
-        "prazo": "2026-07-31",
-        "dias": 5,
-        "status": "Para postar/produzir/avisar",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Somos A Ponte",
-          "Clara Feijó barreto"
-        ]
-      },
-      {
-        "nome": "Pack da Série - Parte 3",
-        "prazo": "2026-08-03",
-        "dias": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Clara Feijó barreto"
-        ]
-      },
-      {
-        "nome": "Carrossel Agosto",
-        "prazo": "2026-08-04",
-        "dias": 1,
-        "status": "Novo pedido",
-        "ministerio": "A PONTE",
-        "responsaveis": [
-          "Somos A Ponte",
-          "Clara Feijó barreto"
-        ]
-      }
-    ],
-    "proximas": [
-      {
-        "nome": "Vídeo Chamada Estação",
-        "prazo": "2026-08-05",
-        "faltam": 0,
-        "status": "Começou",
-        "ministerio": "ESTAÇÃO"
-      },
-      {
-        "nome": "Placas Pontezinha CF por idade",
-        "prazo": "2026-08-05",
-        "faltam": 0,
-        "status": "Stand by",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Lyric Video - Pontezinha Dia dos Pais",
-        "prazo": "2026-08-05",
-        "faltam": 0,
-        "status": "Começou",
-        "ministerio": "PONTEZINHA"
-      },
-      {
-        "nome": "Chamada Culto da Toca",
-        "prazo": "2026-08-06",
-        "faltam": 1,
-        "status": "Novo pedido",
-        "ministerio": "TOCA"
-      },
-      {
-        "nome": "TBT Praça",
-        "prazo": "2026-08-06",
-        "faltam": 1,
-        "status": "Novo pedido",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Escalas do Domingo",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Retorno dos GRs / Acolhimento",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Avisos",
-        "ministerio": "ARCO RELACIONAMENTO"
-      },
-      {
-        "nome": "Vídeo Stories Culto",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Video Stories Oração",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Começou",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "BG Horários Pontezinha/Berçário",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Avisos",
-        "ministerio": "PONTEZINHA"
-      },
-      {
-        "nome": "Ordenação de Hykaro - BG e Pack",
-        "prazo": "2026-08-07",
-        "faltam": 2,
-        "status": "Em ajuste",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Dia dos Pais",
-        "prazo": "2026-08-09",
-        "faltam": 4,
-        "status": "Começou",
-        "ministerio": "A PONTE GLOBAL"
-      }
-    ],
-    "entregues_lista": [
-      {
-        "nome": "Escalas do Domingo",
-        "data": "2026-08-02",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Arte para Crachá do curso dos Noivos 2026",
-        "data": "2026-08-03",
-        "ministerio": "VILA"
-      },
-      {
-        "nome": "Video Stories Oração",
-        "data": "2026-08-04",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Vídeo Stories Culto",
-        "data": "2026-08-04",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Pregações Podcast",
-        "data": "2026-08-05",
-        "ministerio": "A PONTE"
-      },
-      {
-        "nome": "Pregações Youtube",
-        "data": "2026-08-05",
-        "ministerio": "A PONTE"
-      }
-    ]
+    "fila_artes": 5
   },
   "mes_anterior": {
     "month": "2026-07",
     "label": "Julho 2026",
     "curto": "Jul/26",
     "entregues": 106,
-    "criadas": 96,
-    "tempo_medio": 8.9,
-    "tempo_mediana": 5,
-    "n_tempo": 99,
-    "videos": 24,
-    "graficos": 29,
-    "identidades": 5,
-    "classificados": 77,
-    "cobertura_tipos": 73,
+    "media_entrega": 8.9,
     "campeoes": [
       {
         "nome": "Bruna Mendanha",
@@ -633,8 +372,6 @@ const D = /*__DADOS__*/{
         "total": 2
       }
     ],
-    "cobertura_campeoes": 33,
-    "campeoes_preenchidos": 32,
     "ministerios": [
       {
         "nome": "A PONTE",
@@ -669,17 +406,31 @@ const D = /*__DADOS__*/{
         "total": 4
       }
     ],
+    "videos": 24,
+    "graficos": 29,
+    "identidades": 5,
+    "artes": 32,
     "instagram": {
-      "total": 32,
-      "ativos": 4,
-      "perfis": [
+      "publicacoes": [
         {
           "handle": "@aponte_recife",
           "posts": 23
         },
         {
+          "handle": "@somosaponte",
+          "posts": 0
+        },
+        {
+          "handle": "@pontezinha",
+          "posts": 0
+        },
+        {
           "handle": "@estacaodaponte",
           "posts": 5
+        },
+        {
+          "handle": "@opatiodaponte",
+          "posts": 0
         },
         {
           "handle": "@entranatoca",
@@ -688,16 +439,9 @@ const D = /*__DADOS__*/{
         {
           "handle": "@tocaplay_recife",
           "posts": 1
-        },
-        {
-          "handle": "@somosaponte",
-          "posts": 0
-        },
-        {
-          "handle": "@opatiodaponte",
-          "posts": 0
         }
-      ]
+      ],
+      "destaques": null
     },
     "youtube": {
       "videos": 6,
@@ -707,386 +451,76 @@ const D = /*__DADOS__*/{
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2120,
-          "id": "00TbvG67ZMk"
+          "views": 2120
         },
         {
           "titulo": "“Ira e Reconciliação” por Digo Karagulian",
           "data": "2026-07-05",
-          "views": 1422,
-          "id": "M3fYcghh-pY"
+          "views": 1422
         }
-      ],
-      "cobre_periodo": true
+      ]
     }
   },
   "trimestre": {
-    "de": "2026-05",
-    "ate": "2026-07",
     "label": "De Maio a Julho de 2026",
     "meses": [
       {
-        "month": "2026-05",
-        "label": "Maio 2026",
         "curto": "Mai/26",
+        "label": "Maio 2026",
         "entregues": 59,
-        "criadas": 79,
-        "tempo_medio": 3.8,
-        "tempo_mediana": 3,
-        "n_tempo": 59,
+        "media_entrega": 3.8,
         "videos": 2,
-        "graficos": 22,
-        "identidades": 4,
-        "classificados": 43,
-        "cobertura_tipos": 73,
-        "campeoes": [
-          {
-            "nome": "Comunicação",
-            "total": 34
-          },
-          {
-            "nome": "Bruna Mendanha",
-            "total": 9
-          },
-          {
-            "nome": "Hayssa Lira",
-            "total": 8
-          },
-          {
-            "nome": "Guilherme Franco",
-            "total": 4
-          },
-          {
-            "nome": "Hykaro Luan",
-            "total": 4
-          },
-          {
-            "nome": "Samuca",
-            "total": 4
-          }
-        ],
-        "cobertura_campeoes": 100,
-        "campeoes_preenchidos": 79,
-        "ministerios": [
-          {
-            "nome": "A PONTE",
-            "total": 41
-          },
-          {
-            "nome": "ARCO SERVIÇO",
-            "total": 9
-          },
-          {
-            "nome": "ARCO RELACIONAMENTO",
-            "total": 6
-          },
-          {
-            "nome": "ATELIER",
-            "total": 6
-          },
-          {
-            "nome": "TOCA",
-            "total": 5
-          },
-          {
-            "nome": "ESTAÇÃO",
-            "total": 4
-          },
-          {
-            "nome": "ARCO CULTURA",
-            "total": 3
-          },
-          {
-            "nome": "PONTEZINHA",
-            "total": 3
-          }
-        ],
-        "instagram": null,
-        "youtube": {
-          "videos": 0,
-          "views": 0,
-          "destaques": [],
-          "cobre_periodo": false
-        }
+        "artes": 25
       },
       {
-        "month": "2026-06",
-        "label": "Junho 2026",
         "curto": "Jun/26",
+        "label": "Junho 2026",
         "entregues": 92,
-        "criadas": 113,
-        "tempo_medio": 9.3,
-        "tempo_mediana": 4,
-        "n_tempo": 91,
+        "media_entrega": 9.3,
         "videos": 5,
-        "graficos": 33,
-        "identidades": 4,
-        "classificados": 67,
-        "cobertura_tipos": 73,
-        "campeoes": [
-          {
-            "nome": "Bruna Mendanha",
-            "total": 6
-          },
-          {
-            "nome": "Hayssa Lira",
-            "total": 6
-          },
-          {
-            "nome": "Bruna Franco",
-            "total": 5
-          },
-          {
-            "nome": "Samuca",
-            "total": 5
-          },
-          {
-            "nome": "Bruno Siqueira",
-            "total": 4
-          },
-          {
-            "nome": "Stephany",
-            "total": 2
-          }
-        ],
-        "cobertura_campeoes": 33,
-        "campeoes_preenchidos": 37,
-        "ministerios": [
-          {
-            "nome": "A PONTE",
-            "total": 40
-          },
-          {
-            "nome": "ESTAÇÃO",
-            "total": 21
-          },
-          {
-            "nome": "ARCO SERVIÇO",
-            "total": 10
-          },
-          {
-            "nome": "COMUNICAÇÃO",
-            "total": 10
-          },
-          {
-            "nome": "ARCO RELACIONAMENTO",
-            "total": 9
-          },
-          {
-            "nome": "ATELIER",
-            "total": 9
-          },
-          {
-            "nome": "A PONTE GLOBAL",
-            "total": 8
-          },
-          {
-            "nome": "TOCA",
-            "total": 8
-          }
-        ],
-        "instagram": {
-          "total": 25,
-          "ativos": 6,
-          "perfis": [
-            {
-              "handle": "@aponte_recife",
-              "posts": 14
-            },
-            {
-              "handle": "@somosaponte",
-              "posts": 4
-            },
-            {
-              "handle": "@opatiodaponte",
-              "posts": 3
-            },
-            {
-              "handle": "@estacaodaponte",
-              "posts": 2
-            },
-            {
-              "handle": "@entranatoca",
-              "posts": 1
-            },
-            {
-              "handle": "@tocaplay_recife",
-              "posts": 1
-            }
-          ]
-        },
-        "youtube": {
-          "videos": 7,
-          "views": 8661,
-          "media_views": 1237,
-          "destaques": [
-            {
-              "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
-              "data": "2026-06-29",
-              "views": 1947,
-              "id": "rA_nRwcda4U"
-            },
-            {
-              "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
-              "data": "2026-06-14",
-              "views": 1571,
-              "id": "vzFsJj0LVZ8"
-            },
-            {
-              "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",
-              "data": "2026-06-15",
-              "views": 1286,
-              "id": "E5zldcVP5Yc"
-            }
-          ],
-          "cobre_periodo": false
-        }
+        "artes": 33
       },
       {
-        "month": "2026-07",
-        "label": "Julho 2026",
         "curto": "Jul/26",
+        "label": "Julho 2026",
         "entregues": 106,
-        "criadas": 96,
-        "tempo_medio": 8.9,
-        "tempo_mediana": 5,
-        "n_tempo": 99,
+        "media_entrega": 8.9,
         "videos": 24,
-        "graficos": 29,
-        "identidades": 5,
-        "classificados": 77,
-        "cobertura_tipos": 73,
-        "campeoes": [
-          {
-            "nome": "Bruna Mendanha",
-            "total": 7
-          },
-          {
-            "nome": "Bruno Siqueira",
-            "total": 7
-          },
-          {
-            "nome": "Hykaro Luan",
-            "total": 5
-          },
-          {
-            "nome": "Igor Sacha",
-            "total": 3
-          },
-          {
-            "nome": "Victor Souza",
-            "total": 2
-          },
-          {
-            "nome": "Waldemir Lopes",
-            "total": 2
-          }
-        ],
-        "cobertura_campeoes": 33,
-        "campeoes_preenchidos": 32,
-        "ministerios": [
-          {
-            "nome": "A PONTE",
-            "total": 38
-          },
-          {
-            "nome": "ARCO CULTURA",
-            "total": 25
-          },
-          {
-            "nome": "ESTAÇÃO",
-            "total": 16
-          },
-          {
-            "nome": "PONTEZINHA",
-            "total": 16
-          },
-          {
-            "nome": "TOCA",
-            "total": 8
-          },
-          {
-            "nome": "ARCO SERVIÇO",
-            "total": 6
-          },
-          {
-            "nome": "ATELIER",
-            "total": 6
-          },
-          {
-            "nome": "OFICINA",
-            "total": 4
-          }
-        ],
-        "instagram": {
-          "total": 32,
-          "ativos": 4,
-          "perfis": [
-            {
-              "handle": "@aponte_recife",
-              "posts": 23
-            },
-            {
-              "handle": "@estacaodaponte",
-              "posts": 5
-            },
-            {
-              "handle": "@entranatoca",
-              "posts": 3
-            },
-            {
-              "handle": "@tocaplay_recife",
-              "posts": 1
-            },
-            {
-              "handle": "@somosaponte",
-              "posts": 0
-            },
-            {
-              "handle": "@opatiodaponte",
-              "posts": 0
-            }
-          ]
-        },
-        "youtube": {
-          "videos": 6,
-          "views": 7452,
-          "media_views": 1242,
-          "destaques": [
-            {
-              "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
-              "data": "2026-07-12",
-              "views": 2120,
-              "id": "00TbvG67ZMk"
-            },
-            {
-              "titulo": "“Ira e Reconciliação” por Digo Karagulian",
-              "data": "2026-07-05",
-              "views": 1422,
-              "id": "M3fYcghh-pY"
-            }
-          ],
-          "cobre_periodo": true
-        }
+        "artes": 32
       }
     ],
-    "total_entregues": 257,
-    "total_videos": 31,
-    "total_artes": 97,
-    "tempo_medio": 7.8,
-    "etiquetagem_irregular": true,
-    "cobertura_tipos": [
+    "instagram": [
       {
-        "curto": "Mai/26",
-        "pct": 73
+        "handle": "@aponte_recife",
+        "metricas": {
+          "seguidores": null,
+          "crescimento_seguidores": null,
+          "contas_alcancadas": null,
+          "taxa_engajamento": null,
+          "salvamentos": null,
+          "compartilhamentos": null,
+          "desempenho_por_formato": null,
+          "novos_seguidores": null,
+          "top_publicacoes": null
+        },
+        "publicacoes_trimestre": 37,
+        "tem_contagem": true
       },
       {
-        "curto": "Jun/26",
-        "pct": 73
-      },
-      {
-        "curto": "Jul/26",
-        "pct": 73
+        "handle": "@somosaponte",
+        "metricas": {
+          "seguidores": null,
+          "crescimento_seguidores": null,
+          "contas_alcancadas": null,
+          "taxa_engajamento": null,
+          "salvamentos": null,
+          "compartilhamentos": null,
+          "desempenho_por_formato": null,
+          "novos_seguidores": null,
+          "top_publicacoes": null
+        },
+        "publicacoes_trimestre": 4,
+        "tem_contagem": true
       }
     ],
     "youtube": {
@@ -1097,84 +531,66 @@ const D = /*__DADOS__*/{
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2120,
-          "id": "00TbvG67ZMk"
+          "views": 2120
         },
         {
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1947,
-          "id": "rA_nRwcda4U"
+          "views": 1947
         },
         {
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
           "data": "2026-06-14",
-          "views": 1571,
-          "id": "vzFsJj0LVZ8"
+          "views": 1571
         }
       ],
-      "cobre_periodo": false
-    },
-    "instagram": {
-      "total": 57,
-      "perfis": [
+      "mensais": [
         {
-          "handle": "@aponte_recife",
-          "posts": 37
+          "curto": "Mai/26",
+          "views": 0,
+          "videos": 0
         },
         {
-          "handle": "@estacaodaponte",
-          "posts": 7
+          "curto": "Jun/26",
+          "views": 8661,
+          "videos": 7
         },
         {
-          "handle": "@somosaponte",
-          "posts": 4
+          "curto": "Jul/26",
+          "views": 7452,
+          "videos": 6
+        }
+      ],
+      "inscritos": null,
+      "top": [
+        {
+          "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
+          "data": "2026-07-12",
+          "views": 2120
         },
         {
-          "handle": "@entranatoca",
-          "posts": 4
+          "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
+          "data": "2026-06-29",
+          "views": 1947
         },
         {
-          "handle": "@opatiodaponte",
-          "posts": 3
+          "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
+          "data": "2026-06-14",
+          "views": 1571
         },
         {
-          "handle": "@tocaplay_recife",
-          "posts": 2
+          "titulo": "“Ira e Reconciliação” por Digo Karagulian",
+          "data": "2026-07-05",
+          "views": 1422
+        },
+        {
+          "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",
+          "data": "2026-06-15",
+          "views": 1286
         }
       ]
     }
-  },
-  "social": {
-    "instagram_perfis": [
-      "@somosaponte",
-      "@aponte_recife",
-      "@estacaodaponte",
-      "@entranatoca",
-      "@opatiodaponte",
-      "@pontezinha",
-      "@tocaplay_recife"
-    ],
-    "youtube": {
-      "canal": "Somos A Ponte",
-      "url": "https://www.youtube.com/somosaponte",
-      "inscritos": null
-    }
-  },
-  "faltando": [
-    {
-      "onde": "Instagram — engajamento, alcance, seguidores, salvamentos, desempenho por formato",
-      "porque": "Esses números só saem pela Graph API da Meta, que exige conta Business ou Creator ligada a uma página do Facebook e um app no Meta for Developers. A contagem de publicações é preenchida à mão em social/instagram.json."
-    },
-    {
-      "onde": "YouTube — total de inscritos e ritmo de crescimento",
-      "porque": "Basta gerar uma chave gratuita da YouTube Data API v3 e colocar em YT_API_KEY no .env."
-    },
-    {
-      "onde": "YouTube — tempo de exibição, horários de pico, CTR e interações",
-      "porque": "São métricas da YouTube Analytics API, que exige autorização OAuth do dono do canal. O feed público entrega só publicações e visualizações."
-    }
-  ]
+  }
 }/*__FIM__*/;
 
 const $ = (id) => document.getElementById(id);
@@ -1185,32 +601,30 @@ const dataBR = (iso) => `${iso.slice(8,10)}/${iso.slice(5,7)}`;
 
 /* ---------- tema ---------- */
 const root = document.documentElement;
-const salvo = (() => { try { return localStorage.getItem("painel-tema"); } catch { return null; } })();
+const salvo = (() => { try { return localStorage.getItem("staffcom-tema"); } catch { return null; } })();
 if (salvo) root.dataset.theme = salvo;
-const estaEscuro = () => root.dataset.theme
-  ? root.dataset.theme === "dark"
-  : matchMedia("(prefers-color-scheme: dark)").matches;
+const escuro = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
 function pintaBotao(){
-  $("theme-ico").textContent = estaEscuro() ? "☀" : "☾";
-  $("theme-lbl").textContent = estaEscuro() ? "Claro" : "Escuro";
+  $("theme-ico").textContent = escuro() ? "☀" : "☾";
+  $("theme-lbl").textContent = escuro() ? "Claro" : "Escuro";
 }
 $("theme").addEventListener("click", () => {
-  root.dataset.theme = estaEscuro() ? "light" : "dark";
-  try { localStorage.setItem("painel-tema", root.dataset.theme); } catch {}
+  root.dataset.theme = escuro() ? "light" : "dark";
+  try { localStorage.setItem("staffcom-tema", root.dataset.theme); } catch {}
   pintaBotao();
 });
 pintaBotao();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", pintaBotao);
 
-/* ---------- blocos reutilizáveis ---------- */
+/* ---------- blocos ---------- */
 function barras(el, itens, opts = {}) {
-  if (!itens.length) { el.innerHTML = '<div class="empty">Nada registrado neste período.</div>'; return; }
+  if (!itens || !itens.length) { el.innerHTML = '<div class="empty">Nada registrado no período.</div>'; return; }
   const max = Math.max(...itens.map((i) => i.total)) || 1;
   el.innerHTML = itens.map((i) => `
     <div class="r">
       <div class="nm" title="${esc(i.nome)}">${esc(i.nome)}</div>
       <div class="track"><div class="fill${opts.soft ? " soft" : ""}" style="width:${Math.max((i.total / max) * 100, 4)}%"></div></div>
-      <div class="n">${nf(i.total)}${opts.sufixo || ""}</div>
+      <div class="n">${nf(i.total)}</div>
     </div>`).join("");
 }
 
@@ -1218,263 +632,192 @@ function colunas(el, itens, opts = {}) {
   const max = Math.max(...itens.map((i) => i.valor)) || 1;
   el.innerHTML = itens.map((i) => `
     <div class="col">
-      <div class="bar${opts.soft ? " soft" : ""}" style="height:${Math.max((i.valor / max) * 138, 6)}px"><b>${i.rotulo ?? nf(i.valor)}</b></div>
+      <div class="bar${opts.soft ? " soft" : ""}" style="height:${Math.max((i.valor / max) * 128, 6)}px"><b>${i.rotulo ?? nf(i.valor)}</b></div>
       <div class="lb">${esc(i.label)}</div>
     </div>`).join("");
 }
 
-function listaItens(el, itens, render, vazio) {
-  el.innerHTML = itens.length ? itens.map(render).join("") : `<div class="empty">${vazio}</div>`;
-}
+/* Campo que o documento pede mas para o qual ainda não há fonte de dado:
+   aparece vazio e diz o que falta, em vez de sumir ou virar número inventado. */
+const campoVazio = (rotulo, obs) =>
+  `<div class="nc vazio"><div class="h">${esc(rotulo)}</div><div class="p">—</div><div class="obs">${esc(obs)}</div></div>`;
+const campo = (rotulo, valor) =>
+  `<div class="nc"><div class="h">${esc(rotulo)}</div><div class="p">${valor}</div></div>`;
 
-function blocoFalta(el, textos) {
-  el.innerHTML = textos.length
-    ? `<div class="falta"><ul>${textos.map((t) => `<li><b>${esc(t.onde)}</b><span>${esc(t.porque)}</span></li>`).join("")}</ul></div>`
-    : "";
-}
+const FALTA_IG = "depende da Graph API da Meta";
+const FALTA_YT_ANALYTICS = "depende da YouTube Analytics API";
 
 /* ============ ABA 1 · SEMANA ============ */
 function renderSemana() {
   const s = D.semana;
-  $("s-periodo").innerHTML = `<b>${esc(s.label)}</b> · ${esc(s.mes_vigente)}`;
+  $("s-periodo").innerHTML = `${esc(s.label)} <span>de ${esc(s.mes_vigente)}</span>`;
 
   const d = s.entregues - s.entregues_semana_anterior;
-  const comparativo = s.entregues_semana_anterior === 0 && s.entregues === 0
-    ? "sem entregas na semana passada também"
-    : `${d > 0 ? "▲" : d < 0 ? "▼" : "="} ${nf(Math.abs(d))} vs. semana passada (${nf(s.entregues_semana_anterior)})`;
-  // A semana em curso é comparada contra uma semana inteira — sem esse aviso o número engana.
-  const aviso = s.em_curso
-    ? `semana em curso: ${s.dias_corridos} de 7 dias`
-    : "semana fechada";
+  const comp = `${d > 0 ? "▲" : d < 0 ? "▼" : "="} ${nf(Math.abs(d))} vs. semana anterior (${nf(s.entregues_semana_anterior)})`;
 
   $("s-kpis").innerHTML = `
     <div class="tile lime big">
-      <div class="k">Entregues esta semana</div>
+      <div class="k">Entregues essa semana</div>
       <div class="v">${nf(s.entregues)}</div>
-      <div class="u">${aviso}</div>
-      <div class="delta">${comparativo}</div>
+      <div class="delta">${comp}</div>
     </div>
     <div class="tile deep">
       <div class="k">Demandas na fila</div>
       <div class="v">${nf(s.fila)}</div>
-      <div class="u">aguardando começar</div>
     </div>
     <div class="tile">
-      <div class="k">Em criação</div>
+      <div class="k">Demandas em criação</div>
       <div class="v">${nf(s.em_criacao)}</div>
-      <div class="u">com a equipe agora</div>
     </div>
     <div class="tile">
       <div class="k">Fila de vídeos</div>
       <div class="v">${nf(s.fila_videos)}</div>
-      <div class="u">reels, stories, gravação, edição</div>
     </div>
     <div class="tile">
       <div class="k">Fila de artes</div>
       <div class="v">${nf(s.fila_artes)}</div>
-      <div class="u">peças gráficas e identidade</div>
     </div>`;
-
-  $("s-atraso-hint").innerHTML = s.atrasadas_total
-    ? `<b>${nf(s.atrasadas_total)}</b> ${s.atrasadas_total === 1 ? "demanda passou" : "demandas passaram"} da data combinada e ainda não ${s.atrasadas_total === 1 ? "foi entregue" : "foram entregues"}.`
-    : "Tudo dentro do prazo.";
-  listaItens($("s-atrasadas"), s.atrasadas, (a) => `
-    <div class="item late">
-      <div>
-        <div class="t">${esc(a.nome)}</div>
-        <div class="m"><span>prazo ${dataBR(a.prazo)}</span><span>${esc(a.status)}</span>${a.ministerio ? `<span>${esc(a.ministerio)}</span>` : ""}</div>
-      </div>
-      <span class="tag red">${a.dias}d</span>
-    </div>`, "Nenhuma demanda passou do prazo.");
-
-  listaItens($("s-proximas"), s.proximas, (p) => `
-    <div class="item">
-      <div>
-        <div class="t">${esc(p.nome)}</div>
-        <div class="m"><span>${dataBR(p.prazo)}</span><span>${esc(p.status)}</span>${p.ministerio ? `<span>${esc(p.ministerio)}</span>` : ""}</div>
-      </div>
-      <span class="tag">${p.faltam === 0 ? "hoje" : "em " + p.faltam + "d"}</span>
-    </div>`, "Nenhum prazo marcado para os próximos 14 dias.");
-
-  $("s-entregues-hint").innerHTML = s.entregues
-    ? `As ${s.entregues > 10 ? "10 primeiras das " + nf(s.entregues) : nf(s.entregues)} entregas desta semana.`
-    : "Ainda não houve entrega nesta semana.";
-  listaItens($("s-entregues"), s.entregues_lista, (e) => `
-    <div class="item">
-      <div>
-        <div class="t">${esc(e.nome)}</div>
-        <div class="m">${e.ministerio ? `<span>${esc(e.ministerio)}</span>` : ""}</div>
-      </div>
-      <span class="tag">${dataBR(e.data)}</span>
-    </div>`, "Nenhuma entrega registrada nesta semana.");
-
-  $("s-parados-hint").innerHTML = `<b>${nf(s.parados)}</b> demandas abertas que não estão nem na fila nem em criação: ficaram em espera, viraram calendário ou são avisos.`;
-  $("s-parados").innerHTML = s.parados_por_status.length
-    ? s.parados_por_status.map((p) => `<span class="chip">${esc(p.nome)} <b>${nf(p.total)}</b></span>`).join("")
-    : '<div class="empty">Nada parado.</div>';
 }
 
 /* ============ ABA 2 · MÊS ANTERIOR ============ */
 function renderMes() {
   const m = D.mes_anterior;
-  $("m-periodo").innerHTML = `<b>${esc(m.label)}</b> · mês fechado`;
+  $("m-periodo").textContent = m.label;
 
   $("m-kpis").innerHTML = `
     <div class="tile lime big">
       <div class="k">Entregues no mês</div>
       <div class="v">${nf(m.entregues)}</div>
-      <div class="u">${nf(m.criadas)} pedidos novos entraram no mesmo período</div>
     </div>
     <div class="tile deep">
       <div class="k">Média de entrega</div>
-      <div class="v">${dec(m.tempo_medio)}</div>
-      <div class="u">dias · metade saiu em até ${nf(m.tempo_mediana)}</div>
+      <div class="v">${dec(m.media_entrega)}</div>
+      <div class="u">dias</div>
     </div>
     <div class="tile">
-      <div class="k">Vídeos e reels</div>
+      <div class="k">Vídeos / Reels</div>
       <div class="v">${nf(m.videos)}</div>
-      <div class="u">stories, gravação, edição, animação</div>
     </div>
     <div class="tile">
       <div class="k">Materiais gráficos</div>
       <div class="v">${nf(m.graficos)}</div>
-      <div class="u">posts, impressos, apresentações</div>
     </div>
     <div class="tile">
       <div class="k">Identidades visuais</div>
       <div class="v">${nf(m.identidades)}</div>
-      <div class="u">marcas e packs de evento</div>
     </div>`;
 
-  $("m-min-hint").innerHTML = m.ministerios.length
-    ? `Ministérios com demandas que passaram por ${esc(m.label.split(" ")[0].toLowerCase())}, entre pedidos abertos e entregas.`
-    : "Nenhum ministério ligado às demandas deste mês.";
+  barras($("m-campeoes"), m.campeoes, { soft: true });
   barras($("m-ministerios"), m.ministerios);
 
-  $("m-camp-hint").innerHTML = m.campeoes.length
-    ? `Quem mais abriu demanda no mês. Ranking parcial: <b>${m.cobertura_campeoes}%</b> dos pedidos têm o solicitante preenchido (${nf(m.campeoes_preenchidos)} de ${nf(m.criadas)}).`
-    : "Nenhum pedido do mês tem solicitante preenchido.";
-  barras($("m-campeoes"), m.campeoes, { soft: true });
-
   /* Instagram */
-  if (m.instagram) {
-    $("m-ig-hint").innerHTML = `<b>${nf(m.instagram.total)}</b> publicações no feed, somando os ${D.social.instagram_perfis.length} perfis. ${m.instagram.ativos} publicaram no mês.`;
-    $("m-ig").innerHTML = m.instagram.perfis.map((p) =>
-      `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`).join("");
-  } else {
-    $("m-ig-hint").textContent = "A contagem de publicações deste mês ainda não foi registrada.";
-    $("m-ig").innerHTML = `<div class="empty">Sem contagem para ${esc(m.label)}.</div>`;
-  }
-  blocoFalta($("m-ig-falta"), D.faltando.filter((f) => f.onde.startsWith("Instagram")));
+  $("m-ig").innerHTML = m.instagram.publicacoes
+    ? m.instagram.publicacoes.map((p) =>
+        `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`).join("")
+    : `<div class="empty">A contagem de publicações de ${esc(m.label)} ainda não foi preenchida em social/instagram.json.</div>`;
+
+  $("m-ig-destaques").innerHTML = m.instagram.destaques && m.instagram.destaques.length
+    ? `<div class="list">` + m.instagram.destaques.map((p) => `
+        <div class="item">
+          <div><div class="t">${esc(p.titulo || p.descricao || "Publicação")}</div>
+          <div class="m">${esc([p.perfil, p.data].filter(Boolean).join(" · "))}</div></div>
+          <span class="tag">${esc(p.metrica || "")}</span>
+        </div>`).join("") + `</div>`
+    : `<div class="empty">De 1 a 3 publicações que superaram a média em taxa de engajamento e/ou contas alcançadas.<br>Esses números ${FALTA_IG} — sem ela, não há como saber qual publicação passou da média.</div>`;
 
   /* YouTube */
+  if (D.canal_youtube) $("m-yt-titulo").textContent = `Análise YouTube (${D.canal_youtube.url.replace("https://www.youtube.com", "")})`;
   const y = m.youtube;
-  if (y && y.videos) {
-    $("m-yt-hint").innerHTML = `<b>${nf(y.videos)}</b> vídeos publicados no canal, com <b>${nf(y.views)}</b> visualizações somadas (média de ${nf(y.media_views)} por vídeo).`;
-    $("m-yt").innerHTML = `
-      <div class="nc"><div class="h">Vídeos e lives</div><div class="p">${nf(y.videos)}</div></div>
-      <div class="nc"><div class="h">Visualizações</div><div class="p">${nf(y.views)}</div></div>
-      <div class="nc"><div class="h">Média por vídeo</div><div class="p">${nf(y.media_views)}</div></div>`;
-    $("m-yt-destaques").innerHTML = y.destaques.length
-      ? `<h3>Destaques do mês</h3><div class="list">` + y.destaques.map((v) => `
-          <div class="item">
-            <div><div class="t">${esc(v.titulo)}</div><div class="m"><span>${dataBR(v.data)}</span><span>acima da média do mês</span></div></div>
-            <span class="tag">${nf(v.views)}</span>
-          </div>`).join("") + `</div>`
-      : "";
-  } else {
-    $("m-yt-hint").textContent = "Sem vídeos deste mês na janela do feed público.";
-    $("m-yt").innerHTML = '<div class="empty">O feed do canal cobre só os 15 vídeos mais recentes.</div>';
-    $("m-yt-destaques").innerHTML = "";
-  }
+  $("m-yt").innerHTML = y && y.videos
+    ? campo("Vídeos e lives", nf(y.videos)) + campo("Visualizações", nf(y.views)) + campo("Média por vídeo", nf(y.media_views))
+    : `<div class="empty">Nenhum vídeo de ${esc(m.label)} na janela do feed do canal, que cobre os 15 mais recentes.</div>`;
+
+  $("m-yt-destaques").innerHTML = y && y.destaques.length
+    ? `<div class="list">` + y.destaques.map((v) => `
+        <div class="item">
+          <div><div class="t">${esc(v.titulo)}</div><div class="m">${dataBR(v.data)} · acima da média do mês</div></div>
+          <span class="tag">${nf(v.views)}</span>
+        </div>`).join("") + `</div>`
+    : `<div class="empty">Nenhum vídeo do mês superou a média de visualizações, ou o mês já saiu da janela do feed.</div>`;
 }
 
 /* ============ ABA 3 · TRIMESTRE ============ */
+let perfilAtivo = 0;
+
 function renderTrimestre() {
   const t = D.trimestre;
-  $("t-periodo").innerHTML = `<b>${esc(t.label)}</b> · três meses fechados`;
+  $("t-periodo").textContent = t.label;
 
-  const mediaMes = Math.round(t.total_entregues / t.meses.length);
-  $("t-kpis").innerHTML = `
-    <div class="tile lime big">
-      <div class="k">Entregues no trimestre</div>
-      <div class="v">${nf(t.total_entregues)}</div>
-      <div class="u">média de ${nf(mediaMes)} por mês</div>
-    </div>
-    <div class="tile deep">
-      <div class="k">Tempo médio de entrega</div>
-      <div class="v">${dec(t.tempo_medio)}</div>
-      <div class="u">dias no trimestre inteiro</div>
-    </div>
-    <div class="tile">
-      <div class="k">Vídeos e reels</div>
-      <div class="v">${nf(t.total_videos)}</div>
-      <div class="u">no trimestre</div>
-    </div>
-    <div class="tile">
-      <div class="k">Artes</div>
-      <div class="v">${nf(t.total_artes)}</div>
-      <div class="u">gráficos + identidades</div>
-    </div>`;
-
-  const pico = [...t.meses].sort((a, b) => b.entregues - a.entregues)[0];
-  $("t-ent-hint").innerHTML = `Mês mais forte: <b>${esc(pico.label)}</b>, com ${nf(pico.entregues)} entregas.`;
   colunas($("t-entregues"), t.meses.map((m) => ({ label: m.curto, valor: m.entregues })));
-  colunas($("t-tempo"), t.meses.map((m) => ({ label: m.curto, valor: m.tempo_medio, rotulo: dec(m.tempo_medio) + "d" })), { soft: true });
+  colunas($("t-tempo"), t.meses.map((m) => ({ label: m.curto, valor: m.media_entrega, rotulo: dec(m.media_entrega) + "d" })), { soft: true });
 
   const prod = [];
   for (const m of t.meses) {
-    prod.push({ nome: `${m.curto} · vídeos`, total: m.videos });
-    prod.push({ nome: `${m.curto} · artes`, total: m.graficos + m.identidades });
+    prod.push({ nome: `${m.curto} · vídeos/reels`, total: m.videos });
+    prod.push({ nome: `${m.curto} · artes`, total: m.artes });
   }
   barras($("t-producao"), prod);
-  if (t.etiquetagem_irregular) {
-    const pcts = t.cobertura_tipos.map((c) => c.pct);
-    const cobertura = pcts.every((p) => p === pcts[0])
-      ? `Só ${pcts[0]}% das entregas do trimestre têm o tipo de tarefa preenchido`
-      : `A parcela de entregas com tipo de tarefa preenchido varia no trimestre (${t.cobertura_tipos.map((c) => `${c.pct}% em ${c.curto}`).join(", ")})`;
-    $("t-producao").insertAdjacentHTML("afterend",
-      `<div class="falta" style="margin-top:16px"><ul><li><b>Leia com ressalva</b><span>
-       ${cobertura}, e a equipe mudou de etiqueta ao longo do período: antes marcava "Postar" e "Pack Social Media",
-       depois passou a marcar "Gravação", "Edição" e "Story". Boa parte do salto de vídeos entre os meses vem daí,
-       não necessariamente de produção nova.</span></li></ul></div>`);
-  }
 
-  /* Instagram */
-  if (t.instagram) {
-    $("t-ig-hint").innerHTML = `<b>${nf(t.instagram.total)}</b> publicações no trimestre, somando todos os perfis.`;
-    $("t-ig").innerHTML = t.instagram.perfis.map((p) =>
-      `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`).join("");
-  } else {
-    $("t-ig-hint").textContent = "Sem contagem de publicações registrada para estes meses.";
-    $("t-ig").innerHTML = '<div class="empty">Nada registrado no período.</div>';
-  }
-  blocoFalta($("t-ig-falta"), D.faltando.filter((f) => f.onde.startsWith("Instagram")));
+  /* Instagram — uma sub-aba por perfil, como o documento pede */
+  $("t-ig-abas").innerHTML = t.instagram.map((p, i) =>
+    `<button type="button" role="tab" data-i="${i}" aria-selected="${i === perfilAtivo}">${esc(p.handle)}</button>`).join("");
+  renderPerfilIg(perfilAtivo);
 
   /* YouTube */
+  if (D.canal_youtube) $("t-yt-titulo").textContent = `Visão geral YouTube (${D.canal_youtube.url.replace("https://www.youtube.com", "")})`;
   const y = t.youtube;
-  if (y && y.videos) {
-    const inscritos = D.social.youtube && D.social.youtube.inscritos;
-    $("t-yt-hint").innerHTML = `<b>${nf(y.videos)}</b> vídeos no trimestre, com <b>${nf(y.views)}</b> visualizações somadas.`;
-    $("t-yt").innerHTML = `
-      <div class="nc"><div class="h">Vídeos e lives</div><div class="p">${nf(y.videos)}</div></div>
-      <div class="nc"><div class="h">Visualizações</div><div class="p">${nf(y.views)}</div></div>
-      <div class="nc"><div class="h">Média por vídeo</div><div class="p">${nf(y.media_views)}</div></div>
-      ${inscritos ? `<div class="nc"><div class="h">Inscritos</div><div class="p">${nf(inscritos)}</div></div>` : ""}`;
-    $("t-yt-destaques").innerHTML = y.destaques.length
-      ? `<h3>Vídeos mais vistos</h3><div class="list">` + y.destaques.map((v) => `
-          <div class="item">
-            <div><div class="t">${esc(v.titulo)}</div><div class="m"><span>${dataBR(v.data)}</span></div></div>
-            <span class="tag">${nf(v.views)}</span>
-          </div>`).join("") + `</div>`
-      : "";
-  } else {
-    $("t-yt-hint").textContent = "Os vídeos deste trimestre já saíram da janela do feed público.";
-    $("t-yt").innerHTML = '<div class="empty">O feed do canal cobre só os 15 vídeos mais recentes.</div>';
-    $("t-yt-destaques").innerHTML = "";
-  }
-  blocoFalta($("t-yt-falta"), D.faltando.filter((f) => f.onde.startsWith("YouTube")));
+  $("t-yt").innerHTML =
+    (y.inscritos ? campo("Total de inscritos", nf(y.inscritos)) : campoVazio("Total de inscritos", "falta a chave da YouTube Data API")) +
+    campoVazio("Ritmo de crescimento", "precisa de duas medições de inscritos") +
+    campoVazio("Tempo de exibição", FALTA_YT_ANALYTICS) +
+    campoVazio("Interações", FALTA_YT_ANALYTICS) +
+    campoVazio("Horários de pico", FALTA_YT_ANALYTICS) +
+    campoVazio("Taxa de cliques (CTR)", FALTA_YT_ANALYTICS);
+
+  colunas($("t-yt-mensais"), y.mensais.map((m) => ({ label: m.curto, valor: m.views })));
+
+  $("t-yt-top").innerHTML = y.top.length
+    ? `<div class="list">` + y.top.map((v) => `
+        <div class="item">
+          <div><div class="t">${esc(v.titulo)}</div><div class="m">${dataBR(v.data)}</div></div>
+          <span class="tag">${nf(v.views)}</span>
+        </div>`).join("") + `</div>`
+    : `<div class="empty">Os vídeos deste trimestre já saíram da janela do feed do canal.</div>`;
 }
+
+function renderPerfilIg(i) {
+  perfilAtivo = i;
+  const p = D.trimestre.instagram[i];
+  const mt = p.metricas || {};
+  const val = (v) => (v === null || v === undefined ? null : v);
+
+  $("t-ig").innerHTML =
+    (val(mt.seguidores) !== null ? campo("Número de seguidores atuais", nf(mt.seguidores)) : campoVazio("Número de seguidores atuais", FALTA_IG)) +
+    (val(mt.crescimento_seguidores) !== null ? campo("Crescimento de seguidores", esc(mt.crescimento_seguidores)) : campoVazio("Crescimento de seguidores", FALTA_IG)) +
+    (val(mt.contas_alcancadas) !== null ? campo("Contas alcançadas", nf(mt.contas_alcancadas)) : campoVazio("Contas alcançadas", FALTA_IG)) +
+    (val(mt.taxa_engajamento) !== null ? campo("Taxa de engajamento", esc(mt.taxa_engajamento)) : campoVazio("Taxa de engajamento", FALTA_IG)) +
+    (val(mt.salvamentos) !== null ? campo("Salvamentos e compartilhamentos", esc(mt.salvamentos)) : campoVazio("Salvamentos e compartilhamentos", FALTA_IG)) +
+    (val(mt.desempenho_por_formato) !== null ? campo("Desempenho por formato", esc(mt.desempenho_por_formato)) : campoVazio("Desempenho por formato", FALTA_IG)) +
+    (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", FALTA_IG)) +
+    (p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre)) : campoVazio("Publicações no trimestre", "contagem ainda não preenchida"));
+
+  $("t-ig-top").innerHTML = mt.top_publicacoes && mt.top_publicacoes.length
+    ? `<div class="list">` + mt.top_publicacoes.map((x) => `
+        <div class="item">
+          <div><div class="t">${esc(x.titulo || x.descricao || "Publicação")}</div><div class="m">${esc(x.data || "")}</div></div>
+          <span class="tag">${esc(x.metrica || "")}</span>
+        </div>`).join("") + `</div>`
+    : `<div class="empty">De 3 a 5 publicações mais fortes de ${esc(p.handle)}. ${FALTA_IG[0].toUpperCase() + FALTA_IG.slice(1)}.</div>`;
+
+  for (const b of $("t-ig-abas").querySelectorAll("button")) {
+    b.setAttribute("aria-selected", String(+b.dataset.i === i));
+  }
+}
+
+$("t-ig-abas").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-i]");
+  if (b) renderPerfilIg(+b.dataset.i);
+});
 
 /* ---------- abas ---------- */
 const ABAS = [
@@ -1482,38 +825,31 @@ const ABAS = [
   { botao: "tab-mes", painel: "p-mes", render: renderMes },
   { botao: "tab-trimestre", painel: "p-trimestre", render: renderTrimestre },
 ];
-let jaRenderizou = new Set();
-
+const feitas = new Set();
 function abrir(id) {
   for (const a of ABAS) {
     const ativa = a.botao === id;
     $(a.botao).setAttribute("aria-selected", String(ativa));
     $(a.painel).hidden = !ativa;
-    if (ativa && !jaRenderizou.has(id)) { a.render(); jaRenderizou.add(id); }
+    if (ativa && !feitas.has(id)) { a.render(); feitas.add(id); }
   }
 }
 for (const a of ABAS) $(a.botao).addEventListener("click", () => abrir(a.botao));
 document.querySelector(".abas").addEventListener("keydown", (e) => {
   const i = ABAS.findIndex((a) => a.botao === document.activeElement.id);
   if (i < 0) return;
-  const proximo = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : -1;
-  if (proximo < 0 || proximo >= ABAS.length) return;
+  const p = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : -1;
+  if (p < 0 || p >= ABAS.length) return;
   e.preventDefault();
-  $(ABAS[proximo].botao).focus();
-  abrir(ABAS[proximo].botao);
+  $(ABAS[p].botao).focus();
+  abrir(ABAS[p].botao);
 });
 
-/* ---------- status e rodapé ---------- */
-const atualizado = new Date(D.gerado_em);
-const diasDesde = Math.floor((Date.now() - atualizado.getTime()) / 86400000);
-const stamp = $("stamp");
-stamp.textContent = diasDesde <= 0 ? "atualizado hoje" : diasDesde === 1 ? "atualizado ontem" : `atualizado há ${diasDesde} dias`;
-stamp.classList.toggle("velho", diasDesde >= 2);
-stamp.title = `Última atualização: ${atualizado.toLocaleString("pt-BR")}`;
-
-$("foot").innerHTML = `Atualizado em <b>${atualizado.toLocaleDateString("pt-BR")} às ${atualizado.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</b>, sobre ${nf(D.total_demandas)} demandas registradas.<br>
-Fontes: Banco de Dados de Comunicação, Acompanhamento de Pedidos e Ranking Ministérios (Notion, alimentado pelo F.O.C.O.) · Instagram (contagem manual do feed) · YouTube (feed oficial do canal).<br>
-Uma demanda conta como entregue pela data de finalização registrada no card, e não pelo status atual — assim o histórico não muda quando os cards são arquivados.`;
+/* ---------- rodapé ---------- */
+const at = new Date(D.gerado_em);
+$("foot").innerHTML = `Atualizado em <b>${at.toLocaleDateString("pt-BR")} às ${at.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</b>.<br>
+Dados retirados do Notion, imputados através do F.O.C.O. — Formulário de Comunicação.<br>
+Uma demanda conta como entregue pela data de finalização registrada no card, e não pelo status atual, para o histórico não mudar quando os cards são arquivados.`;
 
 abrir("tab-semana");
 </script>

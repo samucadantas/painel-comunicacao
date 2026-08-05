@@ -24,17 +24,24 @@ Nenhum dos dois contém token: só os números já calculados.
 
 ## O que cada aba mostra
 
+Os campos são exatamente os do documento **Dashboard StaffCom** — nada a mais, nada a menos.
+
 **Aba 1 · Semana** (domingo a sábado, a que abre)
-Demandas na fila · em criação · entregues na semana com comparativo da semana anterior ·
-fila de vídeos · fila de artes · o que passou do prazo · próximos 14 dias · o que está parado.
+Demandas na fila · demandas em criação · entregues essa semana com comparativo da semana
+anterior · fila de vídeos · fila de artes.
 
 **Aba 2 · Mês anterior**
 Entregues no mês · média de entrega · campeões de demanda · ranking de ministérios ·
-vídeos e reels · materiais gráficos · identidades visuais · análise de Instagram e YouTube
-com os destaques que passaram da média.
+vídeos/reels · materiais gráficos · identidades visuais · análise Instagram (publicações nos
+7 perfis + destaques) · análise YouTube (vídeos/lives + destaques).
 
 **Aba 3 · Trimestre** (os três meses fechados antes do vigente)
-Comparativo de entregas, tempo de entrega, vídeos e artes mês a mês · visão geral das redes.
+Comparativo trimestral de entregues · tempo de entrega · comparativo de vídeos/reels e artes ·
+visão geral do Instagram, com uma sub-aba para @aponte_recife e outra para @somosaponte ·
+visão geral do YouTube.
+
+Campos que o documento pede e ainda não têm fonte de dado aparecem na tela vazios, com a
+razão embaixo. Melhor um campo honesto do que um campo escondido.
 
 ## De onde vêm os dados
 

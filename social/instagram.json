@@ -1,31 +1,56 @@
 {
-  "_como_atualizar": "O Instagram não tem API aberta. Enquanto a Graph API não estiver ligada, conte os posts do feed de cada perfil no mês e escreva aqui. Um bloco por mês (AAAA-MM).",
+  "_como_preencher": "O Instagram não tem API aberta. Enquanto a Graph API da Meta não estiver ligada, os números entram aqui à mão. 'meses' = quantas publicações cada perfil fez no mês. 'destaques' = de 1 a 3 publicações do mês que superaram a média em engajamento e/ou contas alcançadas. 'visao_geral' = as métricas de perfil do trimestre (aba 3). Onde estiver null, o painel mostra o campo vazio em vez de inventar número.",
+
   "atualizado_em": "2026-08-05",
-  "perfis": [
-    "@somosaponte",
-    "@aponte_recife",
-    "@estacaodaponte",
-    "@entranatoca",
-    "@opatiodaponte",
-    "@pontezinha",
-    "@tocaplay_recife"
-  ],
+
   "meses": {
     "2026-07": {
       "@aponte_recife": 23,
-      "@estacaodaponte": 5,
-      "@entranatoca": 3,
-      "@tocaplay_recife": 1,
       "@somosaponte": 0,
-      "@opatiodaponte": 0
+      "@pontezinha": 0,
+      "@estacaodaponte": 5,
+      "@opatiodaponte": 0,
+      "@entranatoca": 3,
+      "@tocaplay_recife": 1
     },
     "2026-06": {
       "@aponte_recife": 14,
       "@somosaponte": 4,
-      "@opatiodaponte": 3,
+      "@pontezinha": 0,
       "@estacaodaponte": 2,
+      "@opatiodaponte": 3,
       "@entranatoca": 1,
       "@tocaplay_recife": 1
+    }
+  },
+
+  "destaques": {
+    "2026-07": null,
+    "2026-06": null
+  },
+
+  "visao_geral": {
+    "@aponte_recife": {
+      "seguidores": null,
+      "crescimento_seguidores": null,
+      "contas_alcancadas": null,
+      "taxa_engajamento": null,
+      "salvamentos": null,
+      "compartilhamentos": null,
+      "desempenho_por_formato": null,
+      "novos_seguidores": null,
+      "top_publicacoes": null
+    },
+    "@somosaponte": {
+      "seguidores": null,
+      "crescimento_seguidores": null,
+      "contas_alcancadas": null,
+      "taxa_engajamento": null,
+      "salvamentos": null,
+      "compartilhamentos": null,
+      "desempenho_por_formato": null,
+      "novos_seguidores": null,
+      "top_publicacoes": null
     }
   }
 }
