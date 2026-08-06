@@ -28,6 +28,45 @@
     }
   },
 
+  "_sobre_insights": "Lido do Professional Dashboard do Instagram, logado como o próprio perfil. ATENÇÃO: o Instagram web só oferece janelas móveis de 7, 14, 30 ou 90 dias — não dá para pedir 'julho' nem 'maio a julho'. Por isso a janela de 90 dias é usada como aproximação do trimestre, e o painel mostra isso com esse nome. Só a Graph API permite intervalos de data exatos.",
+  "insights": {
+    "@aponte_recife": {
+      "medido_em": "2026-08-06",
+      "janelas": {
+        "30d": {
+          "periodo_aprox": "08/07 a 06/08",
+          "views": 734474,
+          "views_seguidores_pct": 70,
+          "contas_alcancadas": 71339,
+          "interacoes": 22212,
+          "interacoes_seguidores_pct": 85.8,
+          "contas_engajadas": 5722,
+          "visitas_perfil": 17613,
+          "cliques_link": 1640,
+          "formato_views": { "Stories": 69.3, "Reels": 29.7, "Posts": 0.9, "Vídeos": 0.0 },
+          "formato_interacoes": { "Reels": 51.5, "Stories": 29.1, "Posts": 19.4 }
+        },
+        "90d": {
+          "periodo_aprox": "08/05 a 06/08",
+          "views": 1624763,
+          "views_seguidores_pct": 72.3,
+          "contas_alcancadas": 110292,
+          "interacoes": 48491,
+          "interacoes_seguidores_pct": 87.6,
+          "contas_engajadas": 9119,
+          "visitas_perfil": 41133,
+          "cliques_link": 3194,
+          "formato_views": { "Stories": 72.1, "Reels": 23.8, "Posts": 4.1, "Vídeos": 0.0 },
+          "formato_interacoes": { "Reels": 41.9, "Stories": 32.7, "Posts": 25.4 }
+        }
+      },
+      "dia_mais_ativo": "Sábado",
+      "salvamentos": null,
+      "compartilhamentos": null,
+      "_nota": "Salvamentos e compartilhamentos não aparecem separados no Insights web em nível de conta — só por publicação no app, ou via Graph API."
+    }
+  },
+
   "meses": {
     "2026-07": {
       "@aponte_recife": 23,

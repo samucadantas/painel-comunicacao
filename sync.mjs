@@ -333,10 +333,32 @@ async function build() {
       const penultima = datas.at(-2);
       const atual = ultima ? ig.seguidores[ultima]?.[handle] ?? null : null;
       const antes = penultima ? ig.seguidores[penultima]?.[handle] ?? null : null;
+      // Insights lidos do Professional Dashboard. A janela de 90 dias é a mais próxima
+      // do trimestre que o Instagram web oferece — ela vem rotulada como tal no painel.
+      const ins = ig?.insights?.[handle] || null;
+      const j = ins?.janelas?.["90d"] || null;
       return {
         handle,
         seguidores: atual,
         seguidores_medido_em: atual != null ? ultima : null,
+        insights: j ? {
+          periodo: j.periodo_aprox,
+          medido_em: ins.medido_em,
+          contas_alcancadas: j.contas_alcancadas,
+          views: j.views,
+          interacoes: j.interacoes,
+          contas_engajadas: j.contas_engajadas,
+          // engajamento = contas que interagiram ÷ contas alcançadas
+          taxa_engajamento: j.contas_alcancadas
+            ? Math.round((j.contas_engajadas / j.contas_alcancadas) * 1000) / 10 : null,
+          visitas_perfil: j.visitas_perfil,
+          cliques_link: j.cliques_link,
+          formato_views: j.formato_views,
+          formato_interacoes: j.formato_interacoes,
+          dia_mais_ativo: ins.dia_mais_ativo || null,
+          salvamentos: ins.salvamentos ?? null,
+          compartilhamentos: ins.compartilhamentos ?? null,
+        } : null,
         crescimento: atual != null && antes != null
           ? { de: penultima, ate: ultima, diferenca: atual - antes,
               pct: antes ? Math.round(((atual - antes) / antes) * 1000) / 10 : null }

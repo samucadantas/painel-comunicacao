@@ -192,6 +192,8 @@
   :root[data-theme="dark"] .tag{background:rgba(233,240,233,.1)}
   @media (prefers-color-scheme: dark){.tag{background:rgba(233,240,233,.1)}}
   .empty{padding:18px;text-align:center;color:var(--muted);font-size:13.5px;background:var(--surface-2);border-radius:var(--radius-sm);line-height:1.45}
+  .janela{font-size:12.5px;color:var(--muted);margin:0 0 14px;max-width:70ch;line-height:1.5}
+  .janela b{color:var(--ink);font-weight:650}
 
   /* ---------- sub-abas de perfil ---------- */
   .subabas{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
@@ -296,6 +298,8 @@
       <h2>Visão geral Instagram</h2>
       <div class="subabas" id="t-ig-abas" role="tablist" aria-label="Perfil do Instagram"></div>
       <div class="net" id="t-ig"></div>
+      <h3>Desempenho por formato</h3>
+      <div id="t-ig-formato"></div>
       <h3>Top publicações</h3>
       <div id="t-ig-top"></div>
     </section>
@@ -315,7 +319,7 @@
 
 <script>
 const D = /*__DADOS__*/{
-  "gerado_em": "2026-08-06T11:54:55.266Z",
+  "gerado_em": "2026-08-06T12:11:13.617Z",
   "hoje": "2026-08-06",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -445,7 +449,7 @@ const D = /*__DADOS__*/{
     },
     "youtube": {
       "videos": 6,
-      "views": 7469,
+      "views": 7470,
       "media_views": 1245,
       "destaques": [
         {
@@ -494,6 +498,31 @@ const D = /*__DADOS__*/{
         "handle": "@aponte_recife",
         "seguidores": 39422,
         "seguidores_medido_em": "2026-08-06",
+        "insights": {
+          "periodo": "08/05 a 06/08",
+          "medido_em": "2026-08-06",
+          "contas_alcancadas": 110292,
+          "views": 1624763,
+          "interacoes": 48491,
+          "contas_engajadas": 9119,
+          "taxa_engajamento": 8.3,
+          "visitas_perfil": 41133,
+          "cliques_link": 3194,
+          "formato_views": {
+            "Stories": 72.1,
+            "Reels": 23.8,
+            "Posts": 4.1,
+            "Vídeos": 0
+          },
+          "formato_interacoes": {
+            "Reels": 41.9,
+            "Stories": 32.7,
+            "Posts": 25.4
+          },
+          "dia_mais_ativo": "Sábado",
+          "salvamentos": null,
+          "compartilhamentos": null
+        },
         "crescimento": null,
         "posts_totais": 977,
         "metricas": {
@@ -514,6 +543,7 @@ const D = /*__DADOS__*/{
         "handle": "@somosaponte",
         "seguidores": 40210,
         "seguidores_medido_em": "2026-08-06",
+        "insights": null,
         "crescimento": null,
         "posts_totais": 1985,
         "metricas": {
@@ -533,7 +563,7 @@ const D = /*__DADOS__*/{
     ],
     "youtube": {
       "videos": 13,
-      "views": 16133,
+      "views": 16134,
       "media_views": 1241,
       "destaques": [
         {
@@ -565,7 +595,7 @@ const D = /*__DADOS__*/{
         },
         {
           "curto": "Jul/26",
-          "views": 7469,
+          "views": 7470,
           "videos": 6
         }
       ],
@@ -800,6 +830,8 @@ function renderPerfilIg(i) {
   const val = (v) => (v === null || v === undefined ? null : v);
 
   const cresc = p.crescimento;
+  const ins = p.insights;
+
   $("t-ig").innerHTML =
     (p.seguidores != null
       ? campo("Número de seguidores atuais", nf(p.seguidores))
@@ -807,13 +839,37 @@ function renderPerfilIg(i) {
     (cresc
       ? campo("Crescimento de seguidores", `${cresc.diferenca >= 0 ? "+" : ""}${nf(cresc.diferenca)}`)
       : campoVazio("Crescimento de seguidores", p.seguidores != null ? "só na próxima medição" : FALTA_IG)) +
-    (val(mt.contas_alcancadas) !== null ? campo("Contas alcançadas", nf(mt.contas_alcancadas)) : campoVazio("Contas alcançadas", FALTA_IG)) +
-    (val(mt.taxa_engajamento) !== null ? campo("Taxa de engajamento", esc(mt.taxa_engajamento)) : campoVazio("Taxa de engajamento", FALTA_IG)) +
-    (val(mt.salvamentos) !== null ? campo("Salvamentos e compartilhamentos", esc(mt.salvamentos)) : campoVazio("Salvamentos e compartilhamentos", FALTA_IG)) +
-    (val(mt.desempenho_por_formato) !== null ? campo("Desempenho por formato", esc(mt.desempenho_por_formato)) : campoVazio("Desempenho por formato", FALTA_IG)) +
+    (ins ? campo("Contas alcançadas", nf(ins.contas_alcancadas)) : campoVazio("Contas alcançadas", FALTA_IG)) +
+    (ins ? campo("Taxa de engajamento", dec(ins.taxa_engajamento) + "%") : campoVazio("Taxa de engajamento", FALTA_IG)) +
+    (ins ? campo("Visualizações", nf(ins.views)) : "") +
+    (ins ? campo("Interações", nf(ins.interacoes)) : "") +
+    (ins ? campo("Visitas ao perfil", nf(ins.visitas_perfil)) : "") +
+    (ins ? campo("Cliques no link", nf(ins.cliques_link)) : "") +
+    (ins && ins.salvamentos != null
+      ? campo("Salvamentos e compartilhamentos", nf(ins.salvamentos))
+      : campoVazio("Salvamentos e compartilhamentos", "o Insights web não separa isso por conta")) +
     (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", FALTA_IG)) +
     (p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre)) : campoVazio("Publicações no trimestre", "contagem ainda não preenchida")) +
     (p.posts_totais != null ? campo("Publicações no perfil", nf(p.posts_totais)) : "");
+
+  /* Desempenho por formato — o documento pede como campo próprio */
+  $("t-ig-formato").innerHTML = ins
+    ? `<p class="janela">Alcance e engajamento de <b>${esc(ins.periodo)}</b> (janela de 90 dias, medida em ${esc(ins.medido_em.split("-").reverse().join("/"))}). O Instagram não permite recortar por mês fechado.</p>
+       <div class="rows">` +
+      Object.entries(ins.formato_views).filter(([, v]) => v > 0).map(([k, v]) => `
+        <div class="r"><div class="nm">${esc(k)}</div>
+          <div class="track"><div class="fill" style="width:${Math.max(v, 3)}%"></div></div>
+          <div class="n">${dec(v)}%</div></div>`).join("") +
+      `</div>
+       <h3>Onde vêm as interações</h3>
+       <div class="rows">` +
+      Object.entries(ins.formato_interacoes).filter(([, v]) => v > 0).map(([k, v]) => `
+        <div class="r"><div class="nm">${esc(k)}</div>
+          <div class="track"><div class="fill soft" style="width:${Math.max(v, 3)}%"></div></div>
+          <div class="n">${dec(v)}%</div></div>`).join("") +
+      `</div>` +
+      (ins.dia_mais_ativo ? `<p class="janela">Dia com mais gente ativa: <b>${esc(ins.dia_mais_ativo)}</b>.</p>` : "")
+    : `<div class="empty">Desempenho por formato ${FALTA_IG}.</div>`;
 
   $("t-ig-top").innerHTML = mt.top_publicacoes && mt.top_publicacoes.length
     ? `<div class="list">` + mt.top_publicacoes.map((x) => `

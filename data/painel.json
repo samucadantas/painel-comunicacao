@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-08-06T11:54:55.266Z",
+  "gerado_em": "2026-08-06T12:11:13.617Z",
   "hoje": "2026-08-06",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -129,7 +129,7 @@
     },
     "youtube": {
       "videos": 6,
-      "views": 7469,
+      "views": 7470,
       "media_views": 1245,
       "destaques": [
         {
@@ -178,6 +178,31 @@
         "handle": "@aponte_recife",
         "seguidores": 39422,
         "seguidores_medido_em": "2026-08-06",
+        "insights": {
+          "periodo": "08/05 a 06/08",
+          "medido_em": "2026-08-06",
+          "contas_alcancadas": 110292,
+          "views": 1624763,
+          "interacoes": 48491,
+          "contas_engajadas": 9119,
+          "taxa_engajamento": 8.3,
+          "visitas_perfil": 41133,
+          "cliques_link": 3194,
+          "formato_views": {
+            "Stories": 72.1,
+            "Reels": 23.8,
+            "Posts": 4.1,
+            "Vídeos": 0
+          },
+          "formato_interacoes": {
+            "Reels": 41.9,
+            "Stories": 32.7,
+            "Posts": 25.4
+          },
+          "dia_mais_ativo": "Sábado",
+          "salvamentos": null,
+          "compartilhamentos": null
+        },
         "crescimento": null,
         "posts_totais": 977,
         "metricas": {
@@ -198,6 +223,7 @@
         "handle": "@somosaponte",
         "seguidores": 40210,
         "seguidores_medido_em": "2026-08-06",
+        "insights": null,
         "crescimento": null,
         "posts_totais": 1985,
         "metricas": {
@@ -217,7 +243,7 @@
     ],
     "youtube": {
       "videos": 13,
-      "views": 16133,
+      "views": 16134,
       "media_views": 1241,
       "destaques": [
         {
@@ -249,7 +275,7 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7469,
+          "views": 7470,
           "videos": 6
         }
       ],
