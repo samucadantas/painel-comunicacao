@@ -1,7 +1,32 @@
 {
   "_como_preencher": "O Instagram não tem API aberta. Enquanto a Graph API da Meta não estiver ligada, os números entram aqui à mão. 'meses' = quantas publicações cada perfil fez no mês. 'destaques' = de 1 a 3 publicações do mês que superaram a média em engajamento e/ou contas alcançadas. 'visao_geral' = as métricas de perfil do trimestre (aba 3). Onde estiver null, o painel mostra o campo vazio em vez de inventar número.",
 
-  "atualizado_em": "2026-08-05",
+  "atualizado_em": "2026-08-06",
+
+  "_sobre_seguidores": "Número de seguidores e total de posts são públicos — dá para ler sem acesso administrativo. Cada medição entra com a data; a partir da segunda, o painel calcula o crescimento sozinho.",
+  "seguidores": {
+    "2026-08-06": {
+      "@aponte_recife": 39422,
+      "@somosaponte": 40210,
+      "@pontezinha": 3161,
+      "@estacaodaponte": 2789,
+      "@opatiodaponte": 2223,
+      "@entranatoca": 7193,
+      "@tocaplay_recife": 674
+    }
+  },
+
+  "posts_totais": {
+    "2026-08-06": {
+      "@aponte_recife": 977,
+      "@somosaponte": 1985,
+      "@pontezinha": 298,
+      "@estacaodaponte": 115,
+      "@opatiodaponte": 133,
+      "@entranatoca": 860,
+      "@tocaplay_recife": 11
+    }
+  },
 
   "meses": {
     "2026-07": {

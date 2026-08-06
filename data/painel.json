@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-08-05T18:56:45.223Z",
-  "hoje": "2026-08-05",
+  "gerado_em": "2026-08-06T11:54:55.266Z",
+  "hoje": "2026-08-06",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -17,12 +17,12 @@
   "semana": {
     "label": "Semana de 02/08 a 08/08",
     "mes_vigente": "Agosto 2026",
-    "fila": 7,
-    "em_criacao": 10,
+    "fila": 5,
+    "em_criacao": 13,
     "entregues": 6,
     "entregues_semana_anterior": 26,
     "fila_videos": 7,
-    "fila_artes": 5
+    "fila_artes": 6
   },
   "mes_anterior": {
     "month": "2026-07",
@@ -129,18 +129,18 @@
     },
     "youtube": {
       "videos": 6,
-      "views": 7452,
-      "media_views": 1242,
+      "views": 7469,
+      "media_views": 1245,
       "destaques": [
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2120
+          "views": 2126
         },
         {
           "titulo": "“Ira e Reconciliação” por Digo Karagulian",
           "data": "2026-07-05",
-          "views": 1422
+          "views": 1426
         }
       ]
     }
@@ -176,6 +176,10 @@
     "instagram": [
       {
         "handle": "@aponte_recife",
+        "seguidores": 39422,
+        "seguidores_medido_em": "2026-08-06",
+        "crescimento": null,
+        "posts_totais": 977,
         "metricas": {
           "seguidores": null,
           "crescimento_seguidores": null,
@@ -192,6 +196,10 @@
       },
       {
         "handle": "@somosaponte",
+        "seguidores": 40210,
+        "seguidores_medido_em": "2026-08-06",
+        "crescimento": null,
+        "posts_totais": 1985,
         "metricas": {
           "seguidores": null,
           "crescimento_seguidores": null,
@@ -209,13 +217,13 @@
     ],
     "youtube": {
       "videos": 13,
-      "views": 16113,
-      "media_views": 1239,
+      "views": 16133,
+      "media_views": 1241,
       "destaques": [
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2120
+          "views": 2126
         },
         {
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
@@ -225,7 +233,7 @@
         {
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
           "data": "2026-06-14",
-          "views": 1571
+          "views": 1573
         }
       ],
       "mensais": [
@@ -236,12 +244,12 @@
         },
         {
           "curto": "Jun/26",
-          "views": 8661,
+          "views": 8664,
           "videos": 7
         },
         {
           "curto": "Jul/26",
-          "views": 7452,
+          "views": 7469,
           "videos": 6
         }
       ],
@@ -250,7 +258,7 @@
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2120
+          "views": 2126
         },
         {
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
@@ -260,12 +268,12 @@
         {
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
           "data": "2026-06-14",
-          "views": 1571
+          "views": 1573
         },
         {
           "titulo": "“Ira e Reconciliação” por Digo Karagulian",
           "data": "2026-07-05",
-          "views": 1422
+          "views": 1426
         },
         {
           "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",

@@ -514,15 +514,21 @@ function renderPerfilIg(i) {
   const mt = p.metricas || {};
   const val = (v) => (v === null || v === undefined ? null : v);
 
+  const cresc = p.crescimento;
   $("t-ig").innerHTML =
-    (val(mt.seguidores) !== null ? campo("Número de seguidores atuais", nf(mt.seguidores)) : campoVazio("Número de seguidores atuais", FALTA_IG)) +
-    (val(mt.crescimento_seguidores) !== null ? campo("Crescimento de seguidores", esc(mt.crescimento_seguidores)) : campoVazio("Crescimento de seguidores", FALTA_IG)) +
+    (p.seguidores != null
+      ? campo("Número de seguidores atuais", nf(p.seguidores))
+      : campoVazio("Número de seguidores atuais", FALTA_IG)) +
+    (cresc
+      ? campo("Crescimento de seguidores", `${cresc.diferenca >= 0 ? "+" : ""}${nf(cresc.diferenca)}`)
+      : campoVazio("Crescimento de seguidores", p.seguidores != null ? "só na próxima medição" : FALTA_IG)) +
     (val(mt.contas_alcancadas) !== null ? campo("Contas alcançadas", nf(mt.contas_alcancadas)) : campoVazio("Contas alcançadas", FALTA_IG)) +
     (val(mt.taxa_engajamento) !== null ? campo("Taxa de engajamento", esc(mt.taxa_engajamento)) : campoVazio("Taxa de engajamento", FALTA_IG)) +
     (val(mt.salvamentos) !== null ? campo("Salvamentos e compartilhamentos", esc(mt.salvamentos)) : campoVazio("Salvamentos e compartilhamentos", FALTA_IG)) +
     (val(mt.desempenho_por_formato) !== null ? campo("Desempenho por formato", esc(mt.desempenho_por_formato)) : campoVazio("Desempenho por formato", FALTA_IG)) +
     (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", FALTA_IG)) +
-    (p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre)) : campoVazio("Publicações no trimestre", "contagem ainda não preenchida"));
+    (p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre)) : campoVazio("Publicações no trimestre", "contagem ainda não preenchida")) +
+    (p.posts_totais != null ? campo("Publicações no perfil", nf(p.posts_totais)) : "");
 
   $("t-ig-top").innerHTML = mt.top_publicacoes && mt.top_publicacoes.length
     ? `<div class="list">` + mt.top_publicacoes.map((x) => `

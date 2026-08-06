@@ -326,12 +326,27 @@ async function build() {
       videos: m.videos, artes: m.artes,
     })),
     // "Visão geral Instagram (duas abas: @aponte_recife e @somosaponte)"
-    instagram: PERFIS_VISAO_GERAL.map((handle) => ({
-      handle,
-      metricas: ig?.visao_geral?.[handle] || null,
-      publicacoes_trimestre: mesesTri.reduce((s, m) => s + (ig?.meses?.[m]?.[handle] ?? 0), 0),
-      tem_contagem: mesesTri.some((m) => ig?.meses?.[m]?.[handle] != null),
-    })),
+    instagram: PERFIS_VISAO_GERAL.map((handle) => {
+      // Seguidores e crescimento saem das medições públicas datadas em social/instagram.json.
+      const datas = Object.keys(ig?.seguidores || {}).sort();
+      const ultima = datas.at(-1);
+      const penultima = datas.at(-2);
+      const atual = ultima ? ig.seguidores[ultima]?.[handle] ?? null : null;
+      const antes = penultima ? ig.seguidores[penultima]?.[handle] ?? null : null;
+      return {
+        handle,
+        seguidores: atual,
+        seguidores_medido_em: atual != null ? ultima : null,
+        crescimento: atual != null && antes != null
+          ? { de: penultima, ate: ultima, diferenca: atual - antes,
+              pct: antes ? Math.round(((atual - antes) / antes) * 1000) / 10 : null }
+          : null,
+        posts_totais: ultima ? ig.posts_totais?.[ultima]?.[handle] ?? null : null,
+        metricas: ig?.visao_geral?.[handle] || null,
+        publicacoes_trimestre: mesesTri.reduce((s, m) => s + (ig?.meses?.[m]?.[handle] ?? 0), 0),
+        tem_contagem: mesesTri.some((m) => ig?.meses?.[m]?.[handle] != null),
+      };
+    }),
     // "Visão geral YouTube"
     youtube: {
       ...ytPeriodo(yt, `${mesesTri[0]}-01`, `${mesAnt}-31`),
