@@ -446,8 +446,10 @@ function renderMes() {
   const perfis = m.instagram.genna || [];
   const pendentes = m.instagram.genna_pendentes || [];
   $("m-ig-destaques").innerHTML = perfis.length
-    ? perfis.map((gm) => `
-        <p class="janela">Em <b>${esc(gm.handle)}</b>, ${nf(gm.publicacoes)} publicações no mês alcançaram <b>${nf(gm.alcance)}</b> contas (média de ${nf(gm.media_alcance)} por publicação). ${gm.destaques.length ? "Estas passaram da média:" : "Nenhuma passou da média."}</p>
+    ? perfis.map((gm) => gm.publicacoes === 0
+      ? `<p class="janela"><b>${esc(gm.handle)}</b> não publicou no feed neste mês.</p>`
+      : `
+        <p class="janela">Em <b>${esc(gm.handle)}</b>, ${nf(gm.publicacoes)} ${gm.publicacoes === 1 ? "publicação alcançou" : "publicações alcançaram"} <b>${nf(gm.alcance)}</b> contas (média de ${nf(gm.media_alcance)} por publicação). ${gm.destaques.length ? "Estas passaram da média:" : "Nenhuma passou da média."}</p>
         <div class="list">` + gm.destaques.map((p) => `
           <div class="item">
             <div><div class="t">${esc(p.legenda)}…</div>

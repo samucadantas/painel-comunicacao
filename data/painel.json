@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-08-06T18:51:21.083Z",
+  "gerado_em": "2026-08-06T18:56:23.874Z",
   "hoje": "2026-08-06",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -128,16 +128,33 @@
       "destaques": null,
       "genna": [
         {
+          "handle": "@somosaponte",
+          "periodo": "2026-07",
+          "publicacoes": 0,
+          "alcance": 0,
+          "views": 0,
+          "likes": 0,
+          "comentarios": 0,
+          "compartilhamentos": 0,
+          "salvamentos": 0,
+          "interacoes": 0,
+          "taxa_engajamento": null,
+          "por_formato": {},
+          "top": [],
+          "media_alcance": 0,
+          "destaques": []
+        },
+        {
           "handle": "@aponte_recife",
           "periodo": "2026-07",
           "publicacoes": 16,
-          "alcance": 103099,
-          "views": 206754,
-          "likes": 6833,
+          "alcance": 103133,
+          "views": 206772,
+          "likes": 6834,
           "comentarios": 283,
           "compartilhamentos": 1402,
           "salvamentos": 167,
-          "interacoes": 8898,
+          "interacoes": 8899,
           "taxa_engajamento": 8.6,
           "por_formato": {
             "Carrossel": 6,
@@ -172,14 +189,14 @@
               "tipo": "Carrossel",
               "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
               "link": "https://www.instagram.com/p/DbedVZIjSy3/",
-              "alcance": 9247,
+              "alcance": 9258,
               "interacoes": 480,
               "taxa": 5.2,
               "salvamentos": 14,
               "compartilhamentos": 74
             }
           ],
-          "media_alcance": 6444,
+          "media_alcance": 6446,
           "destaques": [
             {
               "data": "2026-07-08",
@@ -208,7 +225,7 @@
               "tipo": "Carrossel",
               "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
               "link": "https://www.instagram.com/p/DbedVZIjSy3/",
-              "alcance": 9247,
+              "alcance": 9258,
               "interacoes": 480,
               "taxa": 5.2,
               "salvamentos": 14,
@@ -217,13 +234,7 @@
           ]
         }
       ],
-      "genna_pendentes": [
-        {
-          "handle": "@somosaponte",
-          "marca": "A Ponte",
-          "motivo": "conta vinculada, mas a página do Instagram ainda não foi atribuída no Genna"
-        }
-      ]
+      "genna_pendentes": []
     },
     "youtube": {
       "videos": 6,
@@ -279,13 +290,13 @@
         "genna": {
           "periodo": "2026-05-01 a 2026-07-31",
           "publicacoes": 30,
-          "alcance": 171177,
-          "views": 332866,
-          "likes": 12255,
+          "alcance": 171211,
+          "views": 332885,
+          "likes": 12256,
           "comentarios": 473,
           "compartilhamentos": 2178,
           "salvamentos": 270,
-          "interacoes": 15588,
+          "interacoes": 15589,
           "taxa_engajamento": 9.1,
           "por_formato": {
             "Carrossel": 9,
@@ -331,7 +342,7 @@
               "tipo": "Carrossel",
               "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
               "link": "https://www.instagram.com/p/DbedVZIjSy3/",
-              "alcance": 9247,
+              "alcance": 9258,
               "interacoes": 480,
               "taxa": 5.2,
               "salvamentos": 14,
@@ -399,11 +410,113 @@
       },
       {
         "handle": "@somosaponte",
-        "seguidores": 40210,
+        "seguidores": 40203,
         "seguidores_medido_em": "2026-08-06",
-        "genna": null,
-        "genna_pendente": "conta vinculada, mas a página do Instagram ainda não foi atribuída no Genna",
-        "insights": null,
+        "genna": {
+          "periodo": "2026-05-01 a 2026-07-31",
+          "publicacoes": 12,
+          "alcance": 93130,
+          "views": 185739,
+          "likes": 5285,
+          "comentarios": 223,
+          "compartilhamentos": 919,
+          "salvamentos": 114,
+          "interacoes": 7014,
+          "taxa_engajamento": 7.5,
+          "por_formato": {
+            "Reels": 4,
+            "Imagem": 2,
+            "Carrossel": 6
+          },
+          "top": [
+            {
+              "data": "2026-05-15",
+              "tipo": "Reels",
+              "legenda": "Neste Dia Internacional da Família, 15 de maio, queremos refletir sobre uma realidade que ",
+              "link": "https://www.instagram.com/reel/DYX8oMQpKgI/",
+              "alcance": 21997,
+              "interacoes": 1861,
+              "taxa": 8.5,
+              "salvamentos": 18,
+              "compartilhamentos": 365
+            },
+            {
+              "data": "2026-05-31",
+              "tipo": "Carrossel",
+              "legenda": "Você sabe o valor da sua liberdade? Milhares de igrejas brasileiras estão unidas em oração",
+              "link": "https://www.instagram.com/p/DZAJ8GvFVXN/",
+              "alcance": 13024,
+              "interacoes": 760,
+              "taxa": 5.8,
+              "salvamentos": 15,
+              "compartilhamentos": 151
+            },
+            {
+              "data": "2026-06-14",
+              "tipo": "Imagem",
+              "legenda": "Neste Dia do Pastor, queremos agradecer a Deus pela vida dos homens que têm dedicado suas ",
+              "link": "https://www.instagram.com/p/DZkf55GAakz/",
+              "alcance": 9078,
+              "interacoes": 553,
+              "taxa": 6.1,
+              "salvamentos": 3,
+              "compartilhamentos": 36
+            },
+            {
+              "data": "2026-06-17",
+              "tipo": "Reels",
+              "legenda": "No último domingo, começamos uma nova série de mensagens sobre o Sermão do Monte em todas ",
+              "link": "https://www.instagram.com/reel/DZsyIqEJnt3/",
+              "alcance": 7449,
+              "interacoes": 495,
+              "taxa": 6.6,
+              "salvamentos": 6,
+              "compartilhamentos": 62
+            },
+            {
+              "data": "2026-06-04",
+              "tipo": "Carrossel",
+              "legenda": "O evangelho é uma mesa onde pecadores alcançados pela graça aprendem a caminhar juntos. 🤍",
+              "link": "https://www.instagram.com/p/DZLegLfGQ_y/",
+              "alcance": 6246,
+              "interacoes": 591,
+              "taxa": 9.5,
+              "salvamentos": 15,
+              "compartilhamentos": 69
+            }
+          ],
+          "alcance_por_formato": {
+            "Carrossel": 43.7,
+            "Reels": 40,
+            "Imagem": 16.3
+          }
+        },
+        "genna_pendente": null,
+        "insights": {
+          "periodo": "08/05 a 06/08",
+          "medido_em": "2026-08-06",
+          "contas_alcancadas": 48191,
+          "views": 223624,
+          "interacoes": 8104,
+          "contas_engajadas": 2811,
+          "taxa_engajamento": 5.8,
+          "visitas_perfil": 8781,
+          "cliques_link": 146,
+          "formato_views": {
+            "Reels": 58.1,
+            "Posts": 38.7,
+            "Stories": 2.9,
+            "Vídeos": 0.2
+          },
+          "formato_interacoes": {
+            "Posts": 61,
+            "Reels": 38.6,
+            "Stories": 0.4
+          },
+          "dia_mais_ativo": "Sábado",
+          "salvamentos": null,
+          "compartilhamentos": null
+        },
         "crescimento": null,
         "posts_totais": 1985,
         "metricas": {

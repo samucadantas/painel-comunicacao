@@ -1,13 +1,11 @@
 {
   "_como_preencher": "O Instagram não tem API aberta. Enquanto a Graph API da Meta não estiver ligada, os números entram aqui à mão. 'meses' = quantas publicações cada perfil fez no mês. 'destaques' = de 1 a 3 publicações do mês que superaram a média em engajamento e/ou contas alcançadas. 'visao_geral' = as métricas de perfil do trimestre (aba 3). Onde estiver null, o painel mostra o campo vazio em vez de inventar número.",
-
   "atualizado_em": "2026-08-06",
-
   "_sobre_seguidores": "Número de seguidores e total de posts são públicos — dá para ler sem acesso administrativo. Cada medição entra com a data; a partir da segunda, o painel calcula o crescimento sozinho.",
   "seguidores": {
     "2026-08-06": {
       "@aponte_recife": 39422,
-      "@somosaponte": 40210,
+      "@somosaponte": 40203,
       "@pontezinha": 3161,
       "@estacaodaponte": 2789,
       "@opatiodaponte": 2223,
@@ -15,7 +13,6 @@
       "@tocaplay_recife": 674
     }
   },
-
   "posts_totais": {
     "2026-08-06": {
       "@aponte_recife": 977,
@@ -27,7 +24,6 @@
       "@tocaplay_recife": 11
     }
   },
-
   "_sobre_insights": "Lido do Professional Dashboard do Instagram, logado como o próprio perfil. ATENÇÃO: o Instagram web só oferece janelas móveis de 7, 14, 30 ou 90 dias — não dá para pedir 'julho' nem 'maio a julho'. Por isso a janela de 90 dias é usada como aproximação do trimestre, e o painel mostra isso com esse nome. Só a Graph API permite intervalos de data exatos.",
   "insights": {
     "@aponte_recife": {
@@ -43,8 +39,17 @@
           "contas_engajadas": 5722,
           "visitas_perfil": 17613,
           "cliques_link": 1640,
-          "formato_views": { "Stories": 69.3, "Reels": 29.7, "Posts": 0.9, "Vídeos": 0.0 },
-          "formato_interacoes": { "Reels": 51.5, "Stories": 29.1, "Posts": 19.4 }
+          "formato_views": {
+            "Stories": 69.3,
+            "Reels": 29.7,
+            "Posts": 0.9,
+            "Vídeos": 0.0
+          },
+          "formato_interacoes": {
+            "Reels": 51.5,
+            "Stories": 29.1,
+            "Posts": 19.4
+          }
         },
         "90d": {
           "periodo_aprox": "08/05 a 06/08",
@@ -56,17 +61,77 @@
           "contas_engajadas": 9119,
           "visitas_perfil": 41133,
           "cliques_link": 3194,
-          "formato_views": { "Stories": 72.1, "Reels": 23.8, "Posts": 4.1, "Vídeos": 0.0 },
-          "formato_interacoes": { "Reels": 41.9, "Stories": 32.7, "Posts": 25.4 }
+          "formato_views": {
+            "Stories": 72.1,
+            "Reels": 23.8,
+            "Posts": 4.1,
+            "Vídeos": 0.0
+          },
+          "formato_interacoes": {
+            "Reels": 41.9,
+            "Stories": 32.7,
+            "Posts": 25.4
+          }
         }
       },
       "dia_mais_ativo": "Sábado",
       "salvamentos": null,
       "compartilhamentos": null,
       "_nota": "Salvamentos e compartilhamentos não aparecem separados no Insights web em nível de conta — só por publicação no app, ou via Graph API."
+    },
+    "@somosaponte": {
+      "medido_em": "2026-08-06",
+      "janelas": {
+        "30d": {
+          "periodo_aprox": "08/07 a 06/08",
+          "views": 20412,
+          "views_seguidores_pct": 26.9,
+          "contas_alcancadas": 3770,
+          "interacoes": 164,
+          "interacoes_seguidores_pct": 54.3,
+          "contas_engajadas": 102,
+          "visitas_perfil": 3018,
+          "cliques_link": 49,
+          "formato_views": {
+            "Posts": 51.4,
+            "Reels": 44.7,
+            "Stories": 2.9,
+            "Vídeos": 1.0
+          },
+          "formato_interacoes": {
+            "Posts": 66.5,
+            "Reels": 33.5
+          }
+        },
+        "90d": {
+          "periodo_aprox": "08/05 a 06/08",
+          "views": 223624,
+          "views_seguidores_pct": 36.9,
+          "contas_alcancadas": 48191,
+          "interacoes": 8104,
+          "interacoes_seguidores_pct": 69.5,
+          "contas_engajadas": 2811,
+          "visitas_perfil": 8781,
+          "cliques_link": 146,
+          "formato_views": {
+            "Reels": 58.1,
+            "Posts": 38.7,
+            "Stories": 2.9,
+            "Vídeos": 0.2
+          },
+          "formato_interacoes": {
+            "Posts": 61.0,
+            "Reels": 38.6,
+            "Stories": 0.4
+          }
+        }
+      },
+      "dia_mais_ativo": "Sábado",
+      "salvamentos": null,
+      "compartilhamentos": null,
+      "_nota": "Perfil sem publicações novas em julho: o alcance do trimestre vem de conteúdo de maio e junho que continuou rodando. Por isso a janela de 30 dias despenca em relação à de 90."
     }
   },
-
   "meses": {
     "2026-07": {
       "@aponte_recife": 23,
@@ -87,12 +152,10 @@
       "@tocaplay_recife": 1
     }
   },
-
   "destaques": {
     "2026-07": null,
     "2026-06": null
   },
-
   "visao_geral": {
     "@aponte_recife": {
       "seguidores": null,
