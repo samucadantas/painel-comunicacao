@@ -319,23 +319,26 @@ async function build() {
   // ---- Genna: métricas de Instagram com recorte de data exato ----
   console.log("→ Genna…");
   const ultimoDiaTri = new Date(Date.UTC(+mesAnt.slice(0, 4), +mesAnt.slice(5, 7), 0)).getUTCDate();
-  const genna = await coletarGenna({
+  const gennaPerfis = await coletarGenna({
     key: process.env.GENNA_API_KEY,
-    brandId: process.env.GENNA_BRAND_ID,
     mes: mesAnt,
     triDe: `${mesesTri[0]}-01`,
     triAte: `${mesAnt}-${ultimoDiaTri}`,
   });
-  if (genna) {
-    console.log(`  ${genna.handle}: ${genna.mes.publicacoes} publicações em ${mesLabel(mesAnt)}, ${genna.trimestre.publicacoes} no trimestre`);
+  const comDados = (gennaPerfis || []).filter((p) => !p.erro);
+  if (gennaPerfis) {
+    for (const p of gennaPerfis) {
+      if (p.erro) console.log(`  ${p.handle || p.marca}: ${p.erro}`);
+      else console.log(`  ${p.handle}: ${p.mes.publicacoes} publicações em ${mesLabel(mesAnt)}, ${p.trimestre.publicacoes} no trimestre`);
+    }
     // Aba 2 pede "publicações destaques": as que superaram a média do mês.
-    const media = genna.mes.publicacoes ? genna.mes.alcance / genna.mes.publicacoes : 0;
-    aba2.instagram.genna = {
-      handle: genna.handle,
-      ...genna.mes,
-      media_alcance: Math.round(media),
-      destaques: genna.mes.top.filter((p) => p.alcance > media),
-    };
+    aba2.instagram.genna = comDados.map((g) => {
+      const media = g.mes.publicacoes ? g.mes.alcance / g.mes.publicacoes : 0;
+      return { handle: g.handle, ...g.mes, media_alcance: Math.round(media),
+        destaques: g.mes.top.filter((p) => p.alcance > media) };
+    });
+    aba2.instagram.genna_pendentes = gennaPerfis.filter((p) => p.erro)
+      .map((p) => ({ handle: p.handle, marca: p.marca, motivo: p.erro }));
   } else if (process.env.GENNA_API_KEY) {
     console.log("  (não respondeu — a seção do Genna fica vazia)");
   } else {
@@ -364,14 +367,17 @@ async function build() {
       // do trimestre que o Instagram web oferece — ela vem rotulada como tal no painel.
       const ins = ig?.insights?.[handle] || null;
       const j = ins?.janelas?.["90d"] || null;
-      // O Genna cobre só o perfil conectado a ele, e com data exata — quando bate, ele manda.
-      const g = genna && genna.handle === handle ? genna : null;
+      // O Genna traz data exata + salvamentos e compartilhamentos — quando tem o perfil, ele manda.
+      const gp = comDados.find((x) => x.handle === handle) || null;
+      const g = gp ? gp.trimestre : null;
+      const pendente = (gennaPerfis || []).find((x) => x.handle === handle && x.erro) || null;
       return {
         handle,
-        seguidores: g?.seguidores ?? atual,
+        seguidores: gp?.seguidores ?? atual,
         seguidores_medido_em: atual != null ? ultima : null,
         // Fonte preferida: Genna (data exata + salvamentos e compartilhamentos).
-        genna: g ? { ...g.trimestre, top: g.top ?? g.trimestre.top } : null,
+        genna: g,
+        genna_pendente: pendente ? pendente.erro : null,
         insights: j ? {
           periodo: j.periodo_aprox,
           medido_em: ins.medido_em,

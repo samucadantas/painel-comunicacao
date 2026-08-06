@@ -87,11 +87,60 @@ const topPosts = (posts, n, chave = "reach") =>
     compartilhamentos: p.shares,
   }));
 
+// Quando a conta está vinculada mas a página do Instagram não foi atribuída,
+// o Genna responde com esta frase em vez de um objeto.
+const SEM_PAGINA = /No connected Instagram page/i;
+
+async function coletarMarca(key, brand, { mes, triDe, triAte }) {
+  const perfil = await chamar(key, "get_analytics_profile", { brandId: brand.id });
+  if (typeof perfil === "string") {
+    return { brand: brand.id, marca: brand.name, erro: SEM_PAGINA.test(perfil)
+      ? "conta vinculada, mas a página do Instagram ainda não foi atribuída no Genna"
+      : perfil.slice(0, 120) };
+  }
+
+  const ultimoDia = new Date(Date.UTC(+mes.slice(0, 4), +mes.slice(5, 7), 0)).getUTCDate();
+  const postsMes = listaDe(await chamar(key, "get_analytics_posts", {
+    brandId: brand.id, limit: 100,
+    publishedFrom: `${mes}-01T00:00:00Z`, publishedTo: `${mes}-${ultimoDia}T23:59:59Z`,
+  }));
+  const postsTri = listaDe(await chamar(key, "get_analytics_posts", {
+    brandId: brand.id, limit: 100,
+    publishedFrom: `${triDe}T00:00:00Z`, publishedTo: `${triAte}T23:59:59Z`,
+  }));
+
+  const alcancePorFormato = {};
+  for (const p of postsTri) {
+    const t = { FEED_CAROUSEL: "Carrossel", REEL: "Reels", FEED_SINGLE_IMAGE: "Imagem" }[p.type] || p.type;
+    alcancePorFormato[t] = (alcancePorFormato[t] || 0) + (p.reach || 0);
+  }
+  const totalAlcance = Object.values(alcancePorFormato).reduce((s, x) => s + x, 0);
+
+  return {
+    brand: brand.id,
+    marca: brand.name,
+    handle: perfil?.username ? `@${perfil.username}` : null,
+    seguidores: perfil?.followers ?? null,
+    publicacoes_perfil: perfil?.mediaCount ?? null,
+    mes: { periodo: mes, ...resume(postsMes), top: topPosts(postsMes, 3) },
+    trimestre: {
+      periodo: `${triDe} a ${triAte}`, ...resume(postsTri), top: topPosts(postsTri, 5),
+      alcance_por_formato: Object.fromEntries(
+        Object.entries(alcancePorFormato)
+          .map(([k, v]) => [k, totalAlcance ? Math.round((v / totalAlcance) * 1000) / 10 : 0])
+          .sort((a, b) => b[1] - a[1])
+      ),
+    },
+  };
+}
+
 /**
- * Puxa o que o painel precisa: perfil + recorte do mês anterior + recorte do trimestre.
+ * Percorre TODAS as marcas da conta e devolve um perfil por marca que tenha
+ * página atribuída. Marcas sem página entram na lista com o motivo, para o
+ * painel poder dizer o que falta em vez de ficar em silêncio.
  * Devolve null (sem quebrar o sync) se a chave faltar ou o serviço não responder.
  */
-export async function coletarGenna({ key, brandId, mes, triDe, triAte }) {
+export async function coletarGenna({ key, mes, triDe, triAte }) {
   if (!key) return null;
   try {
     await rpc(key, "initialize", {
@@ -104,50 +153,19 @@ export async function coletarGenna({ key, brandId, mes, triDe, triAte }) {
       body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized", params: {} }),
     });
 
-    // se o brandId não vier configurado, usa a primeira marca da conta
-    let brand = brandId;
-    if (!brand) {
-      const marcas = await chamar(key, "list_brands");
-      brand = (Array.isArray(marcas) ? marcas : marcas?.brands || [])[0]?.id;
-      if (!brand) return null;
+    const marcas = await chamar(key, "list_brands");
+    const lista = Array.isArray(marcas) ? marcas : marcas?.brands || [];
+    if (!lista.length) return null;
+
+    const perfis = [];
+    for (const b of lista) {
+      // o username vem da conta vinculada, mesmo quando a página não foi atribuída
+      const contas = await chamar(key, "list_social_accounts", { brandId: b.id });
+      const username = (contas?.accounts || [])[0]?.username || null;
+      const r = await coletarMarca(key, b, { mes, triDe, triAte });
+      perfis.push({ ...r, handle: r.handle || (username ? `@${username}` : null) });
     }
-
-    const contas = await chamar(key, "list_social_accounts", { brandId: brand });
-    const perfil = await chamar(key, "get_analytics_profile", { brandId: brand });
-
-    const ultimoDia = new Date(Date.UTC(+mes.slice(0, 4), +mes.slice(5, 7), 0)).getUTCDate();
-    const postsMes = listaDe(await chamar(key, "get_analytics_posts", {
-      brandId: brand, limit: 100,
-      publishedFrom: `${mes}-01T00:00:00Z`, publishedTo: `${mes}-${ultimoDia}T23:59:59Z`,
-    }));
-    const postsTri = listaDe(await chamar(key, "get_analytics_posts", {
-      brandId: brand, limit: 100,
-      publishedFrom: `${triDe}T00:00:00Z`, publishedTo: `${triAte}T23:59:59Z`,
-    }));
-
-    // desempenho por formato no trimestre, em alcance
-    const alcancePorFormato = {};
-    for (const p of postsTri) {
-      const t = { FEED_CAROUSEL: "Carrossel", REEL: "Reels", FEED_SINGLE_IMAGE: "Imagem" }[p.type] || p.type;
-      alcancePorFormato[t] = (alcancePorFormato[t] || 0) + (p.reach || 0);
-    }
-    const totalAlcance = Object.values(alcancePorFormato).reduce((s, x) => s + x, 0);
-
-    return {
-      handle: perfil?.username ? `@${perfil.username}` : null,
-      contas: (contas?.accounts || []).map((c) => `@${c.username}`),
-      seguidores: perfil?.followers ?? null,
-      publicacoes_perfil: perfil?.mediaCount ?? null,
-      mes: { periodo: mes, ...resume(postsMes), top: topPosts(postsMes, 3) },
-      trimestre: {
-        periodo: `${triDe} a ${triAte}`, ...resume(postsTri), top: topPosts(postsTri, 5),
-        alcance_por_formato: Object.fromEntries(
-          Object.entries(alcancePorFormato)
-            .map(([k, v]) => [k, totalAlcance ? Math.round((v / totalAlcance) * 1000) / 10 : 0])
-            .sort((a, b) => b[1] - a[1])
-        ),
-      },
-    };
+    return perfis;
   } catch (e) {
     console.warn("  (Genna falhou: " + e.message + ")");
     return null;

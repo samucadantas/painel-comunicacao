@@ -59,8 +59,15 @@ visualizações. `YT_API_KEY` no `.env` acrescenta o número de inscritos.
 **Instagram — Genna** (`GENNA_API_KEY` no `.env`): é a fonte das métricas de desempenho.
 Fala com `https://mcp.genna.co` por MCP e entrega, com recorte de data exato, o que o
 Instagram web não dá: alcance, salvamentos, compartilhamentos, interações e o desempenho
-publicação a publicação. Hoje cobre só **@aponte_recife** — os outros perfis ainda não foram
-conectados lá.
+publicação a publicação.
+
+O `sync.mjs` percorre **todas as marcas** da conta do Genna sozinho — não há id fixo no código.
+Conectar um perfil novo lá basta para ele aparecer no painel na atualização seguinte.
+
+⚠️ No Genna a conexão tem duas etapas: vincular a conta e **atribuir a página do Instagram**.
+Uma conta que parou na primeira etapa aparece em `list_social_accounts` mas responde
+"No connected Instagram page for this brand" nas métricas. O painel detecta isso e diz na tela
+qual perfil está pendente, em vez de ficar em silêncio.
 
 **Instagram — contagem manual** em `social/instagram.json`: quantas publicações cada um dos
 7 perfis fez por mês, mais as medições datadas de seguidores. É o que cobre os perfis que o
