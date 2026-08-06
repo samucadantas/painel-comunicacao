@@ -56,15 +56,24 @@ razão embaixo. Melhor um campo honesto do que um campo escondido.
 **YouTube**: feed oficial do canal — não precisa de chave e traz os 15 vídeos mais recentes com
 visualizações. `YT_API_KEY` no `.env` acrescenta o número de inscritos.
 
-**Instagram**: contagem manual em `social/instagram.json`, um bloco por mês.
+**Instagram — Genna** (`GENNA_API_KEY` no `.env`): é a fonte das métricas de desempenho.
+Fala com `https://mcp.genna.co` por MCP e entrega, com recorte de data exato, o que o
+Instagram web não dá: alcance, salvamentos, compartilhamentos, interações e o desempenho
+publicação a publicação. Hoje cobre só **@aponte_recife** — os outros perfis ainda não foram
+conectados lá.
+
+**Instagram — contagem manual** em `social/instagram.json`: quantas publicações cada um dos
+7 perfis fez por mês, mais as medições datadas de seguidores. É o que cobre os perfis que o
+Genna ainda não tem.
 
 ## O que ainda não dá para preencher
 
 O painel mostra isso na própria tela, para ninguém achar que o dado sumiu:
 
-- **Instagram — engajamento, alcance, seguidores, salvamentos, desempenho por formato.**
-  Só saem pela Graph API da Meta: exige conta Business ou Creator ligada a uma página do
-  Facebook e um app no Meta for Developers.
+- **Instagram dos outros 6 perfis.** O Genna hoje só tem o @aponte_recife conectado.
+  Conectar os demais lá preenche tudo automaticamente, sem mexer no código.
+- **Crescimento de seguidores.** Precisa de duas medições. A primeira já está gravada
+  (06/08/2026); na próxima o painel calcula sozinho.
 - **YouTube — inscritos.** Resolve com uma chave gratuita da YouTube Data API v3 em `YT_API_KEY`.
 - **YouTube — tempo de exibição, horários de pico, CTR, interações.** São da YouTube Analytics
   API, que exige autorização OAuth do dono do canal.

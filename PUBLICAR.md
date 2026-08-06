@@ -23,10 +23,13 @@ git remote add origin https://github.com/SEU-USUARIO/painel-comunicacao.git && g
 
 No repositório: **Settings → Secrets and variables → Actions → New repository secret**
 
-- Name: `NOTION_TOKEN`
-- Secret: o token que está no seu `painel/.env` (a linha `NOTION_TOKEN=`)
+Dois segredos, um de cada vez:
 
-Sem isso a automação roda mas não consegue ler o Notion.
+- `NOTION_TOKEN` — o token que está no seu `painel/.env`
+- `GENNA_API_KEY` — a chave do Genna, também no `.env`
+
+Sem o primeiro a automação roda mas não lê o Notion. Sem o segundo, o painel perde as
+métricas de Instagram (alcance, salvamentos, compartilhamentos, top publicações).
 
 A partir daí o GitHub atualiza o painel **todo dia às 8h da manhã** (horário de Recife) sozinho.
 Para atualizar na hora, vá em **Actions → Atualizar painel → Run workflow**.

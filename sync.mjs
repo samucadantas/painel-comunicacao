@@ -19,6 +19,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { coletarGenna } from "./genna.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const DATA = join(__dir, "data");
@@ -315,6 +316,32 @@ async function build() {
   const mesesTri = [mesAnterior(mesAnterior(mesAnt)), mesAnterior(mesAnt), mesAnt];
   const tri = mesesTri.map(montaMes);
 
+  // ---- Genna: métricas de Instagram com recorte de data exato ----
+  console.log("→ Genna…");
+  const ultimoDiaTri = new Date(Date.UTC(+mesAnt.slice(0, 4), +mesAnt.slice(5, 7), 0)).getUTCDate();
+  const genna = await coletarGenna({
+    key: process.env.GENNA_API_KEY,
+    brandId: process.env.GENNA_BRAND_ID,
+    mes: mesAnt,
+    triDe: `${mesesTri[0]}-01`,
+    triAte: `${mesAnt}-${ultimoDiaTri}`,
+  });
+  if (genna) {
+    console.log(`  ${genna.handle}: ${genna.mes.publicacoes} publicações em ${mesLabel(mesAnt)}, ${genna.trimestre.publicacoes} no trimestre`);
+    // Aba 2 pede "publicações destaques": as que superaram a média do mês.
+    const media = genna.mes.publicacoes ? genna.mes.alcance / genna.mes.publicacoes : 0;
+    aba2.instagram.genna = {
+      handle: genna.handle,
+      ...genna.mes,
+      media_alcance: Math.round(media),
+      destaques: genna.mes.top.filter((p) => p.alcance > media),
+    };
+  } else if (process.env.GENNA_API_KEY) {
+    console.log("  (não respondeu — a seção do Genna fica vazia)");
+  } else {
+    console.log("  (sem GENNA_API_KEY no .env)");
+  }
+
   const trimestre = {
     label: `De ${MESES[+mesesTri[0].slice(5, 7) - 1]} a ${MESES[+mesAnt.slice(5, 7) - 1]} de ${mesAnt.slice(0, 4)}`,
     // "Comparativo trimestral de demandas entregues nos 3 meses"
@@ -337,10 +364,14 @@ async function build() {
       // do trimestre que o Instagram web oferece — ela vem rotulada como tal no painel.
       const ins = ig?.insights?.[handle] || null;
       const j = ins?.janelas?.["90d"] || null;
+      // O Genna cobre só o perfil conectado a ele, e com data exata — quando bate, ele manda.
+      const g = genna && genna.handle === handle ? genna : null;
       return {
         handle,
-        seguidores: atual,
+        seguidores: g?.seguidores ?? atual,
         seguidores_medido_em: atual != null ? ultima : null,
+        // Fonte preferida: Genna (data exata + salvamentos e compartilhamentos).
+        genna: g ? { ...g.trimestre, top: g.top ?? g.trimestre.top } : null,
         insights: j ? {
           periodo: j.periodo_aprox,
           medido_em: ins.medido_em,

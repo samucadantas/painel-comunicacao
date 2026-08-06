@@ -443,14 +443,16 @@ function renderMes() {
         `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`).join("")
     : `<div class="empty">A contagem de publicações de ${esc(m.label)} ainda não foi preenchida em social/instagram.json.</div>`;
 
-  $("m-ig-destaques").innerHTML = m.instagram.destaques && m.instagram.destaques.length
-    ? `<div class="list">` + m.instagram.destaques.map((p) => `
+  const gm = m.instagram.genna;
+  $("m-ig-destaques").innerHTML = gm && gm.destaques.length
+    ? `<p class="janela">Em <b>${esc(gm.handle)}</b>, ${nf(gm.publicacoes)} publicações no mês alcançaram <b>${nf(gm.alcance)}</b> contas (média de ${nf(gm.media_alcance)} por publicação). Estas passaram da média:</p>
+       <div class="list">` + gm.destaques.map((p) => `
         <div class="item">
-          <div><div class="t">${esc(p.titulo || p.descricao || "Publicação")}</div>
-          <div class="m">${esc([p.perfil, p.data].filter(Boolean).join(" · "))}</div></div>
-          <span class="tag">${esc(p.metrica || "")}</span>
+          <div><div class="t">${esc(p.legenda)}…</div>
+          <div class="m"><span>${dataBR(p.data)}</span><span>${esc(p.tipo)}</span><span>${nf(p.interacoes)} interações · ${dec(p.taxa)}%</span></div></div>
+          <span class="tag">${nf(p.alcance)}</span>
         </div>`).join("") + `</div>`
-    : `<div class="empty">De 1 a 3 publicações que superaram a média em taxa de engajamento e/ou contas alcançadas.<br>Esses números ${FALTA_IG} — sem ela, não há como saber qual publicação passou da média.</div>`;
+    : `<div class="empty">De 1 a 3 publicações que superaram a média em taxa de engajamento e/ou contas alcançadas.<br>Sem dado do Genna para este mês.</div>`;
 
   /* YouTube */
   if (D.canal_youtube) $("m-yt-titulo").textContent = `Análise YouTube (${D.canal_youtube.url.replace("https://www.youtube.com", "")})`;
@@ -519,7 +521,8 @@ function renderPerfilIg(i) {
   const val = (v) => (v === null || v === undefined ? null : v);
 
   const cresc = p.crescimento;
-  const ins = p.insights;
+  const g = p.genna;          // Genna: recorte de data exato, com salvamentos e compartilhamentos
+  const ins = p.insights;     // leitura do Insights web: janela móvel de 90 dias
 
   $("t-ig").innerHTML =
     (p.seguidores != null
@@ -528,45 +531,57 @@ function renderPerfilIg(i) {
     (cresc
       ? campo("Crescimento de seguidores", `${cresc.diferenca >= 0 ? "+" : ""}${nf(cresc.diferenca)}`)
       : campoVazio("Crescimento de seguidores", p.seguidores != null ? "só na próxima medição" : FALTA_IG)) +
-    (ins ? campo("Contas alcançadas", nf(ins.contas_alcancadas)) : campoVazio("Contas alcançadas", FALTA_IG)) +
-    (ins ? campo("Taxa de engajamento", dec(ins.taxa_engajamento) + "%") : campoVazio("Taxa de engajamento", FALTA_IG)) +
-    (ins ? campo("Visualizações", nf(ins.views)) : "") +
-    (ins ? campo("Interações", nf(ins.interacoes)) : "") +
+    (g ? campo("Contas alcançadas", nf(g.alcance))
+       : ins ? campo("Contas alcançadas", nf(ins.contas_alcancadas))
+       : campoVazio("Contas alcançadas", FALTA_IG)) +
+    (g ? campo("Taxa de engajamento", dec(g.taxa_engajamento) + "%")
+       : ins ? campo("Taxa de engajamento", dec(ins.taxa_engajamento) + "%")
+       : campoVazio("Taxa de engajamento", FALTA_IG)) +
+    (g ? campo("Salvamentos", nf(g.salvamentos)) : "") +
+    (g ? campo("Compartilhamentos", nf(g.compartilhamentos)) : "") +
+    (!g ? campoVazio("Salvamentos e compartilhamentos", "o Insights web não separa isso por conta") : "") +
+    (g ? campo("Visualizações", nf(g.views)) : ins ? campo("Visualizações", nf(ins.views)) : "") +
+    (g ? campo("Interações", nf(g.interacoes)) : ins ? campo("Interações", nf(ins.interacoes)) : "") +
     (ins ? campo("Visitas ao perfil", nf(ins.visitas_perfil)) : "") +
     (ins ? campo("Cliques no link", nf(ins.cliques_link)) : "") +
-    (ins && ins.salvamentos != null
-      ? campo("Salvamentos e compartilhamentos", nf(ins.salvamentos))
-      : campoVazio("Salvamentos e compartilhamentos", "o Insights web não separa isso por conta")) +
-    (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", FALTA_IG)) +
-    (p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre)) : campoVazio("Publicações no trimestre", "contagem ainda não preenchida")) +
+    (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", "o Genna ainda não tem série diária deste perfil")) +
+    (g ? campo("Publicações no trimestre", nf(g.publicacoes))
+       : p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre))
+       : campoVazio("Publicações no trimestre", "contagem ainda não preenchida")) +
     (p.posts_totais != null ? campo("Publicações no perfil", nf(p.posts_totais)) : "");
 
-  /* Desempenho por formato — o documento pede como campo próprio */
-  $("t-ig-formato").innerHTML = ins
-    ? `<p class="janela">Alcance e engajamento de <b>${esc(ins.periodo)}</b> (janela de 90 dias, medida em ${esc(ins.medido_em.split("-").reverse().join("/"))}). O Instagram não permite recortar por mês fechado.</p>
+  /* Desempenho por formato */
+  if (g && g.alcance_por_formato) {
+    $("t-ig-formato").innerHTML =
+      `<p class="janela">Alcance por formato entre <b>${esc(g.periodo.split(" a ").map((d) => dataBR(d)).join(" e "))}</b>, medido publicação a publicação.</p>
        <div class="rows">` +
-      Object.entries(ins.formato_views).filter(([, v]) => v > 0).map(([k, v]) => `
+      Object.entries(g.alcance_por_formato).map(([k, v]) => `
         <div class="r"><div class="nm">${esc(k)}</div>
           <div class="track"><div class="fill" style="width:${Math.max(v, 3)}%"></div></div>
           <div class="n">${dec(v)}%</div></div>`).join("") +
       `</div>
-       <h3>Onde vêm as interações</h3>
-       <div class="rows">` +
-      Object.entries(ins.formato_interacoes).filter(([, v]) => v > 0).map(([k, v]) => `
+       <p class="janela">Publicações no período: ` +
+      Object.entries(g.por_formato).map(([k, v]) => `${esc(k)} ${nf(v)}`).join(" · ") + `.</p>`;
+  } else if (ins) {
+    $("t-ig-formato").innerHTML =
+      `<p class="janela">Alcance de <b>${esc(ins.periodo)}</b> (janela de 90 dias do Insights web).</p><div class="rows">` +
+      Object.entries(ins.formato_views).filter(([, v]) => v > 0).map(([k, v]) => `
         <div class="r"><div class="nm">${esc(k)}</div>
-          <div class="track"><div class="fill soft" style="width:${Math.max(v, 3)}%"></div></div>
-          <div class="n">${dec(v)}%</div></div>`).join("") +
-      `</div>` +
-      (ins.dia_mais_ativo ? `<p class="janela">Dia com mais gente ativa: <b>${esc(ins.dia_mais_ativo)}</b>.</p>` : "")
-    : `<div class="empty">Desempenho por formato ${FALTA_IG}.</div>`;
+          <div class="track"><div class="fill" style="width:${Math.max(v, 3)}%"></div></div>
+          <div class="n">${dec(v)}%</div></div>`).join("") + `</div>`;
+  } else {
+    $("t-ig-formato").innerHTML = `<div class="empty">Desempenho por formato ${FALTA_IG}.</div>`;
+  }
 
-  $("t-ig-top").innerHTML = mt.top_publicacoes && mt.top_publicacoes.length
-    ? `<div class="list">` + mt.top_publicacoes.map((x) => `
+  /* Top publicações */
+  $("t-ig-top").innerHTML = g && g.top && g.top.length
+    ? `<div class="list">` + g.top.map((x) => `
         <div class="item">
-          <div><div class="t">${esc(x.titulo || x.descricao || "Publicação")}</div><div class="m">${esc(x.data || "")}</div></div>
-          <span class="tag">${esc(x.metrica || "")}</span>
+          <div><div class="t">${esc(x.legenda)}…</div>
+          <div class="m"><span>${dataBR(x.data)}</span><span>${esc(x.tipo)}</span><span>${nf(x.interacoes)} interações · ${dec(x.taxa)}%</span><span>${nf(x.salvamentos)} salvos · ${nf(x.compartilhamentos)} compart.</span></div></div>
+          <span class="tag">${nf(x.alcance)}</span>
         </div>`).join("") + `</div>`
-    : `<div class="empty">De 3 a 5 publicações mais fortes de ${esc(p.handle)}. ${FALTA_IG[0].toUpperCase() + FALTA_IG.slice(1)}.</div>`;
+    : `<div class="empty">De 3 a 5 publicações mais fortes de ${esc(p.handle)}. Sem dado do Genna para este perfil.</div>`;
 
   for (const b of $("t-ig-abas").querySelectorAll("button")) {
     b.setAttribute("aria-selected", String(+b.dataset.i === i));

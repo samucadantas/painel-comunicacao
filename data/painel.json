@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-08-06T12:11:13.617Z",
+  "gerado_em": "2026-08-06T18:42:56.294Z",
   "hoje": "2026-08-06",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,11 +17,11 @@
   "semana": {
     "label": "Semana de 02/08 a 08/08",
     "mes_vigente": "Agosto 2026",
-    "fila": 5,
-    "em_criacao": 13,
-    "entregues": 6,
+    "fila": 4,
+    "em_criacao": 12,
+    "entregues": 8,
     "entregues_semana_anterior": 26,
-    "fila_videos": 7,
+    "fila_videos": 5,
     "fila_artes": 6
   },
   "mes_anterior": {
@@ -125,22 +125,111 @@
           "posts": 1
         }
       ],
-      "destaques": null
+      "destaques": null,
+      "genna": {
+        "handle": "@aponte_recife",
+        "periodo": "2026-07",
+        "publicacoes": 16,
+        "alcance": 103099,
+        "views": 206754,
+        "likes": 6833,
+        "comentarios": 283,
+        "compartilhamentos": 1402,
+        "salvamentos": 167,
+        "interacoes": 8898,
+        "taxa_engajamento": 8.6,
+        "por_formato": {
+          "Carrossel": 6,
+          "Reels": 9,
+          "Imagem": 1
+        },
+        "top": [
+          {
+            "data": "2026-07-08",
+            "tipo": "Reels",
+            "legenda": "Tem coisa que só nasce quando diferentes histórias se encontram! ✨ Uma cultura é costurada",
+            "link": "https://www.instagram.com/reel/Dai_pFxJ4Nj/",
+            "alcance": 14879,
+            "interacoes": 1637,
+            "taxa": 11,
+            "salvamentos": 33,
+            "compartilhamentos": 453
+          },
+          {
+            "data": "2026-07-02",
+            "tipo": "Imagem",
+            "legenda": "⚠️ Mudança de horários somente para este domingo! Neste domingo (05/07), teremos horários ",
+            "link": "https://www.instagram.com/p/DaTmXsLpQfh/",
+            "alcance": 13995,
+            "interacoes": 1048,
+            "taxa": 7.5,
+            "salvamentos": 9,
+            "compartilhamentos": 191
+          },
+          {
+            "data": "2026-07-31",
+            "tipo": "Carrossel",
+            "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
+            "link": "https://www.instagram.com/p/DbedVZIjSy3/",
+            "alcance": 9247,
+            "interacoes": 480,
+            "taxa": 5.2,
+            "salvamentos": 14,
+            "compartilhamentos": 74
+          }
+        ],
+        "media_alcance": 6444,
+        "destaques": [
+          {
+            "data": "2026-07-08",
+            "tipo": "Reels",
+            "legenda": "Tem coisa que só nasce quando diferentes histórias se encontram! ✨ Uma cultura é costurada",
+            "link": "https://www.instagram.com/reel/Dai_pFxJ4Nj/",
+            "alcance": 14879,
+            "interacoes": 1637,
+            "taxa": 11,
+            "salvamentos": 33,
+            "compartilhamentos": 453
+          },
+          {
+            "data": "2026-07-02",
+            "tipo": "Imagem",
+            "legenda": "⚠️ Mudança de horários somente para este domingo! Neste domingo (05/07), teremos horários ",
+            "link": "https://www.instagram.com/p/DaTmXsLpQfh/",
+            "alcance": 13995,
+            "interacoes": 1048,
+            "taxa": 7.5,
+            "salvamentos": 9,
+            "compartilhamentos": 191
+          },
+          {
+            "data": "2026-07-31",
+            "tipo": "Carrossel",
+            "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
+            "link": "https://www.instagram.com/p/DbedVZIjSy3/",
+            "alcance": 9247,
+            "interacoes": 480,
+            "taxa": 5.2,
+            "salvamentos": 14,
+            "compartilhamentos": 74
+          }
+        ]
+      }
     },
     "youtube": {
       "videos": 6,
-      "views": 7470,
-      "media_views": 1245,
+      "views": 7478,
+      "media_views": 1246,
       "destaques": [
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2126
+          "views": 2129
         },
         {
           "titulo": "“Ira e Reconciliação” por Digo Karagulian",
           "data": "2026-07-05",
-          "views": 1426
+          "views": 1427
         }
       ]
     }
@@ -178,6 +267,85 @@
         "handle": "@aponte_recife",
         "seguidores": 39422,
         "seguidores_medido_em": "2026-08-06",
+        "genna": {
+          "periodo": "2026-05-01 a 2026-07-31",
+          "publicacoes": 30,
+          "alcance": 171177,
+          "views": 332866,
+          "likes": 12255,
+          "comentarios": 473,
+          "compartilhamentos": 2178,
+          "salvamentos": 270,
+          "interacoes": 15588,
+          "taxa_engajamento": 9.1,
+          "por_formato": {
+            "Carrossel": 9,
+            "Reels": 20,
+            "Imagem": 1
+          },
+          "top": [
+            {
+              "data": "2026-07-08",
+              "tipo": "Reels",
+              "legenda": "Tem coisa que só nasce quando diferentes histórias se encontram! ✨ Uma cultura é costurada",
+              "link": "https://www.instagram.com/reel/Dai_pFxJ4Nj/",
+              "alcance": 14879,
+              "interacoes": 1637,
+              "taxa": 11,
+              "salvamentos": 33,
+              "compartilhamentos": 453
+            },
+            {
+              "data": "2026-07-02",
+              "tipo": "Imagem",
+              "legenda": "⚠️ Mudança de horários somente para este domingo! Neste domingo (05/07), teremos horários ",
+              "link": "https://www.instagram.com/p/DaTmXsLpQfh/",
+              "alcance": 13995,
+              "interacoes": 1048,
+              "taxa": 7.5,
+              "salvamentos": 9,
+              "compartilhamentos": 191
+            },
+            {
+              "data": "2026-06-25",
+              "tipo": "Reels",
+              "legenda": "Quem passa pelo nosso Grupo de Discipulado (GD), encontra outros irmãos para fortalecer a ",
+              "link": "https://www.instagram.com/reel/DaBV-EkpRGm/",
+              "alcance": 9284,
+              "interacoes": 1151,
+              "taxa": 12.4,
+              "salvamentos": 22,
+              "compartilhamentos": 324
+            },
+            {
+              "data": "2026-07-31",
+              "tipo": "Carrossel",
+              "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
+              "link": "https://www.instagram.com/p/DbedVZIjSy3/",
+              "alcance": 9247,
+              "interacoes": 480,
+              "taxa": 5.2,
+              "salvamentos": 14,
+              "compartilhamentos": 74
+            },
+            {
+              "data": "2026-07-30",
+              "tipo": "Reels",
+              "legenda": "A música também pode costurar histórias, despertar esperança e nos lembrar da beleza do ev",
+              "link": "https://www.instagram.com/reel/Dba1ts0JrDv/",
+              "alcance": 8272,
+              "interacoes": 357,
+              "taxa": 4.3,
+              "salvamentos": 5,
+              "compartilhamentos": 55
+            }
+          ],
+          "alcance_por_formato": {
+            "Reels": 63.7,
+            "Carrossel": 28.1,
+            "Imagem": 8.2
+          }
+        },
         "insights": {
           "periodo": "08/05 a 06/08",
           "medido_em": "2026-08-06",
@@ -223,6 +391,7 @@
         "handle": "@somosaponte",
         "seguidores": 40210,
         "seguidores_medido_em": "2026-08-06",
+        "genna": null,
         "insights": null,
         "crescimento": null,
         "posts_totais": 1985,
@@ -243,18 +412,18 @@
     ],
     "youtube": {
       "videos": 13,
-      "views": 16134,
-      "media_views": 1241,
+      "views": 16144,
+      "media_views": 1242,
       "destaques": [
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2126
+          "views": 2129
         },
         {
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1947
+          "views": 1948
         },
         {
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
@@ -270,12 +439,12 @@
         },
         {
           "curto": "Jun/26",
-          "views": 8664,
+          "views": 8666,
           "videos": 7
         },
         {
           "curto": "Jul/26",
-          "views": 7470,
+          "views": 7478,
           "videos": 6
         }
       ],
@@ -284,12 +453,12 @@
         {
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2126
+          "views": 2129
         },
         {
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1947
+          "views": 1948
         },
         {
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
@@ -299,7 +468,7 @@
         {
           "titulo": "“Ira e Reconciliação” por Digo Karagulian",
           "data": "2026-07-05",
-          "views": 1426
+          "views": 1427
         },
         {
           "titulo": "\"Bençãos Paradoxais\" por Digo Karagulian",
