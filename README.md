@@ -53,8 +53,12 @@ razão embaixo. Melhor um campo honesto do que um campo escondido.
 | Acompanhamento de Pedidos | `376da07d…a26f70` | campeões de demanda |
 | Ranking Ministérios | `349da07d…424448` | ranking de ministérios |
 
-**YouTube**: feed oficial do canal — não precisa de chave e traz os 15 vídeos mais recentes com
-visualizações. `YT_API_KEY` no `.env` acrescenta o número de inscritos.
+**YouTube**: com `YT_API_KEY` no `.env`, usa a **Data API v3** e pega o histórico completo do
+canal (inscritos, visualizações totais e, por vídeo, views, likes e comentários). Sem a chave,
+cai no feed público, que só cobre os 15 vídeos mais recentes.
+
+`social/youtube.json` guarda a medição de inscritos de cada dia — a API dá só o número de hoje,
+então o ritmo de crescimento aparece a partir da segunda medição.
 
 **Instagram — Genna** (`GENNA_API_KEY` no `.env`): é a fonte das métricas de desempenho.
 Fala com `https://mcp.genna.co` por MCP e entrega, com recorte de data exato, o que o
@@ -81,9 +85,9 @@ O painel mostra isso na própria tela, para ninguém achar que o dado sumiu:
   Conectar os demais lá preenche tudo automaticamente, sem mexer no código.
 - **Crescimento de seguidores.** Precisa de duas medições. A primeira já está gravada
   (06/08/2026); na próxima o painel calcula sozinho.
-- **YouTube — inscritos.** Resolve com uma chave gratuita da YouTube Data API v3 em `YT_API_KEY`.
-- **YouTube — tempo de exibição, horários de pico, CTR, interações.** São da YouTube Analytics
-  API, que exige autorização OAuth do dono do canal.
+- **YouTube — tempo de exibição, horários de pico e CTR.** São da YouTube **Analytics** API,
+  que exige autorização OAuth de quem administra o canal. Likes e comentários já entram pela
+  Data API; só compartilhamentos ficam de fora das "interações".
 
 ## Duas decisões que valem saber
 

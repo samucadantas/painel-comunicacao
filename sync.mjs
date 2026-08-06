@@ -160,7 +160,13 @@ function mediaEntrega(cards) {
 const unescapeXml = (s) => s.replace(/&quot;/g, '"').replace(/&amp;/g, "&")
   .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&#39;/g, "'");
 
+/**
+ * Sem chave: usa o feed público, que só cobre os 15 vídeos mais recentes.
+ * Com YT_API_KEY: usa a Data API e pega o histórico inteiro, com likes e comentários
+ * por vídeo — o que permite preencher "interações" e cobrir o trimestre de verdade.
+ */
 async function youtube() {
+  // ---- feed público (sempre funciona, é o piso) ----
   let base = null;
   try {
     const r = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${YT_CHANNEL}`);
@@ -173,32 +179,90 @@ async function youtube() {
         titulo: unescapeXml((e.match(/<media:title>([\s\S]*?)<\/media:title>/) || [])[1] || ""),
         data: ((e.match(/<published>(.*?)<\/published>/) || [])[1] || "").slice(0, 10),
         views: +((e.match(/statistics views="(\d+)"/) || [])[1] || 0),
+        id: (e.match(/<yt:videoId>(.*?)<\/yt:videoId>/) || [])[1] || "",
       })),
       inscritos: null,
+      fonte: "feed",
     };
   } catch (e) {
     console.warn("  (feed do YouTube falhou: " + e.message + ")");
-    return null;
   }
-  if (YT_KEY) {
-    try {
-      const r = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${YT_CHANNEL}&key=${YT_KEY}`);
-      const ch = (await r.json()).items?.[0];
-      if (ch) base.inscritos = +ch.statistics.subscriberCount || null;
-    } catch { /* segue sem inscritos */ }
+  if (!YT_KEY) return base;
+
+  // ---- Data API: canal + histórico completo ----
+  try {
+    const api = "https://www.googleapis.com/youtube/v3";
+    const chJson = await (await fetch(`${api}/channels?part=snippet,statistics,contentDetails&id=${YT_CHANNEL}&key=${YT_KEY}`)).json();
+    const ch = chJson.items?.[0];
+    if (!ch) throw new Error("canal não encontrado");
+
+    // percorre a playlist de uploads até passar do limite de meses que interessa
+    const uploads = ch.contentDetails?.relatedPlaylists?.uploads;
+    const limite = new Date(Date.now() - 400 * 86400000).toISOString().slice(0, 10);
+    const ids = [];
+    let token = "";
+    while (uploads && ids.length < 300) {
+      const j = await (await fetch(`${api}/playlistItems?part=contentDetails&maxResults=50&playlistId=${uploads}${token ? `&pageToken=${token}` : ""}&key=${YT_KEY}`)).json();
+      const itens = j.items || [];
+      for (const i of itens) {
+        const d = (i.contentDetails?.videoPublishedAt || "").slice(0, 10);
+        if (d && d >= limite) ids.push(i.contentDetails.videoId);
+      }
+      // a playlist vem do mais novo para o mais antigo: para quando passou do limite
+      const ultima = (itens.at(-1)?.contentDetails?.videoPublishedAt || "").slice(0, 10);
+      token = j.nextPageToken;
+      if (!token || (ultima && ultima < limite)) break;
+    }
+
+    // estatísticas em lotes de 50
+    const videos = [];
+    for (let i = 0; i < ids.length; i += 50) {
+      const lote = ids.slice(i, i + 50).join(",");
+      const j = await (await fetch(`${api}/videos?part=snippet,statistics,contentDetails&id=${lote}&key=${YT_KEY}`)).json();
+      for (const v of j.items || []) {
+        videos.push({
+          id: v.id,
+          titulo: v.snippet.title,
+          data: (v.snippet.publishedAt || "").slice(0, 10),
+          views: +v.statistics.viewCount || 0,
+          likes: +v.statistics.likeCount || 0,
+          comentarios: +v.statistics.commentCount || 0,
+          duracao: v.contentDetails?.duration || null,
+          url: `https://www.youtube.com/watch?v=${v.id}`,
+        });
+      }
+    }
+    videos.sort((a, b) => b.data.localeCompare(a.data));
+
+    return {
+      canal: ch.snippet.title.replace(/\s*\(.*\)$/, ""),
+      url: `https://www.youtube.com/${YT_HANDLE}`,
+      inscritos: +ch.statistics.subscriberCount || null,
+      views_totais: +ch.statistics.viewCount || null,
+      videos_totais: +ch.statistics.videoCount || null,
+      videos: videos.length ? videos : base?.videos || [],
+      fonte: "data-api",
+    };
+  } catch (e) {
+    console.warn("  (Data API do YouTube falhou: " + e.message + " — seguindo com o feed)");
+    return base;
   }
-  return base;
 }
 
 // "quantos vídeos/lives foram feitas no perfil" + "destaques que superaram a média"
 function ytPeriodo(yt, de, ate) {
   if (!yt) return null;
   const vids = yt.videos.filter((v) => v.data >= de && v.data <= ate);
-  if (!vids.length) return { videos: 0, views: 0, media_views: 0, destaques: [] };
+  if (!vids.length) return { videos: 0, views: 0, media_views: 0, destaques: [], interacoes: 0 };
   const views = vids.reduce((s, v) => s + v.views, 0);
+  const likes = vids.reduce((s, v) => s + (v.likes || 0), 0);
+  const comentarios = vids.reduce((s, v) => s + (v.comentarios || 0), 0);
   const media = views / vids.length;
   return {
     videos: vids.length, views, media_views: Math.round(media),
+    likes, comentarios,
+    // "Interações (likes, comentários e compartilhamentos)" — compartilhamento só sai na Analytics API
+    interacoes: likes + comentarios,
     destaques: vids.filter((v) => v.views > media).sort((a, b) => b.views - a.views).slice(0, 3),
   };
 }
@@ -229,6 +293,24 @@ async function build() {
   let ig = null;
   try { ig = JSON.parse(await readFile(join(SOCIAL, "instagram.json"), "utf8")); }
   catch { console.warn("  (sem social/instagram.json)"); }
+
+  // Histórico de inscritos: a API dá só o número de hoje, então gravamos a série aqui.
+  let ytHist = { inscritos: {} };
+  try { ytHist = JSON.parse(await readFile(join(SOCIAL, "youtube.json"), "utf8")); } catch { /* começa vazio */ }
+  const hojeISO = iso(new Date());
+  if (yt?.inscritos) {
+    ytHist.inscritos ??= {};
+    ytHist.inscritos[hojeISO] = yt.inscritos;
+    await writeFile(join(SOCIAL, "youtube.json"), JSON.stringify(ytHist, null, 2));
+  }
+  const datasYt = Object.keys(ytHist.inscritos || {}).sort();
+  const ritmoInscritos = (() => {
+    if (datasYt.length < 2) return null;
+    const [de, ate] = [datasYt.at(-2), datasYt.at(-1)];
+    const dif = ytHist.inscritos[ate] - ytHist.inscritos[de];
+    const dias = diffDays(de, ate) || 1;
+    return { de, ate, diferenca: dif, por_dia: Math.round((dif / dias) * 10) / 10 };
+  })();
 
   const hoje = iso(new Date());
   const mesVigente = hoje.slice(0, 7);
@@ -413,6 +495,10 @@ async function build() {
       mensais: tri.map((m) => ({ curto: m.curto, views: m.youtube?.views ?? 0, videos: m.youtube?.videos ?? 0 })),
       // "Total de inscritos e ritmo de crescimento"
       inscritos: yt?.inscritos ?? null,
+      ritmo_inscritos: ritmoInscritos,
+      views_totais: yt?.views_totais ?? null,
+      videos_totais: yt?.videos_totais ?? null,
+      fonte: yt?.fonte || null,
       // "Top 3 a 5 vídeos mais acessados"
       top: yt ? [...yt.videos]
         .filter((v) => v.data >= `${mesesTri[0]}-01` && v.data <= `${mesAnt}-31`)

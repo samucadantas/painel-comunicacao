@@ -24,6 +24,7 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           GENNA_API_KEY: ${{ secrets.GENNA_API_KEY }}
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
           GENNA_BRAND_ID: "143782"
         run: |
           node sync.mjs

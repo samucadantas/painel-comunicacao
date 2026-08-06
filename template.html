@@ -466,7 +466,8 @@ function renderMes() {
   const y = m.youtube;
   $("m-yt").innerHTML = y && y.videos
     ? campo("Vídeos e lives", nf(y.videos)) + campo("Visualizações", nf(y.views)) + campo("Média por vídeo", nf(y.media_views))
-    : `<div class="empty">Nenhum vídeo de ${esc(m.label)} na janela do feed do canal, que cobre os 15 mais recentes.</div>`;
+      + (y.likes ? campo("Likes", nf(y.likes)) : "") + (y.comentarios != null ? campo("Comentários", nf(y.comentarios)) : "")
+    : `<div class="empty">Nenhum vídeo publicado no canal em ${esc(m.label)}.</div>`;
 
   $("m-yt-destaques").innerHTML = y && y.destaques.length
     ? `<div class="list">` + y.destaques.map((v) => `
@@ -504,9 +505,18 @@ function renderTrimestre() {
   const y = t.youtube;
   $("t-yt").innerHTML =
     (y.inscritos ? campo("Total de inscritos", nf(y.inscritos)) : campoVazio("Total de inscritos", "falta a chave da YouTube Data API")) +
-    campoVazio("Ritmo de crescimento", "precisa de duas medições de inscritos") +
+    (y.ritmo_inscritos
+      ? campo("Ritmo de crescimento", `${y.ritmo_inscritos.diferenca >= 0 ? "+" : ""}${nf(y.ritmo_inscritos.diferenca)}`)
+      : campoVazio("Ritmo de crescimento", "só na próxima medição")) +
+    (y.videos ? campo("Vídeos e lives", nf(y.videos)) : "") +
+    (y.views ? campo("Visualizações no trimestre", nf(y.views)) : "") +
+    (y.interacoes
+      ? campo("Interações", nf(y.interacoes))
+      : campoVazio("Interações", FALTA_YT_ANALYTICS)) +
+    (y.likes ? campo("Likes", nf(y.likes)) : "") +
+    (y.comentarios != null ? campo("Comentários", nf(y.comentarios)) : "") +
+    (y.views_totais ? campo("Visualizações do canal", nf(y.views_totais)) : "") +
     campoVazio("Tempo de exibição", FALTA_YT_ANALYTICS) +
-    campoVazio("Interações", FALTA_YT_ANALYTICS) +
     campoVazio("Horários de pico", FALTA_YT_ANALYTICS) +
     campoVazio("Taxa de cliques (CTR)", FALTA_YT_ANALYTICS);
 

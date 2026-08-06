@@ -27,6 +27,7 @@ Dois segredos, um de cada vez:
 
 - `NOTION_TOKEN` — o token que está no seu `painel/.env`
 - `GENNA_API_KEY` — a chave do Genna, também no `.env`
+- `YT_API_KEY` — a chave da YouTube Data API, também no `.env`
 
 Sem o primeiro a automação roda mas não lê o Notion. Sem o segundo, o painel perde as
 métricas de Instagram (alcance, salvamentos, compartilhamentos, top publicações).
