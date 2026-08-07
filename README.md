@@ -101,8 +101,16 @@ fila = `Novo pedido`; em criação = `Começou`, `Em ajuste`, `Em aprovação`,
 `Para postar/produzir/avisar`. `Stand by`, `Calendário` e `Avisos` não entram em nenhum dos
 dois — são cards abertos que não estão em produção, e o documento não pede esse número.
 
-O tempo de entrega é medido da criação do card até a data de finalização. O Notion não expõe
-por API quando o card entrou em "novo pedido", então a criação é a melhor âncora disponível.
+**O tempo de entrega usa a definição dos relatórios já apresentados:** só entram os cards que
+entraram E saíram dentro do mês, e cards em "Stand by" ficam de fora. Confere com o histórico —
+maio 3,8 · junho 3,8 · julho 6,0.
+
+Sem essas duas regras a conta ia para 8,9 dias em julho, porque um card aberto em abril para um
+evento de julho mede antecedência do pedido, não tempo de trabalho.
+
+⚠️ A API do Notion **não expõe quando o card mudou de status** — só `created_time` e
+`last_edited_time`. Por isso a âncora é a criação do card. Para medir o tempo real de produção
+seria preciso criar automações no Notion que carimbem a data a cada mudança de status.
 
 ## Estrutura
 

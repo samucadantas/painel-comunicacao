@@ -63,6 +63,7 @@ const P = {
   acompanhamento: "Acompanhamento",
   ministerios: "Ministérios",
   dataFinalizado: "Data - Finalizado",
+  dataPrazo: "Data - Prazo do Projeto",
 };
 
 // ---------- vocabulário do documento → status reais do Notion ----------
@@ -132,6 +133,7 @@ const titleOf = (row) => {
 const prop = (r, n) => r.properties?.[n];
 const status = (r) => prop(r, P.status)?.status?.name || "Sem status";
 const finalizado = (r) => prop(r, P.dataFinalizado)?.date?.start?.slice(0, 10) || null;
+const prazo = (r) => prop(r, P.dataPrazo)?.date?.start?.slice(0, 10) || null;
 const criado = (r) => (r.created_time || "").slice(0, 10);
 const tiposTarefa = (r) => (prop(r, P.tiposTarefa)?.multi_select || []).map((o) => o.name);
 const quemTexto = (r) => (prop(r, P.quem)?.rich_text || []).map((t) => t.plain_text).join("").trim();
@@ -150,10 +152,31 @@ function topN(map, n = 8) {
 }
 const bump = (map, k, v = 1) => map.set(k, (map.get(k) || 0) + v);
 
-// média de dias entre a entrada do pedido e a entrega
-function mediaEntrega(cards) {
-  const t = cards.map((r) => diffDays(criado(r), finalizado(r))).filter((d) => d >= 0 && d < 365);
-  return t.length ? Math.round((t.reduce((s, x) => s + x, 0) / t.length) * 10) / 10 : 0;
+/**
+ * Média de dias entre a entrada do pedido e a entrega.
+ *
+ * Usa a MESMA definição dos relatórios já apresentados aos gestores: só entram os cards
+ * que entraram E saíram dentro do mês. Card aberto em abril para um evento de julho mede
+ * antecedência do pedido, não tempo de trabalho — e era o que inflava a conta.
+ *
+ * Cards em "Stand by" ficam de fora: foram pausados, não entregues. (Sem essa regra,
+ * junho dava 4,0 em vez dos 3,8 do relatório oficial.)
+ *
+ * Confere com o histórico: maio 3,8 · junho 3,8 · julho 6,0.
+ */
+function tempoEntrega(cards, mes) {
+  const t = cards
+    .filter((r) => status(r) !== "Stand by")
+    .filter((r) => !mes || criado(r).startsWith(mes))
+    .map((r) => diffDays(criado(r), finalizado(r)))
+    .filter((d) => d >= 0 && d < 365)
+    .sort((a, b) => a - b);
+  if (!t.length) return { media: 0, mediana: 0, n: 0 };
+  return {
+    media: Math.round((t.reduce((s, x) => s + x, 0) / t.length) * 10) / 10,
+    mediana: t[Math.floor(t.length / 2)],
+    n: t.length,
+  };
 }
 
 // ---------- YouTube ----------
@@ -372,7 +395,20 @@ async function build() {
     return {
       month, label: mesLabel(month), curto: mesCurto(month),
       entregues: fin.length,
-      media_entrega: mediaEntrega(fin),
+      media_entrega: tempoEntrega(fin, month).media,
+      mediana_entrega: tempoEntrega(fin, month).mediana,
+      n_tempo: tempoEntrega(fin, month).n,
+      // "atraso só depois do prazo": card em Stand by não conta, e sem prazo não dá para julgar
+      prazo: (() => {
+        const comPrazo = fin.filter((r) => prazo(r) && status(r) !== "Stand by");
+        const noPrazo = comPrazo.filter((r) => finalizado(r) <= prazo(r));
+        return {
+          com_prazo: comPrazo.length,
+          no_prazo: noPrazo.length,
+          pct: comPrazo.length ? Math.round((noPrazo.length / comPrazo.length) * 100) : null,
+          sem_prazo: fin.filter((r) => !prazo(r)).length,
+        };
+      })(),
       campeoes: topN(camp, 6),
       ministerios: topN(mins, 8),
       videos: fin.filter((r) => temTipo(r, T_VIDEO)).length,
@@ -434,7 +470,7 @@ async function build() {
     // "Comparativo de vídeos/reels" e "Comparativo de artes"
     meses: tri.map((m) => ({
       curto: m.curto, label: m.label,
-      entregues: m.entregues, media_entrega: m.media_entrega,
+      entregues: m.entregues, media_entrega: m.media_entrega, mediana_entrega: m.mediana_entrega,
       videos: m.videos, artes: m.artes,
     })),
     // "Visão geral Instagram (duas abas: @aponte_recife e @somosaponte)"
