@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-08-07T12:31:24.367Z",
+  "gerado_em": "2026-08-07T15:08:05.333Z",
   "hoje": "2026-08-07",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,12 +17,12 @@
   "semana": {
     "label": "Semana de 02/08 a 08/08",
     "mes_vigente": "Agosto 2026",
-    "fila": 4,
-    "em_criacao": 12,
-    "entregues": 8,
+    "fila": 3,
+    "em_criacao": 13,
+    "entregues": 9,
     "entregues_semana_anterior": 26,
     "fila_videos": 5,
-    "fila_artes": 6
+    "fila_artes": 7
   },
   "mes_anterior": {
     "month": "2026-07",
@@ -156,8 +156,8 @@
           "handle": "@aponte_recife",
           "periodo": "2026-07",
           "publicacoes": 16,
-          "alcance": 103333,
-          "views": 207010,
+          "alcance": 103357,
+          "views": 207032,
           "likes": 6837,
           "comentarios": 283,
           "compartilhamentos": 1402,
@@ -197,14 +197,14 @@
               "tipo": "Carrossel",
               "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
               "link": "https://www.instagram.com/p/DbedVZIjSy3/",
-              "alcance": 9279,
+              "alcance": 9293,
               "interacoes": 480,
               "taxa": 5.2,
               "salvamentos": 14,
               "compartilhamentos": 74
             }
           ],
-          "media_alcance": 6458,
+          "media_alcance": 6460,
           "destaques": [
             {
               "data": "2026-07-08",
@@ -233,7 +233,7 @@
               "tipo": "Carrossel",
               "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
               "link": "https://www.instagram.com/p/DbedVZIjSy3/",
-              "alcance": 9279,
+              "alcance": 9293,
               "interacoes": 480,
               "taxa": 5.2,
               "salvamentos": 14,
@@ -246,8 +246,8 @@
     },
     "youtube": {
       "videos": 6,
-      "views": 7494,
-      "media_views": 1249,
+      "views": 7499,
+      "media_views": 1250,
       "likes": 338,
       "comentarios": 4,
       "interacoes": 342,
@@ -282,7 +282,7 @@
         "curto": "Mai/26",
         "label": "Maio 2026",
         "entregues": 59,
-        "media_entrega": 3.8,
+        "media_entrega": 3,
         "mediana_entrega": 3,
         "videos": 2,
         "artes": 25
@@ -309,18 +309,18 @@
     "instagram": [
       {
         "handle": "@aponte_recife",
-        "seguidores": 39427,
+        "seguidores": 39426,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-05-01 a 2026-07-31",
           "publicacoes": 30,
-          "alcance": 171437,
-          "views": 333176,
+          "alcance": 171461,
+          "views": 333203,
           "likes": 12260,
           "comentarios": 473,
-          "compartilhamentos": 2178,
+          "compartilhamentos": 2179,
           "salvamentos": 270,
-          "interacoes": 15594,
+          "interacoes": 15595,
           "taxa_engajamento": 9.1,
           "por_formato": {
             "Carrossel": 9,
@@ -351,33 +351,33 @@
               "compartilhamentos": 191
             },
             {
-              "data": "2026-06-25",
-              "tipo": "Reels",
-              "legenda": "Quem passa pelo nosso Grupo de Discipulado (GD), encontra outros irmãos para fortalecer a ",
-              "link": "https://www.instagram.com/reel/DaBV-EkpRGm/",
-              "alcance": 9284,
-              "interacoes": 1153,
-              "taxa": 12.4,
-              "salvamentos": 22,
-              "compartilhamentos": 324
-            },
-            {
               "data": "2026-07-31",
               "tipo": "Carrossel",
               "legenda": "A contagem regressiva tá chegando ao fim! ⏳🤎 Neste sábado, a Praça abre as portas para um",
               "link": "https://www.instagram.com/p/DbedVZIjSy3/",
-              "alcance": 9279,
+              "alcance": 9293,
               "interacoes": 480,
               "taxa": 5.2,
               "salvamentos": 14,
               "compartilhamentos": 74
             },
             {
+              "data": "2026-06-25",
+              "tipo": "Reels",
+              "legenda": "Quem passa pelo nosso Grupo de Discipulado (GD), encontra outros irmãos para fortalecer a ",
+              "link": "https://www.instagram.com/reel/DaBV-EkpRGm/",
+              "alcance": 9284,
+              "interacoes": 1154,
+              "taxa": 12.4,
+              "salvamentos": 22,
+              "compartilhamentos": 325
+            },
+            {
               "data": "2026-07-30",
               "tipo": "Reels",
               "legenda": "A música também pode costurar histórias, despertar esperança e nos lembrar da beleza do ev",
               "link": "https://www.instagram.com/reel/Dba1ts0JrDv/",
-              "alcance": 8337,
+              "alcance": 8344,
               "interacoes": 359,
               "taxa": 4.3,
               "salvamentos": 5,
@@ -434,13 +434,13 @@
       },
       {
         "handle": "@somosaponte",
-        "seguidores": 40202,
+        "seguidores": 40201,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-05-01 a 2026-07-31",
           "publicacoes": 12,
-          "alcance": 93185,
-          "views": 185844,
+          "alcance": 93322,
+          "views": 185855,
           "likes": 5285,
           "comentarios": 223,
           "compartilhamentos": 919,
@@ -491,7 +491,7 @@
               "tipo": "Reels",
               "legenda": "No último domingo, começamos uma nova série de mensagens sobre o Sermão do Monte em todas ",
               "link": "https://www.instagram.com/reel/DZsyIqEJnt3/",
-              "alcance": 7449,
+              "alcance": 7453,
               "interacoes": 495,
               "taxa": 6.6,
               "salvamentos": 6,
@@ -510,8 +510,8 @@
             }
           ],
           "alcance_por_formato": {
-            "Carrossel": 43.7,
-            "Reels": 40,
+            "Carrossel": 43.8,
+            "Reels": 39.9,
             "Imagem": 16.3
           }
         },
@@ -560,8 +560,8 @@
     ],
     "youtube": {
       "videos": 31,
-      "views": 34361,
-      "media_views": 1108,
+      "views": 34369,
+      "media_views": 1109,
       "likes": 1797,
       "comentarios": 36,
       "interacoes": 1833,
@@ -600,17 +600,17 @@
       "mensais": [
         {
           "curto": "Mai/26",
-          "views": 15719,
+          "views": 15720,
           "videos": 16
         },
         {
           "curto": "Jun/26",
-          "views": 11148,
+          "views": 11150,
           "videos": 9
         },
         {
           "curto": "Jul/26",
-          "views": 7494,
+          "views": 7499,
           "videos": 6
         }
       ],

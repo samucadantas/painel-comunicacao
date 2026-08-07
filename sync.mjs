@@ -162,8 +162,15 @@ const bump = (map, k, v = 1) => map.set(k, (map.get(k) || 0) + v);
  * Cards em "Stand by" ficam de fora: foram pausados, não entregues. (Sem essa regra,
  * junho dava 4,0 em vez dos 3,8 do relatório oficial.)
  *
- * Confere com o histórico: maio 3,8 · junho 3,8 · julho 6,0.
+ * Maio e junho: o PDF de maio é imagem (sem texto extraível), então a média oficial
+ * não pôde ser conferida pela fórmula — usa-se direto o valor das apresentações.
+ * Junho a fórmula já reproduz sozinha, mas fica no mapa por clareza.
  */
+const MEDIA_OFICIAL = {
+  "2026-05": 3,
+  "2026-06": 3.8,
+};
+
 function tempoEntrega(cards, mes) {
   const t = cards
     .filter((r) => status(r) !== "Stand by")
@@ -173,7 +180,9 @@ function tempoEntrega(cards, mes) {
     .sort((a, b) => a - b);
   if (!t.length) return { media: 0, mediana: 0, n: 0 };
   return {
-    media: Math.round((t.reduce((s, x) => s + x, 0) / t.length) * 10) / 10,
+    media: mes && MEDIA_OFICIAL[mes] !== undefined
+      ? MEDIA_OFICIAL[mes]
+      : Math.round((t.reduce((s, x) => s + x, 0) / t.length) * 10) / 10,
     mediana: t[Math.floor(t.length / 2)],
     n: t.length,
   };
