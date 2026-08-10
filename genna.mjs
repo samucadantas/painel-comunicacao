@@ -74,11 +74,30 @@ function resume(posts) {
   };
 }
 
+/**
+ * Um título para a publicação, no lugar da legenda cortada no meio.
+ *
+ * O Instagram não tem campo de título, então o mais próximo é a primeira frase da
+ * legenda — que quase sempre é a chamada do post. Corta na primeira pontuação forte
+ * ou na quebra de linha, tira hashtags e devolve algo que se lê como manchete.
+ */
+function resumoLegenda(caption) {
+  const limpo = (caption || "")
+    .replace(/#[\wÀ-ÿ]+/g, "")          // hashtags não são título
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!limpo) return "";
+  // primeira frase: para no . ! ? ou : seguido de espaço/fim
+  const frase = (limpo.match(/^(.{15,110}?)(?:[.!?:]|$)/) || [null, limpo])[1].trim();
+  const t = frase.length >= 15 ? frase : limpo;
+  return t.length > 110 ? t.slice(0, 108).trimEnd() + "…" : t;
+}
+
 const topPosts = (posts, n, chave = "reach") =>
   [...posts].sort((a, b) => (b[chave] || 0) - (a[chave] || 0)).slice(0, n).map((p) => ({
     data: p.timestamp.slice(0, 10),
     tipo: { FEED_CAROUSEL: "Carrossel", REEL: "Reels", FEED_SINGLE_IMAGE: "Imagem" }[p.type] || p.type,
-    legenda: (p.caption || "").replace(/\s+/g, " ").slice(0, 90),
+    titulo: resumoLegenda(p.caption),
     link: p.permalink,
     alcance: p.reach,
     interacoes: p.totalInteractions,

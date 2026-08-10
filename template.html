@@ -132,14 +132,23 @@
   .periodo span{color:var(--muted);font-weight:600}
 
   /* ---------- bento ---------- */
+  /* São 5 cartões: no desktop o destaque vira uma coluna alta à esquerda e os outros
+     quatro formam um 2×2 ao lado — 3 colunas × 2 filas, sem sobra.
+     Esticá-lo por duas COLUNAS (a primeira tentativa) fechava a grade, mas deixava o
+     número de 78px perdido num cartão de 782px de largura. */
   .bento{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
-  @media(min-width:760px){.bento{grid-template-columns:repeat(4,1fr);gap:14px}}
+  @media(min-width:760px){.bento{grid-template-columns:repeat(3,1fr);gap:14px}}
   .tile{
     background:var(--surface);border:1px solid var(--card-line);border-radius:var(--radius);
     padding:18px 18px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:130px;
   }
   @media(min-width:760px){.tile{padding:22px;min-height:154px}}
   .tile.big{grid-column:span 2}
+  /* Precisa vir DEPOIS da regra acima para vencê-la: no desktop o destaque deixa de
+     esticar na horizontal e passa a ocupar as duas filas da primeira coluna. */
+  @media(min-width:760px){.tile.big{grid-column:auto;grid-row:span 2}}
+  /* Cartão sem rótulo no alto: o conteúdo fica no meio, senão afunda no rodapé. */
+  .tile.centro{justify-content:center}
   .tile.lime{background:var(--lime);border-color:transparent;color:#13201A}
   .tile.deep{background:var(--tile-deep-bg);border-color:transparent;color:var(--tile-deep-ink)}
   .k{font-size:12.5px;font-weight:650;letter-spacing:.01em;opacity:.68;margin-bottom:auto}
@@ -206,9 +215,20 @@
   .bar b{position:absolute;top:-24px;left:0;right:0;text-align:center;font-size:13px;font-weight:750;color:var(--ink);
     font-variant-numeric:tabular-nums}
   .col .lb{font-size:11.5px;font-weight:650;color:var(--muted);white-space:nowrap}
+  @media(min-width:760px){.bar{max-width:104px}}
 
   /* ---------- métricas em grade ---------- */
-  .net{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px}
+  /* Rótulos como "Número de seguidores atuais" precisam de largura: a 152px eles quebravam
+     em três linhas e a grade virava um paredão de texto picado. */
+  /* 142px, não 150: no celular a coluna útil tem 309px e duas colunas de 150 + 10 de
+     vão dariam 310 — estouraria por 1px e as 13 métricas cairiam empilhadas uma a uma. */
+  .net{display:grid;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));gap:10px}
+  @media(min-width:760px){.net{grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:12px}}
+  /* A contagem por perfil é só "@handle" + número: cabe em coluna estreita. */
+  .net.mini{grid-template-columns:repeat(auto-fit,minmax(132px,1fr))}
+  /* 144px é o maior valor em que os 7 perfis ainda entram numa fila só na largura cheia —
+     a 152px sobrava um item solitário na segunda fila. */
+  @media(min-width:760px){.net.mini{grid-template-columns:repeat(auto-fit,minmax(144px,1fr))}}
   .nc{border-radius:var(--radius-sm);padding:14px 15px;background:var(--surface-2)}
   .nc .h{font-size:12.5px;font-weight:650;color:var(--muted);line-height:1.3}
   .nc .p{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:6px;font-variant-numeric:tabular-nums}
@@ -269,26 +289,29 @@
   .leg .tr{width:18px;height:3px;border-radius:2px;display:block}
 
   /* ---------- publicação / vídeo com miniatura ---------- */
-  .pubs{display:flex;flex-direction:column;gap:10px}
+  .pubs{display:grid;gap:10px}
+  @media(min-width:900px){.pubs{grid-template-columns:repeat(2,1fr);gap:12px}}
   .pub{display:grid;grid-template-columns:auto 1fr;gap:13px;padding:11px;align-items:start;
     border-radius:var(--radius-sm);background:var(--surface-2);text-decoration:none;color:inherit}
   .pub:hover .pub-tit{text-decoration:underline}
   .pub-thumb{width:100px;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block;background:var(--line)}
   .pub-thumb.wide{width:124px;aspect-ratio:16/9}
   @media(max-width:480px){.pub-thumb{width:78px}.pub-thumb.wide{width:96px}}
-  .pub-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .pub-body{min-width:0}
+  .pub-top{margin-bottom:9px}
   .badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:750;
     padding:3px 9px 3px 7px;border-radius:999px;background:var(--lime);color:#13201A}
   .badge svg{width:13px;height:13px;display:block}
-  .pub-data{font-size:12px;color:var(--muted);font-weight:600}
-  .pub-num{display:flex;align-items:baseline;gap:6px;margin-top:7px;flex-wrap:wrap}
-  .pub-num b{font-size:22px;font-weight:800;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
-  .pub-num span{font-size:12px;color:var(--muted);font-weight:650}
-  .pub-why{font-size:12.5px;font-weight:650;margin-top:6px;line-height:1.35}
-  .pub-why b{font-weight:800}
-  .pub-tit{font-size:13px;font-weight:650;margin-top:6px;line-height:1.35;
+  /* Título é o segundo degrau da hierarquia: diz de que trata antes de qualquer número. */
+  .pub-tit{font-size:14.5px;font-weight:750;letter-spacing:-.015em;line-height:1.3;margin-bottom:10px;
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .pub-mais{font-size:12px;color:var(--muted);margin-top:6px;font-weight:600}
+  .pub-num{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+  .pub-num b{font-size:26px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+  .pub-num span{font-size:12.5px;color:var(--muted);font-weight:650}
+  .pub-why{font-size:12.5px;font-weight:650;margin-top:7px;line-height:1.35}
+  .pub-why b{font-weight:800}
+  /* Data e métricas secundárias: última linha, tom baixo, separadas por ponto médio. */
+  .pub-mais{font-size:12px;color:var(--muted);margin-top:9px;font-weight:600;line-height:1.45}
 
   /* O @ do perfil abre o grupo de publicações dele. */
   .perfil{font-size:15px;font-weight:800;letter-spacing:-.02em;margin:20px 0 10px}
@@ -361,7 +384,7 @@
     <section class="card">
       <h2>Análise Instagram</h2>
       <h3>Quantas publicações foram feitas nos perfis</h3>
-      <div class="net" id="m-ig"></div>
+      <div class="net mini" id="m-ig"></div>
       <h3 id="m-ig-destaques-t">Publicações destaques</h3>
       <div id="m-ig-destaques"></div>
     </section>
@@ -563,21 +586,27 @@ function linhas(el, meses, series) {
    na lista. Sem isso o cartão vira três números soltos que ninguém sabe comparar. */
 const ICO_FORMATO = { Reels: "video", Carrossel: "carrossel", Imagem: "arte", Story: "story", "Vídeo": "video" };
 
+/**
+ * Uma ordem só, para IG e YouTube:
+ *   1. tag do formato        — o que é isso
+ *   2. título               — de que trata (no IG, a primeira frase da legenda)
+ *   3. número + rótulo      — o dado principal, dito por extenso
+ *   4. comparativo          — por que está nesta lista
+ *   5. complementares       — data e o resto, em uma linha discreta
+ */
 function pub({ thumb, wide, tipo, data, num, numLabel, porque, titulo, extra, link }) {
   const classes = `pub-thumb${wide ? " wide" : ""}`;
   const img = thumb
     ? `<img class="${classes}" src="${thumb}" alt="" loading="lazy" decoding="async">`
     : `<div class="${classes}" aria-hidden="true"></div>`;
+  const complementos = [data, extra].filter(Boolean).join(" · ");
   const corpo = `
-    <div>
-      <div class="pub-top">
-        ${tipo ? `<span class="badge">${ico(ICO_FORMATO[tipo] || "arte", "")}${esc(tipo)}</span>` : ""}
-        ${data ? `<span class="pub-data">${esc(data)}</span>` : ""}
-      </div>
+    <div class="pub-body">
+      ${tipo ? `<div class="pub-top"><span class="badge">${ico(ICO_FORMATO[tipo] || "arte", "")}${esc(tipo)}</span></div>` : ""}
+      ${titulo ? `<div class="pub-tit">${esc(titulo)}</div>` : ""}
       <div class="pub-num"><b>${num}</b><span>${esc(numLabel)}</span></div>
       ${porque ? `<div class="pub-why">${porque}</div>` : ""}
-      ${titulo ? `<div class="pub-tit">${esc(titulo)}</div>` : ""}
-      ${extra ? `<div class="pub-mais">${esc(extra)}</div>` : ""}
+      ${complementos ? `<div class="pub-mais">${esc(complementos)}</div>` : ""}
     </div>`;
   return link
     ? `<a class="pub" href="${esc(link)}" target="_blank" rel="noopener">${img}${corpo}</a>`
@@ -635,8 +664,7 @@ function renderMes() {
   // Ordem de leitura: "106 trabalhos" primeiro, "entregues no mês" depois — o número é a
   // notícia, o rótulo é a explicação. O .khead vazio empurra o conjunto para o alto.
   $("m-kpis").innerHTML = `
-    <div class="tile lime big">
-      <div class="khead"></div>
+    <div class="tile lime big centro">
       <div class="vlinha"><div class="v">${nf(m.entregues)}</div><div class="un">trabalhos</div></div>
       <div class="u">entregues no mês</div>
     </div>
@@ -683,7 +711,7 @@ function renderMes() {
         porque: p.pct_acima != null
           ? `${ico("alta", "seta")}<b>${nf(p.pct_acima)}% acima</b> da média do perfil no mês, de ${nf(gm.media_alcance)} contas por publicação`
           : "",
-        titulo: p.legenda + "…",
+        titulo: p.titulo,
         extra: `${nf(p.interacoes)} interações · ${dec(p.taxa)}% de taxa de interação · ${nf(p.salvamentos)} salvos · ${nf(p.compartilhamentos)} compartilhados`,
         link: p.link,
       })).join("") + `</div>`).join("")
@@ -859,7 +887,7 @@ function renderPerfilIg(i) {
         porque: x.pct_acima != null && x.pct_acima > 0
           ? `${ico("alta", "seta")}<b>${nf(x.pct_acima)}% acima</b> da média do trimestre, de ${nf(g.media_alcance)} contas por publicação`
           : `na média do trimestre, de ${nf(g.media_alcance)} contas por publicação`,
-        titulo: x.legenda + "…",
+        titulo: x.titulo,
         extra: `${nf(x.interacoes)} interações · ${dec(x.taxa)}% de taxa de interação · ${nf(x.salvamentos)} salvos · ${nf(x.compartilhamentos)} compartilhados`,
         link: x.link,
       })).join("") + `</div>
