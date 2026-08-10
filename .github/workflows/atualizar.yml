@@ -20,6 +20,12 @@ jobs:
         with:
           node-version: "22"
 
+      # O runner não traz sips (que só existe no Mac) nem ImageMagick. Sem um redutor,
+      # o sync descarta as miniaturas do Instagram, que vêm em 720px/66 KB, e o painel
+      # sai sem as fotos das publicações em destaque.
+      - name: Instalar o redutor de miniaturas
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick
+
       - name: Ler Notion + YouTube e gerar o painel
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
