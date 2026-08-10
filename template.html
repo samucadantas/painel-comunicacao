@@ -26,6 +26,9 @@
     --surface:#FFFFFF;
     --surface-2:#EFF7EF;                           /* oklch(.968 .013 145) */
     --deep:#152519;
+    /* O bento usa três cores de cartão. No escuro o --deep vira lima (para as sub-abas),
+       então o cartão escuro tem variável própria — senão o escuro cairia para duas cores. */
+    --tile-deep-bg:#152519; --tile-deep-ink:#ECF2EC;
     --ink:#152519;                                 /* oklch(.245 .030 152) — 16:1 no card */
     --ink-on-deep:#ECF2EC;
     --muted:#5C685F;                               /* oklch(.505 .022 152) — 5.8:1 */
@@ -35,29 +38,38 @@
     /* Ou borda, ou sombra — nunca as duas. */
     --card-line:transparent;
     --shadow:0 1px 2px rgba(21,37,25,.04), 0 12px 28px -14px rgba(21,37,25,.22);
+    /* As duas séries do gráfico de linhas: precisam se distinguir nos dois temas, então
+       a segunda escurece no claro e clareia no escuro. */
+    --serie-a:#A9D426; --serie-b:#2C5F35;
   }
   @media (prefers-color-scheme: dark){
     :root{
       --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
       --deep:#C8F135; --ink:#E8EFE8; --ink-on-deep:#13201A;
+    --tile-deep-bg:#2A4A2E; --tile-deep-ink:#E8EFE8;   /* 8.4:1 — terceira cor do bento */
       --muted:#9BA79D; --muted-2:#7E8A80;
       --line:rgba(232,239,232,.12); --card-line:rgba(232,239,232,.13);
       --shadow:none;
+      --serie-a:#C8F135; --serie-b:#8FCB57;
     }
   }
   :root[data-theme="dark"]{
     --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
     --deep:#C8F135; --ink:#E8EFE8; --ink-on-deep:#13201A;
+    --tile-deep-bg:#2A4A2E; --tile-deep-ink:#E8EFE8;   /* 8.4:1 — terceira cor do bento */
     --muted:#9BA79D; --muted-2:#7E8A80;
     --line:rgba(232,239,232,.12); --card-line:rgba(232,239,232,.13);
     --shadow:none;
+    --serie-a:#C8F135; --serie-b:#8FCB57;
   }
   :root[data-theme="light"]{
     --bg:#ECF2EC; --surface:#FFFFFF; --surface-2:#EFF7EF;
     --deep:#152519; --ink:#152519; --ink-on-deep:#ECF2EC;
+    --tile-deep-bg:#152519; --tile-deep-ink:#ECF2EC;
     --muted:#5C685F; --muted-2:#7C887F;
     --line:rgba(21,37,25,.11); --card-line:transparent;
     --shadow:0 1px 2px rgba(21,37,25,.04), 0 12px 28px -14px rgba(21,37,25,.22);
+    --serie-a:#A9D426; --serie-b:#2C5F35;
   }
 
   *{box-sizing:border-box}
@@ -69,6 +81,14 @@
     padding:max(14px,env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom));
   }
   :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:8px}
+  /* Trocar de tema é ação ocasional e intencional: vale um cruzamento suave em vez de um
+     estalo. Só cor — nada de layout —, e o bloco de movimento reduzido abaixo desliga tudo. */
+  body,.card,.tile,.ghost,.nc,.item,.pub,.track,.tag{
+    transition:background-color .22s ease, color .22s ease, border-color .22s ease;
+  }
+  /* Painel que entra na troca de aba: só opacidade, sem deslocar nada de lugar. */
+  [role="tabpanel"]{animation:entra .16s cubic-bezier(.22,1,.36,1) both}
+  @keyframes entra{from{opacity:0}to{opacity:1}}
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
   }
@@ -100,9 +120,11 @@
     flex:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);
     border-radius:999px;padding:12px 20px;font-size:14.5px;font-weight:650;cursor:pointer;
     font-family:inherit;min-height:46px;
-    transition:background .18s cubic-bezier(.22,1,.36,1), color .18s cubic-bezier(.22,1,.36,1), border-color .18s cubic-bezier(.22,1,.36,1);
+    transition:background .18s cubic-bezier(.22,1,.36,1), color .18s cubic-bezier(.22,1,.36,1),
+               border-color .18s cubic-bezier(.22,1,.36,1), transform .12s cubic-bezier(.22,1,.36,1);
   }
   .abas button:hover{color:var(--ink);border-color:var(--muted-2)}
+  .abas button:active{transform:scale(.97)}
   .abas button[aria-selected="true"]{background:var(--lime);color:#13201A;border-color:transparent}
   .abas button[aria-selected="true"]:hover{color:#13201A}
 
@@ -119,7 +141,7 @@
   @media(min-width:760px){.tile{padding:22px;min-height:154px}}
   .tile.big{grid-column:span 2}
   .tile.lime{background:var(--lime);border-color:transparent;color:#13201A}
-  .tile.deep{background:var(--deep);border-color:transparent;color:var(--ink-on-deep)}
+  .tile.deep{background:var(--tile-deep-bg);border-color:transparent;color:var(--tile-deep-ink)}
   .k{font-size:12.5px;font-weight:650;letter-spacing:.01em;opacity:.68;margin-bottom:auto}
   .tile.lime .k,.tile.deep .k{opacity:.72}
   .v{font-size:clamp(36px,10vw,54px);line-height:1;font-weight:800;letter-spacing:-.045em;margin-top:14px;
@@ -130,7 +152,20 @@
   .delta{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;margin-top:9px;
     padding:4px 10px;border-radius:999px;background:rgba(19,32,26,.08);align-self:flex-start}
   .tile.lime .delta{background:rgba(19,32,26,.13)}
-  .tile.deep .delta{background:rgba(238,245,234,.14)}
+  .tile.deep .delta{background:rgba(238,245,234,.16)}
+  /* Ícone do cartão: fica no alto, junto do rótulo, sem competir com o número. */
+  .khead{display:flex;align-items:center;gap:8px;margin-bottom:auto}
+  .khead .k{margin-bottom:0}
+  .ico{width:19px;height:19px;flex:none;opacity:.55;display:block}
+  .tile.lime .ico,.tile.deep .ico{opacity:.7}
+  /* "6 dias": a unidade acompanha o número na mesma linha e no mesmo corpo. */
+  .vlinha{display:flex;align-items:baseline;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .vlinha .v{margin-top:0}
+  /* "6 dias": a unidade sai no mesmo corpo do número, com peso e opacidade menores para
+     o número seguir liderando a leitura. No cartão grande ela recua — "trabalhos" a 78px
+     quebraria a linha no celular. */
+  .vlinha .un{font-size:clamp(36px,10vw,54px);line-height:1;font-weight:750;letter-spacing:-.04em;opacity:.7}
+  .tile.big .vlinha .un{font-size:clamp(19px,4.6vw,27px);opacity:.75}
   :root[data-theme="dark"] .tile:not(.lime):not(.deep) .delta{background:rgba(233,240,233,.09)}
   @media (prefers-color-scheme: dark){.tile:not(.lime):not(.deep) .delta{background:rgba(233,240,233,.09)}}
 
@@ -178,6 +213,7 @@
   .nc .h{font-size:12.5px;font-weight:650;color:var(--muted);line-height:1.3}
   .nc .p{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:6px;font-variant-numeric:tabular-nums}
   .nc.zero .p{color:var(--muted-2)}
+  .nc .sub{font-size:11.5px;font-weight:650;color:var(--muted);margin-top:4px;line-height:1.3}
   .nc.vazio .p{font-size:26px;color:var(--muted-2)}
   .nc.vazio .obs{font-size:11.5px;color:var(--muted-2);margin-top:4px;line-height:1.35}
 
@@ -200,10 +236,70 @@
   .subabas button{
     border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;
     padding:10px 16px;font-size:13.5px;font-weight:650;cursor:pointer;font-family:inherit;min-height:44px;
-    transition:background .18s, color .18s, border-color .18s;
+    transition:background .18s, color .18s, border-color .18s, transform .12s cubic-bezier(.22,1,.36,1);
   }
   .subabas button:hover{color:var(--ink);border-color:var(--muted-2)}
+  .subabas button:active{transform:scale(.97)}
   .subabas button[aria-selected="true"]{background:var(--deep);color:var(--ink-on-deep);border-color:transparent}
+
+  /* ---------- anel de campeões ---------- */
+  /* Campeões viram anel e ministérios ficam em barras: dois rankings lado a lado com a
+     mesma forma se lêem como um gráfico só. Formas diferentes separam as duas leituras. */
+  .anel{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .anel-svg{width:150px;height:150px;flex:none;transform:rotate(-90deg)}
+  .anel-wrap{position:relative;width:150px;height:150px;flex:none}
+  .anel-centro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;pointer-events:none}
+  .anel-centro b{font-size:30px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+  .anel-centro span{font-size:11.5px;color:var(--muted);font-weight:650;margin-top:3px}
+  .anel-leg{flex:1;min-width:190px;display:flex;flex-direction:column;gap:10px}
+  .anel-leg .li{display:grid;grid-template-columns:10px auto 1fr auto;align-items:center;gap:10px}
+  .pin{width:10px;height:10px;border-radius:3px}
+  .emo{font-size:16px;line-height:1}
+  .anel-leg .nm2{font-size:13.5px;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .anel-leg .n2{font-size:13.5px;font-weight:750;font-variant-numeric:tabular-nums}
+
+  /* ---------- gráfico de linhas ---------- */
+  .linhas{width:100%}
+  .linhas svg{width:100%;height:186px;display:block;overflow:visible}
+  .linhas .eixo{font-size:11.5px;font-weight:650;fill:var(--muted)}
+  .linhas .val{font-size:12px;font-weight:750;fill:var(--ink);font-variant-numeric:tabular-nums}
+  .leg{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+  .leg i{display:inline-flex;align-items:center;gap:7px;font-style:normal;font-size:13px;font-weight:650;color:var(--muted)}
+  .leg .tr{width:18px;height:3px;border-radius:2px;display:block}
+
+  /* ---------- publicação / vídeo com miniatura ---------- */
+  .pubs{display:flex;flex-direction:column;gap:10px}
+  .pub{display:grid;grid-template-columns:auto 1fr;gap:13px;padding:11px;align-items:start;
+    border-radius:var(--radius-sm);background:var(--surface-2);text-decoration:none;color:inherit}
+  .pub:hover .pub-tit{text-decoration:underline}
+  .pub-thumb{width:100px;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block;background:var(--line)}
+  .pub-thumb.wide{width:124px;aspect-ratio:16/9}
+  @media(max-width:480px){.pub-thumb{width:78px}.pub-thumb.wide{width:96px}}
+  .pub-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:750;
+    padding:3px 9px 3px 7px;border-radius:999px;background:var(--lime);color:#13201A}
+  .badge svg{width:13px;height:13px;display:block}
+  .pub-data{font-size:12px;color:var(--muted);font-weight:600}
+  .pub-num{display:flex;align-items:baseline;gap:6px;margin-top:7px;flex-wrap:wrap}
+  .pub-num b{font-size:22px;font-weight:800;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+  .pub-num span{font-size:12px;color:var(--muted);font-weight:650}
+  .pub-why{font-size:12.5px;font-weight:650;margin-top:6px;line-height:1.35}
+  .pub-why b{font-weight:800}
+  .pub-tit{font-size:13px;font-weight:650;margin-top:6px;line-height:1.35;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .pub-mais{font-size:12px;color:var(--muted);margin-top:6px;font-weight:600}
+
+  /* O @ do perfil abre o grupo de publicações dele. */
+  .perfil{font-size:15px;font-weight:800;letter-spacing:-.02em;margin:20px 0 10px}
+  .perfil:first-child{margin-top:4px}
+  .seta{width:14px;height:14px;display:inline-block;vertical-align:-2px;margin-right:3px;color:var(--lime-deep)}
+  :root[data-theme="dark"] .seta{color:var(--lime)}
+  @media (prefers-color-scheme: dark){.seta{color:var(--lime)}}
+
+  /* Nota que explica o critério: vem DEPOIS da lista, como rodapé do bloco. */
+  .nota{font-size:12.5px;color:var(--muted);line-height:1.5;margin:12px 0 0;max-width:74ch}
+  .nota b{color:var(--ink);font-weight:650}
 
   .foot{color:var(--muted);font-size:13px;line-height:1.6;padding:14px 6px 0;max-width:78ch}
   .foot b{color:var(--ink);font-weight:650}
@@ -214,10 +310,15 @@
 <div class="wrap">
 
   <div class="top">
+    <!-- Ícone oficial da Ponte (Identidade 2026), sobre a pastilha lima da marca. -->
     <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
       <rect width="40" height="40" rx="12" fill="#C8F135"/>
-      <path d="M9 27c0-6.1 4.9-11 11-11s11 4.9 11 11" fill="none" stroke="#13201A" stroke-width="2.8" stroke-linecap="round"/>
-      <path d="M7 27h26M15 27v-4.4M25 27v-4.4" stroke="#13201A" stroke-width="2.8" stroke-linecap="round"/>
+      <g transform="translate(6.2 6.5) scale(0.0839)" fill="#13201A">
+        <path d="M216.14,114h33.48V57.23a22.67,22.67,0,1,1,45.34.29c0,12.44-9.91,22.86-22.28,22.86h-10.5V114h10.5a57,57,0,0,0,.15-114c-31.34,0-56.69,25.72-56.69,57.23V114Z"/>
+        <path d="M56.88,114h146.7V80.38H56.88C44.51,80.38,34.44,70,34.44,57.52a23,23,0,0,1,22.83-22.7c12.38,0,22.84,10,22.84,22.41V67.75h33.48V57.23C113.59,25.72,88.16.08,56.81.08a57,57,0,0,0,.07,114"/>
+        <path d="M113.59,196.08H80.11v56.14a22.74,22.74,0,0,1-45.47,0,22.32,22.32,0,0,1,22.24-22.52H67.55V196.08H56.88a56.77,56.77,0,1,0-.07,113.53c31.35,0,56.78-25.88,56.78-57.39V196.08Z"/>
+        <path d="M272.68,196.08H126.15v33.66H272.68a22.49,22.49,0,0,1,22.44,22.52,22.75,22.75,0,0,1-45.5,0v-12H216.14v12c0,31.51,25.35,57.14,56.69,57.14a56.64,56.64,0,1,0-.15-113.28"/>
+      </g>
     </svg>
     <div class="brand">StaffCom<span>Somos A Ponte</span></div>
     <div class="sp"></div>
@@ -261,7 +362,7 @@
       <h2>Análise Instagram</h2>
       <h3>Quantas publicações foram feitas nos perfis</h3>
       <div class="net" id="m-ig"></div>
-      <h3>Publicações destaques</h3>
+      <h3 id="m-ig-destaques-t">Publicações destaques</h3>
       <div id="m-ig-destaques"></div>
     </section>
 
@@ -309,7 +410,7 @@
       <div class="net" id="t-yt"></div>
       <h3>Visualizações mensais</h3>
       <div class="chart" id="t-yt-mensais"></div>
-      <h3>Top vídeos mais acessados</h3>
+      <h3>Top vídeos mais acessados do trimestre</h3>
       <div id="t-yt-top"></div>
     </section>
   </section>
@@ -364,6 +465,125 @@ function colunas(el, itens, opts = {}) {
     </div>`).join("");
 }
 
+/* ---------- ícones ----------
+   Traço, não preenchimento: o mesmo desenho serve sobre o branco, sobre o lima e sobre o
+   verde escuro sem precisar de uma segunda versão. */
+const ICO = {
+  fila:      '<path d="M5 5h14l1.6 8v4a1.6 1.6 0 0 1-1.6 1.6H5A1.6 1.6 0 0 1 3.4 17v-4z"/><path d="M3.4 13h4.2l1.2 2.5h6.4l1.2-2.5h4.2"/>',
+  criacao:   '<path d="M4 20h4L19 9a2.6 2.6 0 0 0-3.7-3.7L4 16.5V20z"/><path d="M14.2 7.1l3.7 3.7"/>',
+  video:     '<rect x="3" y="5" width="18" height="14" rx="3.2"/><path d="M10.7 9.6l4.3 2.6-4.3 2.6z"/>',
+  arte:      '<rect x="3.4" y="4.6" width="17.2" height="14.8" rx="3.2"/><circle cx="8.8" cy="9.9" r="1.5"/><path d="M4 17.2l4.6-4.4 3.4 3.3 3-2.4 4.4 4"/>',
+  identidade:'<path d="M12 3.4l7.2 3v5.1c0 4.1-3 7.2-7.2 9.1-4.2-1.9-7.2-5-7.2-9.1V6.4z"/><path d="M9.3 12.1l1.9 1.9 3.6-3.7"/>',
+  relogio:   '<circle cx="12" cy="12" r="8.4"/><path d="M12 7.3V12l3 1.9"/>',
+  carrossel: '<rect x="7.2" y="3.8" width="13" height="13" rx="2.6"/><path d="M3.8 7.6v10.6a2 2 0 0 0 2 2h10.4"/>',
+  story:     '<circle cx="12" cy="12" r="8.4" stroke-dasharray="3.4 2.6"/><circle cx="12" cy="12" r="3.4"/>',
+  alta:      '<path d="M4 15.5l5.2-5.2 3.4 3.4L20 7"/><path d="M15.4 7H20v4.6"/>',
+};
+const ico = (n, cls = "ico") => ICO[n]
+  ? `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[n]}</svg>`
+  : "";
+
+/* ---------- anel (campeões) ----------
+   Ministérios ficam nas barras e campeões viram anel: dois rankings com a mesma forma,
+   lado a lado, se leriam como um gráfico só. Do mais para o menos, lima → verde escuro. */
+const CORES_ANEL = ["#C8F135", "#A9D426", "#7FB331", "#4E8A3A", "#2C5F35"];
+
+function anel(el, itens, rotuloCentro) {
+  if (!itens || !itens.length) { el.innerHTML = '<div class="empty">Nada registrado no período.</div>'; return; }
+  const total = itens.reduce((s, i) => s + i.total, 0) || 1;
+  const R = 62, C = 2 * Math.PI * R;
+  let inicio = 0;
+  const segmentos = itens.map((i, k) => {
+    const arco = Math.max((i.total / total) * C - 2, 1);   // -2 abre a fresta entre fatias
+    const s = `<circle cx="75" cy="75" r="${R}" fill="none" stroke="${CORES_ANEL[k % CORES_ANEL.length]}"
+      stroke-width="20" stroke-dasharray="${arco} ${C - arco}" stroke-dashoffset="${-inicio}"/>`;
+    inicio += (i.total / total) * C;
+    return s;
+  }).join("");
+  el.innerHTML = `
+    <div class="anel">
+      <div class="anel-wrap">
+        <svg class="anel-svg" viewBox="0 0 150 150" aria-hidden="true">${segmentos}</svg>
+        <div class="anel-centro"><b>${nf(total)}</b><span>${esc(rotuloCentro)}</span></div>
+      </div>
+      <div class="anel-leg">` + itens.map((i, k) => `
+        <div class="li">
+          <span class="pin" style="background:${CORES_ANEL[k % CORES_ANEL.length]}"></span>
+          <span class="emo">${i.emoji ? esc(i.emoji) : "·"}</span>
+          <span class="nm2" title="${esc(i.nome)}">${esc(i.nome)}</span>
+          <span class="n2">${nf(i.total)}</span>
+        </div>`).join("") + `</div>
+    </div>`;
+}
+
+/* ---------- gráfico de linhas ----------
+   Duas séries no mesmo par de eixos: o que importa aqui é comparar a inclinação de uma
+   com a da outra, e barras lado a lado não deixam ver isso. */
+function linhas(el, meses, series) {
+  const W = 320, H = 160, T = 26, B = 26, L = 30, Rt = 30;
+  const max = Math.max(1, ...series.flatMap((s) => meses.map((m) => m[s.chave] || 0)));
+  const px = (i) => (meses.length < 2 ? W / 2 : L + i * ((W - L - Rt) / (meses.length - 1)));
+  const py = (v) => T + (1 - (v || 0) / max) * (H - T - B);
+  const grade = [0, 0.5, 1].map((f) => {
+    const y = T + f * (H - T - B);
+    return `<line x1="8" x2="${W - 8}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`;
+  }).join("");
+  // Num mês em que as duas séries quase se encontram, dois rótulos acima dos pontos
+  // viram um borrão. O maior valor rotula por cima, o menor por baixo — nunca colidem.
+  const maiorNoMes = (i) => Math.max(...series.map((s) => meses[i][s.chave] || 0));
+  const corpo = series.map((s) => {
+    const pts = meses.map((m, i) => `${px(i)},${py(m[s.chave])}`).join(" ");
+    const bolas = meses.map((m, i) =>
+      `<circle cx="${px(i)}" cy="${py(m[s.chave])}" r="4.4" fill="var(--surface)" stroke="${s.cor}" stroke-width="3"/>`).join("");
+    const rotulos = meses.map((m, i) => {
+      const y = py(m[s.chave]);
+      // Ponto colado no piso não tem espaço embaixo: aí o rótulo sobe, mesmo sendo o menor,
+      // senão ele cairia em cima do nome do mês.
+      const cabeAbaixo = y + 19 <= H - B + 2;
+      const acima = (m[s.chave] || 0) >= maiorNoMes(i) || !cabeAbaixo;
+      return `<text class="val" x="${px(i)}" y="${y + (acima ? -12 : 19)}" text-anchor="middle">${nf(m[s.chave])}</text>`;
+    }).join("");
+    return `<polyline points="${pts}" fill="none" stroke="${s.cor}" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round"/>${bolas}${rotulos}`;
+  }).join("");
+  const eixo = meses.map((m, i) =>
+    `<text class="eixo" x="${px(i)}" y="${H - 7}" text-anchor="middle">${esc(m.curto)}</text>`).join("");
+  el.innerHTML = `<div class="linhas">
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(series.map((s) => s.nome).join(" e "))} por mês">
+      ${grade}${corpo}${eixo}
+    </svg>
+    <div class="leg">` + series.map((s) =>
+      `<i><span class="tr" style="background:${s.cor}"></span>${esc(s.nome)}</i>`).join("") + `</div>
+  </div>`;
+}
+
+/* ---------- publicação / vídeo em destaque ----------
+   Cada número aparece com o nome do que ele mede, e logo abaixo a razão de aquilo estar
+   na lista. Sem isso o cartão vira três números soltos que ninguém sabe comparar. */
+const ICO_FORMATO = { Reels: "video", Carrossel: "carrossel", Imagem: "arte", Story: "story", "Vídeo": "video" };
+
+function pub({ thumb, wide, tipo, data, num, numLabel, porque, titulo, extra, link }) {
+  const classes = `pub-thumb${wide ? " wide" : ""}`;
+  const img = thumb
+    ? `<img class="${classes}" src="${thumb}" alt="" loading="lazy" decoding="async">`
+    : `<div class="${classes}" aria-hidden="true"></div>`;
+  const corpo = `
+    <div>
+      <div class="pub-top">
+        ${tipo ? `<span class="badge">${ico(ICO_FORMATO[tipo] || "arte", "")}${esc(tipo)}</span>` : ""}
+        ${data ? `<span class="pub-data">${esc(data)}</span>` : ""}
+      </div>
+      <div class="pub-num"><b>${num}</b><span>${esc(numLabel)}</span></div>
+      ${porque ? `<div class="pub-why">${porque}</div>` : ""}
+      ${titulo ? `<div class="pub-tit">${esc(titulo)}</div>` : ""}
+      ${extra ? `<div class="pub-mais">${esc(extra)}</div>` : ""}
+    </div>`;
+  return link
+    ? `<a class="pub" href="${esc(link)}" target="_blank" rel="noopener">${img}${corpo}</a>`
+    : `<div class="pub">${img}${corpo}</div>`;
+}
+
 /* Campo que o documento pede mas para o qual ainda não há fonte de dado:
    aparece vazio e diz o que falta, em vez de sumir ou virar número inventado. */
 const campoVazio = (rotulo, obs) =>
@@ -379,29 +599,30 @@ function renderSemana() {
   const s = D.semana;
   $("s-periodo").innerHTML = `${esc(s.label)} <span>de ${esc(s.mes_vigente)}</span>`;
 
-  const d = s.entregues - s.entregues_semana_anterior;
-  const comp = `${d > 0 ? "▲" : d < 0 ? "▼" : "="} ${nf(Math.abs(d))} vs. semana anterior (${nf(s.entregues_semana_anterior)})`;
+  // Só o número da semana passada, sem seta nem diferença: quem lê compara sozinho, e a
+  // seta transformava uma semana atípica num alarme.
+  const comp = `${nf(s.entregues_semana_anterior)} (semana anterior)`;
 
   $("s-kpis").innerHTML = `
     <div class="tile lime big">
-      <div class="k">Entregues essa semana</div>
+      <div class="khead"><div class="k">Entregas</div></div>
       <div class="v">${nf(s.entregues)}</div>
       <div class="delta">${comp}</div>
     </div>
     <div class="tile deep">
-      <div class="k">Demandas na fila</div>
+      <div class="khead">${ico("fila")}<div class="k">Fila</div></div>
       <div class="v">${nf(s.fila)}</div>
     </div>
     <div class="tile">
-      <div class="k">Demandas em criação</div>
+      <div class="khead">${ico("criacao")}<div class="k">Criação</div></div>
       <div class="v">${nf(s.em_criacao)}</div>
     </div>
     <div class="tile">
-      <div class="k">Fila de vídeos</div>
+      <div class="khead">${ico("video")}<div class="k">Fila de vídeos</div></div>
       <div class="v">${nf(s.fila_videos)}</div>
     </div>
     <div class="tile">
-      <div class="k">Fila de artes</div>
+      <div class="khead">${ico("arte")}<div class="k">Fila de artes</div></div>
       <div class="v">${nf(s.fila_artes)}</div>
     </div>`;
 }
@@ -411,30 +632,32 @@ function renderMes() {
   const m = D.mes_anterior;
   $("m-periodo").textContent = m.label;
 
+  // Ordem de leitura: "106 trabalhos" primeiro, "entregues no mês" depois — o número é a
+  // notícia, o rótulo é a explicação. O .khead vazio empurra o conjunto para o alto.
   $("m-kpis").innerHTML = `
     <div class="tile lime big">
-      <div class="k">Entregues no mês</div>
-      <div class="v">${nf(m.entregues)}</div>
+      <div class="khead"></div>
+      <div class="vlinha"><div class="v">${nf(m.entregues)}</div><div class="un">trabalhos</div></div>
+      <div class="u">entregues no mês</div>
     </div>
     <div class="tile deep">
-      <div class="k">Média de entrega</div>
-      <div class="v">${dec(m.media_entrega)}</div>
-      <div class="u">dias</div>
+      <div class="khead">${ico("relogio")}<div class="k">Média de entrega</div></div>
+      <div class="vlinha"><div class="v">${dec(m.media_entrega)}</div><div class="un">dias</div></div>
     </div>
     <div class="tile">
-      <div class="k">Vídeos / Reels</div>
+      <div class="khead">${ico("video")}<div class="k">Vídeos / Reels</div></div>
       <div class="v">${nf(m.videos)}</div>
     </div>
     <div class="tile">
-      <div class="k">Materiais gráficos</div>
+      <div class="khead">${ico("arte")}<div class="k">Materiais gráficos</div></div>
       <div class="v">${nf(m.graficos)}</div>
     </div>
     <div class="tile">
-      <div class="k">Identidades visuais</div>
+      <div class="khead">${ico("identidade")}<div class="k">Identidades visuais</div></div>
       <div class="v">${nf(m.identidades)}</div>
     </div>`;
 
-  barras($("m-campeoes"), m.campeoes, { soft: true });
+  anel($("m-campeoes"), m.campeoes, "demandas");
   barras($("m-ministerios"), m.ministerios);
 
   /* Instagram */
@@ -443,38 +666,64 @@ function renderMes() {
         `<div class="nc${p.posts ? "" : " zero"}"><div class="h">${esc(p.handle)}</div><div class="p">${nf(p.posts)}</div></div>`).join("")
     : `<div class="empty">A contagem de publicações de ${esc(m.label)} ainda não foi preenchida em social/instagram.json.</div>`;
 
-  const perfis = m.instagram.genna || [];
+  // Sem destaque, a seção inteira sai de cena — título junto. Um bloco vazio explicando
+  // que está vazio só ocupa espaço numa tela que o gestor lê no celular.
+  const perfis = (m.instagram.genna || []).filter((g) => g.destaques && g.destaques.length);
   const pendentes = m.instagram.genna_pendentes || [];
-  $("m-ig-destaques").innerHTML = perfis.length
-    ? perfis.map((gm) => gm.publicacoes === 0
-      ? `<p class="janela"><b>${esc(gm.handle)}</b> não publicou no feed neste mês.</p>`
-      : `
-        <p class="janela">Em <b>${esc(gm.handle)}</b>, ${nf(gm.publicacoes)} ${gm.publicacoes === 1 ? "publicação alcançou" : "publicações alcançaram"} <b>${nf(gm.alcance)}</b> contas (média de ${nf(gm.media_alcance)} por publicação). ${gm.destaques.length ? "Estas passaram da média:" : "Nenhuma passou da média."}</p>
-        <div class="list">` + gm.destaques.map((p) => `
-          <div class="item">
-            <div><div class="t">${esc(p.legenda)}…</div>
-            <div class="m"><span>${dataBR(p.data)}</span><span>${esc(p.tipo)}</span><span>${nf(p.interacoes)} interações · ${dec(p.taxa)}%</span></div></div>
-            <span class="tag">${nf(p.alcance)}</span>
-          </div>`).join("") + `</div>`).join("")
-      + (pendentes.length
-        ? `<p class="janela" style="margin-top:14px">Ainda fora: ${pendentes.map((x) => `<b>${esc(x.handle)}</b> — ${esc(x.motivo)}`).join("; ")}.</p>`
-        : "")
-    : `<div class="empty">De 1 a 3 publicações que superaram a média em taxa de engajamento e/ou contas alcançadas.<br>Sem dado do Genna para este mês.</div>`;
+  $("m-ig-destaques-t").hidden = !perfis.length;
+  $("m-ig-destaques").innerHTML = !perfis.length ? "" :
+    perfis.map((gm) => `
+      <h4 class="perfil">${esc(gm.handle)}</h4>
+      <div class="pubs">` + gm.destaques.map((p) => pub({
+        thumb: p.thumb,
+        tipo: p.tipo,
+        data: dataBR(p.data),
+        num: nf(p.alcance),
+        numLabel: "contas alcançadas",
+        porque: p.pct_acima != null
+          ? `${ico("alta", "seta")}<b>${nf(p.pct_acima)}% acima</b> da média do perfil no mês, de ${nf(gm.media_alcance)} contas por publicação`
+          : "",
+        titulo: p.legenda + "…",
+        extra: `${nf(p.interacoes)} interações · ${dec(p.taxa)}% de taxa de interação · ${nf(p.salvamentos)} salvos · ${nf(p.compartilhamentos)} compartilhados`,
+        link: p.link,
+      })).join("") + `</div>`).join("")
+    + `<p class="nota">Destaque é a publicação que alcançou <b>mais contas do que a média do próprio perfil</b> no mês —
+       por isso a régua muda de perfil para perfil. ${perfis.map((gm) =>
+         `${esc(gm.handle)}: ${nf(gm.publicacoes)} ${gm.publicacoes === 1 ? "publicação" : "publicações"}, média de ${nf(gm.media_alcance)} contas`).join(" · ")}.
+       ${pendentes.length ? `Ainda fora: ${pendentes.map((x) => `<b>${esc(x.handle)}</b> — ${esc(x.motivo)}`).join("; ")}.` : ""}</p>`;
 
   /* YouTube */
   if (D.canal_youtube) $("m-yt-titulo").textContent = `Análise YouTube (${D.canal_youtube.url.replace("https://www.youtube.com", "")})`;
   const y = m.youtube;
+  const c = y && y.comparativo;
+  // Visualizações e likes vêm com a variação contra o mês anterior; comentários saíram,
+  // porque em volume baixo eles oscilam demais para significar alguma coisa.
+  const varia = (v) => {
+    if (!v || v.pct == null) return "";
+    const sinal = v.pct > 0 ? "+" : "";
+    return `<div class="sub">${sinal}${dec(v.pct)}% vs. ${esc(c.label)} (${nf(v.antes)})</div>`;
+  };
+  const campoVar = (rotulo, valor, v) =>
+    `<div class="nc"><div class="h">${esc(rotulo)}</div><div class="p">${valor}</div>${varia(v)}</div>`;
+
   $("m-yt").innerHTML = y && y.videos
-    ? campo("Vídeos e lives", nf(y.videos)) + campo("Visualizações", nf(y.views)) + campo("Média por vídeo", nf(y.media_views))
-      + (y.likes ? campo("Likes", nf(y.likes)) : "") + (y.comentarios != null ? campo("Comentários", nf(y.comentarios)) : "")
+    ? campoVar("Vídeos e lives", nf(y.videos), c && c.videos)
+      + campoVar("Visualizações", nf(y.views), c && c.views)
+      + campo("Média por vídeo", nf(y.media_views))
+      + (y.likes ? campoVar("Likes", nf(y.likes), c && c.likes) : "")
     : `<div class="empty">Nenhum vídeo publicado no canal em ${esc(m.label)}.</div>`;
 
   $("m-yt-destaques").innerHTML = y && y.destaques.length
-    ? `<div class="list">` + y.destaques.map((v) => `
-        <div class="item">
-          <div><div class="t">${esc(v.titulo)}</div><div class="m">${dataBR(v.data)} · acima da média do mês</div></div>
-          <span class="tag">${nf(v.views)}</span>
-        </div>`).join("") + `</div>`
+    ? `<div class="pubs">` + y.destaques.map((v) => pub({
+        thumb: v.thumb, wide: true, tipo: "Vídeo", data: dataBR(v.data),
+        num: nf(v.views), numLabel: "visualizações",
+        porque: v.pct_acima != null
+          ? `${ico("alta", "seta")}<b>${nf(v.pct_acima)}% acima</b> da média do mês, de ${nf(y.media_views)} visualizações por vídeo`
+          : "",
+        titulo: v.titulo,
+        link: v.url,
+      })).join("") + `</div>
+      <p class="nota">Entra aqui o vídeo que passou da <b>média de visualizações dos ${nf(y.videos)} vídeos do mês</b> (${nf(y.media_views)} por vídeo).</p>`
     : `<div class="empty">Nenhum vídeo do mês superou a média de visualizações, ou o mês já saiu da janela do feed.</div>`;
 }
 
@@ -488,12 +737,13 @@ function renderTrimestre() {
   colunas($("t-entregues"), t.meses.map((m) => ({ label: m.curto, valor: m.entregues })));
   colunas($("t-tempo"), t.meses.map((m) => ({ label: m.curto, valor: m.media_entrega, rotulo: dec(m.media_entrega) + "d" })), { soft: true });
 
-  const prod = [];
-  for (const m of t.meses) {
-    prod.push({ nome: `${m.curto} · vídeos/reels`, total: m.videos });
-    prod.push({ nome: `${m.curto} · artes`, total: m.artes });
-  }
-  barras($("t-producao"), prod);
+  // Duas linhas no mesmo par de eixos: a pergunta aqui é se uma produção está subindo mais
+  // que a outra, e seis barras enfileiradas escondiam exatamente isso.
+  const corSerie = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  linhas($("t-producao"), t.meses, [
+    { nome: "Vídeos / Reels", chave: "videos", cor: corSerie("--serie-a") },
+    { nome: "Artes", chave: "artes", cor: corSerie("--serie-b") },
+  ]);
 
   /* Instagram — uma sub-aba por perfil, como o documento pede */
   $("t-ig-abas").innerHTML = t.instagram.map((p, i) =>
@@ -514,7 +764,6 @@ function renderTrimestre() {
       ? campo("Interações", nf(y.interacoes))
       : campoVazio("Interações", FALTA_YT_ANALYTICS)) +
     (y.likes ? campo("Likes", nf(y.likes)) : "") +
-    (y.comentarios != null ? campo("Comentários", nf(y.comentarios)) : "") +
     (y.views_totais ? campo("Visualizações do canal", nf(y.views_totais)) : "") +
     campoVazio("Tempo de exibição", FALTA_YT_ANALYTICS) +
     campoVazio("Horários de pico", FALTA_YT_ANALYTICS) +
@@ -522,12 +771,20 @@ function renderTrimestre() {
 
   colunas($("t-yt-mensais"), y.mensais.map((m) => ({ label: m.curto, valor: m.views })));
 
+  // "Top" aqui é do trimestre, não do semestre: a lista já vem filtrada pelas datas do
+  // período, e a nota abaixo diz isso em voz alta para não restar dúvida.
   $("t-yt-top").innerHTML = y.top.length
-    ? `<div class="list">` + y.top.map((v) => `
-        <div class="item">
-          <div><div class="t">${esc(v.titulo)}</div><div class="m">${dataBR(v.data)}</div></div>
-          <span class="tag">${nf(v.views)}</span>
-        </div>`).join("") + `</div>`
+    ? `<div class="pubs">` + y.top.map((v) => pub({
+        thumb: v.thumb, wide: true, tipo: "Vídeo", data: dataBR(v.data),
+        num: nf(v.views), numLabel: "visualizações",
+        porque: y.media_views
+          ? `${v.views > y.media_views ? `${ico("alta", "seta")}<b>${nf(Math.round((v.views / y.media_views - 1) * 100))}% acima</b>` : "abaixo"} da média do trimestre, de ${nf(y.media_views)} visualizações por vídeo`
+          : "",
+        titulo: v.titulo,
+        link: v.url,
+      })).join("") + `</div>
+      <p class="nota">São os <b>${nf(y.top.length)} vídeos mais vistos dos ${nf(y.videos)} publicados neste trimestre</b>
+       (${esc(t.label.toLowerCase())}) — não do canal inteiro. A média de comparação é a dos vídeos do próprio período.</p>`
     : `<div class="empty">Os vídeos deste trimestre já saíram da janela do feed do canal.</div>`;
 }
 
@@ -596,12 +853,19 @@ function renderPerfilIg(i) {
 
   /* Top publicações */
   $("t-ig-top").innerHTML = g && g.top && g.top.length
-    ? `<div class="list">` + g.top.map((x) => `
-        <div class="item">
-          <div><div class="t">${esc(x.legenda)}…</div>
-          <div class="m"><span>${dataBR(x.data)}</span><span>${esc(x.tipo)}</span><span>${nf(x.interacoes)} interações · ${dec(x.taxa)}%</span><span>${nf(x.salvamentos)} salvos · ${nf(x.compartilhamentos)} compart.</span></div></div>
-          <span class="tag">${nf(x.alcance)}</span>
-        </div>`).join("") + `</div>`
+    ? `<div class="pubs">` + g.top.map((x) => pub({
+        thumb: x.thumb, tipo: x.tipo, data: dataBR(x.data),
+        num: nf(x.alcance), numLabel: "contas alcançadas",
+        porque: x.pct_acima != null && x.pct_acima > 0
+          ? `${ico("alta", "seta")}<b>${nf(x.pct_acima)}% acima</b> da média do trimestre, de ${nf(g.media_alcance)} contas por publicação`
+          : `na média do trimestre, de ${nf(g.media_alcance)} contas por publicação`,
+        titulo: x.legenda + "…",
+        extra: `${nf(x.interacoes)} interações · ${dec(x.taxa)}% de taxa de interação · ${nf(x.salvamentos)} salvos · ${nf(x.compartilhamentos)} compartilhados`,
+        link: x.link,
+      })).join("") + `</div>
+      <p class="nota">São as <b>${nf(g.top.length)} publicações de maior alcance</b> entre as ${nf(g.publicacoes)} que
+       ${esc(p.handle)} publicou no trimestre. A comparação é sempre com a média do próprio perfil no período,
+       de ${nf(g.media_alcance)} contas por publicação.</p>`
     : `<div class="empty">De 3 a 5 publicações mais fortes de ${esc(p.handle)}. Sem dado do Genna para este perfil.</div>`;
 
   for (const b of $("t-ig-abas").querySelectorAll("button")) {

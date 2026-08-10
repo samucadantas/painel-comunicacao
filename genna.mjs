@@ -85,6 +85,8 @@ const topPosts = (posts, n, chave = "reach") =>
     taxa: p.interactionsRatePct != null ? Math.round(p.interactionsRatePct * 10) / 10 : null,
     salvamentos: p.saved,
     compartilhamentos: p.shares,
+    // URL assinada e temporária: o sync baixa e embute a imagem antes que ela expire.
+    thumb_url: p.thumbnailUrl || null,
   }));
 
 // Quando a conta está vinculada mas a página do Instagram não foi atribuída,

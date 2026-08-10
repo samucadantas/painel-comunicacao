@@ -2,6 +2,7 @@
   "_sobre": "Medições datadas de inscritos do canal. A YouTube Data API dá o número atual, mas não o histórico — então cada atualização grava o valor do dia aqui e, a partir da segunda medição, o painel calcula o ritmo de crescimento sozinho.",
   "inscritos": {
     "2026-08-06": 19200,
-    "2026-08-07": 19200
+    "2026-08-07": 19200,
+    "2026-08-10": 19300
   }
 }

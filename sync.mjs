@@ -15,11 +15,16 @@
  * Uso:  node sync.mjs
  */
 
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { tmpdir } from "node:os";
+import { execFile as execFileCb } from "node:child_process";
+import { promisify } from "node:util";
 import { coletarGenna } from "./genna.mjs";
+
+const execFile = promisify(execFileCb);
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const DATA = join(__dir, "data");
@@ -130,6 +135,11 @@ const titleOf = (row) => {
   return (p?.title || []).map((t) => t.plain_text).join("").trim();
 };
 
+// Cada solicitante tem um emoji próprio no Notion (🤓, 👩🏽, 🙎🏻‍♂️…) — é texto, entra de graça.
+// Os ministérios usam os ícones internos do Notion ({name:"globe"}), que a API não entrega
+// como imagem; por isso o ranking de ministérios fica só com as barras.
+const emojiOf = (row) => (row.icon?.type === "emoji" ? row.icon.emoji : null);
+
 const prop = (r, n) => r.properties?.[n];
 const status = (r) => prop(r, P.status)?.status?.name || "Sem status";
 const finalizado = (r) => prop(r, P.dataFinalizado)?.date?.start?.slice(0, 10) || null;
@@ -186,6 +196,69 @@ function tempoEntrega(cards, mes) {
     mediana: t[Math.floor(t.length / 2)],
     n: t.length,
   };
+}
+
+// ---------- miniaturas ----------
+/**
+ * As miniaturas entram embutidas em base64, e não como link.
+ *
+ * Instagram: a URL do CDN é assinada e morre em ~6 dias (e recusa pedido de tamanho menor —
+ * responde 403 se a gente mexer no parâmetro `stp`). Link cru quebraria o painel sozinho.
+ * YouTube: o link é estável, mas o painel precisa abrir offline quando vai por WhatsApp.
+ *
+ * Para não inchar o arquivo, a imagem passa por um redutor antes: `sips` no Mac,
+ * ImageMagick no Linux do GitHub Actions. Sem nenhum dos dois, entra original se for
+ * pequena e é descartada se for grande — o painel só fica sem a foto, nada quebra.
+ */
+const MAX_THUMB = 48 * 1024;
+
+async function redutorDisponivel() {
+  for (const [cmd, args] of [["sips", ["--version"]], ["magick", ["-version"]], ["convert", ["-version"]]]) {
+    try { await execFile(cmd, args); return cmd; } catch { /* tenta o próximo */ }
+  }
+  return null;
+}
+
+async function encolhe(buf, ferramenta) {
+  if (!ferramenta) return buf;
+  const dentro = join(tmpdir(), `staffcom-${Math.random().toString(36).slice(2)}.jpg`);
+  const fora = dentro.replace(/\.jpg$/, "-p.jpg");
+  try {
+    await writeFile(dentro, buf);
+    // 280px cobre o dobro do tamanho em que a miniatura aparece — acima disso é peso à toa
+    // para um gestor abrindo o painel no 4G.
+    if (ferramenta === "sips") {
+      await execFile("sips", ["-Z", "280", "-s", "formatOptions", "55", dentro, "--out", fora]);
+    } else {
+      await execFile(ferramenta, [dentro, "-resize", "280x280>", "-quality", "55", fora]);
+    }
+    const menor = await readFile(fora);
+    return menor.length < buf.length ? menor : buf;
+  } catch {
+    return buf;
+  } finally {
+    await rm(dentro, { force: true });
+    await rm(fora, { force: true });
+  }
+}
+
+const cacheThumb = new Map();
+
+async function thumb(url, ferramenta) {
+  if (!url) return null;
+  if (cacheThumb.has(url)) return cacheThumb.get(url);
+  let saida = null;
+  try {
+    const r = await fetch(url);
+    if (r.ok) {
+      const bruto = Buffer.from(await r.arrayBuffer());
+      const img = await encolhe(bruto, ferramenta);
+      // Sem redutor a imagem grande fica de fora: melhor sem foto do que um arquivo de 1 MB.
+      if (img.length <= MAX_THUMB) saida = `data:image/jpeg;base64,${img.toString("base64")}`;
+    }
+  } catch { /* miniatura é enfeite: falhou, segue sem */ }
+  cacheThumb.set(url, saida);
+  return saida;
 }
 
 // ---------- YouTube ----------
@@ -295,8 +368,16 @@ function ytPeriodo(yt, de, ate) {
     likes, comentarios,
     // "Interações (likes, comentários e compartilhamentos)" — compartilhamento só sai na Analytics API
     interacoes: likes + comentarios,
-    destaques: vids.filter((v) => v.views > media).sort((a, b) => b.views - a.views).slice(0, 3),
+    // Cada destaque carrega o quanto passou da média — é o que justifica ele estar aqui.
+    destaques: vids.filter((v) => v.views > media).sort((a, b) => b.views - a.views).slice(0, 3)
+      .map((v) => ({ ...v, pct_acima: Math.round((v.views / media - 1) * 100) })),
   };
+}
+
+// Variação de um período para o outro, em % — devolve null quando não há base de comparação.
+function variacao(agora, antes) {
+  if (agora == null || antes == null || !antes) return null;
+  return { antes, pct: Math.round(((agora - antes) / antes) * 1000) / 10 };
 }
 
 // ---------- build ----------
@@ -311,7 +392,15 @@ async function build() {
   console.log("→ Acompanhamento de Pedidos…");
   const solRows = await queryAll(DB_SOLICITANTES);
   const mapSolicitante = new Map(solRows.map((r) => [r.id, titleOf(r)]));
-  console.log(`  ${solRows.length} solicitantes`);
+  // O emoji fica no ícone da página da pessoa. Indexado pelo nome já normalizado,
+  // porque é assim que o campeão chega no ranking.
+  const emojiPessoa = new Map();
+  for (const r of solRows) {
+    const n = normName(titleOf(r));
+    const e = emojiOf(r);
+    if (n && e && !emojiPessoa.has(n)) emojiPessoa.set(n, e);
+  }
+  console.log(`  ${solRows.length} solicitantes · ${emojiPessoa.size} com emoji`);
 
   console.log("→ Ranking Ministérios…");
   const minRows = await queryAll(DB_MINISTERIOS);
@@ -418,7 +507,7 @@ async function build() {
           sem_prazo: fin.filter((r) => !prazo(r)).length,
         };
       })(),
-      campeoes: topN(camp, 6),
+      campeoes: topN(camp, 5).map((c) => ({ ...c, emoji: emojiPessoa.get(c.nome) || null })),
       ministerios: topN(mins, 8),
       videos: fin.filter((r) => temTipo(r, T_VIDEO)).length,
       graficos: fin.filter((r) => temTipo(r, T_GRAFICO)).length,
@@ -438,6 +527,18 @@ async function build() {
 
   const mesAnt = mesAnterior(mesVigente);
   const aba2 = montaMes(mesAnt);
+
+  // "Comparativo em relação às visualizações e likes do mês passado" (aba 2).
+  const mesRetrasado = mesAnterior(mesAnt);
+  const ytRetrasado = ytPeriodo(yt, `${mesRetrasado}-01`, `${mesRetrasado}-31`);
+  if (aba2.youtube && ytRetrasado) {
+    aba2.youtube.comparativo = {
+      label: mesLabel(mesRetrasado),
+      views: variacao(aba2.youtube.views, ytRetrasado.views),
+      likes: variacao(aba2.youtube.likes, ytRetrasado.likes),
+      videos: variacao(aba2.youtube.videos, ytRetrasado.videos),
+    };
+  }
 
   // ============ ABA 3 · TRIMESTRE ============
   const mesesTri = [mesAnterior(mesAnterior(mesAnt)), mesAnterior(mesAnt), mesAnt];
@@ -460,9 +561,13 @@ async function build() {
     }
     // Aba 2 pede "publicações destaques": as que superaram a média do mês.
     aba2.instagram.genna = comDados.map((g) => {
-      const media = g.mes.publicacoes ? g.mes.alcance / g.mes.publicacoes : 0;
-      return { handle: g.handle, ...g.mes, media_alcance: Math.round(media),
-        destaques: g.mes.top.filter((p) => p.alcance > media) };
+      // `top` sai do payload: a aba do mês só mostra os destaques, e carregar a lista
+      // inteira deixaria URLs assinadas do Instagram gravadas num arquivo público.
+      const { top, ...resumo } = g.mes;
+      const media = resumo.publicacoes ? resumo.alcance / resumo.publicacoes : 0;
+      return { handle: g.handle, ...resumo, media_alcance: Math.round(media),
+        destaques: top.filter((p) => p.alcance > media)
+          .map((p) => ({ ...p, pct_acima: media ? Math.round((p.alcance / media - 1) * 100) : null })) };
     });
     aba2.instagram.genna_pendentes = gennaPerfis.filter((p) => p.erro)
       .map((p) => ({ handle: p.handle, marca: p.marca, motivo: p.erro }));
@@ -496,7 +601,15 @@ async function build() {
       const j = ins?.janelas?.["90d"] || null;
       // O Genna traz data exata + salvamentos e compartilhamentos — quando tem o perfil, ele manda.
       const gp = comDados.find((x) => x.handle === handle) || null;
-      const g = gp ? gp.trimestre : null;
+      // A média de alcance do trimestre é a régua que explica por que um post é "top".
+      const g = gp ? (() => {
+        const t = gp.trimestre;
+        const media = t.publicacoes ? t.alcance / t.publicacoes : 0;
+        return {
+          ...t, media_alcance: Math.round(media),
+          top: t.top.map((p) => ({ ...p, pct_acima: media ? Math.round((p.alcance / media - 1) * 100) : null })),
+        };
+      })() : null;
       const pendente = (gennaPerfis || []).find((x) => x.handle === handle && x.erro) || null;
       return {
         handle,
@@ -550,6 +663,29 @@ async function build() {
         .sort((a, b) => b.views - a.views).slice(0, 5) : [],
     },
   };
+
+  // ---- miniaturas embutidas ----
+  console.log("→ Miniaturas…");
+  const redutor = await redutorDisponivel();
+  if (!redutor) console.warn("  (sem sips nem ImageMagick — miniaturas grandes ficam de fora)");
+
+  const ytThumb = (v) => (v.id ? `https://i.ytimg.com/vi/${v.id}/mqdefault.jpg` : null);
+  const listas = [
+    ...(aba2.instagram.genna || []).map((p) => [p.destaques, "thumb_url"]),
+    ...trimestre.instagram.map((p) => [p.genna?.top, "thumb_url"]),
+    [aba2.youtube?.destaques, ytThumb],
+    [trimestre.youtube?.top, ytThumb],
+  ];
+  let n = 0;
+  for (const [lista, fonte] of listas) {
+    for (const item of lista || []) {
+      item.thumb = await thumb(typeof fonte === "function" ? fonte(item) : item[fonte], redutor);
+      if (item.thumb) n++;
+      // a URL assinada do Instagram expira: não vale a pena guardar no JSON
+      delete item.thumb_url;
+    }
+  }
+  console.log(`  ${n} miniaturas embutidas`);
 
   const out = {
     gerado_em: new Date().toISOString(),
