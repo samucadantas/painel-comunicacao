@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-08-20T11:17:31.053Z",
-  "hoje": "2026-08-20",
+  "gerado_em": "2026-08-21T11:16:57.340Z",
+  "hoje": "2026-08-21",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -17,12 +17,12 @@
   "semana": {
     "label": "Semana de 16/08 a 22/08",
     "mes_vigente": "Agosto 2026",
-    "fila": 15,
-    "em_criacao": 12,
-    "entregues": 10,
+    "fila": 25,
+    "em_criacao": 15,
+    "entregues": 12,
     "entregues_semana_anterior": 18,
     "fila_videos": 14,
-    "fila_artes": 7
+    "fila_artes": 5
   },
   "mes_anterior": {
     "month": "2026-07",
@@ -60,9 +60,9 @@
         "emoji": "🤓"
       },
       {
-        "nome": "Bruna Franco",
+        "nome": "Victor Souza",
         "total": 2,
-        "emoji": "👱🏻‍♀️"
+        "emoji": "🧑🏽‍🦱"
       }
     ],
     "ministerios": [
@@ -156,20 +156,20 @@
           "handle": "@aponte_recife",
           "periodo": "2026-07",
           "publicacoes": 16,
-          "alcance": 106228,
-          "views": 210187,
-          "likes": 6865,
+          "alcance": 106277,
+          "views": 210326,
+          "likes": 6866,
           "comentarios": 285,
           "compartilhamentos": 1407,
           "salvamentos": 168,
-          "interacoes": 8937,
+          "interacoes": 8938,
           "taxa_engajamento": 8.4,
           "por_formato": {
             "Carrossel": 6,
             "Reels": 9,
             "Imagem": 1
           },
-          "media_alcance": 6639,
+          "media_alcance": 6642,
           "destaques": [
             {
               "data": "2026-07-08",
@@ -217,8 +217,8 @@
     },
     "youtube": {
       "videos": 6,
-      "views": 7634,
-      "media_views": 1272,
+      "views": 7637,
+      "media_views": 1273,
       "likes": 342,
       "comentarios": 4,
       "interacoes": 346,
@@ -251,7 +251,7 @@
       "comparativo": {
         "label": "Junho 2026",
         "views": {
-          "antes": 11212,
+          "antes": 11214,
           "pct": -31.9
         },
         "likes": {
@@ -299,18 +299,18 @@
     "instagram": [
       {
         "handle": "@aponte_recife",
-        "seguidores": 39510,
+        "seguidores": 39517,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-05-01 a 2026-07-31",
           "publicacoes": 30,
-          "alcance": 175160,
-          "views": 337117,
-          "likes": 12301,
+          "alcance": 175222,
+          "views": 337290,
+          "likes": 12303,
           "comentarios": 475,
           "compartilhamentos": 2190,
           "salvamentos": 271,
-          "interacoes": 15649,
+          "interacoes": 15651,
           "taxa_engajamento": 8.9,
           "por_formato": {
             "Carrossel": 9,
@@ -362,7 +362,7 @@
               "tipo": "Reels",
               "titulo": "Quem passa pelo nosso Grupo de Discipulado (GD), encontra outros irmãos para fortalecer a caminhada",
               "link": "https://www.instagram.com/reel/DaBV-EkpRGm/",
-              "alcance": 9324,
+              "alcance": 9331,
               "interacoes": 1158,
               "taxa": 12.4,
               "salvamentos": 22,
@@ -375,7 +375,7 @@
               "tipo": "Reels",
               "titulo": "A música também pode costurar histórias, despertar esperança e nos lembrar da beleza do evangelho",
               "link": "https://www.instagram.com/reel/Dba1ts0JrDv/",
-              "alcance": 9169,
+              "alcance": 9195,
               "interacoes": 365,
               "taxa": 4,
               "salvamentos": 5,
@@ -389,7 +389,7 @@
             "Carrossel": 28.1,
             "Imagem": 8
           },
-          "media_alcance": 5839
+          "media_alcance": 5841
         },
         "genna_pendente": null,
         "insights": {
@@ -435,18 +435,18 @@
       },
       {
         "handle": "@somosaponte",
-        "seguidores": 40175,
+        "seguidores": 40168,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-05-01 a 2026-07-31",
           "publicacoes": 12,
-          "alcance": 94934,
-          "views": 188015,
-          "likes": 5295,
+          "alcance": 94965,
+          "views": 188087,
+          "likes": 5299,
           "comentarios": 225,
           "compartilhamentos": 923,
           "salvamentos": 116,
-          "interacoes": 7032,
+          "interacoes": 7036,
           "taxa_engajamento": 7.4,
           "por_formato": {
             "Reels": 4,
@@ -472,7 +472,7 @@
               "tipo": "Carrossel",
               "titulo": "Você sabe o valor da sua liberdade",
               "link": "https://www.instagram.com/p/DZAJ8GvFVXN/",
-              "alcance": 13179,
+              "alcance": 13186,
               "interacoes": 762,
               "taxa": 5.8,
               "salvamentos": 15,
@@ -485,8 +485,8 @@
               "tipo": "Imagem",
               "titulo": "Neste Dia do Pastor, queremos agradecer a Deus pela vida dos homens que têm dedicado suas vidas ao cuidado d…",
               "link": "https://www.instagram.com/p/DZkf55GAakz/",
-              "alcance": 9331,
-              "interacoes": 554,
+              "alcance": 9337,
+              "interacoes": 555,
               "taxa": 5.9,
               "salvamentos": 3,
               "compartilhamentos": 36,
@@ -498,8 +498,8 @@
               "tipo": "Reels",
               "titulo": "No último domingo, começamos uma nova série de mensagens sobre o Sermão do Monte em todas as nossas igrejas",
               "link": "https://www.instagram.com/reel/DZsyIqEJnt3/",
-              "alcance": 7873,
-              "interacoes": 506,
+              "alcance": 7875,
+              "interacoes": 507,
               "taxa": 6.4,
               "salvamentos": 7,
               "compartilhamentos": 66,
@@ -511,7 +511,7 @@
               "tipo": "Carrossel",
               "titulo": "O evangelho não nos chama para viver como funcionários",
               "link": "https://www.instagram.com/p/DYmt8sbABaS/",
-              "alcance": 6313,
+              "alcance": 6314,
               "interacoes": 564,
               "taxa": 8.9,
               "salvamentos": 12,
@@ -525,7 +525,7 @@
             "Reels": 40,
             "Imagem": 16.4
           },
-          "media_alcance": 7911
+          "media_alcance": 7914
         },
         "genna_pendente": null,
         "insights": {
@@ -572,7 +572,7 @@
     ],
     "youtube": {
       "videos": 31,
-      "views": 34615,
+      "views": 34625,
       "media_views": 1117,
       "likes": 1804,
       "comentarios": 37,
@@ -615,28 +615,28 @@
       "mensais": [
         {
           "curto": "Mai/26",
-          "views": 15769,
+          "views": 15774,
           "videos": 16
         },
         {
           "curto": "Jun/26",
-          "views": 11212,
+          "views": 11214,
           "videos": 9
         },
         {
           "curto": "Jul/26",
-          "views": 7634,
+          "views": 7637,
           "videos": 6
         }
       ],
       "inscritos": 19300,
       "ritmo_inscritos": {
         "de": "2026-08-10",
-        "ate": "2026-08-20",
+        "ate": "2026-08-21",
         "diferenca": 0,
         "por_dia": 0
       },
-      "views_totais": 1284922,
+      "views_totais": 1285119,
       "videos_totais": 1078,
       "fonte": "data-api",
       "top": [
