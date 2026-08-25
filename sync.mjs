@@ -39,17 +39,22 @@ if (existsSync(envPath)) {
   }
 }
 
+// Nada de identificador embutido: o repositório é público, e os IDs das bases vêm do
+// .env local ou das variáveis do Actions. Não são credenciais (sem o NOTION_TOKEN a API
+// recusa), mas também não precisam estar à mostra.
 const TOKEN = process.env.NOTION_TOKEN;
-const DB_DEMANDAS = process.env.DB_ID || "33eda07da13a8007928cf62e2375ea5a";
-const DB_SOLICITANTES = process.env.DB_SOLICITANTES || "376da07da13a80fd9cc7e77964a26f70";
-const DB_MINISTERIOS = process.env.DB_MINISTERIOS || "349da07da13a8027ab8bf0d799424448";
+const DB_DEMANDAS = process.env.DB_ID;
+const DB_SOLICITANTES = process.env.DB_SOLICITANTES;
+const DB_MINISTERIOS = process.env.DB_MINISTERIOS;
 const YT_KEY = process.env.YT_API_KEY || "";
 const YT_HANDLE = process.env.YT_HANDLE || "somosaponte";
-const YT_CHANNEL = process.env.YT_CHANNEL_ID || "UCLdXFhRIfnF54fpR-iN7lrg";
+const YT_CHANNEL = process.env.YT_CHANNEL_ID || "";
 const NOTION_VERSION = "2022-06-28";
 
-if (!TOKEN) {
-  console.error("✗ Falta NOTION_TOKEN no painel/.env");
+const faltando = Object.entries({ NOTION_TOKEN: TOKEN, DB_ID: DB_DEMANDAS,
+  DB_SOLICITANTES, DB_MINISTERIOS }).filter(([, v]) => !v).map(([k]) => k);
+if (faltando.length) {
+  console.error(`✗ Falta ${faltando.join(", ")} — no painel/.env (local) ou nas variáveis do repositório (Actions)`);
   process.exit(1);
 }
 

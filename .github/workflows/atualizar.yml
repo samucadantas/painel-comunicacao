@@ -8,11 +8,22 @@ on:
   push:
     branches: [main]
 
+# Só uma publicação por vez, e sem cancelar a que já começou: se duas rodadas se
+# cruzarem, a segunda espera em vez de deixar o site pela metade.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   atualizar:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write     # para commitar o painel gerado
+      pages: write        # para publicar no GitHub Pages
+      id-token: write     # exigido pelo deploy-pages
+    environment:
+      name: github-pages
+      url: ${{ steps.publicar.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -28,10 +39,17 @@ jobs:
 
       - name: Ler Notion + YouTube e gerar o painel
         env:
+          # Credenciais ficam em Secrets; identificadores de base, em Variables —
+          # o repositório é público e nenhum dos dois pode viver dentro do código.
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           GENNA_API_KEY: ${{ secrets.GENNA_API_KEY }}
           YT_API_KEY: ${{ secrets.YT_API_KEY }}
-          GENNA_BRAND_ID: "143782"
+          DB_ID: ${{ vars.DB_ID }}
+          DB_SOLICITANTES: ${{ vars.DB_SOLICITANTES }}
+          DB_MINISTERIOS: ${{ vars.DB_MINISTERIOS }}
+          YT_CHANNEL_ID: ${{ vars.YT_CHANNEL_ID }}
+          YT_HANDLE: ${{ vars.YT_HANDLE }}
+          GENNA_BRAND_ID: ${{ vars.GENNA_BRAND_ID }}
         run: |
           node sync.mjs
           node build.mjs
@@ -43,3 +61,17 @@ jobs:
           git add data Painel.html publicar
           git diff --staged --quiet || git commit -m "Painel atualizado em $(TZ=America/Recife date '+%d/%m/%Y %H:%M')"
           git push
+
+      # ---- publicação no GitHub Pages ----
+      # Publica a pasta publicar/ direto, sem depender de outro serviço olhar o
+      # repositório e reagir. Se esta etapa passar, o site está no ar; não existe
+      # o caso "commit foi, site não" que travou o painel por cinco dias.
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: publicar
+
+      - name: Publicar
+        id: publicar
+        uses: actions/deploy-pages@v4
