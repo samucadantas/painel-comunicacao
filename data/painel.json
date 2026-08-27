@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-08-26T11:19:16.931Z",
-  "hoje": "2026-08-26",
+  "gerado_em": "2026-08-27T20:51:20.432Z",
+  "hoje": "2026-08-27",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -17,11 +17,11 @@
   "semana": {
     "label": "Semana de 23/08 a 29/08",
     "mes_vigente": "Agosto 2026",
-    "fila": 16,
-    "em_criacao": 16,
-    "entregues": 4,
+    "fila": 7,
+    "em_criacao": 18,
+    "entregues": 10,
     "entregues_semana_anterior": 26,
-    "fila_videos": 22,
+    "fila_videos": 14,
     "fila_artes": 9
   },
   "mes_anterior": {
@@ -41,12 +41,12 @@
     "campeoes": [
       {
         "nome": "Bruna Mendanha",
-        "total": 7,
+        "total": 6,
         "emoji": "👩🏽"
       },
       {
         "nome": "Bruno Siqueira",
-        "total": 6,
+        "total": 5,
         "emoji": "🙎🏻‍♂️"
       },
       {
@@ -156,20 +156,20 @@
           "handle": "@aponte_recife",
           "periodo": "2026-07",
           "publicacoes": 16,
-          "alcance": 107100,
-          "views": 211261,
-          "likes": 6870,
+          "alcance": 107142,
+          "views": 211381,
+          "likes": 6872,
           "comentarios": 285,
           "compartilhamentos": 1409,
           "salvamentos": 169,
-          "interacoes": 8945,
+          "interacoes": 8947,
           "taxa_engajamento": 8.4,
           "por_formato": {
             "Carrossel": 6,
             "Reels": 9,
             "Imagem": 1
           },
-          "media_alcance": 6694,
+          "media_alcance": 6696,
           "destaques": [
             {
               "data": "2026-07-08",
@@ -217,8 +217,8 @@
     },
     "youtube": {
       "videos": 6,
-      "views": 7660,
-      "media_views": 1277,
+      "views": 7672,
+      "media_views": 1279,
       "likes": 343,
       "comentarios": 4,
       "interacoes": 347,
@@ -227,7 +227,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2179,
+          "views": 2183,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -239,7 +239,7 @@
           "id": "M3fYcghh-pY",
           "titulo": "“Ira e Reconciliação” por Digo Karagulian",
           "data": "2026-07-05",
-          "views": 1458,
+          "views": 1462,
           "likes": 73,
           "comentarios": 0,
           "duracao": "PT32M",
@@ -251,12 +251,12 @@
       "comparativo": {
         "label": "Junho 2026",
         "views": {
-          "antes": 11247,
-          "pct": -31.9
+          "antes": 11252,
+          "pct": -31.8
         },
         "likes": {
-          "antes": 603,
-          "pct": -43.1
+          "antes": 604,
+          "pct": -43.2
         },
         "videos": {
           "antes": 9,
@@ -299,18 +299,18 @@
     "instagram": [
       {
         "handle": "@aponte_recife",
-        "seguidores": 39580,
+        "seguidores": 39568,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-05-01 a 2026-07-31",
           "publicacoes": 30,
-          "alcance": 176340,
-          "views": 338592,
-          "likes": 12308,
+          "alcance": 176401,
+          "views": 338764,
+          "likes": 12310,
           "comentarios": 475,
           "compartilhamentos": 2192,
           "salvamentos": 272,
-          "interacoes": 15658,
+          "interacoes": 15660,
           "taxa_engajamento": 8.9,
           "por_formato": {
             "Carrossel": 9,
@@ -362,12 +362,12 @@
               "tipo": "Reels",
               "titulo": "Quem passa pelo nosso Grupo de Discipulado (GD), encontra outros irmãos para fortalecer a caminhada",
               "link": "https://www.instagram.com/reel/DaBV-EkpRGm/",
-              "alcance": 9373,
+              "alcance": 9389,
               "interacoes": 1158,
-              "taxa": 12.4,
+              "taxa": 12.3,
               "salvamentos": 22,
               "compartilhamentos": 327,
-              "pct_acima": 59,
+              "pct_acima": 60,
               "thumb": "data:image/jpeg;base64,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"
             },
             {
@@ -375,7 +375,7 @@
               "tipo": "Reels",
               "titulo": "A música também pode costurar histórias, despertar esperança e nos lembrar da beleza do evangelho",
               "link": "https://www.instagram.com/reel/Dba1ts0JrDv/",
-              "alcance": 9354,
+              "alcance": 9370,
               "interacoes": 364,
               "taxa": 3.9,
               "salvamentos": 4,
@@ -389,7 +389,7 @@
             "Carrossel": 28.1,
             "Imagem": 8
           },
-          "media_alcance": 5878
+          "media_alcance": 5880
         },
         "genna_pendente": null,
         "insights": {
@@ -435,13 +435,13 @@
       },
       {
         "handle": "@somosaponte",
-        "seguidores": 40166,
+        "seguidores": 40153,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-05-01 a 2026-07-31",
           "publicacoes": 12,
-          "alcance": 95681,
-          "views": 189085,
+          "alcance": 95801,
+          "views": 189210,
           "likes": 5309,
           "comentarios": 225,
           "compartilhamentos": 924,
@@ -472,7 +472,7 @@
               "tipo": "Carrossel",
               "titulo": "Você sabe o valor da sua liberdade",
               "link": "https://www.instagram.com/p/DZAJ8GvFVXN/",
-              "alcance": 13294,
+              "alcance": 13320,
               "interacoes": 763,
               "taxa": 5.7,
               "salvamentos": 15,
@@ -485,7 +485,7 @@
               "tipo": "Imagem",
               "titulo": "Neste Dia do Pastor, queremos agradecer a Deus pela vida dos homens que têm dedicado suas vidas ao cuidado d…",
               "link": "https://www.instagram.com/p/DZkf55GAakz/",
-              "alcance": 9410,
+              "alcance": 9423,
               "interacoes": 556,
               "taxa": 5.9,
               "salvamentos": 3,
@@ -498,7 +498,7 @@
               "tipo": "Reels",
               "titulo": "No último domingo, começamos uma nova série de mensagens sobre o Sermão do Monte em todas as nossas igrejas",
               "link": "https://www.instagram.com/reel/DZsyIqEJnt3/",
-              "alcance": 7949,
+              "alcance": 7996,
               "interacoes": 508,
               "taxa": 6.4,
               "salvamentos": 7,
@@ -511,7 +511,7 @@
               "tipo": "Imagem",
               "titulo": "O maior sermão de todos os tempos sempre tem muito a nos ensinar",
               "link": "https://www.instagram.com/p/DZiImRzAROF/",
-              "alcance": 6439,
+              "alcance": 6446,
               "interacoes": 419,
               "taxa": 6.5,
               "salvamentos": 14,
@@ -525,7 +525,7 @@
             "Reels": 39.9,
             "Imagem": 16.6
           },
-          "media_alcance": 7973
+          "media_alcance": 7983
         },
         "genna_pendente": null,
         "insights": {
@@ -572,17 +572,17 @@
     ],
     "youtube": {
       "videos": 31,
-      "views": 34697,
-      "media_views": 1119,
-      "likes": 1807,
+      "views": 34715,
+      "media_views": 1120,
+      "likes": 1808,
       "comentarios": 37,
-      "interacoes": 1844,
+      "interacoes": 1845,
       "destaques": [
         {
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2179,
+          "views": 2183,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -615,28 +615,28 @@
       "mensais": [
         {
           "curto": "Mai/26",
-          "views": 15790,
+          "views": 15791,
           "videos": 16
         },
         {
           "curto": "Jun/26",
-          "views": 11247,
+          "views": 11252,
           "videos": 9
         },
         {
           "curto": "Jul/26",
-          "views": 7660,
+          "views": 7672,
           "videos": 6
         }
       ],
       "inscritos": 19300,
       "ritmo_inscritos": {
         "de": "2026-08-10",
-        "ate": "2026-08-26",
+        "ate": "2026-08-27",
         "diferenca": 0,
         "por_dia": 0
       },
-      "views_totais": 1288118,
+      "views_totais": 1287485,
       "videos_totais": 1080,
       "fonte": "data-api",
       "top": [
@@ -644,7 +644,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2179,
+          "views": 2183,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -677,8 +677,8 @@
           "id": "vzFsJj0LVZ8",
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
           "data": "2026-06-14",
-          "views": 1599,
-          "likes": 83,
+          "views": 1601,
+          "likes": 84,
           "comentarios": 0,
           "duracao": "PT1H11M15S",
           "url": "https://www.youtube.com/watch?v=vzFsJj0LVZ8",
