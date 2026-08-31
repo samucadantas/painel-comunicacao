@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-08-31T17:52:12.979Z",
+  "gerado_em": "2026-08-31T22:56:37.974Z",
   "hoje": "2026-08-31",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,8 +17,8 @@
   "semana": {
     "label": "Semana de 30/08 a 05/09",
     "mes_vigente": "Agosto 2026",
-    "fila": 13,
-    "em_criacao": 7,
+    "fila": 12,
+    "em_criacao": 8,
     "entregues": 7,
     "entregues_semana_anterior": 19,
     "fila_videos": 10,
@@ -151,7 +151,7 @@
     },
     "youtube": {
       "videos": 6,
-      "views": 7738,
+      "views": 7741,
       "media_views": 1290,
       "likes": 343,
       "comentarios": 4,
@@ -161,7 +161,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2203,
+          "views": 2204,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -185,7 +185,7 @@
       "comparativo": {
         "label": "Junho 2026",
         "views": {
-          "antes": 11308,
+          "antes": 11312,
           "pct": -31.6
         },
         "likes": {
@@ -328,8 +328,8 @@
     ],
     "youtube": {
       "videos": 31,
-      "views": 34857,
-      "media_views": 1124,
+      "views": 34864,
+      "media_views": 1125,
       "likes": 1808,
       "comentarios": 37,
       "interacoes": 1845,
@@ -338,7 +338,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2203,
+          "views": 2204,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -376,12 +376,12 @@
         },
         {
           "curto": "Jun/26",
-          "views": 11308,
+          "views": 11312,
           "videos": 9
         },
         {
           "curto": "Jul/26",
-          "views": 7738,
+          "views": 7741,
           "videos": 6
         }
       ],
@@ -400,7 +400,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2203,
+          "views": 2204,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -433,7 +433,7 @@
           "id": "vzFsJj0LVZ8",
           "titulo": "\"Bençãos Paradoxais\" por Guilherme Franco",
           "data": "2026-06-14",
-          "views": 1611,
+          "views": 1614,
           "likes": 84,
           "comentarios": 0,
           "duracao": "PT1H11M15S",
