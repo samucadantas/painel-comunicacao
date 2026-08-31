@@ -276,6 +276,12 @@ const unescapeXml = (s) => s.replace(/&quot;/g, '"').replace(/&amp;/g, "&")
  * por vídeo — o que permite preencher "interações" e cobrir o trimestre de verdade.
  */
 async function youtube() {
+  // Sem o ID do canal o feed responde 404 e a Data API diz "canal não encontrado" — dois
+  // erros que não parecem falta de configuração. Melhor dizer o que é.
+  if (!YT_CHANNEL) {
+    console.warn("  (falta YT_CHANNEL_ID — as abas de YouTube ficam vazias)");
+    return null;
+  }
   // ---- feed público (sempre funciona, é o piso) ----
   let base = null;
   try {
@@ -438,7 +444,10 @@ async function build() {
     return { de, ate, diferenca: dif, por_dia: Math.round((dif / dias) * 10) / 10 };
   })();
 
-  const hoje = iso(new Date());
+  // PAINEL_HOJE finge outra data. Serve para conferir a virada do mês ANTES de ela
+  // acontecer (o mês anterior e o trimestre mudam sozinhos, e é bom ver mudando) e para
+  // regerar um período passado sem esperar o calendário.
+  const hoje = process.env.PAINEL_HOJE || iso(new Date());
   const mesVigente = hoje.slice(0, 7);
 
   // ============ ABA 1 · SEMANA ============

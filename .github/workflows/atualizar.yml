@@ -2,8 +2,16 @@ name: Atualizar painel
 
 on:
   schedule:
-    # 08:00 em Recife (UTC-3) = 11:00 UTC
-    - cron: "0 11 * * *"
+    # De 3 em 3 horas, aos 23 minutos.
+    #
+    # Era uma vez por dia às 11:00 UTC e o painel amanhecia velho: o agendamento do
+    # GitHub é "melhor esforço" e, na hora cheia (que é quando todo mundo agenda), a
+    # fila atrasou de 18 minutos a 10 horas — 20:50, 21:16, 15:06 em dias seguidos.
+    #
+    # Não dá para deixar de atrasar, então tira-se a aposta numa hora só: com 8 tentativas
+    # por dia, sempre há uma recente. Aos :23 para fugir do congestionamento da hora cheia.
+    # Em repositório público os minutos de Actions são gratuitos e ilimitados.
+    - cron: "23 */3 * * *"
   workflow_dispatch:      # permite rodar na mão pelo site do GitHub
   push:
     branches: [main]
