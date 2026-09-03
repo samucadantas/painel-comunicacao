@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-03T21:08:16.557Z",
+  "gerado_em": "2026-09-03T23:20:22.436Z",
   "hoje": "2026-09-03",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -122,17 +122,17 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 12614,
-      "media_views": 1261,
-      "likes": 572,
+      "views": 12618,
+      "media_views": 1262,
+      "likes": 573,
       "comentarios": 13,
-      "interacoes": 585,
+      "interacoes": 586,
       "destaques": [
         {
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1819,
+          "views": 1820,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -169,11 +169,11 @@
         "label": "Julho 2026",
         "views": {
           "antes": 7771,
-          "pct": 62.3
+          "pct": 62.4
         },
         "likes": {
           "antes": 343,
-          "pct": 66.8
+          "pct": 67.1
         },
         "videos": {
           "antes": 6,
@@ -311,11 +311,11 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 31723,
+      "views": 31732,
       "media_views": 1269,
-      "likes": 1519,
+      "likes": 1520,
       "comentarios": 31,
-      "interacoes": 1550,
+      "interacoes": 1551,
       "destaques": [
         {
           "id": "00TbvG67ZMk",
@@ -343,7 +343,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1819,
+          "views": 1820,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -354,7 +354,7 @@
       "mensais": [
         {
           "curto": "Jun/26",
-          "views": 11338,
+          "views": 11343,
           "videos": 9
         },
         {
@@ -364,7 +364,7 @@
         },
         {
           "curto": "Ago/26",
-          "views": 12614,
+          "views": 12618,
           "videos": 10
         }
       ],
@@ -376,7 +376,7 @@
         "por_dia": 0
       },
       "views_totais": 1292970,
-      "videos_totais": 1081,
+      "videos_totais": 1082,
       "fonte": "data-api",
       "top": [
         {
@@ -405,7 +405,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1819,
+          "views": 1820,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
