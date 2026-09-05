@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-05T17:24:42.658Z",
+  "gerado_em": "2026-09-05T20:29:00.562Z",
   "hoje": "2026-09-05",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 12724,
-      "media_views": 1272,
+      "views": 12730,
+      "media_views": 1273,
       "likes": 574,
       "comentarios": 13,
       "interacoes": 587,
@@ -132,7 +132,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1865,
+          "views": 1868,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -144,7 +144,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1780,
+          "views": 1781,
           "likes": 93,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1682,
+          "views": 1683,
           "likes": 76,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -168,7 +168,7 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7784,
+          "antes": 7785,
           "pct": 63.5
         },
         "likes": {
@@ -311,7 +311,7 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 31855,
+      "views": 31862,
       "media_views": 1274,
       "likes": 1521,
       "comentarios": 31,
@@ -343,12 +343,12 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1865,
+          "views": 1868,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
           "url": "https://www.youtube.com/watch?v=t0EmdH3TJCM",
-          "pct_acima": 46
+          "pct_acima": 47
         }
       ],
       "mensais": [
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7784,
+          "views": 7785,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 12724,
+          "views": 12730,
           "videos": 10
         }
       ],
@@ -405,7 +405,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1865,
+          "views": 1868,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -416,7 +416,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1780,
+          "views": 1781,
           "likes": 93,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1682,
+          "views": 1683,
           "likes": 76,
           "comentarios": 4,
           "duracao": "PT43M21S",
