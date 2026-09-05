@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-09-04T23:06:36.869Z",
-  "hoje": "2026-09-04",
+  "gerado_em": "2026-09-05T04:39:33.880Z",
+  "hoje": "2026-09-05",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -122,7 +122,7 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 12686,
+      "views": 12694,
       "media_views": 1269,
       "likes": 574,
       "comentarios": 13,
@@ -132,7 +132,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1852,
+          "views": 1856,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -161,14 +161,14 @@
           "comentarios": 4,
           "duracao": "PT43M21S",
           "url": "https://www.youtube.com/watch?v=_AEqzF8usGA",
-          "pct_acima": 33,
+          "pct_acima": 32,
           "thumb": "data:image/jpeg;base64,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"
         }
       ],
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7773,
+          "antes": 7780,
           "pct": 63.2
         },
         "likes": {
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 31804,
-      "media_views": 1272,
+      "views": 31819,
+      "media_views": 1273,
       "likes": 1521,
       "comentarios": 31,
       "interacoes": 1552,
@@ -321,7 +321,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2221,
+          "views": 2223,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -343,7 +343,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1852,
+          "views": 1856,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -359,19 +359,19 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7773,
+          "views": 7780,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 12686,
+          "views": 12694,
           "videos": 10
         }
       ],
       "inscritos": 19300,
       "ritmo_inscritos": {
         "de": "2026-08-31",
-        "ate": "2026-09-04",
+        "ate": "2026-09-05",
         "diferenca": 0,
         "por_dia": 0
       },
@@ -383,7 +383,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2221,
+          "views": 2223,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -405,7 +405,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1852,
+          "views": 1856,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
