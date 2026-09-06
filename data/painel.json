@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-06T04:49:55.487Z",
+  "gerado_em": "2026-09-06T11:06:11.582Z",
   "hoje": "2026-09-06",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 12756,
-      "media_views": 1276,
+      "views": 12767,
+      "media_views": 1277,
       "likes": 574,
       "comentarios": 13,
       "interacoes": 587,
@@ -132,7 +132,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1876,
+          "views": 1883,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1685,
+          "views": 1686,
           "likes": 76,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -169,7 +169,7 @@
         "label": "Julho 2026",
         "views": {
           "antes": 7786,
-          "pct": 63.8
+          "pct": 64
         },
         "likes": {
           "antes": 343,
@@ -311,7 +311,7 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 31890,
+      "views": 31906,
       "media_views": 1276,
       "likes": 1521,
       "comentarios": 31,
@@ -332,7 +332,7 @@
           "id": "rA_nRwcda4U",
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1974,
+          "views": 1976,
           "likes": 75,
           "comentarios": 4,
           "duracao": "PT35M33S",
@@ -343,18 +343,18 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1876,
+          "views": 1883,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
           "url": "https://www.youtube.com/watch?v=t0EmdH3TJCM",
-          "pct_acima": 47
+          "pct_acima": 48
         }
       ],
       "mensais": [
         {
           "curto": "Jun/26",
-          "views": 11348,
+          "views": 11353,
           "videos": 9
         },
         {
@@ -364,7 +364,7 @@
         },
         {
           "curto": "Ago/26",
-          "views": 12756,
+          "views": 12767,
           "videos": 10
         }
       ],
@@ -394,7 +394,7 @@
           "id": "rA_nRwcda4U",
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1974,
+          "views": 1976,
           "likes": 75,
           "comentarios": 4,
           "duracao": "PT35M33S",
@@ -405,7 +405,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 1876,
+          "views": 1883,
           "likes": 52,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1685,
+          "views": 1686,
           "likes": 76,
           "comentarios": 4,
           "duracao": "PT43M21S",
