@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-07T04:54:19.843Z",
+  "gerado_em": "2026-09-07T12:45:55.519Z",
   "hoje": "2026-09-07",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,12 +17,12 @@
   "semana": {
     "label": "Semana de 06/09 a 12/09",
     "mes_vigente": "Setembro 2026",
-    "fila": 3,
+    "fila": 5,
     "em_criacao": 11,
     "entregues": 0,
     "entregues_semana_anterior": 17,
     "fila_videos": 8,
-    "fila_artes": 3
+    "fila_artes": 5
   },
   "mes_anterior": {
     "month": "2026-08",
@@ -122,7 +122,7 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 12925,
+      "views": 12931,
       "media_views": 1293,
       "likes": 575,
       "comentarios": 13,
@@ -168,8 +168,8 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7804,
-          "pct": 65.6
+          "antes": 7805,
+          "pct": 65.7
         },
         "likes": {
           "antes": 343,
@@ -311,7 +311,7 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 32104,
+      "views": 32111,
       "media_views": 1284,
       "likes": 1523,
       "comentarios": 31,
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7804,
+          "views": 7805,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 12925,
+          "views": 12931,
           "videos": 10
         }
       ],
@@ -376,7 +376,7 @@
         "por_dia": 14.3
       },
       "views_totais": 1294150,
-      "videos_totais": 1084,
+      "videos_totais": 1085,
       "fonte": "data-api",
       "top": [
         {
