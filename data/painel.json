@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-12T15:38:21.093Z",
+  "gerado_em": "2026-09-12T20:39:37.586Z",
   "hoje": "2026-09-12",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -122,17 +122,17 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13182,
-      "media_views": 1318,
-      "likes": 582,
-      "comentarios": 14,
-      "interacoes": 596,
+      "views": 13193,
+      "media_views": 1319,
+      "likes": 518,
+      "comentarios": 12,
+      "interacoes": 530,
       "destaques": [
         {
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2053,
+          "views": 2054,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1707,
+          "views": 1708,
           "likes": 77,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -168,12 +168,12 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7840,
-          "pct": 68.1
+          "antes": 7841,
+          "pct": 68.3
         },
         "likes": {
           "antes": 343,
-          "pct": 69.7
+          "pct": 51
         },
         "videos": {
           "antes": 6,
@@ -311,11 +311,11 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 32424,
+      "views": 32436,
       "media_views": 1297,
-      "likes": 1530,
-      "comentarios": 32,
-      "interacoes": 1562,
+      "likes": 1466,
+      "comentarios": 30,
+      "interacoes": 1496,
       "destaques": [
         {
           "id": "00TbvG67ZMk",
@@ -332,7 +332,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2053,
+          "views": 2054,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7840,
+          "views": 7841,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13182,
+          "views": 13193,
           "videos": 10
         }
       ],
@@ -375,7 +375,7 @@
         "diferenca": 100,
         "por_dia": 8.3
       },
-      "views_totais": 1296185,
+      "views_totais": 1296534,
       "videos_totais": 1085,
       "fonte": "data-api",
       "top": [
@@ -394,7 +394,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2053,
+          "views": 2054,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1707,
+          "views": 1708,
           "likes": 77,
           "comentarios": 4,
           "duracao": "PT43M21S",
