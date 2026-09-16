@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-09-15T21:29:28.608Z",
-  "hoje": "2026-09-15",
+  "gerado_em": "2026-09-16T04:57:55.132Z",
+  "hoje": "2026-09-16",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -17,7 +17,7 @@
   "semana": {
     "label": "Semana de 13/09 a 19/09",
     "mes_vigente": "Setembro 2026",
-    "fila": 12,
+    "fila": 13,
     "em_criacao": 16,
     "entregues": 5,
     "entregues_semana_anterior": 12,
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13363,
-      "media_views": 1336,
+      "views": 13374,
+      "media_views": 1337,
       "likes": 590,
       "comentarios": 15,
       "interacoes": 605,
@@ -132,7 +132,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2093,
+          "views": 2095,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1714,
+          "views": 1716,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -168,7 +168,7 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7872,
+          "antes": 7875,
           "pct": 69.8
         },
         "likes": {
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 32660,
-      "media_views": 1306,
+      "views": 32674,
+      "media_views": 1307,
       "likes": 1538,
       "comentarios": 33,
       "interacoes": 1571,
@@ -321,7 +321,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2260,
+          "views": 2262,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -332,7 +332,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2093,
+          "views": 2095,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -359,21 +359,21 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7872,
+          "views": 7875,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13363,
+          "views": 13374,
           "videos": 10
         }
       ],
       "inscritos": 19400,
       "ritmo_inscritos": {
         "de": "2026-08-31",
-        "ate": "2026-09-15",
+        "ate": "2026-09-16",
         "diferenca": 100,
-        "por_dia": 6.7
+        "por_dia": 6.3
       },
       "views_totais": 1300602,
       "videos_totais": 1087,
@@ -383,7 +383,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2260,
+          "views": 2262,
           "likes": 90,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -394,7 +394,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2093,
+          "views": 2095,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1714,
+          "views": 1716,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
