@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-18T04:53:13.880Z",
+  "gerado_em": "2026-09-18T11:28:02.665Z",
   "hoje": "2026-09-18",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -124,15 +124,15 @@
       "videos": 10,
       "views": 13438,
       "media_views": 1344,
-      "likes": 589,
+      "likes": 590,
       "comentarios": 15,
-      "interacoes": 604,
+      "interacoes": 605,
       "destaques": [
         {
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2105,
+          "views": 2104,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -144,8 +144,8 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1839,
-          "likes": 94,
+          "views": 1840,
+          "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
           "url": "https://www.youtube.com/watch?v=Na9X0ngInYk",
@@ -173,7 +173,7 @@
         },
         "likes": {
           "antes": 344,
-          "pct": 71.2
+          "pct": 71.5
         },
         "videos": {
           "antes": 6,
@@ -311,11 +311,11 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 32760,
+      "views": 32761,
       "media_views": 1310,
-      "likes": 1538,
+      "likes": 1539,
       "comentarios": 33,
-      "interacoes": 1571,
+      "interacoes": 1572,
       "destaques": [
         {
           "id": "00TbvG67ZMk",
@@ -332,7 +332,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2105,
+          "views": 2104,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -354,7 +354,7 @@
       "mensais": [
         {
           "curto": "Jun/26",
-          "views": 11436,
+          "views": 11437,
           "videos": 9
         },
         {
@@ -375,7 +375,7 @@
         "diferenca": 100,
         "por_dia": 5.6
       },
-      "views_totais": 1301556,
+      "views_totais": 1301718,
       "videos_totais": 1087,
       "fonte": "data-api",
       "top": [
@@ -394,7 +394,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2105,
+          "views": 2104,
           "likes": 54,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -416,8 +416,8 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1839,
-          "likes": 94,
+          "views": 1840,
+          "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
           "url": "https://www.youtube.com/watch?v=Na9X0ngInYk",
