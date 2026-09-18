@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-18T20:59:29.361Z",
+  "gerado_em": "2026-09-18T23:22:33.164Z",
   "hoje": "2026-09-18",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -18,8 +18,8 @@
     "label": "Semana de 13/09 a 19/09",
     "mes_vigente": "Setembro 2026",
     "fila": 9,
-    "em_criacao": 10,
-    "entregues": 28,
+    "em_criacao": 9,
+    "entregues": 29,
     "entregues_semana_anterior": 14,
     "fila_videos": 7,
     "fila_artes": 5
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13452,
-      "media_views": 1345,
+      "views": 13455,
+      "media_views": 1346,
       "likes": 590,
       "comentarios": 15,
       "interacoes": 605,
@@ -144,7 +144,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1844,
+          "views": 1845,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1732,
+          "views": 1733,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 32784,
-      "media_views": 1311,
+      "views": 32788,
+      "media_views": 1312,
       "likes": 1539,
       "comentarios": 33,
       "interacoes": 1572,
@@ -354,7 +354,7 @@
       "mensais": [
         {
           "curto": "Jun/26",
-          "views": 11442,
+          "views": 11443,
           "videos": 9
         },
         {
@@ -364,7 +364,7 @@
         },
         {
           "curto": "Ago/26",
-          "views": 13452,
+          "views": 13455,
           "videos": 10
         }
       ],
@@ -416,7 +416,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1844,
+          "views": 1845,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1732,
+          "views": 1733,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
