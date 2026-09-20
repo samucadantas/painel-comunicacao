@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-20T05:01:19.439Z",
+  "gerado_em": "2026-09-20T11:35:25.610Z",
   "hoje": "2026-09-20",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -122,11 +122,11 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13481,
+      "views": 13482,
       "media_views": 1348,
-      "likes": 591,
+      "likes": 523,
       "comentarios": 15,
-      "interacoes": 606,
+      "interacoes": 538,
       "destaques": [
         {
           "id": "t0EmdH3TJCM",
@@ -145,7 +145,7 @@
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
           "views": 1850,
-          "likes": 95,
+          "likes": 88,
           "comentarios": 0,
           "duracao": "PT54M16S",
           "url": "https://www.youtube.com/watch?v=Na9X0ngInYk",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1734,
+          "views": 1735,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -168,12 +168,12 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7893,
+          "antes": 7892,
           "pct": 70.8
         },
         "likes": {
-          "antes": 344,
-          "pct": 71.8
+          "antes": 342,
+          "pct": 52.9
         },
         "videos": {
           "antes": 6,
@@ -313,9 +313,9 @@
       "videos": 25,
       "views": 32820,
       "media_views": 1313,
-      "likes": 1540,
+      "likes": 1469,
       "comentarios": 33,
-      "interacoes": 1573,
+      "interacoes": 1502,
       "destaques": [
         {
           "id": "00TbvG67ZMk",
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7893,
+          "views": 7892,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13481,
+          "views": 13482,
           "videos": 10
         }
       ],
@@ -417,7 +417,7 @@
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
           "views": 1850,
-          "likes": 95,
+          "likes": 88,
           "comentarios": 0,
           "duracao": "PT54M16S",
           "url": "https://www.youtube.com/watch?v=Na9X0ngInYk",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1734,
+          "views": 1735,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
