@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-22T17:03:28.895Z",
+  "gerado_em": "2026-09-22T21:27:23.274Z",
   "hoje": "2026-09-22",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -18,11 +18,11 @@
     "label": "Semana de 20/09 a 26/09",
     "mes_vigente": "Setembro 2026",
     "fila": 9,
-    "em_criacao": 5,
-    "entregues": 6,
+    "em_criacao": 7,
+    "entregues": 8,
     "entregues_semana_anterior": 31,
-    "fila_videos": 5,
-    "fila_artes": 8
+    "fila_videos": 10,
+    "fila_artes": 6
   },
   "mes_anterior": {
     "month": "2026-08",
@@ -122,11 +122,11 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13577,
+      "views": 13580,
       "media_views": 1358,
-      "likes": 592,
+      "likes": 593,
       "comentarios": 15,
-      "interacoes": 607,
+      "interacoes": 608,
       "destaques": [
         {
           "id": "t0EmdH3TJCM",
@@ -144,7 +144,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1860,
+          "views": 1861,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -168,12 +168,12 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7905,
+          "antes": 7906,
           "pct": 71.8
         },
         "likes": {
           "antes": 344,
-          "pct": 72.1
+          "pct": 72.4
         },
         "videos": {
           "antes": 6,
@@ -311,17 +311,17 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 32938,
+      "views": 32942,
       "media_views": 1318,
-      "likes": 1541,
+      "likes": 1542,
       "comentarios": 33,
-      "interacoes": 1574,
+      "interacoes": 1575,
       "destaques": [
         {
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2282,
+          "views": 2283,
           "likes": 91,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7905,
+          "views": 7906,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13577,
+          "views": 13580,
           "videos": 10
         }
       ],
@@ -383,7 +383,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2282,
+          "views": 2283,
           "likes": 91,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -416,7 +416,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1860,
+          "views": 1861,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
