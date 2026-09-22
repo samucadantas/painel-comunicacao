@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-09-21T20:01:37.679Z",
-  "hoje": "2026-09-21",
+  "gerado_em": "2026-09-22T00:11:05.773Z",
+  "hoje": "2026-09-22",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -22,7 +22,7 @@
     "entregues": 3,
     "entregues_semana_anterior": 31,
     "fila_videos": 4,
-    "fila_artes": 8
+    "fila_artes": 9
   },
   "mes_anterior": {
     "month": "2026-08",
@@ -122,7 +122,7 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13562,
+      "views": 13563,
       "media_views": 1356,
       "likes": 429,
       "comentarios": 15,
@@ -144,7 +144,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1859,
+          "views": 1860,
           "likes": 88,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -311,7 +311,7 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 32921,
+      "views": 32923,
       "media_views": 1317,
       "likes": 1375,
       "comentarios": 33,
@@ -354,7 +354,7 @@
       "mensais": [
         {
           "curto": "Jun/26",
-          "views": 11454,
+          "views": 11455,
           "videos": 9
         },
         {
@@ -364,16 +364,16 @@
         },
         {
           "curto": "Ago/26",
-          "views": 13562,
+          "views": 13563,
           "videos": 10
         }
       ],
       "inscritos": 19400,
       "ritmo_inscritos": {
         "de": "2026-08-31",
-        "ate": "2026-09-21",
+        "ate": "2026-09-22",
         "diferenca": 100,
-        "por_dia": 4.8
+        "por_dia": 4.5
       },
       "views_totais": 1305582,
       "videos_totais": 1089,
@@ -416,7 +416,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1859,
+          "views": 1860,
           "likes": 88,
           "comentarios": 0,
           "duracao": "PT54M16S",
