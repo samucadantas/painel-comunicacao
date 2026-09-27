@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-27T17:03:52.112Z",
+  "gerado_em": "2026-09-27T21:27:02.218Z",
   "hoje": "2026-09-27",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13712,
-      "media_views": 1371,
+      "views": 13729,
+      "media_views": 1373,
       "likes": 595,
       "comentarios": 15,
       "interacoes": 610,
@@ -132,7 +132,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2155,
+          "views": 2156,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -144,7 +144,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1891,
+          "views": 1893,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1761,
+          "views": 1762,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -168,8 +168,8 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7915,
-          "pct": 73.2
+          "antes": 7918,
+          "pct": 73.4
         },
         "likes": {
           "antes": 344,
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 33109,
-      "media_views": 1324,
+      "views": 33142,
+      "media_views": 1326,
       "likes": 1544,
       "comentarios": 33,
       "interacoes": 1577,
@@ -321,7 +321,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2288,
+          "views": 2289,
           "likes": 91,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -332,7 +332,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2155,
+          "views": 2156,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -343,7 +343,7 @@
           "id": "rA_nRwcda4U",
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1990,
+          "views": 1992,
           "likes": 75,
           "comentarios": 4,
           "duracao": "PT35M33S",
@@ -354,17 +354,17 @@
       "mensais": [
         {
           "curto": "Jun/26",
-          "views": 11482,
+          "views": 11495,
           "videos": 9
         },
         {
           "curto": "Jul/26",
-          "views": 7915,
+          "views": 7918,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13712,
+          "views": 13729,
           "videos": 10
         }
       ],
@@ -375,15 +375,15 @@
         "diferenca": 100,
         "por_dia": 3.7
       },
-      "views_totais": 1308311,
-      "videos_totais": 1090,
+      "views_totais": 1308472,
+      "videos_totais": 1091,
       "fonte": "data-api",
       "top": [
         {
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2288,
+          "views": 2289,
           "likes": 91,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -394,7 +394,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2155,
+          "views": 2156,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -405,7 +405,7 @@
           "id": "rA_nRwcda4U",
           "titulo": "“O Espírito da Lei X O legalismo religioso” por Digo Karagulian",
           "data": "2026-06-29",
-          "views": 1990,
+          "views": 1992,
           "likes": 75,
           "comentarios": 4,
           "duracao": "PT35M33S",
@@ -416,7 +416,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1891,
+          "views": 1893,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1761,
+          "views": 1762,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
