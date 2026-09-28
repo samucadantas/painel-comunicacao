@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-28T05:34:31.091Z",
+  "gerado_em": "2026-09-28T14:10:22.666Z",
   "hoje": "2026-09-28",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,12 +17,12 @@
   "semana": {
     "label": "Semana de 27/09 a 03/10",
     "mes_vigente": "Setembro 2026",
-    "fila": 6,
+    "fila": 9,
     "em_criacao": 10,
     "entregues": 0,
     "entregues_semana_anterior": 14,
     "fila_videos": 6,
-    "fila_artes": 7
+    "fila_artes": 10
   },
   "mes_anterior": {
     "month": "2026-08",
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13767,
-      "media_views": 1377,
+      "views": 13777,
+      "media_views": 1378,
       "likes": 595,
       "comentarios": 15,
       "interacoes": 610,
@@ -132,7 +132,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2157,
+          "views": 2158,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -144,7 +144,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1899,
+          "views": 1901,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -156,7 +156,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1766,
+          "views": 1767,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
@@ -168,8 +168,8 @@
       "comparativo": {
         "label": "Julho 2026",
         "views": {
-          "antes": 7923,
-          "pct": 73.8
+          "antes": 7924,
+          "pct": 73.9
         },
         "likes": {
           "antes": 344,
@@ -311,7 +311,7 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 33191,
+      "views": 33202,
       "media_views": 1328,
       "likes": 1544,
       "comentarios": 33,
@@ -321,18 +321,18 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2290,
+          "views": 2291,
           "likes": 91,
           "comentarios": 2,
           "duracao": "PT50M38S",
           "url": "https://www.youtube.com/watch?v=00TbvG67ZMk",
-          "pct_acima": 72
+          "pct_acima": 73
         },
         {
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2157,
+          "views": 2158,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Jul/26",
-          "views": 7923,
+          "views": 7924,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13767,
+          "views": 13777,
           "videos": 10
         }
       ],
@@ -383,7 +383,7 @@
           "id": "00TbvG67ZMk",
           "titulo": "\"A Pureza do Olhar e a Aliança Matrimonial\" por Guilherme Franco",
           "data": "2026-07-12",
-          "views": 2290,
+          "views": 2291,
           "likes": 91,
           "comentarios": 2,
           "duracao": "PT50M38S",
@@ -394,7 +394,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2157,
+          "views": 2158,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -416,7 +416,7 @@
           "id": "Na9X0ngInYk",
           "titulo": "João 16:5–15 por Marco Telles",
           "data": "2026-08-02",
-          "views": 1899,
+          "views": 1901,
           "likes": 95,
           "comentarios": 0,
           "duracao": "PT54M16S",
@@ -427,7 +427,7 @@
           "id": "_AEqzF8usGA",
           "titulo": "Números 14:24 por Ziel Machado",
           "data": "2026-08-03",
-          "views": 1766,
+          "views": 1767,
           "likes": 78,
           "comentarios": 4,
           "duracao": "PT43M21S",
