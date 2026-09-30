@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-30T05:42:39.513Z",
+  "gerado_em": "2026-09-30T12:46:32.950Z",
   "hoje": "2026-09-30",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -122,7 +122,7 @@
     },
     "youtube": {
       "videos": 10,
-      "views": 13827,
+      "views": 13828,
       "media_views": 1383,
       "likes": 595,
       "comentarios": 15,
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 25,
-      "views": 33287,
-      "media_views": 1331,
+      "views": 33290,
+      "media_views": 1332,
       "likes": 1544,
       "comentarios": 33,
       "interacoes": 1577,
@@ -326,7 +326,7 @@
           "comentarios": 2,
           "duracao": "PT50M38S",
           "url": "https://www.youtube.com/watch?v=00TbvG67ZMk",
-          "pct_acima": 73
+          "pct_acima": 72
         },
         {
           "id": "t0EmdH3TJCM",
@@ -354,7 +354,7 @@
       "mensais": [
         {
           "curto": "Jun/26",
-          "views": 11528,
+          "views": 11530,
           "videos": 9
         },
         {
@@ -364,7 +364,7 @@
         },
         {
           "curto": "Ago/26",
-          "views": 13827,
+          "views": 13828,
           "videos": 10
         }
       ],
@@ -375,7 +375,7 @@
         "diferenca": 100,
         "por_dia": 3.3
       },
-      "views_totais": 1311439,
+      "views_totais": 1312016,
       "videos_totais": 1091,
       "fonte": "data-api",
       "top": [
