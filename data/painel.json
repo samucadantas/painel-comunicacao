@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-02T09:54:47.615Z",
+  "gerado_em": "2026-10-02T17:55:10.921Z",
   "hoje": "2026-10-02",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -76,7 +76,7 @@
       },
       {
         "nome": "TOCA",
-        "total": 15
+        "total": 14
       },
       {
         "nome": "ARCO RELACIONAMENTO",
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 13302,
-      "media_views": 1209,
+      "views": 13313,
+      "media_views": 1210,
       "likes": 458,
       "comentarios": 12,
       "interacoes": 470,
@@ -132,7 +132,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2304,
+          "views": 2311,
           "likes": 72,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -144,7 +144,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2206,
+          "views": 2208,
           "likes": 88,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -156,7 +156,7 @@
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2097,
+          "views": 2098,
           "likes": 64,
           "comentarios": 3,
           "duracao": "PT50M55S",
@@ -168,8 +168,8 @@
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 13849,
-          "pct": -3.9
+          "antes": 13861,
+          "pct": -4
         },
         "likes": {
           "antes": 595,
@@ -311,7 +311,7 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 35087,
+      "views": 35110,
       "media_views": 1300,
       "likes": 1397,
       "comentarios": 31,
@@ -321,12 +321,12 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2304,
+          "views": 2311,
           "likes": 72,
           "comentarios": 0,
           "duracao": "PT39M32S",
           "url": "https://www.youtube.com/watch?v=SSbPP6Ky4NM",
-          "pct_acima": 77
+          "pct_acima": 78
         },
         {
           "id": "00TbvG67ZMk",
@@ -343,7 +343,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2206,
+          "views": 2208,
           "likes": 88,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Ago/26",
-          "views": 13849,
+          "views": 13861,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 13302,
+          "views": 13313,
           "videos": 11
         }
       ],
@@ -375,7 +375,7 @@
         "diferenca": 200,
         "por_dia": 6.3
       },
-      "views_totais": 1312758,
+      "views_totais": 1312963,
       "videos_totais": 1091,
       "fonte": "data-api",
       "top": [
@@ -383,7 +383,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2304,
+          "views": 2311,
           "likes": 72,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -405,7 +405,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2206,
+          "views": 2208,
           "likes": 88,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -416,7 +416,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2162,
+          "views": 2163,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
@@ -427,7 +427,7 @@
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2097,
+          "views": 2098,
           "likes": 64,
           "comentarios": 3,
           "duracao": "PT50M55S",
