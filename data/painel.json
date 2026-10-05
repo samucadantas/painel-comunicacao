@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-10-04T23:59:43.143Z",
-  "hoje": "2026-10-04",
+  "gerado_em": "2026-10-05T05:53:05.043Z",
+  "hoje": "2026-10-05",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 13838,
-      "media_views": 1258,
+      "views": 13865,
+      "media_views": 1260,
       "likes": 461,
       "comentarios": 12,
       "interacoes": 473,
@@ -132,7 +132,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2639,
+          "views": 2650,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -156,7 +156,7 @@
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2152,
+          "views": 2160,
           "likes": 65,
           "comentarios": 3,
           "duracao": "PT50M55S",
@@ -168,8 +168,8 @@
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 13906,
-          "pct": -0.5
+          "antes": 13909,
+          "pct": -0.3
         },
         "likes": {
           "antes": 595,
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 35683,
-      "media_views": 1322,
+      "views": 35713,
+      "media_views": 1323,
       "likes": 1400,
       "comentarios": 31,
       "interacoes": 1431,
@@ -321,7 +321,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2639,
+          "views": 2650,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -348,7 +348,7 @@
           "comentarios": 3,
           "duracao": "PT56M38S",
           "url": "https://www.youtube.com/watch?v=LAbtODdTGiU",
-          "pct_acima": 70
+          "pct_acima": 69
         }
       ],
       "mensais": [
@@ -359,31 +359,31 @@
         },
         {
           "curto": "Ago/26",
-          "views": 13906,
+          "views": 13909,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 13838,
+          "views": 13865,
           "videos": 11
         }
       ],
       "inscritos": 19500,
       "ritmo_inscritos": {
         "de": "2026-08-31",
-        "ate": "2026-10-04",
+        "ate": "2026-10-05",
         "diferenca": 200,
-        "por_dia": 5.9
+        "por_dia": 5.7
       },
-      "views_totais": 1313546,
-      "videos_totais": 1091,
+      "views_totais": 1314081,
+      "videos_totais": 1092,
       "fonte": "data-api",
       "top": [
         {
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2639,
+          "views": 2650,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -427,7 +427,7 @@
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2152,
+          "views": 2160,
           "likes": 65,
           "comentarios": 3,
           "duracao": "PT50M55S",
