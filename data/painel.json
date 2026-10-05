@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-05T14:56:46.725Z",
+  "gerado_em": "2026-10-05T22:04:34.380Z",
   "hoje": "2026-10-05",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,12 +17,12 @@
   "semana": {
     "label": "Semana de 04/10 a 10/10",
     "mes_vigente": "Outubro 2026",
-    "fila": 5,
-    "em_criacao": 16,
-    "entregues": 1,
-    "entregues_semana_anterior": 11,
-    "fila_videos": 10,
-    "fila_artes": 6
+    "fila": 9,
+    "em_criacao": 12,
+    "entregues": 5,
+    "entregues_semana_anterior": 12,
+    "fila_videos": 12,
+    "fila_artes": 5
   },
   "mes_anterior": {
     "month": "2026-09",
@@ -41,7 +41,7 @@
     "campeoes": [
       {
         "nome": "Hayssa Lira",
-        "total": 4,
+        "total": 3,
         "emoji": "👩🏻"
       },
       {
@@ -55,14 +55,14 @@
         "emoji": null
       },
       {
-        "nome": "Bruna Franco",
-        "total": 1,
-        "emoji": "👱🏻‍♀️"
-      },
-      {
         "nome": "Bruna Mendanha",
         "total": 1,
         "emoji": "👩🏽"
+      },
+      {
+        "nome": "Karla Simões",
+        "total": 1,
+        "emoji": null
       }
     ],
     "ministerios": [
@@ -122,17 +122,17 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 13874,
-      "media_views": 1261,
-      "likes": 461,
+      "views": 13889,
+      "media_views": 1263,
+      "likes": 463,
       "comentarios": 12,
-      "interacoes": 473,
+      "interacoes": 475,
       "destaques": [
         {
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2656,
+          "views": 2659,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -145,35 +145,35 @@
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
           "views": 2241,
-          "likes": 88,
+          "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
           "url": "https://www.youtube.com/watch?v=LAbtODdTGiU",
-          "pct_acima": 78,
+          "pct_acima": 77,
           "thumb": "data:image/jpeg;base64,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"
         },
         {
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2161,
-          "likes": 65,
+          "views": 2167,
+          "likes": 66,
           "comentarios": 3,
           "duracao": "PT50M55S",
           "url": "https://www.youtube.com/watch?v=nFuxxbPNPLs",
-          "pct_acima": 71,
+          "pct_acima": 72,
           "thumb": "data:image/jpeg;base64,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"
         }
       ],
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 13909,
-          "pct": -0.3
+          "antes": 13912,
+          "pct": -0.2
         },
         "likes": {
-          "antes": 595,
-          "pct": -22.5
+          "antes": 596,
+          "pct": -22.3
         },
         "videos": {
           "antes": 10,
@@ -311,17 +311,17 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 35722,
-      "media_views": 1323,
-      "likes": 1400,
+      "views": 35740,
+      "media_views": 1324,
+      "likes": 1403,
       "comentarios": 31,
-      "interacoes": 1431,
+      "interacoes": 1434,
       "destaques": [
         {
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2656,
+          "views": 2659,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -344,7 +344,7 @@
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
           "views": 2241,
-          "likes": 88,
+          "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
           "url": "https://www.youtube.com/watch?v=LAbtODdTGiU",
@@ -359,12 +359,12 @@
         },
         {
           "curto": "Ago/26",
-          "views": 13909,
+          "views": 13912,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 13874,
+          "views": 13889,
           "videos": 11
         }
       ],
@@ -375,7 +375,7 @@
         "diferenca": 200,
         "por_dia": 5.7
       },
-      "views_totais": 1314081,
+      "views_totais": 1315051,
       "videos_totais": 1093,
       "fonte": "data-api",
       "top": [
@@ -383,7 +383,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2656,
+          "views": 2659,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -406,7 +406,7 @@
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
           "views": 2241,
-          "likes": 88,
+          "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
           "url": "https://www.youtube.com/watch?v=LAbtODdTGiU",
@@ -427,8 +427,8 @@
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2161,
-          "likes": 65,
+          "views": 2167,
+          "likes": 66,
           "comentarios": 3,
           "duracao": "PT50M55S",
           "url": "https://www.youtube.com/watch?v=nFuxxbPNPLs",
