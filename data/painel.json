@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-06T16:01:37.101Z",
+  "gerado_em": "2026-10-06T22:42:05.605Z",
   "hoje": "2026-10-06",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,11 +17,11 @@
   "semana": {
     "label": "Semana de 04/10 a 10/10",
     "mes_vigente": "Outubro 2026",
-    "fila": 16,
-    "em_criacao": 11,
-    "entregues": 9,
+    "fila": 15,
+    "em_criacao": 14,
+    "entregues": 10,
     "entregues_semana_anterior": 12,
-    "fila_videos": 17,
+    "fila_videos": 18,
     "fila_artes": 5
   },
   "mes_anterior": {
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 13926,
-      "media_views": 1266,
+      "views": 13942,
+      "media_views": 1267,
       "likes": 463,
       "comentarios": 12,
       "interacoes": 475,
@@ -132,7 +132,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2678,
+          "views": 2683,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -144,7 +144,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2245,
+          "views": 2246,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -156,7 +156,7 @@
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2172,
+          "views": 2177,
           "likes": 66,
           "comentarios": 3,
           "duracao": "PT50M55S",
@@ -168,8 +168,8 @@
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 13920,
-          "pct": 0
+          "antes": 13924,
+          "pct": 0.1
         },
         "likes": {
           "antes": 596,
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 35786,
-      "media_views": 1325,
+      "views": 35807,
+      "media_views": 1326,
       "likes": 1403,
       "comentarios": 31,
       "interacoes": 1434,
@@ -321,7 +321,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2678,
+          "views": 2683,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -343,7 +343,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2245,
+          "views": 2246,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -354,17 +354,17 @@
       "mensais": [
         {
           "curto": "Jul/26",
-          "views": 7940,
+          "views": 7941,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13920,
+          "views": 13924,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 13926,
+          "views": 13942,
           "videos": 11
         }
       ],
@@ -383,7 +383,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2678,
+          "views": 2683,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -405,7 +405,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2245,
+          "views": 2246,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -416,7 +416,7 @@
           "id": "nFuxxbPNPLs",
           "titulo": "\"Os Dois Fundamentos\" por Guilherme Franco",
           "data": "2026-09-20",
-          "views": 2172,
+          "views": 2177,
           "likes": 66,
           "comentarios": 3,
           "duracao": "PT50M55S",
