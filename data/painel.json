@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-07T13:36:20.554Z",
+  "gerado_em": "2026-10-07T20:42:35.720Z",
   "hoje": "2026-10-07",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -17,11 +17,11 @@
   "semana": {
     "label": "Semana de 04/10 a 10/10",
     "mes_vigente": "Outubro 2026",
-    "fila": 16,
-    "em_criacao": 14,
-    "entregues": 10,
+    "fila": 10,
+    "em_criacao": 16,
+    "entregues": 14,
     "entregues_semana_anterior": 12,
-    "fila_videos": 18,
+    "fila_videos": 14,
     "fila_artes": 5
   },
   "mes_anterior": {
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 13963,
-      "media_views": 1269,
+      "views": 13972,
+      "media_views": 1270,
       "likes": 463,
       "comentarios": 12,
       "interacoes": 475,
@@ -132,7 +132,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2690,
+          "views": 2698,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -168,8 +168,8 @@
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 13943,
-          "pct": 0.1
+          "antes": 13944,
+          "pct": 0.2
         },
         "likes": {
           "antes": 596,
@@ -311,7 +311,7 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 35847,
+      "views": 35858,
       "media_views": 1328,
       "likes": 1403,
       "comentarios": 31,
@@ -321,7 +321,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2690,
+          "views": 2698,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -354,17 +354,17 @@
       "mensais": [
         {
           "curto": "Jul/26",
-          "views": 7941,
+          "views": 7942,
           "videos": 6
         },
         {
           "curto": "Ago/26",
-          "views": 13943,
+          "views": 13944,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 13963,
+          "views": 13972,
           "videos": 11
         }
       ],
@@ -375,7 +375,7 @@
         "diferenca": 200,
         "por_dia": 5.4
       },
-      "views_totais": 1316698,
+      "views_totais": 1317141,
       "videos_totais": 1093,
       "fonte": "data-api",
       "top": [
@@ -383,7 +383,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2690,
+          "views": 2698,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
