@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-10-06T22:42:05.605Z",
-  "hoje": "2026-10-06",
+  "gerado_em": "2026-10-07T06:10:39.155Z",
+  "hoje": "2026-10-07",
   "canal_youtube": {
     "nome": "Somos A Ponte",
     "url": "https://www.youtube.com/somosaponte"
@@ -122,8 +122,8 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 13942,
-      "media_views": 1267,
+      "views": 13960,
+      "media_views": 1269,
       "likes": 463,
       "comentarios": 12,
       "interacoes": 475,
@@ -132,7 +132,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2683,
+          "views": 2690,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -144,7 +144,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2246,
+          "views": 2249,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -168,7 +168,7 @@
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 13924,
+          "antes": 13941,
           "pct": 0.1
         },
         "likes": {
@@ -311,8 +311,8 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 35807,
-      "media_views": 1326,
+      "views": 35842,
+      "media_views": 1327,
       "likes": 1403,
       "comentarios": 31,
       "interacoes": 1434,
@@ -321,12 +321,12 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2683,
+          "views": 2690,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
           "url": "https://www.youtube.com/watch?v=SSbPP6Ky4NM",
-          "pct_acima": 102
+          "pct_acima": 103
         },
         {
           "id": "00TbvG67ZMk",
@@ -337,13 +337,13 @@
           "comentarios": 2,
           "duracao": "PT50M38S",
           "url": "https://www.youtube.com/watch?v=00TbvG67ZMk",
-          "pct_acima": 74
+          "pct_acima": 73
         },
         {
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2246,
+          "views": 2249,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -359,23 +359,23 @@
         },
         {
           "curto": "Ago/26",
-          "views": 13924,
+          "views": 13941,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 13942,
+          "views": 13960,
           "videos": 11
         }
       ],
       "inscritos": 19500,
       "ritmo_inscritos": {
         "de": "2026-08-31",
-        "ate": "2026-10-06",
+        "ate": "2026-10-07",
         "diferenca": 200,
-        "por_dia": 5.6
+        "por_dia": 5.4
       },
-      "views_totais": 1316614,
+      "views_totais": 1316698,
       "videos_totais": 1093,
       "fonte": "data-api",
       "top": [
@@ -383,7 +383,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2683,
+          "views": 2690,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -405,7 +405,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2246,
+          "views": 2249,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -427,7 +427,7 @@
           "id": "t0EmdH3TJCM",
           "titulo": "Mateus 7:1–5 por Hykaro Luan",
           "data": "2026-08-30",
-          "views": 2168,
+          "views": 2174,
           "likes": 55,
           "comentarios": 1,
           "duracao": "PT39M39S",
