@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#C8F135" />
+<meta name="theme-color" content="#ECF2EC" />
 <title>StaffCom · Somos A Ponte</title>
 <style>
   /* Archivo variable, embutida: o painel precisa abrir offline (mandado por WhatsApp)
@@ -41,17 +41,11 @@
     /* As duas séries do gráfico de linhas: precisam se distinguir nos dois temas, então
        a segunda escurece no claro e clareia no escuro. */
     --serie-a:#A9D426; --serie-b:#2C5F35;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
-      --deep:#C8F135; --ink:#E8EFE8; --ink-on-deep:#13201A;
-    --tile-deep-bg:#2A4A2E; --tile-deep-ink:#E8EFE8;   /* 8.4:1 — terceira cor do bento */
-      --muted:#9BA79D; --muted-2:#7E8A80;
-      --line:rgba(232,239,232,.12); --card-line:rgba(232,239,232,.13);
-      --shadow:none;
-      --serie-a:#C8F135; --serie-b:#8FCB57;
-    }
+    /* Cor por categoria. Não são cores novas de marca: são tingimentos de papel, fracos
+       o bastante para o lima continuar sendo a única cor que grita. Servem para o olho
+       achar "aquele bloco do Instagram" sem ler o título. */
+    --cat-ig:#8B6FD4; --cat-ig-soft:#F4F0FD;
+    --cat-yt:#D46136; --cat-yt-soft:#FDF1EB;
   }
   :root[data-theme="dark"]{
     --bg:#0D120E; --surface:#19201A; --surface-2:#242D26;
@@ -61,6 +55,8 @@
     --line:rgba(232,239,232,.12); --card-line:rgba(232,239,232,.13);
     --shadow:none;
     --serie-a:#C8F135; --serie-b:#8FCB57;
+    --cat-ig:#B49CF0; --cat-ig-soft:#1C1A26;
+    --cat-yt:#E89068; --cat-yt-soft:#241A15;
   }
   :root[data-theme="light"]{
     --bg:#ECF2EC; --surface:#FFFFFF; --surface-2:#EFF7EF;
@@ -70,6 +66,8 @@
     --line:rgba(21,37,25,.11); --card-line:transparent;
     --shadow:0 1px 2px rgba(21,37,25,.04), 0 12px 28px -14px rgba(21,37,25,.22);
     --serie-a:#A9D426; --serie-b:#2C5F35;
+    --cat-ig:#8B6FD4; --cat-ig-soft:#F4F0FD;
+    --cat-yt:#D46136; --cat-yt-soft:#FDF1EB;
   }
 
   *{box-sizing:border-box}
@@ -79,6 +77,9 @@
     font-family:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
     line-height:1.5; -webkit-font-smoothing:antialiased;
     padding:max(14px,env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom));
+    /* Num monitor largo, cartão de ponta a ponta vira linha de texto de 1.400px e a
+       leitura se perde. O painel para de crescer e passa a centralizar. */
+    max-width:1280px; margin-inline:auto;
   }
   :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:8px}
   /* Trocar de tema é ação ocasional e intencional: vale um cruzamento suave em vez de um
@@ -176,7 +177,6 @@
   .vlinha .un{font-size:clamp(36px,10vw,54px);line-height:1;font-weight:750;letter-spacing:-.04em;opacity:.7}
   .tile.big .vlinha .un{font-size:clamp(19px,4.6vw,27px);opacity:.75}
   :root[data-theme="dark"] .tile:not(.lime):not(.deep) .delta{background:rgba(233,240,233,.09)}
-  @media (prefers-color-scheme: dark){.tile:not(.lime):not(.deep) .delta{background:rgba(233,240,233,.09)}}
 
   /* ---------- cartões ---------- */
   .card{
@@ -184,10 +184,40 @@
     padding:20px 18px;box-shadow:var(--shadow);margin-bottom:12px;
   }
   @media(min-width:760px){.card{padding:24px 26px;margin-bottom:14px}}
+  /* Instagram e YouTube ganham papel tingido e um ponto da cor no título: o gestor
+     localiza a seção pela cor antes de ler, que é o que ele faz quando volta ao painel
+     pela décima vez procurando uma coisa só. */
+  .card.ig{background:var(--cat-ig-soft)}
+  .card.yt{background:var(--cat-yt-soft)}
+  .card.ig h2::before,.card.yt h2::before{
+    content:"";width:9px;height:9px;border-radius:999px;display:inline-block;
+    margin-right:9px;vertical-align:.08em;
+  }
+  .card.ig h2::before{background:var(--cat-ig)}
+  .card.yt h2::before{background:var(--cat-yt)}
   h2{font-size:17px;font-weight:750;letter-spacing:-.02em;margin:0 0 14px}
   h3{font-size:14.5px;font-weight:700;letter-spacing:-.015em;margin:24px 0 12px;color:var(--muted)}
   .cols{display:grid;gap:12px}
   @media(min-width:860px){.cols{grid-template-columns:1fr 1fr;gap:14px}.cols>.card{margin-bottom:0}}
+
+  /* Segundo nível de métrica. Treze campos com o mesmo corpo e a mesma caixa somavam
+     804px no celular e não diziam ao olho onde pousar. Os quatro que respondem "como
+     foi o trimestre" ficam no tamanho cheio; o resto encolhe e vira consulta. */
+  .net.miudo{margin-top:9px;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
+  .net.miudo .nc{padding:10px 12px}
+  .net.miudo .h{font-size:11px}
+  .net.miudo .p{font-size:16px}
+
+  /* ---------- recomendações ---------- */
+  /* Cada uma é um bloco de cor com a frase em corpo grande — a referência que o Samuel
+     guardou faz isso, e funciona porque a frase É o conteúdo, não o rótulo de um número.
+     Alerta vira cartão escuro: duas cores alternando dão ritmo à grade. */
+  .recs{display:grid;gap:10px}
+  @media(min-width:760px){.recs{grid-template-columns:repeat(2,1fr);gap:12px}}
+  .rec{background:var(--lime);color:#13201A;border-radius:var(--radius-sm);padding:17px 19px}
+  .rec.alerta{background:var(--tile-deep-bg);color:var(--tile-deep-ink)}
+  .rec-t{font-size:clamp(16.5px,4.2vw,20px);line-height:1.22;font-weight:750;letter-spacing:-.022em;margin:0}
+  .rec-b{font-size:12.5px;font-weight:600;line-height:1.45;opacity:.72;margin:9px 0 0}
 
   /* ---------- barras ---------- */
   .rows{display:flex;flex-direction:column;gap:11px}
@@ -200,11 +230,9 @@
   }
   .track{height:11px;border-radius:999px;background:var(--surface-2);overflow:hidden}
   :root[data-theme="dark"] .track{background:rgba(233,240,233,.08)}
-  @media (prefers-color-scheme: dark){.track{background:rgba(233,240,233,.08)}}
   .fill{height:100%;border-radius:999px;background:var(--lime);min-width:5px}
   .fill.soft{background:var(--lime-deep);opacity:.6}
   :root[data-theme="dark"] .fill.soft{opacity:.8}
-  @media (prefers-color-scheme: dark){.fill.soft{opacity:.8}}
   .r .n{font-size:13.5px;font-weight:750;font-variant-numeric:tabular-nums;min-width:2.2ch;text-align:right}
 
   /* ---------- colunas ---------- */
@@ -246,7 +274,6 @@
   .tag{font-size:11.5px;font-weight:750;padding:4px 10px;border-radius:999px;background:rgba(19,32,26,.07);white-space:nowrap;
     font-variant-numeric:tabular-nums}
   :root[data-theme="dark"] .tag{background:rgba(233,240,233,.1)}
-  @media (prefers-color-scheme: dark){.tag{background:rgba(233,240,233,.1)}}
   .empty{padding:18px;text-align:center;color:var(--muted);font-size:13.5px;background:var(--surface-2);border-radius:var(--radius-sm);line-height:1.45}
   .janela{font-size:12.5px;color:var(--muted);margin:0 0 14px;max-width:70ch;line-height:1.5}
   .janela b{color:var(--ink);font-weight:650}
@@ -318,7 +345,6 @@
   .perfil:first-child{margin-top:4px}
   .seta{width:14px;height:14px;display:inline-block;vertical-align:-2px;margin-right:3px;color:var(--lime-deep)}
   :root[data-theme="dark"] .seta{color:var(--lime)}
-  @media (prefers-color-scheme: dark){.seta{color:var(--lime)}}
 
   /* Nota que explica o critério: vem DEPOIS da lista, como rodapé do bloco. */
   .nota{font-size:12.5px;color:var(--muted);line-height:1.5;margin:12px 0 0;max-width:74ch}
@@ -351,7 +377,6 @@
   </div>
 
   <h1>StaffCom</h1>
-  <p class="lead">Dashboard para acompanhar demandas e o trabalho da equipe de comunicação da Ponte Recife.</p>
 
   <nav class="abas" role="tablist" aria-label="Período">
     <button type="button" role="tab" id="tab-semana"    aria-controls="p-semana"    aria-selected="true">Semana</button>
@@ -363,6 +388,14 @@
   <section id="p-semana" role="tabpanel" aria-labelledby="tab-semana" tabindex="0">
     <p class="periodo" id="s-periodo"></p>
     <div class="bento" id="s-kpis"></div>
+
+    <section class="card" id="s-recs-card" hidden>
+      <h2>O que os números sugerem</h2>
+      <div class="recs" id="s-recs"></div>
+      <p class="nota">Sai tudo das próprias medições do painel — nenhuma regra geral de
+       marketing. A linha menor de cada bloco é a conta que sustenta a frase, para você
+       poder discordar olhando o dado.</p>
+    </section>
   </section>
 
   <!-- ============ ABA 2 ============ -->
@@ -381,15 +414,16 @@
       </section>
     </div>
 
-    <section class="card">
+    <section class="card ig">
       <h2>Análise Instagram</h2>
       <h3>Quantas publicações foram feitas nos perfis</h3>
       <div class="net mini" id="m-ig"></div>
       <h3 id="m-ig-destaques-t">Publicações destaques</h3>
+      <div class="subabas" id="m-ig-abas" role="tablist" aria-label="Perfil do Instagram"></div>
       <div id="m-ig-destaques"></div>
     </section>
 
-    <section class="card">
+    <section class="card yt">
       <h2 id="m-yt-titulo">Análise YouTube</h2>
       <h3>Quantos vídeos/lives foram feitas no perfil</h3>
       <div class="net" id="m-yt"></div>
@@ -418,17 +452,18 @@
       </section>
     </div>
 
-    <section class="card">
+    <section class="card ig">
       <h2>Visão geral Instagram</h2>
       <div class="subabas" id="t-ig-abas" role="tablist" aria-label="Perfil do Instagram"></div>
       <div class="net" id="t-ig"></div>
+      <div class="net mini miudo" id="t-ig-mais"></div>
       <h3>Desempenho por formato</h3>
       <div id="t-ig-formato"></div>
       <h3>Top publicações</h3>
       <div id="t-ig-top"></div>
     </section>
 
-    <section class="card">
+    <section class="card yt">
       <h2 id="t-yt-titulo">Visão geral YouTube</h2>
       <div class="net" id="t-yt"></div>
       <h3>Visualizações mensais</h3>
@@ -453,8 +488,11 @@ const dataBR = (iso) => `${iso.slice(8,10)}/${iso.slice(5,7)}`;
 /* ---------- tema ---------- */
 const root = document.documentElement;
 const salvo = (() => { try { return localStorage.getItem("staffcom-tema"); } catch { return null; } })();
-if (salvo) root.dataset.theme = salvo;
-const escuro = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+// Claro é o padrão, e não o que o sistema do celular manda: o painel é um documento
+// enviado por link, e precisa chegar igual para todo mundo. Quem prefere escuro troca
+// no botão e a escolha fica salva.
+root.dataset.theme = salvo === "dark" ? "dark" : "light";
+const escuro = () => root.dataset.theme === "dark";
 function pintaBotao(){
   $("theme-ico").textContent = escuro() ? "☀" : "☾";
   $("theme-lbl").textContent = escuro() ? "Claro" : "Escuro";
@@ -465,7 +503,6 @@ $("theme").addEventListener("click", () => {
   pintaBotao();
 });
 pintaBotao();
-matchMedia("(prefers-color-scheme: dark)").addEventListener("change", pintaBotao);
 
 /* ---------- blocos ---------- */
 function barras(el, itens, opts = {}) {
@@ -628,6 +665,17 @@ function renderSemana() {
   const s = D.semana;
   $("s-periodo").innerHTML = `${esc(s.label)} <span>de ${esc(s.mes_vigente)}</span>`;
 
+  /* Recomendações: a aba Semana era a mais consultada e a mais vazia — 0,4 de uma tela
+     de desktop. É o lugar certo para a única coisa que o painel não fazia, que é dizer
+     o que fazer. Sem recomendação sustentável nos dados, a seção inteira não aparece. */
+  const recs = D.recomendacoes || [];
+  $("s-recs-card").hidden = !recs.length;
+  $("s-recs").innerHTML = recs.map((r) => `
+    <div class="rec${r.alerta ? " alerta" : ""}">
+      <p class="rec-t">${esc(r.texto)}</p>
+      <p class="rec-b">${esc(r.base)}</p>
+    </div>`).join("");
+
   // Só o número da semana passada, sem seta nem diferença: quem lê compara sozinho, e a
   // seta transformava uma semana atípica num alarme.
   const comp = `${nf(s.entregues_semana_anterior)} (semana anterior)`;
@@ -699,26 +747,11 @@ function renderMes() {
   const perfis = (m.instagram.genna || []).filter((g) => g.destaques && g.destaques.length);
   const pendentes = m.instagram.genna_pendentes || [];
   $("m-ig-destaques-t").hidden = !perfis.length;
-  $("m-ig-destaques").innerHTML = !perfis.length ? "" :
-    perfis.map((gm) => `
-      <h4 class="perfil">${esc(gm.handle)}</h4>
-      <div class="pubs">` + gm.destaques.map((p) => pub({
-        thumb: p.thumb,
-        tipo: p.tipo,
-        data: dataBR(p.data),
-        num: nf(p.views),
-        numLabel: "visualizações",
-        porque: p.pct_acima != null
-          ? `${ico("alta", "seta")}<b>${nf(p.pct_acima)}% acima</b> da média do perfil no mês, de ${nf(gm.media_views)} visualizações por publicação`
-          : "",
-        titulo: p.titulo,
-        extra: `${nf(p.alcance)} contas alcançadas · ${nf(p.interacoes)} interações · ${dec(p.taxa)}% de taxa de interação · ${nf(p.salvamentos)} salvos · ${nf(p.compartilhamentos)} compartilhados`,
-        link: p.link,
-      })).join("") + `</div>`).join("")
-    + `<p class="nota">Destaque é a publicação que teve <b>mais visualizações do que a média do próprio perfil</b> no mês —
-       por isso a régua muda de perfil para perfil. ${perfis.map((gm) =>
-         `${esc(gm.handle)}: ${nf(gm.publicacoes)} ${gm.publicacoes === 1 ? "publicação" : "publicações"}, média de ${nf(gm.media_views)} visualizações`).join(" · ")}.
-       ${pendentes.length ? `Ainda fora: ${pendentes.map((x) => `<b>${esc(x.handle)}</b> — ${esc(x.motivo)}`).join("; ")}.` : ""}</p>`;
+  $("m-ig-abas").hidden = perfis.length < 2;
+  $("m-ig-abas").innerHTML = perfis.length < 2 ? "" : perfis.map((g, i) =>
+    `<button type="button" role="tab" data-i="${i}" aria-selected="${i === perfilMes}">${esc(g.handle)}</button>`).join("");
+  if (perfilMes >= perfis.length) perfilMes = 0;
+  renderDestaquesMes(perfis, pendentes);
 
   /* YouTube */
   if (D.canal_youtube) $("m-yt-titulo").textContent = `Análise YouTube (${D.canal_youtube.url.replace("https://www.youtube.com", "")})`;
@@ -753,6 +786,40 @@ function renderMes() {
       })).join("") + `</div>
       <p class="nota">Entra aqui o vídeo que passou da <b>média de visualizações dos ${nf(y.videos)} vídeos do mês</b> (${nf(y.media_views)} por vídeo).</p>`
     : `<div class="empty">Nenhum vídeo do mês superou a média de visualizações, ou o mês já saiu da janela do feed.</div>`;
+}
+
+/**
+ * Destaques do mês: um perfil por vez.
+ *
+ * Empilhados, os nove perfis somavam 1.800px só de destaques — mais da metade da aba.
+ * Em sub-abas, o gestor vê um perfil inteiro sem rolar e troca com um toque, que é o
+ * mesmo gesto que o trimestre já pedia.
+ */
+let perfilMes = 0;
+function renderDestaquesMes(perfis, pendentes) {
+  for (const b of $("m-ig-abas").querySelectorAll("button")) {
+    b.setAttribute("aria-selected", String(+b.dataset.i === perfilMes));
+  }
+  const gm = perfis[perfilMes];
+  $("m-ig-destaques").innerHTML = !gm ? "" :
+    `<div class="pubs">` + gm.destaques.map((p) => pub({
+        thumb: p.thumb,
+        tipo: p.tipo,
+        data: dataBR(p.data),
+        num: nf(p.views),
+        numLabel: "visualizações",
+        porque: p.pct_acima != null
+          ? `${ico("alta", "seta")}<b>${nf(p.pct_acima)}% acima</b> da média do perfil no mês, de ${nf(gm.media_views)} visualizações por publicação`
+          : "",
+        titulo: p.titulo,
+        extra: `${nf(p.alcance)} contas alcançadas · ${nf(p.interacoes)} interações · ${dec(p.taxa)}% de taxa de interação · ${nf(p.salvamentos)} salvos · ${nf(p.compartilhamentos)} compartilhados`,
+        link: p.link,
+      })).join("") + `</div>`
+    + `<p class="nota">Destaque é a publicação que teve <b>mais visualizações do que a média do próprio perfil</b> no mês —
+       por isso a régua muda de perfil para perfil. ${esc(gm.handle)} publicou
+       ${nf(gm.publicacoes)} ${gm.publicacoes === 1 ? "vez" : "vezes"}, com média de ${nf(gm.media_views)} visualizações.
+       ${pendentes.length ? `Ainda fora: ${pendentes.map((x) => `<b>${esc(x.handle)}</b> — ${esc(x.motivo)}`).join("; ")}.` : ""}</p>`;
+
 }
 
 /* ============ ABA 3 · TRIMESTRE ============ */
@@ -826,30 +893,34 @@ function renderPerfilIg(i) {
   const g = p.genna;          // Graph API da Meta: recorte de data exato, com salvamentos e compartilhamentos
   const ins = p.insights;     // leitura do Insights web: janela móvel de 90 dias
 
+  // Os quatro que respondem "como foi o trimestre": o tamanho do público, quanto dele
+  // foi tocado, quanto respondeu e quanto se produziu.
   $("t-ig").innerHTML =
     (p.seguidores != null
-      ? campo("Número de seguidores atuais", nf(p.seguidores))
-      : campoVazio("Número de seguidores atuais", FALTA_IG)) +
-    (cresc
-      ? campo("Crescimento de seguidores", `${cresc.diferenca >= 0 ? "+" : ""}${nf(cresc.diferenca)}`)
-      : campoVazio("Crescimento de seguidores", p.seguidores != null ? "só na próxima medição" : FALTA_IG)) +
+      ? campo("Seguidores", nf(p.seguidores))
+      : campoVazio("Seguidores", FALTA_IG)) +
+    (g ? campo("Visualizações", nf(g.views)) : ins ? campo("Visualizações", nf(ins.views)) : campoVazio("Visualizações", FALTA_IG)) +
+    (g ? campo("Interações", nf(g.interacoes)) : ins ? campo("Interações", nf(ins.interacoes)) : "") +
+    (g ? campo("Publicações no trimestre", nf(g.publicacoes))
+       : p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre))
+       : campoVazio("Publicações no trimestre", "contagem ainda não preenchida"));
+
+  // O resto é consulta: existe, mas não disputa a primeira leitura. Campo vazio só
+  // aparece quando o vazio ensina alguma coisa — "só na próxima medição" ensina,
+  // dois campos diferentes dizendo "—" sobre seguidores, não.
+  $("t-ig-mais").innerHTML =
     (g ? campo("Contas alcançadas", nf(g.alcance))
-       : ins ? campo("Contas alcançadas", nf(ins.contas_alcancadas))
-       : campoVazio("Contas alcançadas", FALTA_IG)) +
+       : ins ? campo("Contas alcançadas", nf(ins.contas_alcancadas)) : "") +
     (g ? campo("Interações por visualização", dec(g.taxa_engajamento) + "%")
-       : ins ? campo("Taxa de engajamento", dec(ins.taxa_engajamento) + "%")
-       : campoVazio("Taxa de engajamento", FALTA_IG)) +
+       : ins ? campo("Taxa de engajamento", dec(ins.taxa_engajamento) + "%") : "") +
     (g ? campo("Salvamentos", nf(g.salvamentos)) : "") +
     (g ? campo("Compartilhamentos", nf(g.compartilhamentos)) : "") +
     (!g ? campoVazio("Salvamentos e compartilhamentos", p.genna_pendente ? "falta conectar a conta do Instagram à Página" : "o Insights web não separa isso por conta") : "") +
-    (g ? campo("Visualizações", nf(g.views)) : ins ? campo("Visualizações", nf(ins.views)) : "") +
-    (g ? campo("Interações", nf(g.interacoes)) : ins ? campo("Interações", nf(ins.interacoes)) : "") +
     (ins ? campo("Visitas ao perfil", nf(ins.visitas_perfil)) : "") +
     (ins ? campo("Cliques no link", nf(ins.cliques_link)) : "") +
-    (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", "série diária ainda não medida para este perfil")) +
-    (g ? campo("Publicações no trimestre", nf(g.publicacoes))
-       : p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre))
-       : campoVazio("Publicações no trimestre", "contagem ainda não preenchida")) +
+    (cresc ? campo("Crescimento de seguidores", `${cresc.diferenca >= 0 ? "+" : ""}${nf(cresc.diferenca)}`)
+           : val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores))
+           : campoVazio("Crescimento de seguidores", "medido a partir da próxima leitura")) +
     (p.posts_totais != null ? campo("Publicações no perfil", nf(p.posts_totais)) : "");
 
   /* Desempenho por formato */
@@ -900,6 +971,14 @@ function renderPerfilIg(i) {
     b.setAttribute("aria-selected", String(+b.dataset.i === i));
   }
 }
+
+$("m-ig-abas").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-i]");
+  if (!b) return;
+  perfilMes = +b.dataset.i;
+  renderDestaquesMes((D.mes_anterior.instagram.genna || []).filter((g) => g.destaques && g.destaques.length),
+                     D.mes_anterior.instagram.genna_pendentes || []);
+});
 
 $("t-ig-abas").addEventListener("click", (e) => {
   const b = e.target.closest("button[data-i]");

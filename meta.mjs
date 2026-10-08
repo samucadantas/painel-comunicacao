@@ -208,9 +208,27 @@ async function coletarPerfil(token, { pagina, ig }, { mes, triDe, triAte }) {
   for (const p of posts) alcancePorFormato[p.tipo] = (alcancePorFormato[p.tipo] || 0) + (p.views || 0);
   const totalAlcance = Object.values(alcancePorFormato).reduce((s, x) => s + x, 0);
 
+  // Agregados que alimentam as recomendações. Ficam aqui porque dependem da publicação
+  // individual, que não sobrevive à saída desta função.
+  // As listas de views vão inteiras: quem analisa precisa da mediana, e média já
+  // guardada não dá para destrinchar depois. Dois virais distorcem qualquer média.
+  const porFormato = {};
+  for (const p of posts) (porFormato[p.tipo] ||= { views: [] }).views.push(p.views || 0);
+
+  const porDia = Array.from({ length: 7 }, () => ({ views_lista: [] }));
+  for (const p of posts) {
+    // Data sem hora é lida como UTC; para dia da semana isso basta e evita fuso.
+    porDia[new Date(`${p.data}T12:00:00Z`).getUTCDay()].views_lista.push(p.views || 0);
+  }
+
   return {
     brand: ig.id,
     marca: pagina.name,
+    analise: {
+      ultima_publicacao: posts.length ? posts.map((p) => p.data).sort().at(-1) : null,
+      formato: porFormato,
+      dia_semana: porDia,
+    },
     handle: ig.username ? `@${ig.username}` : null,
     seguidores: ig.followers_count ?? null,
     publicacoes_perfil: ig.media_count ?? null,

@@ -1,3 +1,7 @@
 .env
 .DS_Store
 node_modules/
+
+# Referências visuais baixadas do Pinterest: trabalho de terceiros, e o repositório
+# é público. Ficam na máquina, servindo de consulta, e não são redistribuídas.
+referencias/

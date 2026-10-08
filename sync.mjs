@@ -24,6 +24,7 @@ import { execFile as execFileCb } from "node:child_process";
 import { promisify } from "node:util";
 import { coletarGenna } from "./genna.mjs";
 import { coletarMeta } from "./meta.mjs";
+import { recomendar } from "./recomendacoes.mjs";
 
 const execFile = promisify(execFileCb);
 
@@ -59,11 +60,16 @@ if (faltando.length) {
   process.exit(1);
 }
 
-// os 7 perfis do documento, nesta ordem
-const PERFIS_IG = ["@aponte_recife", "@somosaponte", "@pontezinha", "@estacaodaponte",
-  "@opatiodaponte", "@entranatoca", "@tocaplay_recife"];
-// a visão geral do trimestre tem uma sub-aba para cada um destes
-const PERFIS_VISAO_GERAL = ["@aponte_recife", "@somosaponte"];
+// Os 7 perfis da Ponte, nesta ordem de leitura — ela vale para as sub-abas do mês e do
+// trimestre. A chave da Meta alcança mais contas do que estas (Conferência Oxigênio, que
+// não publica desde 2021, e O Portal); quem não está nesta lista fica de fora do painel.
+const PERFIS_IG = ["@aponte_recife", "@somosaponte", "@entranatoca", "@estacaodaponte",
+  "@tocaplay_recife", "@pontezinha", "@opatiodaponte"];
+const PERFIS_VISAO_GERAL = PERFIS_IG;
+
+// Filtra o que a Meta trouxe para os perfis do painel e devolve na ordem acima.
+const ordenaPerfis = (lista) =>
+  PERFIS_IG.map((h) => lista.find((x) => x.handle === h)).filter(Boolean);
 
 // ---------- propriedades do banco ----------
 const P = {
@@ -231,12 +237,14 @@ async function encolhe(buf, ferramenta) {
   const fora = dentro.replace(/\.jpg$/, "-p.jpg");
   try {
     await writeFile(dentro, buf);
-    // 280px cobre o dobro do tamanho em que a miniatura aparece — acima disso é peso à toa
-    // para um gestor abrindo o painel no 4G.
+    // A miniatura aparece a 100px na tela (124px nas de vídeo). 200px é exatamente o
+    // dobro — o que uma tela retina consome — e nada além disso chega aos olhos. Com os
+    // sete perfis no trimestre são ~46 miniaturas no arquivo, e cada pixel a mais vira
+    // segundo de espera para quem abre o painel no 4G, por link de WhatsApp.
     if (ferramenta === "sips") {
-      await execFile("sips", ["-Z", "280", "-s", "formatOptions", "55", dentro, "--out", fora]);
+      await execFile("sips", ["-Z", "200", "-s", "formatOptions", "55", dentro, "--out", fora]);
     } else {
-      await execFile(ferramenta, [dentro, "-resize", "280x280>", "-quality", "55", fora]);
+      await execFile(ferramenta, [dentro, "-resize", "200x200>", "-quality", "55", fora]);
     }
     const menor = await readFile(fora);
     return menor.length < buf.length ? menor : buf;
@@ -580,7 +588,15 @@ async function build() {
       else console.log(`  ${p.handle}: ${p.mes.publicacoes} publicações em ${mesLabel(mesAnt)}, ${p.trimestre.publicacoes} no trimestre`);
     }
     // Aba 2 pede "publicações destaques": as que superaram a média do mês.
-    aba2.instagram.genna = comDados.map((g) => {
+    // A contagem de publicações do mês deixa de depender de alguém preencher
+    // social/instagram.json à mão — a Meta devolve o número exato, perfil a perfil.
+    // Era por isso que agosto aparecia como "ainda não preenchida".
+    aba2.instagram.publicacoes = PERFIS_IG.map((handle) => ({
+      handle,
+      posts: comDados.find((x) => x.handle === handle)?.mes.publicacoes ?? 0,
+    }));
+
+    aba2.instagram.genna = ordenaPerfis(comDados.map((g) => ({ ...g, views: g.mes.views }))).map((g) => {
       // `top` sai do payload: a aba do mês só mostra os destaques, e carregar a lista
       // inteira deixaria URLs assinadas do Instagram gravadas num arquivo público.
       const { top, ...resumo } = g.mes;
@@ -606,8 +622,12 @@ async function build() {
       entregues: m.entregues, media_entrega: m.media_entrega, mediana_entrega: m.mediana_entrega,
       videos: m.videos, artes: m.artes,
     })),
-    // "Visão geral Instagram (duas abas: @aponte_recife e @somosaponte)"
-    instagram: PERFIS_VISAO_GERAL.map((handle) => {
+    // Uma sub-aba por perfil. Com a Meta respondendo são todos os que ela alcança;
+    // sem ela, sobram os dois principais, que é o que as medições manuais cobrem.
+    instagram: (comDados.length
+      ? ordenaPerfis(comDados.map((g) => ({ handle: g.handle, views: g.trimestre.views }))).map((x) => x.handle)
+      : PERFIS_VISAO_GERAL
+    ).map((handle) => {
       // Seguidores e crescimento saem das medições públicas datadas em social/instagram.json.
       const datas = Object.keys(ig?.seguidores || {}).sort();
       const ultima = datas.at(-1);
@@ -624,9 +644,13 @@ async function build() {
       const g = gp ? (() => {
         const t = gp.trimestre;
         const media = t.publicacoes ? t.views / t.publicacoes : 0;
+
         return {
           ...t, media_views: Math.round(media),
-          top: t.top.map((p) => ({ ...p, pct_acima: media ? Math.round((p.views / media - 1) * 100) : null })),
+          // Três, e não cinco: cinco somavam 1.461px de rolagem no celular por perfil,
+          // e cada cartão carrega uma miniatura embutida no arquivo.
+          top: t.top.slice(0, 3)
+            .map((p) => ({ ...p, pct_acima: media ? Math.round((p.views / media - 1) * 100) : null })),
         };
       })() : null;
       const pendente = (gennaPerfis || []).find((x) => x.handle === handle && x.erro) || null;
@@ -676,10 +700,11 @@ async function build() {
       views_totais: yt?.views_totais ?? null,
       videos_totais: yt?.videos_totais ?? null,
       fonte: yt?.fonte || null,
-      // "Top 3 a 5 vídeos mais acessados"
+      // "Top 3 a 5 vídeos mais acessados" — três. Cinco cartões empilhados davam 1.200px
+      // no celular, e do quarto em diante ninguém chega.
       top: yt ? [...yt.videos]
         .filter((v) => v.data >= `${mesesTri[0]}-01` && v.data <= `${mesAnt}-31`)
-        .sort((a, b) => b.views - a.views).slice(0, 5) : [],
+        .sort((a, b) => b.views - a.views).slice(0, 3) : [],
     },
   };
 
@@ -711,6 +736,9 @@ async function build() {
     hoje,
     canal_youtube: yt ? { nome: yt.canal, url: yt.url } : null,
     perfis_instagram: PERFIS_IG,
+    // O que o painel sugere fazer. Deriva só dos números acima — se não houver base,
+    // a lista volta vazia e a seção não aparece.
+    recomendacoes: recomendar({ perfis: ordenaPerfis(comDados), mes: aba2, trimestre, hoje }),
     semana,
     mes_anterior: aba2,
     trimestre,
