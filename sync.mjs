@@ -23,6 +23,7 @@ import { tmpdir } from "node:os";
 import { execFile as execFileCb } from "node:child_process";
 import { promisify } from "node:util";
 import { coletarGenna } from "./genna.mjs";
+import { coletarMeta } from "./meta.mjs";
 
 const execFile = promisify(execFileCb);
 
@@ -558,15 +559,20 @@ async function build() {
   const mesesTri = [mesAnterior(mesAnterior(mesAnt)), mesAnterior(mesAnt), mesAnt];
   const tri = mesesTri.map(montaMes);
 
-  // ---- Genna: métricas de Instagram com recorte de data exato ----
-  console.log("→ Genna…");
+  // ---- Instagram: métricas com recorte de data exato ----
+  // A Graph API da Meta é a fonte; o Genna era um intermediário pago para os mesmos
+  // dados e só enxergava 2 dos 7 perfis. Fica como reserva enquanto a chave da Meta
+  // não estiver no ar — e sai do código quando a troca estiver confirmada.
   const ultimoDiaTri = new Date(Date.UTC(+mesAnt.slice(0, 4), +mesAnt.slice(5, 7), 0)).getUTCDate();
-  const gennaPerfis = await coletarGenna({
-    key: process.env.GENNA_API_KEY,
-    mes: mesAnt,
-    triDe: `${mesesTri[0]}-01`,
-    triAte: `${mesAnt}-${ultimoDiaTri}`,
-  });
+  const janela = { mes: mesAnt, triDe: `${mesesTri[0]}-01`, triAte: `${mesAnt}-${ultimoDiaTri}` };
+
+  console.log("→ Instagram (Meta)…");
+  let gennaPerfis = await coletarMeta({ token: process.env.META_TOKEN, ...janela });
+  if (!gennaPerfis) {
+    if (process.env.META_TOKEN) console.log("  (a Meta não respondeu)");
+    else console.log("  (sem META_TOKEN — tentando o Genna)");
+    gennaPerfis = await coletarGenna({ key: process.env.GENNA_API_KEY, ...janela });
+  }
   const comDados = (gennaPerfis || []).filter((p) => !p.erro);
   if (gennaPerfis) {
     for (const p of gennaPerfis) {
@@ -578,17 +584,16 @@ async function build() {
       // `top` sai do payload: a aba do mês só mostra os destaques, e carregar a lista
       // inteira deixaria URLs assinadas do Instagram gravadas num arquivo público.
       const { top, ...resumo } = g.mes;
-      const media = resumo.publicacoes ? resumo.alcance / resumo.publicacoes : 0;
-      return { handle: g.handle, ...resumo, media_alcance: Math.round(media),
-        destaques: top.filter((p) => p.alcance > media)
-          .map((p) => ({ ...p, pct_acima: media ? Math.round((p.alcance / media - 1) * 100) : null })) };
+      // A régua é views por publicação, não alcance: ver o comentário em meta.mjs.
+      const media = resumo.publicacoes ? resumo.views / resumo.publicacoes : 0;
+      return { handle: g.handle, ...resumo, media_views: Math.round(media),
+        destaques: top.filter((p) => p.views > media)
+          .map((p) => ({ ...p, pct_acima: media ? Math.round((p.views / media - 1) * 100) : null })) };
     });
     aba2.instagram.genna_pendentes = gennaPerfis.filter((p) => p.erro)
       .map((p) => ({ handle: p.handle, marca: p.marca, motivo: p.erro }));
-  } else if (process.env.GENNA_API_KEY) {
-    console.log("  (não respondeu — a seção do Genna fica vazia)");
   } else {
-    console.log("  (sem GENNA_API_KEY no .env)");
+    console.log("  (sem fonte de Instagram — a seção fica vazia)");
   }
 
   const trimestre = {
@@ -615,13 +620,13 @@ async function build() {
       const j = ins?.janelas?.["90d"] || null;
       // O Genna traz data exata + salvamentos e compartilhamentos — quando tem o perfil, ele manda.
       const gp = comDados.find((x) => x.handle === handle) || null;
-      // A média de alcance do trimestre é a régua que explica por que um post é "top".
+      // A média de views do trimestre é a régua que explica por que um post é "top".
       const g = gp ? (() => {
         const t = gp.trimestre;
-        const media = t.publicacoes ? t.alcance / t.publicacoes : 0;
+        const media = t.publicacoes ? t.views / t.publicacoes : 0;
         return {
-          ...t, media_alcance: Math.round(media),
-          top: t.top.map((p) => ({ ...p, pct_acima: media ? Math.round((p.alcance / media - 1) * 100) : null })),
+          ...t, media_views: Math.round(media),
+          top: t.top.map((p) => ({ ...p, pct_acima: media ? Math.round((p.views / media - 1) * 100) : null })),
         };
       })() : null;
       const pendente = (gennaPerfis || []).find((x) => x.handle === handle && x.erro) || null;

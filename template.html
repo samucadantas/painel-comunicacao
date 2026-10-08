@@ -706,18 +706,18 @@ function renderMes() {
         thumb: p.thumb,
         tipo: p.tipo,
         data: dataBR(p.data),
-        num: nf(p.alcance),
-        numLabel: "contas alcançadas",
+        num: nf(p.views),
+        numLabel: "visualizações",
         porque: p.pct_acima != null
-          ? `${ico("alta", "seta")}<b>${nf(p.pct_acima)}% acima</b> da média do perfil no mês, de ${nf(gm.media_alcance)} contas por publicação`
+          ? `${ico("alta", "seta")}<b>${nf(p.pct_acima)}% acima</b> da média do perfil no mês, de ${nf(gm.media_views)} visualizações por publicação`
           : "",
         titulo: p.titulo,
-        extra: `${nf(p.interacoes)} interações · ${dec(p.taxa)}% de taxa de interação · ${nf(p.salvamentos)} salvos · ${nf(p.compartilhamentos)} compartilhados`,
+        extra: `${nf(p.alcance)} contas alcançadas · ${nf(p.interacoes)} interações · ${dec(p.taxa)}% de taxa de interação · ${nf(p.salvamentos)} salvos · ${nf(p.compartilhamentos)} compartilhados`,
         link: p.link,
       })).join("") + `</div>`).join("")
-    + `<p class="nota">Destaque é a publicação que alcançou <b>mais contas do que a média do próprio perfil</b> no mês —
+    + `<p class="nota">Destaque é a publicação que teve <b>mais visualizações do que a média do próprio perfil</b> no mês —
        por isso a régua muda de perfil para perfil. ${perfis.map((gm) =>
-         `${esc(gm.handle)}: ${nf(gm.publicacoes)} ${gm.publicacoes === 1 ? "publicação" : "publicações"}, média de ${nf(gm.media_alcance)} contas`).join(" · ")}.
+         `${esc(gm.handle)}: ${nf(gm.publicacoes)} ${gm.publicacoes === 1 ? "publicação" : "publicações"}, média de ${nf(gm.media_views)} visualizações`).join(" · ")}.
        ${pendentes.length ? `Ainda fora: ${pendentes.map((x) => `<b>${esc(x.handle)}</b> — ${esc(x.motivo)}`).join("; ")}.` : ""}</p>`;
 
   /* YouTube */
@@ -823,7 +823,7 @@ function renderPerfilIg(i) {
   const val = (v) => (v === null || v === undefined ? null : v);
 
   const cresc = p.crescimento;
-  const g = p.genna;          // Genna: recorte de data exato, com salvamentos e compartilhamentos
+  const g = p.genna;          // Graph API da Meta: recorte de data exato, com salvamentos e compartilhamentos
   const ins = p.insights;     // leitura do Insights web: janela móvel de 90 dias
 
   $("t-ig").innerHTML =
@@ -836,17 +836,17 @@ function renderPerfilIg(i) {
     (g ? campo("Contas alcançadas", nf(g.alcance))
        : ins ? campo("Contas alcançadas", nf(ins.contas_alcancadas))
        : campoVazio("Contas alcançadas", FALTA_IG)) +
-    (g ? campo("Taxa de engajamento", dec(g.taxa_engajamento) + "%")
+    (g ? campo("Interações por visualização", dec(g.taxa_engajamento) + "%")
        : ins ? campo("Taxa de engajamento", dec(ins.taxa_engajamento) + "%")
        : campoVazio("Taxa de engajamento", FALTA_IG)) +
     (g ? campo("Salvamentos", nf(g.salvamentos)) : "") +
     (g ? campo("Compartilhamentos", nf(g.compartilhamentos)) : "") +
-    (!g ? campoVazio("Salvamentos e compartilhamentos", p.genna_pendente ? "falta atribuir a página no Genna" : "o Insights web não separa isso por conta") : "") +
+    (!g ? campoVazio("Salvamentos e compartilhamentos", p.genna_pendente ? "falta conectar a conta do Instagram à Página" : "o Insights web não separa isso por conta") : "") +
     (g ? campo("Visualizações", nf(g.views)) : ins ? campo("Visualizações", nf(ins.views)) : "") +
     (g ? campo("Interações", nf(g.interacoes)) : ins ? campo("Interações", nf(ins.interacoes)) : "") +
     (ins ? campo("Visitas ao perfil", nf(ins.visitas_perfil)) : "") +
     (ins ? campo("Cliques no link", nf(ins.cliques_link)) : "") +
-    (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", "o Genna ainda não tem série diária deste perfil")) +
+    (val(mt.novos_seguidores) !== null ? campo("Novos seguidores", esc(mt.novos_seguidores)) : campoVazio("Novos seguidores e evolução da base", "série diária ainda não medida para este perfil")) +
     (g ? campo("Publicações no trimestre", nf(g.publicacoes))
        : p.tem_contagem ? campo("Publicações no trimestre", nf(p.publicacoes_trimestre))
        : campoVazio("Publicações no trimestre", "contagem ainda não preenchida")) +
@@ -855,7 +855,7 @@ function renderPerfilIg(i) {
   /* Desempenho por formato */
   if (g && g.alcance_por_formato) {
     $("t-ig-formato").innerHTML =
-      `<p class="janela">Alcance por formato entre <b>${esc(g.periodo.split(" a ").map((d) => dataBR(d)).join(" e "))}</b>, medido publicação a publicação.</p>
+      `<p class="janela">Visualizações por formato entre <b>${esc(g.periodo.split(" a ").map((d) => dataBR(d)).join(" e "))}</b>, medido publicação a publicação.</p>
        <div class="rows">` +
       Object.entries(g.alcance_por_formato).map(([k, v]) => `
         <div class="r"><div class="nm">${esc(k)}</div>
@@ -873,8 +873,8 @@ function renderPerfilIg(i) {
           <div class="n">${dec(v)}%</div></div>`).join("") + `</div>`;
   } else if (p.genna_pendente) {
     $("t-ig-formato").innerHTML =
-      `<div class="empty">O perfil já está vinculado no Genna, mas falta atribuir a página do Instagram lá.<br>
-       Feito isso, alcance, salvamentos, compartilhamentos e top publicações de ${esc(p.handle)} entram sozinhos na próxima atualização.</div>`;
+      `<div class="empty">A Página do Facebook deste perfil ainda não tem a conta do Instagram conectada.<br>
+       Feito isso, views, salvamentos, compartilhamentos e top publicações de ${esc(p.handle)} entram sozinhos na próxima atualização.</div>`;
   } else {
     $("t-ig-formato").innerHTML = `<div class="empty">Desempenho por formato ${FALTA_IG}.</div>`;
   }
@@ -883,18 +883,18 @@ function renderPerfilIg(i) {
   $("t-ig-top").innerHTML = g && g.top && g.top.length
     ? `<div class="pubs">` + g.top.map((x) => pub({
         thumb: x.thumb, tipo: x.tipo, data: dataBR(x.data),
-        num: nf(x.alcance), numLabel: "contas alcançadas",
+        num: nf(x.views), numLabel: "visualizações",
         porque: x.pct_acima != null && x.pct_acima > 0
-          ? `${ico("alta", "seta")}<b>${nf(x.pct_acima)}% acima</b> da média do trimestre, de ${nf(g.media_alcance)} contas por publicação`
-          : `na média do trimestre, de ${nf(g.media_alcance)} contas por publicação`,
+          ? `${ico("alta", "seta")}<b>${nf(x.pct_acima)}% acima</b> da média do trimestre, de ${nf(g.media_views)} visualizações por publicação`
+          : `na média do trimestre, de ${nf(g.media_views)} visualizações por publicação`,
         titulo: x.titulo,
-        extra: `${nf(x.interacoes)} interações · ${dec(x.taxa)}% de taxa de interação · ${nf(x.salvamentos)} salvos · ${nf(x.compartilhamentos)} compartilhados`,
+        extra: `${nf(x.alcance)} contas alcançadas · ${nf(x.interacoes)} interações · ${dec(x.taxa)}% de taxa de interação · ${nf(x.salvamentos)} salvos · ${nf(x.compartilhamentos)} compartilhados`,
         link: x.link,
       })).join("") + `</div>
-      <p class="nota">São as <b>${nf(g.top.length)} publicações de maior alcance</b> entre as ${nf(g.publicacoes)} que
+      <p class="nota">São as <b>${nf(g.top.length)} publicações mais vistas</b> entre as ${nf(g.publicacoes)} que
        ${esc(p.handle)} publicou no trimestre. A comparação é sempre com a média do próprio perfil no período,
-       de ${nf(g.media_alcance)} contas por publicação.</p>`
-    : `<div class="empty">De 3 a 5 publicações mais fortes de ${esc(p.handle)}. Sem dado do Genna para este perfil.</div>`;
+       de ${nf(g.media_views)} visualizações por publicação.</p>`
+    : `<div class="empty">De 3 a 5 publicações mais fortes de ${esc(p.handle)}. Sem publicação medida no período.</div>`;
 
   for (const b of $("t-ig-abas").querySelectorAll("button")) {
     b.setAttribute("aria-selected", String(+b.dataset.i === i));

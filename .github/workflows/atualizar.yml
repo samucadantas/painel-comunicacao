@@ -50,6 +50,7 @@ jobs:
           # Credenciais ficam em Secrets; identificadores de base, em Variables —
           # o repositório é público e nenhum dos dois pode viver dentro do código.
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          META_TOKEN: ${{ secrets.META_TOKEN }}
           GENNA_API_KEY: ${{ secrets.GENNA_API_KEY }}
           YT_API_KEY: ${{ secrets.YT_API_KEY }}
           DB_ID: ${{ vars.DB_ID }}
