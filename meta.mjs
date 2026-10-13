@@ -221,11 +221,19 @@ async function coletarPerfil(token, { pagina, ig }, { mes, triDe, triAte }) {
     porDia[new Date(`${p.data}T12:00:00Z`).getUTCDay()].views_lista.push(p.views || 0);
   }
 
+  // A publicação mais recente vem de uma consulta à parte, SEM janela de datas.
+  // Tirá-la de `posts` era um bug: `posts` só tem o trimestre fechado, então "última
+  // publicação" nunca passava de 30/09 e o alerta "não publica há X dias" só crescia —
+  // o @somosaponte publicou em 03/10 e 10/10 e aparecia como parado há 44 dias.
+  const recentes = await graph(token, `/${ig.id}/media`, { fields: "timestamp", limit: 1 })
+    .catch(() => null);
+  const ultima = recentes?.data?.[0]?.timestamp?.slice(0, 10) || null;
+
   return {
     brand: ig.id,
     marca: pagina.name,
     analise: {
-      ultima_publicacao: posts.length ? posts.map((p) => p.data).sort().at(-1) : null,
+      ultima_publicacao: ultima,
       formato: porFormato,
       dia_semana: porDia,
     },
