@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-14T00:23:05.487Z",
+  "gerado_em": "2026-10-14T05:06:50.311Z",
   "hoje": "2026-10-14",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -28,7 +28,7 @@
     },
     {
       "texto": "Duas publicações responderam por 93% das views de @entranatoca no trimestre.",
-      "base": "1.652.015 de 1.775.674 views, em 18 publicações.",
+      "base": "1.652.018 de 1.775.702 views, em 18 publicações.",
       "perfil": "@entranatoca"
     },
     {
@@ -43,7 +43,7 @@
     },
     {
       "texto": "Duas publicações responderam por 51% das views de @opatiodaponte no trimestre.",
-      "base": "28.405 de 55.592 views, em 12 publicações.",
+      "base": "28.449 de 55.636 views, em 12 publicações.",
       "perfil": "@opatiodaponte"
     }
   ],
@@ -173,27 +173,27 @@
           "handle": "@aponte_recife",
           "periodo": "2026-09",
           "publicacoes": 7,
-          "alcance": 30023,
-          "views": 54781,
-          "likes": 2739,
+          "alcance": 30066,
+          "views": 54803,
+          "likes": 2740,
           "comentarios": 99,
-          "compartilhamentos": 222,
+          "compartilhamentos": 226,
           "salvamentos": 43,
-          "interacoes": 3176,
+          "interacoes": 3181,
           "taxa_engajamento": 5.8,
           "por_formato": {
             "Reels": 5,
             "Carrossel": 2
           },
-          "media_views": 7826,
+          "media_views": 7829,
           "destaques": [
             {
               "data": "2026-09-03",
               "tipo": "Carrossel",
               "titulo": "Somos tão gratos por caminharmos juntos",
               "link": "https://www.instagram.com/p/Dc1OQMYlWnD/",
-              "views": 13150,
-              "alcance": 5285,
+              "views": 13151,
+              "alcance": 5289,
               "interacoes": 681,
               "taxa": 5.2,
               "salvamentos": 2,
@@ -206,9 +206,9 @@
               "tipo": "Reels",
               "titulo": "Microfonamos nossos voluntários durante uma manhã de domingo e esse foi o resultado… 💙 Amanhã nos encontram…",
               "link": "https://www.instagram.com/reel/DdwF6i1hhLu/",
-              "views": 10560,
-              "alcance": 6454,
-              "interacoes": 551,
+              "views": 10565,
+              "alcance": 6471,
+              "interacoes": 552,
               "taxa": 5.2,
               "salvamentos": 4,
               "compartilhamentos": 21,
@@ -220,12 +220,12 @@
               "tipo": "Reels",
               "titulo": "Você ama o Senhor",
               "link": "https://www.instagram.com/reel/DdtwICRJghb/",
-              "views": 8825,
-              "alcance": 6152,
-              "interacoes": 766,
+              "views": 8832,
+              "alcance": 6160,
+              "interacoes": 769,
               "taxa": 8.7,
               "salvamentos": 20,
-              "compartilhamentos": 94,
+              "compartilhamentos": 97,
               "pct_acima": 13,
               "thumb": "data:image/jpeg;base64,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"
             }
@@ -251,28 +251,28 @@
           "handle": "@entranatoca",
           "periodo": "2026-09",
           "publicacoes": 10,
-          "alcance": 49574,
-          "views": 1729382,
-          "likes": 150171,
+          "alcance": 49586,
+          "views": 1729406,
+          "likes": 150156,
           "comentarios": 3951,
           "compartilhamentos": 3266,
           "salvamentos": 85,
-          "interacoes": 157952,
+          "interacoes": 157937,
           "taxa_engajamento": 9.1,
           "por_formato": {
             "Carrossel": 3,
             "Reels": 7
           },
-          "media_views": 172938,
+          "media_views": 172941,
           "destaques": [
             {
               "data": "2026-09-02",
               "tipo": "Reels",
               "titulo": "Eles queriam saber o nosso segredo… 👀 A resposta é simples",
               "link": "https://www.instagram.com/reel/DcyhuWXTOPR/",
-              "views": 1074118,
+              "views": 1074120,
               "alcance": 10132,
-              "interacoes": 73783,
+              "interacoes": 73772,
               "taxa": 6.9,
               "salvamentos": 25,
               "compartilhamentos": 1992,
@@ -284,9 +284,9 @@
               "tipo": "Reels",
               "titulo": "Não é confiando na nossa força",
               "link": "https://www.instagram.com/reel/Dcygo2ezgoH/",
-              "views": 577897,
-              "alcance": 6544,
-              "interacoes": 80777,
+              "views": 577898,
+              "alcance": 6547,
+              "interacoes": 80773,
               "taxa": 14,
               "salvamentos": 15,
               "compartilhamentos": 1058,
@@ -300,7 +300,7 @@
           "periodo": "2026-09",
           "publicacoes": 1,
           "alcance": 1850,
-          "views": 4392,
+          "views": 4393,
           "likes": 170,
           "comentarios": 9,
           "compartilhamentos": 32,
@@ -310,7 +310,7 @@
           "por_formato": {
             "Imagem": 1
           },
-          "media_views": 4392,
+          "media_views": 4393,
           "destaques": []
         },
         {
@@ -318,7 +318,7 @@
           "periodo": "2026-09",
           "publicacoes": 4,
           "alcance": 3679,
-          "views": 7991,
+          "views": 7992,
           "likes": 236,
           "comentarios": 4,
           "compartilhamentos": 21,
@@ -336,7 +336,7 @@
               "tipo": "Imagem",
               "titulo": "| QUEM ESTÁ NO CONTROLE",
               "link": "https://www.instagram.com/p/DdPDofdxve5/",
-              "views": 4143,
+              "views": 4144,
               "alcance": 1890,
               "interacoes": 65,
               "taxa": 1.6,
@@ -381,8 +381,8 @@
           "handle": "@opatiodaponte",
           "periodo": "2026-09",
           "publicacoes": 9,
-          "alcance": 20067,
-          "views": 40306,
+          "alcance": 20081,
+          "views": 40350,
           "likes": 1467,
           "comentarios": 111,
           "compartilhamentos": 163,
@@ -393,20 +393,20 @@
             "Reels": 7,
             "Carrossel": 2
           },
-          "media_views": 4478,
+          "media_views": 4483,
           "destaques": [
             {
               "data": "2026-09-18",
               "tipo": "Carrossel",
               "titulo": "É AMANHÃ!!! 🎉💚 Você tá sabendo que nosso espaço de convivência tá todo repaginado e cheio de novidades",
               "link": "https://www.instagram.com/p/Ddbhq8lkeL6/",
-              "views": 18015,
-              "alcance": 7659,
+              "views": 18059,
+              "alcance": 7673,
               "interacoes": 545,
               "taxa": 3,
               "salvamentos": 8,
               "compartilhamentos": 55,
-              "pct_acima": 302,
+              "pct_acima": 303,
               "thumb": "data:image/jpeg;base64,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"
             },
             {
@@ -430,7 +430,7 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 14168,
+      "views": 14171,
       "media_views": 1288,
       "likes": 463,
       "comentarios": 12,
@@ -476,7 +476,7 @@
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 14045,
+          "antes": 14049,
           "pct": 0.9
         },
         "likes": {
@@ -524,18 +524,18 @@
     "instagram": [
       {
         "handle": "@aponte_recife",
-        "seguidores": 40120,
+        "seguidores": 40121,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 37,
-          "alcance": 210609,
-          "views": 398604,
-          "likes": 15012,
+          "alcance": 210664,
+          "views": 398662,
+          "likes": 15013,
           "comentarios": 736,
-          "compartilhamentos": 2054,
+          "compartilhamentos": 2058,
           "salvamentos": 293,
-          "interacoes": 18541,
+          "interacoes": 18546,
           "taxa_engajamento": 4.7,
           "por_formato": {
             "Reels": 23,
@@ -591,7 +591,7 @@
             "Carrossel": 37.1,
             "Imagem": 11.3
           },
-          "media_views": 10773
+          "media_views": 10775
         },
         "genna_pendente": null,
         "insights": {
@@ -637,13 +637,13 @@
       },
       {
         "handle": "@somosaponte",
-        "seguidores": 40291,
+        "seguidores": 40292,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 3,
-          "alcance": 36122,
-          "views": 72518,
+          "alcance": 36141,
+          "views": 72529,
           "likes": 2467,
           "comentarios": 143,
           "compartilhamentos": 252,
@@ -660,13 +660,13 @@
               "tipo": "Reels",
               "titulo": "De Caruaru a Trois-Rivières",
               "link": "https://www.instagram.com/reel/Dclw1tjOLBA/",
-              "views": 25262,
-              "alcance": 14972,
+              "views": 25264,
+              "alcance": 14991,
               "interacoes": 1079,
               "taxa": 4.3,
               "salvamentos": 10,
               "compartilhamentos": 94,
-              "pct_acima": 5,
+              "pct_acima": 4,
               "thumb": "data:image/jpeg;base64,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"
             },
             {
@@ -674,7 +674,7 @@
               "tipo": "Carrossel",
               "titulo": "Tem coisas que a gente aprende sem que ninguém precise sentar pra ensinar",
               "link": "https://www.instagram.com/p/Db0SEwmjbyk/",
-              "views": 24320,
+              "views": 24321,
               "alcance": 9431,
               "interacoes": 812,
               "taxa": 3.3,
@@ -688,7 +688,7 @@
               "tipo": "Reels",
               "titulo": "Somos A Ponte Santa Cruz do Capibaribe",
               "link": "https://www.instagram.com/reel/Dcrsm4QhFSV/",
-              "views": 22936,
+              "views": 22944,
               "alcance": 11719,
               "interacoes": 1151,
               "taxa": 5,
@@ -702,7 +702,7 @@
             "Reels": 66.5,
             "Carrossel": 33.5
           },
-          "media_views": 24173
+          "media_views": 24176
         },
         "genna_pendente": null,
         "insights": {
@@ -748,18 +748,18 @@
       },
       {
         "handle": "@entranatoca",
-        "seguidores": 7400,
+        "seguidores": 7401,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 18,
-          "alcance": 69704,
-          "views": 1775674,
-          "likes": 151493,
+          "alcance": 69727,
+          "views": 1775702,
+          "likes": 151478,
           "comentarios": 4207,
           "compartilhamentos": 3448,
           "salvamentos": 119,
-          "interacoes": 159836,
+          "interacoes": 159821,
           "taxa_engajamento": 9,
           "por_formato": {
             "Carrossel": 5,
@@ -772,9 +772,9 @@
               "tipo": "Reels",
               "titulo": "Eles queriam saber o nosso segredo… 👀 A resposta é simples",
               "link": "https://www.instagram.com/reel/DcyhuWXTOPR/",
-              "views": 1074118,
+              "views": 1074120,
               "alcance": 10132,
-              "interacoes": 73783,
+              "interacoes": 73772,
               "taxa": 6.9,
               "salvamentos": 25,
               "compartilhamentos": 1992,
@@ -786,9 +786,9 @@
               "tipo": "Reels",
               "titulo": "Não é confiando na nossa força",
               "link": "https://www.instagram.com/reel/Dcygo2ezgoH/",
-              "views": 577897,
-              "alcance": 6544,
-              "interacoes": 80777,
+              "views": 577898,
+              "alcance": 6547,
+              "interacoes": 80773,
               "taxa": 14,
               "salvamentos": 15,
               "compartilhamentos": 1058,
@@ -800,7 +800,7 @@
               "tipo": "Carrossel",
               "titulo": "Eu sei… depois desses dias de Entocados, dá vontade de nunca mais ir embora",
               "link": "https://www.instagram.com/p/DdFInV2Fszs/",
-              "views": 18214,
+              "views": 18215,
               "alcance": 6907,
               "interacoes": 702,
               "taxa": 3.9,
@@ -815,7 +815,7 @@
             "Carrossel": 2.6,
             "Imagem": 0.9
           },
-          "media_views": 98649
+          "media_views": 98650
         },
         "genna_pendente": null,
         "insights": null,
@@ -833,7 +833,7 @@
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 7,
           "alcance": 12367,
-          "views": 25165,
+          "views": 25167,
           "likes": 1215,
           "comentarios": 121,
           "compartilhamentos": 129,
@@ -851,7 +851,7 @@
               "tipo": "Reels",
               "titulo": "| ESTAÇÃO ACAMP 2026⛺️ O acampamento da Estação foi marcante demais",
               "link": "https://www.instagram.com/reel/Dadi41Bxibw/",
-              "views": 6138,
+              "views": 6139,
               "alcance": 3968,
               "interacoes": 275,
               "taxa": 4.5,
@@ -865,7 +865,7 @@
               "tipo": "Imagem",
               "titulo": "| ESTAÇÃO CULTO",
               "link": "https://www.instagram.com/p/DdkU0LjxFHJ/",
-              "views": 4392,
+              "views": 4393,
               "alcance": 1850,
               "interacoes": 219,
               "taxa": 5,
@@ -912,7 +912,7 @@
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 11,
           "alcance": 8088,
-          "views": 17419,
+          "views": 17420,
           "likes": 610,
           "comentarios": 38,
           "compartilhamentos": 126,
@@ -930,7 +930,7 @@
               "tipo": "Imagem",
               "titulo": "| QUEM ESTÁ NO CONTROLE",
               "link": "https://www.instagram.com/p/DdPDofdxve5/",
-              "views": 4143,
+              "views": 4144,
               "alcance": 1890,
               "interacoes": 65,
               "taxa": 1.6,
@@ -1037,8 +1037,8 @@
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 12,
-          "alcance": 25617,
-          "views": 55592,
+          "alcance": 25631,
+          "views": 55636,
           "likes": 2004,
           "comentarios": 355,
           "compartilhamentos": 239,
@@ -1055,13 +1055,13 @@
               "tipo": "Carrossel",
               "titulo": "É AMANHÃ!!! 🎉💚 Você tá sabendo que nosso espaço de convivência tá todo repaginado e cheio de novidades",
               "link": "https://www.instagram.com/p/Ddbhq8lkeL6/",
-              "views": 18015,
-              "alcance": 7659,
+              "views": 18059,
+              "alcance": 7673,
               "interacoes": 545,
               "taxa": 3,
               "salvamentos": 8,
               "compartilhamentos": 55,
-              "pct_acima": 289,
+              "pct_acima": 290,
               "thumb": "data:image/jpeg;base64,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"
             },
             {
@@ -1097,7 +1097,7 @@
             "Carrossel": 64.3,
             "Reels": 35.7
           },
-          "media_views": 4633
+          "media_views": 4636
         },
         "genna_pendente": null,
         "insights": null,
@@ -1110,7 +1110,7 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 36174,
+      "views": 36181,
       "media_views": 1340,
       "likes": 1404,
       "comentarios": 31,
@@ -1158,12 +1158,12 @@
         },
         {
           "curto": "Ago/26",
-          "views": 14045,
+          "views": 14049,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 14168,
+          "views": 14171,
           "videos": 11
         }
       ],
