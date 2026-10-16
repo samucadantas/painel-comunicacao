@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-16T11:37:16.399Z",
+  "gerado_em": "2026-10-16T16:47:48.818Z",
   "hoje": "2026-10-16",
   "canal_youtube": {
     "nome": "Somos A Ponte",
@@ -28,12 +28,12 @@
     },
     {
       "texto": "Duas publicações responderam por 93% das views de @entranatoca no trimestre.",
-      "base": "1.652.029 de 1.775.828 views, em 18 publicações.",
+      "base": "1.652.032 de 1.775.847 views, em 18 publicações.",
       "perfil": "@entranatoca"
     },
     {
       "texto": "Imagem rende 2,1× mais views que reels em @estacaodaponte.",
-      "base": "Mediana de 3.807 views por imagem (3 no trimestre) contra 1.810 por reels (3).",
+      "base": "Mediana de 3.814 views por imagem (3 no trimestre) contra 1.810 por reels (3).",
       "perfil": "@estacaodaponte"
     },
     {
@@ -43,7 +43,7 @@
     },
     {
       "texto": "Duas publicações responderam por 51% das views de @opatiodaponte no trimestre.",
-      "base": "28.665 de 55.985 views, em 12 publicações.",
+      "base": "28.672 de 56.004 views, em 12 publicações.",
       "perfil": "@opatiodaponte"
     }
   ],
@@ -173,8 +173,8 @@
           "handle": "@aponte_recife",
           "periodo": "2026-09",
           "publicacoes": 7,
-          "alcance": 30192,
-          "views": 55048,
+          "alcance": 30208,
+          "views": 55062,
           "likes": 2744,
           "comentarios": 99,
           "compartilhamentos": 227,
@@ -185,7 +185,7 @@
             "Reels": 5,
             "Carrossel": 2
           },
-          "media_views": 7864,
+          "media_views": 7866,
           "destaques": [
             {
               "data": "2026-09-03",
@@ -206,8 +206,8 @@
               "tipo": "Reels",
               "titulo": "Microfonamos nossos voluntários durante uma manhã de domingo e esse foi o resultado… 💙 Amanhã nos encontram…",
               "link": "https://www.instagram.com/reel/DdwF6i1hhLu/",
-              "views": 10590,
-              "alcance": 6492,
+              "views": 10591,
+              "alcance": 6494,
               "interacoes": 553,
               "taxa": 5.2,
               "salvamentos": 4,
@@ -220,8 +220,8 @@
               "tipo": "Reels",
               "titulo": "Você ama o Senhor",
               "link": "https://www.instagram.com/reel/DdtwICRJghb/",
-              "views": 8945,
-              "alcance": 6211,
+              "views": 8956,
+              "alcance": 6217,
               "interacoes": 773,
               "taxa": 8.6,
               "salvamentos": 20,
@@ -252,27 +252,27 @@
           "periodo": "2026-09",
           "publicacoes": 10,
           "alcance": 49652,
-          "views": 1729517,
-          "likes": 150075,
+          "views": 1729534,
+          "likes": 150044,
           "comentarios": 3951,
           "compartilhamentos": 3267,
           "salvamentos": 86,
-          "interacoes": 157859,
+          "interacoes": 157828,
           "taxa_engajamento": 9.1,
           "por_formato": {
             "Carrossel": 3,
             "Reels": 7
           },
-          "media_views": 172952,
+          "media_views": 172953,
           "destaques": [
             {
               "data": "2026-09-02",
               "tipo": "Reels",
               "titulo": "Eles queriam saber o nosso segredo… 👀 A resposta é simples",
               "link": "https://www.instagram.com/reel/DcyhuWXTOPR/",
-              "views": 1074126,
+              "views": 1074127,
               "alcance": 10133,
-              "interacoes": 73718,
+              "interacoes": 73698,
               "taxa": 6.9,
               "salvamentos": 25,
               "compartilhamentos": 1992,
@@ -284,9 +284,9 @@
               "tipo": "Reels",
               "titulo": "Não é confiando na nossa força",
               "link": "https://www.instagram.com/reel/Dcygo2ezgoH/",
-              "views": 577903,
+              "views": 577905,
               "alcance": 6547,
-              "interacoes": 80743,
+              "interacoes": 80732,
               "taxa": 14,
               "salvamentos": 15,
               "compartilhamentos": 1058,
@@ -299,8 +299,8 @@
           "handle": "@estacaodaponte",
           "periodo": "2026-09",
           "publicacoes": 1,
-          "alcance": 1862,
-          "views": 4417,
+          "alcance": 1865,
+          "views": 4424,
           "likes": 170,
           "comentarios": 9,
           "compartilhamentos": 32,
@@ -310,7 +310,7 @@
           "por_formato": {
             "Imagem": 1
           },
-          "media_views": 4417,
+          "media_views": 4424,
           "destaques": []
         },
         {
@@ -381,8 +381,8 @@
           "handle": "@opatiodaponte",
           "periodo": "2026-09",
           "publicacoes": 9,
-          "alcance": 20203,
-          "views": 40679,
+          "alcance": 20210,
+          "views": 40698,
           "likes": 1472,
           "comentarios": 111,
           "compartilhamentos": 165,
@@ -393,15 +393,15 @@
             "Reels": 7,
             "Carrossel": 2
           },
-          "media_views": 4520,
+          "media_views": 4522,
           "destaques": [
             {
               "data": "2026-09-18",
               "tipo": "Carrossel",
               "titulo": "É AMANHÃ!!! 🎉💚 Você tá sabendo que nosso espaço de convivência tá todo repaginado e cheio de novidades",
               "link": "https://www.instagram.com/p/Ddbhq8lkeL6/",
-              "views": 18267,
-              "alcance": 7700,
+              "views": 18274,
+              "alcance": 7704,
               "interacoes": 549,
               "taxa": 3,
               "salvamentos": 8,
@@ -414,7 +414,7 @@
               "tipo": "Carrossel",
               "titulo": "Nosso Torneio no Pátio já acabou deixando saudades",
               "link": "https://www.instagram.com/p/DdfXea9ER_U/",
-              "views": 4747,
+              "views": 4748,
               "alcance": 2178,
               "interacoes": 163,
               "taxa": 3.4,
@@ -430,8 +430,8 @@
     },
     "youtube": {
       "videos": 11,
-      "views": 14228,
-      "media_views": 1293,
+      "views": 14233,
+      "media_views": 1294,
       "likes": 463,
       "comentarios": 12,
       "interacoes": 475,
@@ -440,7 +440,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2762,
+          "views": 2763,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -452,7 +452,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2288,
+          "views": 2289,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -476,7 +476,7 @@
       "comparativo": {
         "label": "Agosto 2026",
         "views": {
-          "antes": 14077,
+          "antes": 14079,
           "pct": 1.1
         },
         "likes": {
@@ -524,18 +524,18 @@
     "instagram": [
       {
         "handle": "@aponte_recife",
-        "seguidores": 40107,
+        "seguidores": 40119,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 37,
-          "alcance": 210906,
-          "views": 399114,
+          "alcance": 210959,
+          "views": 399147,
           "likes": 15018,
           "comentarios": 736,
-          "compartilhamentos": 2059,
+          "compartilhamentos": 2061,
           "salvamentos": 293,
-          "interacoes": 18552,
+          "interacoes": 18554,
           "taxa_engajamento": 4.6,
           "por_formato": {
             "Reels": 23,
@@ -591,7 +591,7 @@
             "Carrossel": 37.1,
             "Imagem": 11.3
           },
-          "media_views": 10787
+          "media_views": 10788
         },
         "genna_pendente": null,
         "insights": {
@@ -637,13 +637,13 @@
       },
       {
         "handle": "@somosaponte",
-        "seguidores": 40280,
+        "seguidores": 40282,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 3,
-          "alcance": 36210,
-          "views": 72690,
+          "alcance": 36220,
+          "views": 72699,
           "likes": 2469,
           "comentarios": 143,
           "compartilhamentos": 252,
@@ -660,8 +660,8 @@
               "tipo": "Reels",
               "titulo": "De Caruaru a Trois-Rivières",
               "link": "https://www.instagram.com/reel/Dclw1tjOLBA/",
-              "views": 25305,
-              "alcance": 15046,
+              "views": 25308,
+              "alcance": 15049,
               "interacoes": 1079,
               "taxa": 4.3,
               "salvamentos": 10,
@@ -674,8 +674,8 @@
               "tipo": "Carrossel",
               "titulo": "Tem coisas que a gente aprende sem que ninguém precise sentar pra ensinar",
               "link": "https://www.instagram.com/p/Db0SEwmjbyk/",
-              "views": 24360,
-              "alcance": 9437,
+              "views": 24363,
+              "alcance": 9439,
               "interacoes": 812,
               "taxa": 3.3,
               "salvamentos": 7,
@@ -688,8 +688,8 @@
               "tipo": "Reels",
               "titulo": "Somos A Ponte Santa Cruz do Capibaribe",
               "link": "https://www.instagram.com/reel/Dcrsm4QhFSV/",
-              "views": 23025,
-              "alcance": 11727,
+              "views": 23028,
+              "alcance": 11732,
               "interacoes": 1153,
               "taxa": 5,
               "salvamentos": 20,
@@ -702,7 +702,7 @@
             "Reels": 66.5,
             "Carrossel": 33.5
           },
-          "media_views": 24230
+          "media_views": 24233
         },
         "genna_pendente": null,
         "insights": {
@@ -748,18 +748,18 @@
       },
       {
         "handle": "@entranatoca",
-        "seguidores": 7390,
+        "seguidores": 7389,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 18,
           "alcance": 69795,
-          "views": 1775828,
-          "likes": 151397,
+          "views": 1775847,
+          "likes": 151366,
           "comentarios": 4207,
           "compartilhamentos": 3449,
           "salvamentos": 120,
-          "interacoes": 159743,
+          "interacoes": 159712,
           "taxa_engajamento": 9,
           "por_formato": {
             "Carrossel": 5,
@@ -772,9 +772,9 @@
               "tipo": "Reels",
               "titulo": "Eles queriam saber o nosso segredo… 👀 A resposta é simples",
               "link": "https://www.instagram.com/reel/DcyhuWXTOPR/",
-              "views": 1074126,
+              "views": 1074127,
               "alcance": 10133,
-              "interacoes": 73718,
+              "interacoes": 73698,
               "taxa": 6.9,
               "salvamentos": 25,
               "compartilhamentos": 1992,
@@ -786,9 +786,9 @@
               "tipo": "Reels",
               "titulo": "Não é confiando na nossa força",
               "link": "https://www.instagram.com/reel/Dcygo2ezgoH/",
-              "views": 577903,
+              "views": 577905,
               "alcance": 6547,
-              "interacoes": 80743,
+              "interacoes": 80732,
               "taxa": 14,
               "salvamentos": 15,
               "compartilhamentos": 1058,
@@ -800,7 +800,7 @@
               "tipo": "Carrossel",
               "titulo": "Eu sei… depois desses dias de Entocados, dá vontade de nunca mais ir embora",
               "link": "https://www.instagram.com/p/DdFInV2Fszs/",
-              "views": 18232,
+              "views": 18235,
               "alcance": 6910,
               "interacoes": 703,
               "taxa": 3.9,
@@ -815,7 +815,7 @@
             "Carrossel": 2.6,
             "Imagem": 0.9
           },
-          "media_views": 98657
+          "media_views": 98658
         },
         "genna_pendente": null,
         "insights": null,
@@ -827,13 +827,13 @@
       },
       {
         "handle": "@estacaodaponte",
-        "seguidores": 2851,
+        "seguidores": 2855,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 7,
-          "alcance": 12412,
-          "views": 25226,
+          "alcance": 12422,
+          "views": 25248,
           "likes": 1215,
           "comentarios": 121,
           "compartilhamentos": 129,
@@ -851,7 +851,7 @@
               "tipo": "Reels",
               "titulo": "| ESTAÇÃO ACAMP 2026⛺️ O acampamento da Estação foi marcante demais",
               "link": "https://www.instagram.com/reel/Dadi41Bxibw/",
-              "views": 6149,
+              "views": 6151,
               "alcance": 3982,
               "interacoes": 275,
               "taxa": 4.5,
@@ -865,8 +865,8 @@
               "tipo": "Imagem",
               "titulo": "| ESTAÇÃO CULTO",
               "link": "https://www.instagram.com/p/DdkU0LjxFHJ/",
-              "views": 4417,
-              "alcance": 1862,
+              "views": 4424,
+              "alcance": 1865,
               "interacoes": 219,
               "taxa": 5,
               "salvamentos": 2,
@@ -879,8 +879,8 @@
               "tipo": "Carrossel",
               "titulo": "| ARRAIÁ DA COPA🪗 Essa foi uma das noites temáticas do nosso acampamento",
               "link": "https://www.instagram.com/p/DaTxBtukaSO/",
-              "views": 4283,
-              "alcance": 1507,
+              "views": 4285,
+              "alcance": 1510,
               "interacoes": 282,
               "taxa": 6.6,
               "salvamentos": 1,
@@ -894,7 +894,7 @@
             "Reels": 38.3,
             "Carrossel": 17
           },
-          "media_views": 3604
+          "media_views": 3607
         },
         "genna_pendente": null,
         "insights": null,
@@ -985,13 +985,13 @@
       },
       {
         "handle": "@pontezinha",
-        "seguidores": 3176,
+        "seguidores": 3178,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 1,
           "alcance": 11882,
-          "views": 20149,
+          "views": 20150,
           "likes": 1025,
           "comentarios": 35,
           "compartilhamentos": 96,
@@ -1007,7 +1007,7 @@
               "tipo": "Reels",
               "titulo": "Bem-vindos à nova Pontezinha Boa Viagem",
               "link": "https://www.instagram.com/reel/Da28YXyxH8I/",
-              "views": 20149,
+              "views": 20150,
               "alcance": 11882,
               "interacoes": 1190,
               "taxa": 5.9,
@@ -1020,7 +1020,7 @@
           "alcance_por_formato": {
             "Reels": 100
           },
-          "media_views": 20149
+          "media_views": 20150
         },
         "genna_pendente": null,
         "insights": null,
@@ -1032,13 +1032,13 @@
       },
       {
         "handle": "@opatiodaponte",
-        "seguidores": 2456,
+        "seguidores": 2460,
         "seguidores_medido_em": "2026-08-06",
         "genna": {
           "periodo": "2026-07-01 a 2026-09-30",
           "publicacoes": 12,
-          "alcance": 25763,
-          "views": 55985,
+          "alcance": 25770,
+          "views": 56004,
           "likes": 2009,
           "comentarios": 355,
           "compartilhamentos": 241,
@@ -1055,8 +1055,8 @@
               "tipo": "Carrossel",
               "titulo": "É AMANHÃ!!! 🎉💚 Você tá sabendo que nosso espaço de convivência tá todo repaginado e cheio de novidades",
               "link": "https://www.instagram.com/p/Ddbhq8lkeL6/",
-              "views": 18267,
-              "alcance": 7700,
+              "views": 18274,
+              "alcance": 7704,
               "interacoes": 549,
               "taxa": 3,
               "salvamentos": 8,
@@ -1083,7 +1083,7 @@
               "tipo": "Carrossel",
               "titulo": "Nosso Torneio no Pátio já acabou deixando saudades",
               "link": "https://www.instagram.com/p/DdfXea9ER_U/",
-              "views": 4747,
+              "views": 4748,
               "alcance": 2178,
               "interacoes": 163,
               "taxa": 3.4,
@@ -1094,10 +1094,10 @@
             }
           ],
           "alcance_por_formato": {
-            "Carrossel": 64.4,
-            "Reels": 35.6
+            "Carrossel": 64.3,
+            "Reels": 35.7
           },
-          "media_views": 4665
+          "media_views": 4667
         },
         "genna_pendente": null,
         "insights": null,
@@ -1110,8 +1110,8 @@
     ],
     "youtube": {
       "videos": 27,
-      "views": 36269,
-      "media_views": 1343,
+      "views": 36276,
+      "media_views": 1344,
       "likes": 1404,
       "comentarios": 31,
       "interacoes": 1435,
@@ -1120,7 +1120,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2762,
+          "views": 2763,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -1142,7 +1142,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2288,
+          "views": 2289,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
@@ -1158,12 +1158,12 @@
         },
         {
           "curto": "Ago/26",
-          "views": 14077,
+          "views": 14079,
           "videos": 10
         },
         {
           "curto": "Set/26",
-          "views": 14228,
+          "views": 14233,
           "videos": 11
         }
       ],
@@ -1182,7 +1182,7 @@
           "id": "SSbPP6Ky4NM",
           "titulo": "\"Daniel na Cova dos Leões\" por Digo Karagulian",
           "data": "2026-09-27",
-          "views": 2762,
+          "views": 2763,
           "likes": 74,
           "comentarios": 0,
           "duracao": "PT39M32S",
@@ -1204,7 +1204,7 @@
           "id": "LAbtODdTGiU",
           "titulo": "\"Falsos profetas e as palavras mais impactantes\" por Guilherme Franco",
           "data": "2026-09-13",
-          "views": 2288,
+          "views": 2289,
           "likes": 89,
           "comentarios": 3,
           "duracao": "PT56M38S",
